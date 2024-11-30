@@ -1,0 +1,10 @@
+{
+	"name": "Learning App",
+	"description": "Test, test, test",
+	"start_url": "./",
+	"scope": "/",
+	"display": "standalone",
+	"theme_color": "#111111",
+	"background_color": "#222222",
+	"icons": []
+}
