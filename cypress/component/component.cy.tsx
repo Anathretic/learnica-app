@@ -10,6 +10,11 @@ describe('<App />', () => {
 				<App />
 			</Provider>
 		);
+
 		cy.get('h1').should('be.visible');
+
+		cy.get('.btn').click();
+
+		cy.get('span').contains('1');
 	});
 });

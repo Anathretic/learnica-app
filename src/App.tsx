@@ -13,7 +13,7 @@ const App: React.FC = () => {
 					<p>
 						Counter: <span>{count}</span>
 					</p>
-					<button onClick={() => dispatch(increment())}>Increment</button>
+					<button className='btn' onClick={() => dispatch(increment())}>Increment</button>
 					<button onClick={() => dispatch(decrement())}>Decrement</button>
 				</div>
 			</section>
