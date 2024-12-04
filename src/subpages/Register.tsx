@@ -1,11 +1,18 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../supabase/supabase';
 import { useLoginAndRegisterInputs } from '../hooks/useLoginAndRegisterInputs';
+import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
 
 const Register: React.FC = () => {
 	const { values, setValues, handleInputValue } = useLoginAndRegisterInputs();
+	const { checkSessionStatus } = useCheckSessionStatus();
 
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		checkSessionStatus();
+	}, []);
 
 	const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
 		e.preventDefault();
