@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Inputs } from '../models/input.model';
+import { LoginAndRegister } from '../models/loginAndRegister.model';
 
-const initialValues: Inputs = {
+const initialValues: LoginAndRegister = {
 	email: '',
 	password: '',
 };

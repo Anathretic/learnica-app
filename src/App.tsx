@@ -2,14 +2,22 @@ import { Outlet, Route, Routes } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './apollo/apolloClient';
 import { Login, Register, UserPanel } from './subpages';
-import { Welcome } from './sections';
+import { Welcome, Contact } from './sections';
 
 const App: React.FC = () => {
 	return (
 		<ApolloProvider client={client}>
 			<Routes>
 				<Route element={<Outlet />}>
-					<Route path='/' element={<Welcome />} />
+					<Route
+						path='/'
+						element={
+							<>
+								<Welcome />
+								<Contact />
+							</>
+						}
+					/>
 					<Route path='/login' element={<Login />} />
 					<Route path='/register' element={<Register />} />
 					<Route path='/user-panel' element={<UserPanel />} />
