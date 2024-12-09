@@ -1,36 +1,54 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../supabase/supabase';
-import { useLoginAndRegisterInputs } from '../hooks/useLoginAndRegisterInputs';
+import { InputElement } from '../components/InputAndTextarea';
 import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
+import { RegisterData } from '../models/loginAndRegister.model';
+import { registerSchema } from '../schemas/schemas';
 
 const Register: React.FC = () => {
-	const { values, setValues, handleInputValue } = useLoginAndRegisterInputs();
-	const { checkSessionStatus } = useCheckSessionStatus();
-
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm<RegisterData>({
+		defaultValues: {
+			firstname: '',
+			lastname: '',
+			email: '',
+			phone: '',
+			password: '',
+			confirmPassword: '',
+		},
+		resolver: yupResolver(registerSchema),
+	});
 	const navigate = useNavigate();
+	const { checkSessionStatus } = useCheckSessionStatus();
 
 	useEffect(() => {
 		checkSessionStatus();
 	}, []);
 
-	const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
-		e.preventDefault();
+	const onSubmit: SubmitHandler<RegisterData> = async ({ firstname, lastname, email, phone, password }) => {
 		const { error } = await supabase.auth.signUp({
-			email: values.email,
-			password: values.password,
+			email,
+			password,
 			options: {
 				data: {
-					first_name: 'John',
-					age: 27,
+					first_name: firstname,
+					last_name: lastname,
+					phone_number: phone,
 				},
 			},
 		});
 
 		if (!error) {
-			setValues({ email: '', password: '' });
+			reset();
 			navigate('/');
-		} else if (error) {
+		} else {
 			console.log(error);
 		}
 	};
@@ -38,15 +56,59 @@ const Register: React.FC = () => {
 	return (
 		<section>
 			<h2>Register</h2>
-			<form onSubmit={onSubmit}>
-				<input type='text' name='email' placeholder='e-mail' onChange={handleInputValue} value={values.email} />
-				<br />
-				<input
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<InputElement
+					label='Imię:'
+					inputName='firstname'
+					type='text'
+					placeholder='Wprowadź swoje imię..'
+					children={errors.firstname?.message}
+					aria-invalid={errors.firstname ? true : false}
+					{...register('firstname')}
+				/>
+				<InputElement
+					label='Nazwisko:'
+					inputName='lastname'
+					type='text'
+					placeholder='Wprowadź swoje nazwisko..'
+					children={errors.lastname?.message}
+					aria-invalid={errors.lastname ? true : false}
+					{...register('lastname')}
+				/>
+				<InputElement
+					label='E-mail:'
+					inputName='email'
+					type='text'
+					placeholder='Wprowadź adres e-mail..'
+					children={errors.email?.message}
+					aria-invalid={errors.email ? true : false}
+					{...register('email')}
+				/>
+				<InputElement
+					label='Nr telefonu:'
+					inputName='phone'
+					placeholder='Wprowadź numer telefonu..'
+					children={errors.phone?.message}
+					aria-invalid={errors.phone ? true : false}
+					{...register('phone')}
+				/>
+				<InputElement
+					label='Hasło:'
+					inputName='password'
 					type='password'
-					name='password'
-					placeholder='password'
-					onChange={handleInputValue}
-					value={values.password}
+					placeholder='Wprowadź hasło..'
+					children={errors.password?.message}
+					aria-invalid={errors.password ? true : false}
+					{...register('password')}
+				/>
+				<InputElement
+					label='Powtórz hasło:'
+					inputName='confirmPassword'
+					type='password'
+					placeholder='Wprowadź ponownie hasło..'
+					children={errors.confirmPassword?.message}
+					aria-invalid={errors.confirmPassword ? true : false}
+					{...register('confirmPassword')}
 				/>
 				<button type='submit'>Sign up</button>
 			</form>

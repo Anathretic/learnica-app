@@ -1,8 +1,8 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { ContactFormInput, ContactFormTextarea } from '../components/ContactFormElements';
+import { InputElement, TextareaElement } from '../components/InputAndTextarea';
 import { contactSchema } from '../schemas/schemas';
-import { SubmitInputs } from '../models/contactForm.model';
+import { ContactData } from '../models/contactForm.model';
 
 const Contact: React.FC = () => {
 	const {
@@ -10,7 +10,7 @@ const Contact: React.FC = () => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<SubmitInputs>({
+	} = useForm<ContactData>({
 		defaultValues: {
 			name: '',
 			email: '',
@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
 		resolver: yupResolver(contactSchema),
 	});
 
-	const onSubmit: SubmitHandler<SubmitInputs> = async ({ name, email, message }) => {
+	const onSubmit: SubmitHandler<ContactData> = async ({ name, email, message }) => {
 		console.log(name, email, message);
 		reset();
 	};
@@ -28,23 +28,25 @@ const Contact: React.FC = () => {
 		<section>
 			<h2>Contact</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<ContactFormInput
+				<InputElement
 					label='Imię i nazwisko:'
 					inputName='name'
+					type='text'
 					placeholder='Wprowadź imię i nazwisko..'
 					children={errors.name?.message}
 					aria-invalid={errors.name ? true : false}
 					{...register('name')}
 				/>
-				<ContactFormInput
+				<InputElement
 					label='E-mail:'
 					inputName='email'
+					type='text'
 					placeholder='Wprowadź adres e-mail..'
 					children={errors.email?.message}
 					aria-invalid={errors.email ? true : false}
 					{...register('email')}
 				/>
-				<ContactFormTextarea
+				<TextareaElement
 					label='Wiadomość:'
 					inputName='message'
 					placeholder='Wprowadź wiadomość..'

@@ -1,28 +1,41 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../supabase/supabase';
-import { useLoginAndRegisterInputs } from '../hooks/useLoginAndRegisterInputs';
+import { InputElement } from '../components/InputAndTextarea';
 import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
+import { LoginData } from '../models/loginAndRegister.model';
+import { loginSchema } from '../schemas/schemas';
 
 const Login: React.FC = () => {
-	const { values, setValues, handleInputValue } = useLoginAndRegisterInputs();
-	const { checkSessionStatus } = useCheckSessionStatus();
-
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm<LoginData>({
+		defaultValues: {
+			email: '',
+			password: '',
+		},
+		resolver: yupResolver(loginSchema),
+	});
 	const navigate = useNavigate();
+	const { checkSessionStatus } = useCheckSessionStatus();
 
 	useEffect(() => {
 		checkSessionStatus();
 	}, []);
 
-	const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
-		e.preventDefault();
+	const onSubmit: SubmitHandler<LoginData> = async ({ email, password }) => {
 		const { error } = await supabase.auth.signInWithPassword({
-			email: values.email,
-			password: values.password,
+			email,
+			password,
 		});
 
 		if (!error) {
-			setValues({ email: '', password: '' });
+			reset();
 			navigate('/user-panel');
 		} else {
 			console.log(error);
@@ -32,15 +45,24 @@ const Login: React.FC = () => {
 	return (
 		<section>
 			<h2>Login</h2>
-			<form onSubmit={onSubmit}>
-				<input type='text' name='email' placeholder='e-mail' onChange={handleInputValue} value={values.email} />
-				<br />
-				<input
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<InputElement
+					label='E-mail:'
+					inputName='email'
+					type='text'
+					placeholder='Wprowadź adres e-mail..'
+					children={errors.email?.message}
+					aria-invalid={errors.email ? true : false}
+					{...register('email')}
+				/>
+				<InputElement
+					label='Hasło:'
+					inputName='password'
 					type='password'
-					name='password'
-					placeholder='password'
-					onChange={handleInputValue}
-					value={values.password}
+					placeholder='Wprowadź hasło..'
+					children={errors.password?.message}
+					aria-invalid={errors.password ? true : false}
+					{...register('password')}
 				/>
 				<button type='submit'>Sign in</button>
 			</form>
