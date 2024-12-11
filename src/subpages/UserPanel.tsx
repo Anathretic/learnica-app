@@ -12,6 +12,16 @@ const UserPanel: React.FC = () => {
 	const { data, error, loading, refetch } = useQuery(userDataGraph);
 
 	useEffect(() => {
+		isUserOnline();
+	}, []);
+
+	const isUserOnline = () => {
+		if (data === undefined) {
+			navigate('/');
+		}
+	};
+
+	useEffect(() => {
 		if (data && !loading && !error) refetch();
 	}, [data, loading, error, refetch]);
 
@@ -29,7 +39,7 @@ const UserPanel: React.FC = () => {
 
 	return (
 		<section>
-			<h2>UserPanel</h2>
+			<h2>Panel użytkownika</h2>
 			{!error ? (
 				!loading ? (
 					<>
@@ -48,7 +58,7 @@ const UserPanel: React.FC = () => {
 				<div>Błąd..</div>
 			)}
 			<button type='button' onClick={logout}>
-				Logout
+				Wyloguj
 			</button>
 		</section>
 	);

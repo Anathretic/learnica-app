@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
 
 	return (
 		<section>
-			<h2>Contact</h2>
+			<h2>Kontakt</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<InputElement
 					label='Imię i nazwisko:'

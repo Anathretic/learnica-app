@@ -55,7 +55,7 @@ const Register: React.FC = () => {
 
 	return (
 		<section>
-			<h2>Register</h2>
+			<h2>Rejestracja</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<InputElement
 					label='Imię:'
@@ -110,7 +110,7 @@ const Register: React.FC = () => {
 					aria-invalid={errors.confirmPassword ? true : false}
 					{...register('confirmPassword')}
 				/>
-				<button type='submit'>Sign up</button>
+				<button type='submit'>Zarejestruj się</button>
 			</form>
 		</section>
 	);
