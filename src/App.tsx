@@ -18,9 +18,9 @@ const App: React.FC = () => {
 							</>
 						}
 					/>
-					<Route path='/login' element={<Login />} />
-					<Route path='/register' element={<Register />} />
-					<Route path='/user-panel' element={<UserPanel />} />
+					<Route path='/logowanie' element={<Login />} />
+					<Route path='/rejestracja' element={<Register />} />
+					<Route path='/panel-uzytkownika' element={<UserPanel />} />
 				</Route>
 			</Routes>
 		</ApolloProvider>

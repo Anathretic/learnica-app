@@ -36,7 +36,7 @@ const Login: React.FC = () => {
 
 		if (!error) {
 			reset();
-			navigate('/user-panel');
+			navigate('/panel-uzytkownika');
 		} else {
 			console.log(error);
 		}
@@ -44,7 +44,7 @@ const Login: React.FC = () => {
 
 	return (
 		<section>
-			<h2>Login</h2>
+			<h2>Logowanie</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<InputElement
 					label='E-mail:'
@@ -64,7 +64,7 @@ const Login: React.FC = () => {
 					aria-invalid={errors.password ? true : false}
 					{...register('password')}
 				/>
-				<button type='submit'>Sign in</button>
+				<button type='submit'>Zaloguj się</button>
 			</form>
 		</section>
 	);

@@ -8,7 +8,7 @@ export const useCheckSessionStatus = () => {
 		const { data } = await supabase.auth.getSession();
 
 		if (data.session?.user.id !== undefined) {
-			navigate('/user-panel');
+			navigate('/panel-uzytkownika');
 		}
 	};
 
