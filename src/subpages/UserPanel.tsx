@@ -12,16 +12,6 @@ const UserPanel: React.FC = () => {
 	const { data, error, loading, refetch } = useQuery(userDataGraph);
 
 	useEffect(() => {
-		isUserOnline();
-	}, []);
-
-	const isUserOnline = () => {
-		if (data === undefined) {
-			navigate('/');
-		}
-	};
-
-	useEffect(() => {
 		if (data && !loading && !error) refetch();
 	}, [data, loading, error, refetch]);
 
@@ -43,13 +33,30 @@ const UserPanel: React.FC = () => {
 			{!error ? (
 				!loading ? (
 					<>
-						{data.userdataCollection.edges.map((data: UserData, id: number) => (
-							<div key={id}>
-								<p>{data.node.user_id}</p>
-								<p>{data.node.email}</p>
-								<p>{id}</p>
-							</div>
-						))}
+						{data.userdataCollection.edges.length === 0 && (
+							<>
+								<div>
+									<p>Ups! Wystąpił błąd!</p>
+								</div>
+								<button type='button' onClick={() => navigate('/')}>
+									Wróć
+								</button>
+							</>
+						)}
+						{data.userdataCollection.edges.length > 0 && (
+							<>
+								{data.userdataCollection.edges.map((data: UserData, id: number) => (
+									<div key={id}>
+										<p>{data.node.user_id}</p>
+										<p>{data.node.email}</p>
+										<p>{id}</p>
+									</div>
+								))}
+								<button type='button' onClick={logout}>
+									Wyloguj
+								</button>
+							</>
+						)}
 					</>
 				) : (
 					<div>Ładowanie.. </div>
@@ -57,9 +64,6 @@ const UserPanel: React.FC = () => {
 			) : (
 				<div>Błąd..</div>
 			)}
-			<button type='button' onClick={logout}>
-				Wyloguj
-			</button>
 		</section>
 	);
 };
