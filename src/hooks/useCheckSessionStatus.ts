@@ -12,5 +12,13 @@ export const useCheckSessionStatus = () => {
 		}
 	};
 
-	return { checkSessionStatus };
+	const checkUserStatus = async () => {
+		const { data } = await supabase.auth.getSession();
+
+		if (!data.session?.user.id) {
+			navigate('/logowanie');
+		}
+	};
+
+	return { checkSessionStatus, checkUserStatus };
 };

@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../supabase/supabase';
 import { InputElement } from '../components/InputAndTextarea';
 import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
+import { useRegisterOptions } from '../hooks/useRegisterOptions';
 import { RegisterData } from '../models/loginAndRegister.model';
 import { registerSchema } from '../schemas/schemas';
 
@@ -27,29 +28,36 @@ const Register: React.FC = () => {
 	});
 	const navigate = useNavigate();
 	const { checkSessionStatus } = useCheckSessionStatus();
+	const { isEmailExisting } = useRegisterOptions();
 
 	useEffect(() => {
 		checkSessionStatus();
 	}, []);
 
 	const onSubmit: SubmitHandler<RegisterData> = async ({ firstname, lastname, email, phone, password }) => {
-		const { error } = await supabase.auth.signUp({
-			email,
-			password,
-			options: {
-				data: {
-					first_name: firstname,
-					last_name: lastname,
-					phone_number: phone,
-				},
-			},
-		});
+		const emailExists = await isEmailExisting(email);
 
-		if (!error) {
-			reset();
-			navigate('/');
+		if (emailExists) {
+			console.log('Ten adres e-mail już istnieje!');
 		} else {
-			console.log(error);
+			const { error } = await supabase.auth.signUp({
+				email,
+				password,
+				options: {
+					data: {
+						first_name: firstname,
+						last_name: lastname,
+						phone_number: phone,
+					},
+				},
+			});
+
+			if (!error) {
+				reset();
+				navigate('/');
+			} else {
+				console.log(error);
+			}
 		}
 	};
 
