@@ -5,11 +5,17 @@ import { client } from '../apollo/apolloClient';
 import { supabase } from '../supabase/supabase';
 import { userDataGraph } from '../graphql/userdataGraph';
 import { UserData } from '../models/userData.model';
+import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
 
 const UserPanel: React.FC = () => {
 	const navigate = useNavigate();
+	const { checkUserStatus } = useCheckSessionStatus();
 
 	const { data, error, loading, refetch } = useQuery(userDataGraph);
+
+	useEffect(() => {
+		checkUserStatus();
+	}, []);
 
 	useEffect(() => {
 		if (data && !loading && !error) refetch();
@@ -36,11 +42,8 @@ const UserPanel: React.FC = () => {
 						{data.userdataCollection.edges.length === 0 && (
 							<>
 								<div>
-									<p>Ups! Wystąpił błąd!</p>
+									<p>Ups! Najwidoczniej musimy jeszcze uzupełnić Twoją bazę danych! Daj nam chwilę..</p>
 								</div>
-								<button type='button' onClick={() => navigate('/')}>
-									Wróć
-								</button>
 							</>
 						)}
 						{data.userdataCollection.edges.length > 0 && (
@@ -52,11 +55,11 @@ const UserPanel: React.FC = () => {
 										<p>{id}</p>
 									</div>
 								))}
-								<button type='button' onClick={logout}>
-									Wyloguj
-								</button>
 							</>
 						)}
+						<button type='button' onClick={logout}>
+							Wyloguj
+						</button>
 					</>
 				) : (
 					<div>Ładowanie.. </div>
