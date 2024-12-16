@@ -1,8 +1,8 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './apollo/apolloClient';
-import { Login, Register, UserPanel } from './subpages';
-import { Welcome, Contact } from './sections';
+import { Login, Register, UserPanel, TermsAndConditions, PageNotFound } from './subpages';
+import { Welcome, AboutUs, Offer, Motto, Contact } from './sections';
 
 const App: React.FC = () => {
 	return (
@@ -14,6 +14,9 @@ const App: React.FC = () => {
 						element={
 							<>
 								<Welcome />
+								<AboutUs />
+								<Offer />
+								<Motto />
 								<Contact />
 							</>
 						}
@@ -21,6 +24,8 @@ const App: React.FC = () => {
 					<Route path='/logowanie' element={<Login />} />
 					<Route path='/rejestracja' element={<Register />} />
 					<Route path='/panel-uzytkownika' element={<UserPanel />} />
+					<Route path='/polityka-prywatnosci' element={<TermsAndConditions />} />
+					<Route path='*' element={<PageNotFound />} />
 				</Route>
 			</Routes>
 		</ApolloProvider>
