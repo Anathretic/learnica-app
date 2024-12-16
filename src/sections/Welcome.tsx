@@ -10,7 +10,7 @@ const Welcome: React.FC = () => {
 	}, []);
 
 	return (
-		<section>
+		<section style={{ minHeight: '100vh' }}>
 			<div>
 				<h1>Aplikacja do nauki</h1>
 			</div>
