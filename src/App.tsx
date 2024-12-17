@@ -3,12 +3,19 @@ import { ApolloProvider } from '@apollo/client';
 import { client } from './apollo/apolloClient';
 import { Login, Register, UserPanel, TermsAndConditions, PageNotFound } from './subpages';
 import { Welcome, AboutUs, Offer, Motto, Contact } from './sections';
+import { Footer } from './components/Footer/Footer';
 
 const App: React.FC = () => {
 	return (
 		<ApolloProvider client={client}>
 			<Routes>
-				<Route element={<Outlet />}>
+				<Route
+					element={
+						<>
+							<Outlet />
+							<Footer />
+						</>
+					}>
 					<Route
 						path='/'
 						element={

@@ -1,0 +1,19 @@
+@media screen and (max-width: 500px) {
+	.footer {
+		&__company-name {
+			font-size: 0.75rem;
+		}
+	}
+}
+
+@media screen and (min-width: 640px) {
+	.footer {
+		&__bar {
+			width: 90%;
+		}
+
+		&__container {
+			width: 90%;
+		}
+	}
+}
