@@ -25,7 +25,7 @@ const Contact: React.FC = () => {
 	};
 
 	return (
-		<section style={{ minHeight: '100vh' }}>
+		<section id='kontakt' style={{ minHeight: '100vh' }}>
 			<h2>Kontakt</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<InputElement
