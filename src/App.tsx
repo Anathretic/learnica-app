@@ -2,7 +2,8 @@ import { Outlet, Route, Routes } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './apollo/apolloClient';
 import { Login, Register, UserPanel, TermsAndConditions, PageNotFound } from './subpages';
-import { Welcome, AboutUs, Offer, Motto, Contact } from './sections';
+import { Welcome, Idea, Offer, Motto, Contact } from './sections';
+import { Navbar } from './components/Navbar/Navbar';
 import { Footer } from './components/Footer/Footer';
 
 const App: React.FC = () => {
@@ -12,6 +13,7 @@ const App: React.FC = () => {
 				<Route
 					element={
 						<>
+							<Navbar />
 							<Outlet />
 							<Footer />
 						</>
@@ -21,7 +23,7 @@ const App: React.FC = () => {
 						element={
 							<>
 								<Welcome />
-								<AboutUs />
+								<Idea />
 								<Offer />
 								<Motto />
 								<Contact />

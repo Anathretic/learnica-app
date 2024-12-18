@@ -4,7 +4,7 @@ import { FaRegCopyright } from 'react-icons/fa';
 import { HiClipboardDocumentList } from 'react-icons/hi2';
 import { scrollToTop } from '../../utils/scrollToTopUtils';
 
-export const Footer = () => {
+export const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
 
 	const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
