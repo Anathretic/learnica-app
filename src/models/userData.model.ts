@@ -1,11 +1,11 @@
-export interface UserDataBox {
+export interface UserDataBoxModel {
 	id: number;
 	user_id: string;
 	created_at: string;
 	email: string;
 }
 
-export interface UserData {
+export interface UserDataModel {
 	id: number;
-	node: UserDataBox;
+	node: UserDataBoxModel;
 }

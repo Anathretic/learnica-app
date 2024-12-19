@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../supabase/supabase';
 import { InputElement } from '../components/InputAndTextarea';
 import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
-import { LoginData } from '../models/loginAndRegister.model';
+import { LoginDataModel } from '../models/loginAndRegister.model';
 import { loginSchema } from '../schemas/schemas';
 
 const Login: React.FC = () => {
@@ -14,7 +14,7 @@ const Login: React.FC = () => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<LoginData>({
+	} = useForm<LoginDataModel>({
 		defaultValues: {
 			email: '',
 			password: '',
@@ -28,7 +28,7 @@ const Login: React.FC = () => {
 		checkSessionStatus();
 	}, []);
 
-	const onSubmit: SubmitHandler<LoginData> = async ({ email, password }) => {
+	const onSubmit: SubmitHandler<LoginDataModel> = async ({ email, password }) => {
 		const { error } = await supabase.auth.signInWithPassword({
 			email,
 			password,
