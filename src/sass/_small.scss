@@ -8,10 +8,7 @@
 
 @media screen and (min-width: 640px) {
 	.footer {
-		&__bar {
-			width: 90%;
-		}
-
+		&__bar,
 		&__container {
 			width: 90%;
 		}

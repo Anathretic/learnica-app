@@ -1,4 +1,4 @@
-export interface RegisterData {
+export interface RegisterDataModel {
 	firstname: string;
 	lastname: string;
 	email: string;
@@ -7,7 +7,7 @@ export interface RegisterData {
 	confirmPassword: string;
 }
 
-export interface LoginData {
+export interface LoginDataModel {
 	email: string;
 	password: string;
 }

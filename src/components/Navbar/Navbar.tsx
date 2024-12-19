@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { HiMenuAlt4 } from 'react-icons/hi';
+import { HashLink } from 'react-router-hash-link';
 import { NavbarItem } from './components/NavbarItem';
 import { LoginIcon } from './components/LoginIcon';
 import { navbarItems } from './components/navbarData/navbarItems';
@@ -9,25 +10,11 @@ export const Navbar: React.FC = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
 
-	const divRef = useRef<null | HTMLDivElement>(null);
-
 	const handleScroll = () => {
 		if (window.scrollY > 80) {
 			setIsScrolled(true);
 		} else {
 			setIsScrolled(false);
-		}
-	};
-
-	const scrollToTop = () => {
-		const { current } = divRef;
-
-		if (current !== null) {
-			current.scrollIntoView({ behavior: 'smooth' });
-		}
-
-		if (window.location.hash) {
-			window.history.replaceState('', document.title, window.location.pathname);
 		}
 	};
 
@@ -39,30 +26,30 @@ export const Navbar: React.FC = () => {
 		};
 	}, []);
 
-	useEffect(() => scrollToTop, []);
-
 	return (
-		<header className='w-full flex justify-center' ref={divRef}>
-			<div className={`${isScrolled}`}>
-				<div>
-					<div>
-						<h2>lernica</h2>
+		<header className='header'>
+			<div className={`header__container ${isScrolled ? 'header__container--is-scrolled' : ''}`}>
+				<div className='header__title'>
+					<div className='header__title-box'>
+						<HashLink className='header__title-text' to='/#'>
+							<h2>lernica</h2>
+						</HashLink>
 					</div>
 				</div>
-				<nav>
-					<ul>
+				<nav className='navbar__desktop'>
+					<ul className='navbar__desktop-list'>
 						{navbarItems.map(({ title, section }) => (
-							<NavbarItem key={title} title={title} section={section} isScrolled={isScrolled} />
+							<NavbarItem key={title} title={title} section={section} />
 						))}
-						<LoginIcon liStyles='' isScrolled={isScrolled} />
+						<LoginIcon liStyles='navbar__login-icon-margin' />
 					</ul>
 				</nav>
-				<div>
+				<div className='navbar__mobile-container'>
 					{toggleMenu || <HiMenuAlt4 fontSize={32} onClick={() => setToggleMenu(true)} />}
 					{toggleMenu && (
-						<nav>
-							<ul>
-								<li>
+						<nav className='navbar__mobile'>
+							<ul className='navbar__mobile-list'>
+								<li className='navbar__mobile-exit-icon'>
 									<AiOutlineClose fontSize={28} onClick={() => setToggleMenu(false)} />
 								</li>
 								{navbarItems.map(({ title, section }) => (
@@ -70,13 +57,13 @@ export const Navbar: React.FC = () => {
 										key={title}
 										title={title}
 										section={section}
-										classProps={''}
+										classProps={'navbar__item-margin'}
 										onClick={() => {
 											setToggleMenu(false);
 										}}
 									/>
 								))}
-								<LoginIcon liStyles='' />
+								<LoginIcon onClick={() => setToggleMenu(false)} />
 							</ul>
 						</nav>
 					)}

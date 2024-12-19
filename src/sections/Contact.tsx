@@ -2,7 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { InputElement, TextareaElement } from '../components/InputAndTextarea';
 import { contactSchema } from '../schemas/schemas';
-import { ContactData } from '../models/contactForm.model';
+import { ContactModel } from '../models/contactForm.model';
 
 const Contact: React.FC = () => {
 	const {
@@ -10,7 +10,7 @@ const Contact: React.FC = () => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<ContactData>({
+	} = useForm<ContactModel>({
 		defaultValues: {
 			name: '',
 			email: '',
@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
 		resolver: yupResolver(contactSchema),
 	});
 
-	const onSubmit: SubmitHandler<ContactData> = async ({ name, email, message }) => {
+	const onSubmit: SubmitHandler<ContactModel> = async ({ name, email, message }) => {
 		console.log(name, email, message);
 		reset();
 	};

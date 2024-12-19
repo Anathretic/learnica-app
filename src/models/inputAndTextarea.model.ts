@@ -1,4 +1,4 @@
-export interface InputAndTextarea {
+export interface InputAndTextareaModel {
 	label: string;
 	inputName: string;
 	children: React.ReactNode;

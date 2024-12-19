@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { client } from '../apollo/apolloClient';
 import { supabase } from '../supabase/supabase';
 import { userDataGraph } from '../graphql/userdataGraph';
-import { UserData } from '../models/userData.model';
+import { UserDataModel } from '../models/userData.model';
 import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
 
 const UserPanel: React.FC = () => {
@@ -48,7 +48,7 @@ const UserPanel: React.FC = () => {
 						)}
 						{data.userdataCollection.edges.length > 0 && (
 							<>
-								{data.userdataCollection.edges.map((data: UserData, id: number) => (
+								{data.userdataCollection.edges.map((data: UserDataModel, id: number) => (
 									<div key={id}>
 										<p>{data.node.user_id}</p>
 										<p>{data.node.email}</p>

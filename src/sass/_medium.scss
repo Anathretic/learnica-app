@@ -1,5 +1,36 @@
 @media screen and (min-width: 768px) {
-    .footer {
-        justify-content: center;
-    }
+	.header {
+		&__container {
+			justify-content: space-around;
+		}
+	}
+
+	.navbar {
+		&__desktop {
+			display: block;
+		}
+
+		&__mobile-container {
+			display: none;
+		}
+
+		&__desktop-list {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			list-style-type: none;
+		}
+
+		&__item {
+			margin: 0 1rem;
+		}
+
+		&__login-icon {
+			margin-top: 5px;
+		}
+	}
+
+	.footer {
+		justify-content: center;
+	}
 }

@@ -6,7 +6,7 @@ import { supabase } from '../supabase/supabase';
 import { InputElement } from '../components/InputAndTextarea';
 import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
 import { useRegisterOptions } from '../hooks/useRegisterOptions';
-import { RegisterData } from '../models/loginAndRegister.model';
+import { RegisterDataModel } from '../models/loginAndRegister.model';
 import { registerSchema } from '../schemas/schemas';
 
 const Register: React.FC = () => {
@@ -15,7 +15,7 @@ const Register: React.FC = () => {
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<RegisterData>({
+	} = useForm<RegisterDataModel>({
 		defaultValues: {
 			firstname: '',
 			lastname: '',
@@ -34,7 +34,7 @@ const Register: React.FC = () => {
 		checkSessionStatus();
 	}, []);
 
-	const onSubmit: SubmitHandler<RegisterData> = async ({ firstname, lastname, email, phone, password }) => {
+	const onSubmit: SubmitHandler<RegisterDataModel> = async ({ firstname, lastname, email, phone, password }) => {
 		const emailExists = await isEmailExisting(email);
 
 		if (emailExists) {

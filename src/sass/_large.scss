@@ -1,4 +1,27 @@
 @media screen and (min-width: 990px) {
+	.header {
+		&__container {
+			padding: 0.5rem 0;
+		}
+
+		&__title-box {
+			margin: 0 0.5rem;
+		}
+
+		&__title-text {
+			padding: 0;
+		}
+	}
+
+	.navbar {
+		&__desktop-list {
+			font-size: 1.125rem;
+		}
+
+		&__item {
+			margin: 0 2rem;
+		}
+	}
 	.footer {
 		&__company-name {
 			font-size: 1rem;
@@ -10,6 +33,22 @@
 	.footer {
 		&__container {
 			margin: 1.25rem 0;
+		}
+	}
+}
+
+@media screen and (min-width: 1536px) {
+	.header {
+		&__container {
+			width: 95%;
+			border-bottom-right-radius: 75px;
+			border-bottom-left-radius: 75px;
+		}
+	}
+
+	.navbar {
+		&__login-icon {
+			margin: 5px 2rem 0;
 		}
 	}
 }
