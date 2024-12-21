@@ -12,5 +12,9 @@
 		&__container {
 			width: 90%;
 		}
+
+		&__box:nth-of-type(2) {
+			display: block;
+		}
 	}
 }

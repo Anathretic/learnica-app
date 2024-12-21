@@ -150,29 +150,83 @@ body {
 	position: relative;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	flex-direction: column;
 	padding: 1rem;
 	width: 100%;
 
 	&__bar {
-		margin-top: 5rem;
 		width: 100%;
 		height: 1px;
 		background-color: #f0f0f0;
+
+		&--first {
+			margin-top: 5rem;
+		}
+
+		&--second {
+			margin-top: 0.65rem;
+		}
 	}
 
 	&__container {
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
+		align-items: flex-start;
+		justify-content: space-around;
 		margin: 1.25rem 0 0.5rem;
 		width: 100%;
 		z-index: 10;
 	}
 
 	&__box {
+		z-index: 10;
+
+		a {
+			padding: 2px 0.35rem 0.35rem;
+			color: #f0f0f0;
+			text-decoration: none;
+			transition: color 0.3s ease-out;
+		}
+
+		a:hover {
+			color: rgb(136, 144, 170);
+		}
+
+		a:first-of-type {
+			padding: 2px 0.25rem 0.25rem 0;
+		}
+
+		p {
+			margin: 0.5rem 0 1rem;
+		}
+
+		ul {
+			list-style-type: none;
+
+			li {
+				margin: 0.5rem 0;
+			}
+		}
+	}
+
+	&__box:first-of-type {
+		h3 {
+			font-size: 2rem;
+			text-transform: uppercase;
+		}
+	}
+
+	&__box:nth-of-type(2),
+	&__box:nth-of-type(3),
+	&__box:nth-of-type(4) {
+		display: none;
+	}
+
+	&__copyright-box {
 		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 1.25rem 0 0.5rem;
 		z-index: 10;
 	}
 
@@ -185,15 +239,5 @@ body {
 		font-size: 0.875rem;
 		text-align: center;
 		text-transform: uppercase;
-	}
-
-	&__link {
-		padding: 2px 0.25rem 0.25rem 0.25rem;
-		color: #f0f0f0;
-		transition: color 0.3s ease-out;
-	}
-
-	&__link:hover {
-		color: rgb(136, 144, 170);
 	}
 }
