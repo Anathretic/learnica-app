@@ -32,7 +32,7 @@ export const Navbar: React.FC = () => {
 				<div className='header__title'>
 					<div className='header__title-box'>
 						<HashLink className='header__title-text' to='/#'>
-							<h2>lernica</h2>
+							<h2>learnica</h2>
 						</HashLink>
 					</div>
 				</div>

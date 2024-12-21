@@ -32,7 +32,17 @@
 @media screen and (min-width: 1024px) {
 	.footer {
 		&__container {
-			margin: 1.25rem 0;
+			margin: 2.5rem 0 0;
+		}
+
+		&__bar {
+			&--second {
+				margin-top: 2.5rem;
+			}
+		}
+
+		&__box:nth-of-type(3) {
+			display: block;
 		}
 	}
 }
@@ -49,6 +59,12 @@
 	.navbar {
 		&__login-icon {
 			margin: 5px 2rem 0;
+		}
+	}
+
+	.footer {
+		&__box:nth-of-type(4) {
+			display: block;
 		}
 	}
 }

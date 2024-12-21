@@ -1,7 +1,19 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 import { client } from './apollo/apolloClient';
-import { Login, Register, UserPanel, TermsAndConditions, PageNotFound } from './subpages';
+import {
+	PolishClasses,
+	EnglishClasses,
+	MathClasses,
+	Translations,
+	Curriculum,
+	Lectors,
+	Login,
+	Register,
+	UserPanel,
+	TermsAndConditions,
+	PageNotFound,
+} from './subpages';
 import { Welcome, Idea, Offer, Motto, Contact } from './sections';
 import { Navbar } from './components/Navbar/Navbar';
 import { Footer } from './components/Footer/Footer';
@@ -30,6 +42,12 @@ const App: React.FC = () => {
 							</>
 						}
 					/>
+					<Route path='/jezyk-polski' element={<PolishClasses />} />
+					<Route path='/jezyk-angielski' element={<EnglishClasses />} />
+					<Route path='/matematyka' element={<MathClasses />} />
+					<Route path='/tlumaczenia' element={<Translations />} />
+					<Route path='/program-nauczania' element={<Curriculum />} />
+					<Route path='/lektorzy' element={<Lectors />} />
 					<Route path='/logowanie' element={<Login />} />
 					<Route path='/rejestracja' element={<Register />} />
 					<Route path='/panel-uzytkownika' element={<UserPanel />} />
