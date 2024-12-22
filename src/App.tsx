@@ -6,6 +6,7 @@ import {
 	EnglishClasses,
 	MathClasses,
 	Translations,
+	AboutUs,
 	Curriculum,
 	Lectors,
 	Login,
@@ -25,7 +26,6 @@ const App: React.FC = () => {
 				<Route
 					element={
 						<>
-							<Navbar />
 							<Outlet />
 							<Footer />
 						</>
@@ -34,6 +34,7 @@ const App: React.FC = () => {
 						path='/'
 						element={
 							<>
+								<Navbar />
 								<Welcome />
 								<Idea />
 								<Offer />
@@ -46,14 +47,15 @@ const App: React.FC = () => {
 					<Route path='/jezyk-angielski' element={<EnglishClasses />} />
 					<Route path='/matematyka' element={<MathClasses />} />
 					<Route path='/tlumaczenia' element={<Translations />} />
+					<Route path='/o-nas' element={<AboutUs />} />
 					<Route path='/program-nauczania' element={<Curriculum />} />
 					<Route path='/lektorzy' element={<Lectors />} />
 					<Route path='/logowanie' element={<Login />} />
 					<Route path='/rejestracja' element={<Register />} />
-					<Route path='/panel-uzytkownika' element={<UserPanel />} />
 					<Route path='/polityka-prywatnosci' element={<TermsAndConditions />} />
-					<Route path='*' element={<PageNotFound />} />
 				</Route>
+				<Route path='/panel-uzytkownika' element={<UserPanel />} />
+				<Route path='*' element={<PageNotFound />} />
 			</Routes>
 		</ApolloProvider>
 	);

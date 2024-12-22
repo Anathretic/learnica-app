@@ -1,7 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import { FaRegCopyright, FaFacebookSquare, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
 
 export const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
@@ -48,7 +47,7 @@ export const Footer: React.FC = () => {
 					<h3>Zespół</h3>
 					<ul>
 						<li>
-							<HashLink to='/#idea'>Idea</HashLink>
+							<Link to='/o-nas'>O nas</Link>
 						</li>
 						<li>
 							<Link to='/program-nauczania'>Program nauczania</Link>
