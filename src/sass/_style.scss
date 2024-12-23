@@ -70,9 +70,9 @@ body {
 		display: none;
 	}
 
-	&__mobile-container {
-		position: relative;
+	&__mobile-burger-btn {
 		display: flex;
+		animation: fadeIn 0.3s ease-out;
 	}
 
 	&__mobile-list,
