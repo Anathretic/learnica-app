@@ -44,30 +44,30 @@ export const Navbar: React.FC = () => {
 						<LoginIcon liStyles='navbar__login-icon-margin' />
 					</ul>
 				</nav>
-				<div className='navbar__mobile-container'>
-					{toggleMenu || <HiMenuAlt4 fontSize={32} onClick={() => setToggleMenu(true)} />}
-					{toggleMenu && (
-						<nav className='navbar__mobile'>
-							<ul className='navbar__mobile-list'>
-								<li className='navbar__mobile-exit-icon'>
-									<AiOutlineClose fontSize={28} onClick={() => setToggleMenu(false)} />
-								</li>
-								{navbarItems.map(({ title, section }) => (
-									<NavbarItem
-										key={title}
-										title={title}
-										section={section}
-										classProps={'navbar__item-margin'}
-										onClick={() => {
-											setToggleMenu(false);
-										}}
-									/>
-								))}
-								<LoginIcon onClick={() => setToggleMenu(false)} />
-							</ul>
-						</nav>
-					)}
-				</div>
+				{!toggleMenu && (
+					<HiMenuAlt4 className='navbar__mobile-burger-btn' fontSize={32} onClick={() => setToggleMenu(true)} />
+				)}
+				{toggleMenu && (
+					<nav className='navbar__mobile'>
+						<ul className='navbar__mobile-list'>
+							<li className='navbar__mobile-exit-icon'>
+								<AiOutlineClose fontSize={28} onClick={() => setToggleMenu(false)} />
+							</li>
+							{navbarItems.map(({ title, section }) => (
+								<NavbarItem
+									key={title}
+									title={title}
+									section={section}
+									classProps={'navbar__item-margin'}
+									onClick={() => {
+										setToggleMenu(false);
+									}}
+								/>
+							))}
+							<LoginIcon onClick={() => setToggleMenu(false)} />
+						</ul>
+					</nav>
+				)}
 			</div>
 		</header>
 	);
