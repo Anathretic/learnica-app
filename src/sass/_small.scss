@@ -1,8 +1,23 @@
+@media screen and (min-width: 400px) {
+	.form {
+		&__input,
+		&__textarea {
+			width: 90%;
+		}
+	}
+}
+
 @media screen and (max-width: 500px) {
 	.footer {
 		&__company-name {
 			font-size: 0.75rem;
 		}
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.register {
+		width: 80%;
 	}
 }
 

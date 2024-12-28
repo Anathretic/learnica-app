@@ -1,4 +1,6 @@
 @use 'animations';
+@use 'mixins';
+@use 'globals';
 
 *,
 *::after,
@@ -14,9 +16,9 @@ html {
 }
 
 body {
-	font-family: 'Sour Gummy', 'sans-serif';
-	background-color: #151a29;
-	color: #f0f0f0;
+	font-family: globals.$main-font;
+	background-color: globals.$darker-blue-color;
+	color: globals.$white-color;
 	font-size: 16px;
 }
 
@@ -47,7 +49,7 @@ body {
 	}
 
 	&__container--is-scrolled {
-		background-color: #172c3f;
+		background-color: globals.$dark-blue-color;
 	}
 
 	&__title {
@@ -59,7 +61,7 @@ body {
 
 		h2 {
 			padding: 0.5rem;
-			color: #f0f0f0;
+			color: globals.$white-color;
 			text-transform: uppercase;
 		}
 	}
@@ -90,8 +92,8 @@ body {
 		right: -0.5rem;
 		height: 100vh;
 		width: 70vw;
-		color: #f0f0f0;
-		background: #172c3f;
+		color: globals.$white-color;
+		background-color: globals.$dark-blue-color;
 		border-radius: 0.375rem;
 		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 		list-style-type: none;
@@ -117,14 +119,14 @@ body {
 
 	&__item-link {
 		padding: 0.5rem;
-		color: #f0f0f0;
+		color: globals.$white-color;
 		text-transform: capitalize;
 		text-decoration: none;
 		transition: color 0.3s ease-out;
 	}
 
 	&__item-link:hover {
-		color: rgb(136, 144, 170);
+		color: globals.$gray-btn-hover-color;
 	}
 
 	&__login-icon {
@@ -137,20 +139,141 @@ body {
 
 	&__login-icon-link {
 		padding: 0.5rem;
-		color: #f0f0f0;
+		color: globals.$white-color;
 		transition: color 0.3s ease-out;
 	}
 
 	&__login-icon-link:hover {
-		color: rgb(136, 144, 170);
+		color: globals.$gray-btn-hover-color;
+	}
+}
+
+.register {
+	padding: 3em 1em;
+	margin: auto;
+	width: 100%;
+
+	&__container {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	&__title {
+		padding: 1.5em;
+		font-size: 1.5em;
+		font-weight: 200;
+	}
+
+	&__strap {
+		width: 90%;
+		border-color: globals.$border-color;
+	}
+
+	&__strap:first-of-type {
+		margin-bottom: 1em;
+	}
+
+	&__form-toggle {
+		@include mixins.flex;
+		flex-direction: column;
+		padding: 1em 0 2em;
+
+		p {
+			padding-top: 1em;
+		}
+
+		a {
+			@include mixins.button;
+			margin-top: 1em;
+			text-decoration: none;
+		}
+	}
+}
+
+.form {
+	width: 100%;
+
+	&__box {
+		@include mixins.flex;
+		flex-direction: column;
+		padding: 1em;
+	}
+
+	&__label {
+		padding-bottom: 0.25em;
+	}
+
+	&__input {
+		padding: 0.95em 3.25em 0.95em 0.75em;
+		width: 100%;
+		border: 1px solid globals.$border-color;
+		border-radius: 12px;
+		color: globals.$white-color;
+		background-color: transparent;
+		font-family: globals.$main-font;
+
+		&:focus {
+			border-color: globals.$white-color;
+			outline: globals.$white-color;
+		}
+
+		&::placeholder {
+			color: globals.$placeholder-color;
+			opacity: 1;
+		}
+
+		&[aria-invalid='true'] {
+			border: 1px solid globals.$error-color;
+		}
+	}
+
+	&__textarea {
+		padding: 0.95em 3.25em 0.95em 0.75em;
+		width: 100%;
+		height: 200px;
+		min-height: 120px;
+		max-height: 300px;
+		border: 1px solid globals.$border-color;
+		border-radius: 12px;
+		color: globals.$white-color;
+		background-color: transparent;
+		font-family: globals.$main-font;
+		resize: vertical;
+
+		&:focus {
+			border-color: globals.$white-color;
+			outline: globals.$white-color;
+		}
+
+		&::placeholder {
+			color: globals.$placeholder-color;
+			opacity: 1;
+		}
+
+		&[aria-invalid='true'] {
+			border: 1px solid globals.$error-color;
+		}
+	}
+
+	&__input-error {
+		padding-top: 0.25em;
+		height: 1em;
+		width: 100%;
+		color: globals.$error-color;
+		font-size: 0.8em;
+		text-align: center;
+	}
+
+	&__submit {
+		@include mixins.button;
+		margin: 1em 1em 1.25em;
 	}
 }
 
 .footer {
 	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@include mixins.flex;
 	flex-direction: column;
 	padding: 1rem;
 	width: 100%;
@@ -158,7 +281,7 @@ body {
 	&__bar {
 		width: 100%;
 		height: 1px;
-		background-color: #f0f0f0;
+		background-color: globals.$white-color;
 
 		&--first {
 			margin-top: 5rem;
@@ -183,13 +306,13 @@ body {
 
 		a {
 			padding: 2px 0.35rem 0.35rem;
-			color: #f0f0f0;
+			color: globals.$white-color;
 			text-decoration: none;
 			transition: color 0.3s ease-out;
 		}
 
 		a:hover {
-			color: rgb(136, 144, 170);
+			color: globals.$gray-btn-hover-color;
 		}
 
 		a:first-of-type {

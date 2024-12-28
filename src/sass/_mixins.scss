@@ -1,0 +1,19 @@
+@use 'globals';
+
+@mixin flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin button {
+	padding: 0.5em 3em;
+	color: globals.$darker-blue-color;
+	background-color: globals.$white-color;
+	font-family: globals.$main-font;
+	font-size: 1em;
+	border: none;
+	border-radius: 8px;
+	transition: background-color 0.3s, color 0.3s;
+	cursor: pointer;
+}
