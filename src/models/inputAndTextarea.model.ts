@@ -7,3 +7,7 @@ export interface InputAndTextareaModel {
 	value?: string;
 	readOnly?: boolean;
 }
+
+export interface SubmitButtonModel {
+	value: string;
+}

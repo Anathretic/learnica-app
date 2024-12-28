@@ -1,3 +1,5 @@
+@use 'globals';
+
 @media screen and (min-width: 990px) {
 	.header {
 		&__container {
@@ -30,6 +32,42 @@
 }
 
 @media screen and (min-width: 1024px) {
+	.register {
+		width: 50%;
+
+		&__title {
+			font-size: 1.8em;
+		}
+
+		&__form-toggle a {
+			font-size: 1.1em;
+
+			&:hover {
+				color: globals.$white-color;
+				background-color: globals.$gray-btn-hover-color;
+			}
+		}
+	}
+
+	.form {
+		&__label {
+			font-size: 1.1em;
+		}
+
+		&__input-error {
+			font-size: 0.9em;
+		}
+
+		&__submit {
+			font-size: 1.1em;
+
+			&:hover {
+				color: globals.$white-color;
+				background-color: globals.$gray-btn-hover-color;
+			}
+		}
+	}
+
 	.footer {
 		&__container {
 			margin: 2.5rem 0 0;
@@ -60,6 +98,10 @@
 		&__login-icon {
 			margin: 5px 2rem 0;
 		}
+	}
+
+	.register {
+		width: 35%;
 	}
 
 	.footer {

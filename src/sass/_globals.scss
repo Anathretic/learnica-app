@@ -1,0 +1,16 @@
+$main-font: 'Sour Gummy', 'sans-serif';
+
+$white-color: #f0f0f0;
+$dark-blue-color: #172c3f;
+$darker-blue-color: #151a29;
+$gray-btn-hover-color: #8890aa;
+$placeholder-color: #8a8989;
+$error-color: #fc4848;
+$border-color: rgba(255, 255, 255, 0.3);
+
+.white-gradient {
+	background: rgba(245, 245, 245, 0.1);
+	border-radius: 12px;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+}
