@@ -7,13 +7,14 @@
 }
 
 @mixin button {
-	padding: 0.5em 3em;
+	padding: 0.55em 3em;
 	color: globals.$darker-blue-color;
 	background-color: globals.$white-color;
 	font-family: globals.$main-font;
 	font-size: 1em;
 	border: none;
-	border-radius: 8px;
+	border-radius: 2px;
+	box-shadow: inset 0 0 0.25em globals.$white-color, 0 0 0.25em globals.$white-color;
 	transition: background-color 0.3s, color 0.3s;
 	cursor: pointer;
 }

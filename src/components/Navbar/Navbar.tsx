@@ -5,6 +5,7 @@ import { HashLink } from 'react-router-hash-link';
 import { NavbarItem } from './components/NavbarItem';
 import { LoginIcon } from './components/LoginIcon';
 import { navbarItems } from './components/navbarData/navbarItems';
+import { scrollToTop } from '../../utils/scrollToTopUtils';
 
 export const Navbar: React.FC = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
@@ -41,7 +42,7 @@ export const Navbar: React.FC = () => {
 						{navbarItems.map(({ title, section }) => (
 							<NavbarItem key={title} title={title} section={section} />
 						))}
-						<LoginIcon liStyles='navbar__login-icon-margin' />
+						<LoginIcon liStyles='navbar__login-icon-margin' onClick={scrollToTop} />
 					</ul>
 				</nav>
 				{!toggleMenu && (
@@ -64,7 +65,12 @@ export const Navbar: React.FC = () => {
 									}}
 								/>
 							))}
-							<LoginIcon onClick={() => setToggleMenu(false)} />
+							<LoginIcon
+								onClick={() => {
+									setToggleMenu(false);
+									scrollToTop();
+								}}
+							/>
 						</ul>
 					</nav>
 				)}
