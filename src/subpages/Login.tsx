@@ -47,6 +47,9 @@ const Login: React.FC = () => {
 		<section className='login'>
 			<div className='login__container white-gradient'>
 				<h2 className='login__title'>Logowanie</h2>
+				<Link to='/' className='login__close-button' onClick={scrollToTop}>
+					X
+				</Link>
 				<hr className='login__strap' />
 				<form className='form' onSubmit={handleSubmit(onSubmit)}>
 					<InputElement

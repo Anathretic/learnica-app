@@ -66,6 +66,9 @@ const Register: React.FC = () => {
 		<section className='register'>
 			<div className='register__container white-gradient'>
 				<h2 className='register__title'>Rejestracja</h2>
+				<Link to='/' className='register__close-button' onClick={scrollToTop}>
+					X
+				</Link>
 				<hr className='register__strap' />
 				<form className='form' onSubmit={handleSubmit(onSubmit)}>
 					<InputElement

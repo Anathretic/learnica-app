@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { FaRegCopyright, FaFacebookSquare, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { scrollToTop } from '../../utils/scrollToTopUtils';
 
 export const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
@@ -30,16 +31,24 @@ export const Footer: React.FC = () => {
 					<h3>Oferta</h3>
 					<ul>
 						<li>
-							<Link to='/jezyk-polski'>Język polski</Link>
+							<Link to='/jezyk-polski' onClick={scrollToTop}>
+								Język polski
+							</Link>
 						</li>
 						<li>
-							<Link to='/jezyk-angielski'>Język angielski</Link>
+							<Link to='/jezyk-angielski' onClick={scrollToTop}>
+								Język angielski
+							</Link>
 						</li>
 						<li>
-							<Link to='/matematyka'>Matematyka</Link>
+							<Link to='/matematyka' onClick={scrollToTop}>
+								Matematyka
+							</Link>
 						</li>
 						<li>
-							<Link to='/tlumaczenia'>Tłumaczenia</Link>
+							<Link to='/tlumaczenia' onClick={scrollToTop}>
+								Tłumaczenia
+							</Link>
 						</li>
 					</ul>
 				</div>
@@ -47,13 +56,19 @@ export const Footer: React.FC = () => {
 					<h3>Zespół</h3>
 					<ul>
 						<li>
-							<Link to='/o-nas'>O nas</Link>
+							<Link to='/o-nas' onClick={scrollToTop}>
+								O nas
+							</Link>
 						</li>
 						<li>
-							<Link to='/program-nauczania'>Program nauczania</Link>
+							<Link to='/program-nauczania' onClick={scrollToTop}>
+								Program nauczania
+							</Link>
 						</li>
 						<li>
-							<Link to='/lektorzy'>Lektorzy</Link>
+							<Link to='/lektorzy' onClick={scrollToTop}>
+								Lektorzy
+							</Link>
 						</li>
 					</ul>
 				</div>
@@ -61,13 +76,19 @@ export const Footer: React.FC = () => {
 					<h3>Więcej</h3>
 					<ul>
 						<li>
-							<Link to='/logowanie'>Logowanie</Link>
+							<Link to='/logowanie' onClick={scrollToTop}>
+								Logowanie
+							</Link>
 						</li>
 						<li>
-							<Link to='/rejestracja'>Rejestracja</Link>
+							<Link to='/rejestracja' onClick={scrollToTop}>
+								Rejestracja
+							</Link>
 						</li>
 						<li>
-							<Link to='/polityka-prywatnosci'>Polityka prywatności</Link>
+							<Link to='/polityka-prywatnosci' onClick={scrollToTop}>
+								Polityka prywatności
+							</Link>
 						</li>
 					</ul>
 				</div>
