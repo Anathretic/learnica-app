@@ -32,6 +32,12 @@
 }
 
 @media screen and (min-width: 1024px) {
+	.contact {
+		&__title {
+			font-size: 3rem;
+		}
+	}
+
 	.login,
 	.register {
 		width: 50%;
@@ -93,6 +99,15 @@
 		&__container {
 			align-items: start;
 			flex-direction: row;
+		}
+
+		&__title {
+			font-size: 3.5rem;
+		}
+
+		&__title-info-box {
+			padding: 2rem 1rem;
+			font-size: 1.1rem;
 		}
 
 		&__form {
