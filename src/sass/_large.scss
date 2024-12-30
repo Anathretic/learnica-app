@@ -86,6 +86,21 @@
 	}
 }
 
+@media screen and (min-width: 1358px) {
+	.contact {
+		padding-top: 200px;
+
+		&__container {
+			align-items: start;
+			flex-direction: row;
+		}
+
+		&__form {
+			margin-right: 2.5rem;
+		}
+	}
+}
+
 @media screen and (min-width: 1536px) {
 	.header {
 		&__container {
