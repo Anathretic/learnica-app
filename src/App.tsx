@@ -52,11 +52,19 @@ const App: React.FC = () => {
 					<Route path='/program-nauczania' element={<Curriculum />} />
 					<Route path='/lektorzy' element={<Lectors />} />
 					<Route path='/logowanie' element={<Login />} />
-					<Route path='/resetowanie-hasla' element={<SetNewPassword />} />
 					<Route path='/rejestracja' element={<Register />} />
 					<Route path='/polityka-prywatnosci' element={<TermsAndConditions />} />
 				</Route>
-				<Route path='/panel-uzytkownika' element={<UserPanel />} />
+				<Route
+					path='/panel-uzytkownika'
+					element={
+						<>
+							<UserPanel />
+							<Outlet />
+						</>
+					}>
+					<Route path='resetowanie-hasla' element={<SetNewPassword />} />
+				</Route>
 				<Route path='*' element={<PageNotFound />} />
 			</Routes>
 		</ApolloProvider>

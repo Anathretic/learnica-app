@@ -6,6 +6,7 @@ import { supabase } from '../supabase/supabase';
 import { userDataGraph } from '../graphql/userdataGraph';
 import { UserDataModel } from '../models/userData.model';
 import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
+import { Link } from 'react-router-dom';
 
 const UserPanel: React.FC = () => {
 	const navigate = useNavigate();
@@ -57,6 +58,7 @@ const UserPanel: React.FC = () => {
 								))}
 							</>
 						)}
+						<Link to='resetowanie-hasla'>Resetuj hasło</Link>
 						<button type='button' onClick={logout}>
 							Wyloguj
 						</button>

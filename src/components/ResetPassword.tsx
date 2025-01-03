@@ -20,9 +20,15 @@ export const ResetPassword: React.FC<ResetPasswordComponentModel> = ({ setPasswo
 	});
 
 	const onSubmit: SubmitHandler<ResetPasswordModel> = async ({ email }) => {
-		await supabase.auth.resetPasswordForEmail(email, {
-			redirectTo: import.meta.env.VITE_RESET_PASSWORD_URL,
+		const { error } = await supabase.auth.resetPasswordForEmail(email, {
+			redirectTo: `${import.meta.env.VITE_RESET_PASSWORD_URL}`,
 		});
+
+		if (!error) {
+			reset();
+		} else {
+			console.log(error);
+		}
 	};
 
 	return (
