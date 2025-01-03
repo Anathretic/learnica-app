@@ -11,6 +11,7 @@
 @media screen and (max-width: 399px) {
 	.form {
 		&__password-reset-btn {
+			bottom: 5px;
 			right: 0;
 		}
 	}
@@ -43,7 +44,7 @@
 	}
 
 	.form {
-		p {
+		&__special-text {
 			padding: 1rem 3rem;
 		}
 	}
@@ -52,7 +53,7 @@
 @media screen and (min-width: 600px) {
 	.login,
 	.register,
-	.new-password {
+	.change-password {
 		width: 80%;
 	}
 }
@@ -61,7 +62,10 @@
 	.form {
 		&__password-reset-box {
 			padding: 0 1em;
-			bottom: 15px;
+		}
+
+		&__password-reset-btn {
+			bottom: 7px;
 		}
 	}
 

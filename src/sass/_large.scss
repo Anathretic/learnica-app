@@ -40,7 +40,7 @@
 
 	.login,
 	.register,
-	.new-password {
+	.change-password {
 		width: 60%;
 
 		&__title {
@@ -85,7 +85,7 @@
 			}
 		}
 
-		p {
+		&__special-text {
 			font-size: 1.1rem;
 		}
 	}
@@ -110,7 +110,7 @@
 @media screen and (min-width: 1358px) {
 	.login,
 	.register,
-	.new-password {
+	.change-password {
 		width: 50%;
 	}
 
@@ -154,7 +154,7 @@
 
 	.login,
 	.register,
-	.new-password {
+	.change-password {
 		width: 35%;
 	}
 

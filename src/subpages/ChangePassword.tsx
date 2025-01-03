@@ -2,24 +2,24 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../supabase/supabase';
 import { FormSubmit, InputElement } from '../components/InputAndTextarea';
-import { SetNewPasswordModel } from '../models/loginAndRegister.model';
-import { setNewPasswordSchema } from '../schemas/schemas';
+import { ChangePasswordModel } from '../models/userOptions.model';
+import { changePasswordSchema } from '../schemas/schemas';
 
-const SetNewPassword: React.FC = () => {
+const ChangePassword: React.FC = () => {
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<SetNewPasswordModel>({
+	} = useForm<ChangePasswordModel>({
 		defaultValues: {
 			password: '',
 			confirmPassword: '',
 		},
-		resolver: yupResolver(setNewPasswordSchema),
+		resolver: yupResolver(changePasswordSchema),
 	});
 
-	const onSubmit: SubmitHandler<SetNewPasswordModel> = async ({ password }) => {
+	const onSubmit: SubmitHandler<ChangePasswordModel> = async ({ password }) => {
 		const { error } = await supabase.auth.updateUser({
 			password,
 		});
@@ -32,10 +32,10 @@ const SetNewPassword: React.FC = () => {
 	};
 
 	return (
-		<section className='new-password'>
-			<div className='new-password__container white-gradient'>
-				<h2 className='new-password__title'>Ustaw nowe hasło</h2>
-				<hr className='new-password__strap' />
+		<section className='change-password'>
+			<div className='change-password__container white-gradient'>
+				<h2 className='change-password__title'>Ustaw nowe hasło</h2>
+				<hr className='change-password__strap' />
 				<form className='form' onSubmit={handleSubmit(onSubmit)}>
 					<InputElement
 						label='Hasło:'
@@ -62,4 +62,4 @@ const SetNewPassword: React.FC = () => {
 	);
 };
 
-export default SetNewPassword;
+export default ChangePassword;

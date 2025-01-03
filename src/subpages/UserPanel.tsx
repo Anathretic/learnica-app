@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { client } from '../apollo/apolloClient';
 import { supabase } from '../supabase/supabase';
 import { userDataGraph } from '../graphql/userdataGraph';
-import { UserDataModel } from '../models/userData.model';
 import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
-import { Link } from 'react-router-dom';
+import { UserDataModel } from '../models/userData.model';
 
 const UserPanel: React.FC = () => {
 	const navigate = useNavigate();
@@ -58,7 +57,7 @@ const UserPanel: React.FC = () => {
 								))}
 							</>
 						)}
-						<Link to='resetowanie-hasla'>Resetuj hasło</Link>
+						<Link to='zmiana-hasla'>Resetuj hasło</Link>
 						<button type='button' onClick={logout}>
 							Wyloguj
 						</button>

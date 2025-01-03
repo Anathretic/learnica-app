@@ -14,7 +14,7 @@ import {
 	UserPanel,
 	TermsAndConditions,
 	PageNotFound,
-	SetNewPassword,
+	ChangePassword,
 } from './subpages';
 import { Welcome, Idea, Offer, Motto, Contact } from './sections';
 import { Navbar } from './components/Navbar/Navbar';
@@ -63,7 +63,7 @@ const App: React.FC = () => {
 							<Outlet />
 						</>
 					}>
-					<Route path='resetowanie-hasla' element={<SetNewPassword />} />
+					<Route path='zmiana-hasla' element={<ChangePassword />} />
 				</Route>
 				<Route path='*' element={<PageNotFound />} />
 			</Routes>

@@ -12,15 +12,10 @@ export interface LoginDataModel {
 	password: string;
 }
 
-export interface ResetPasswordComponentModel {
+export interface FormComponentModel {
 	setPasswordReset: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface ResetPasswordModel {
 	email: string;
-}
-
-export interface SetNewPasswordModel {
-	password: string;
-	confirmPassword: string;
 }

@@ -1,12 +1,12 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { supabase } from '../supabase/supabase';
-import { FormSubmit, InputElement } from './InputAndTextarea';
-import { ResetPasswordComponentModel, ResetPasswordModel } from '../models/loginAndRegister.model';
-import { resetPasswordSchema } from '../schemas/schemas';
-import { scrollToTop } from '../utils/scrollToTopUtils';
+import { supabase } from '../../supabase/supabase';
+import { FormSubmit, InputElement } from '../InputAndTextarea';
+import { FormComponentModel, ResetPasswordModel } from '../../models/loginAndRegister.model';
+import { resetPasswordSchema } from '../../schemas/schemas';
+import { scrollToTop } from '../../utils/scrollToTopUtils';
 
-export const ResetPassword: React.FC<ResetPasswordComponentModel> = ({ setPasswordReset }) => {
+export const ResetPasswordForm: React.FC<FormComponentModel> = ({ setPasswordReset }) => {
 	const {
 		register,
 		handleSubmit,
@@ -34,7 +34,7 @@ export const ResetPassword: React.FC<ResetPasswordComponentModel> = ({ setPasswo
 	return (
 		<>
 			<form className='form' onSubmit={handleSubmit(onSubmit)}>
-				<p>
+				<p className='form__special-text'>
 					Jeśli zapomniałeś hasło prześlij swój email, a dostaniesz link by je zresetować. Działa tylko w wypadku
 					<span> posiadania konta </span>w serwisie!
 				</p>
