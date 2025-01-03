@@ -6,6 +6,7 @@ export { default as AboutUs } from './AboutUs';
 export { default as Curriculum } from './Curriculum';
 export { default as Lectors } from './Lectors';
 export { default as Login } from './Login';
+export { default as ChangePassword } from './ChangePassword';
 export { default as Register } from './Register';
 export { default as UserPanel } from './UserPanel';
 export { default as TermsAndConditions } from './TermsAndConidtions';

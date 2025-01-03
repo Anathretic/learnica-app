@@ -14,6 +14,7 @@ import {
 	UserPanel,
 	TermsAndConditions,
 	PageNotFound,
+	ChangePassword,
 } from './subpages';
 import { Welcome, Idea, Offer, Motto, Contact } from './sections';
 import { Navbar } from './components/Navbar/Navbar';
@@ -54,7 +55,16 @@ const App: React.FC = () => {
 					<Route path='/rejestracja' element={<Register />} />
 					<Route path='/polityka-prywatnosci' element={<TermsAndConditions />} />
 				</Route>
-				<Route path='/panel-uzytkownika' element={<UserPanel />} />
+				<Route
+					path='/panel-uzytkownika'
+					element={
+						<>
+							<UserPanel />
+							<Outlet />
+						</>
+					}>
+					<Route path='zmiana-hasla' element={<ChangePassword />} />
+				</Route>
 				<Route path='*' element={<PageNotFound />} />
 			</Routes>
 		</ApolloProvider>

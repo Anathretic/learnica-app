@@ -11,3 +11,11 @@ export interface LoginDataModel {
 	email: string;
 	password: string;
 }
+
+export interface FormComponentModel {
+	setPasswordReset: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface ResetPasswordModel {
+	email: string;
+}

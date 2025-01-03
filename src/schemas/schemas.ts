@@ -54,3 +54,5 @@ export const registerSchema = yup.object({
 });
 
 export const loginSchema = registerSchema.pick(['email', 'password']);
+export const resetPasswordSchema = registerSchema.pick(['email']);
+export const changePasswordSchema = registerSchema.pick(['password', 'confirmPassword']);

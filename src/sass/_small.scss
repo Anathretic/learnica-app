@@ -8,6 +8,15 @@
 	}
 }
 
+@media screen and (max-width: 399px) {
+	.form {
+		&__password-reset-btn {
+			bottom: 5px;
+			right: 0;
+		}
+	}
+}
+
 @media screen and (min-width: 400px) {
 	.form {
 		&__input,
@@ -33,16 +42,33 @@
 			font-size: 2em;
 		}
 	}
+
+	.form {
+		&__special-text {
+			padding: 1rem 3rem;
+		}
+	}
 }
 
 @media screen and (min-width: 600px) {
 	.login,
-	.register {
+	.register,
+	.change-password {
 		width: 80%;
 	}
 }
 
 @media screen and (min-width: 640px) {
+	.form {
+		&__password-reset-box {
+			padding: 0 1em;
+		}
+
+		&__password-reset-btn {
+			bottom: 7px;
+		}
+	}
+
 	.footer {
 		&__bar,
 		&__container {
