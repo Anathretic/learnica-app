@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputAndTextareaModel, SubmitButtonModel } from '../models/inputAndTextarea.model';
+import { InputAndTextareaModel, SubmitButtonModel, LoaderModel } from '../models/formElements.model';
 
 export const InputElement: React.FC<InputAndTextareaModel> = React.forwardRef<HTMLInputElement, InputAndTextareaModel>(
 	({ label, inputName, type, placeholder, value, readOnly, children, ...props }, ref) => {
@@ -50,6 +50,14 @@ export const FormSubmit: React.FC<SubmitButtonModel> = ({ value }) => {
 	return (
 		<div className='form__box'>
 			<input className='form__submit' type='submit' value={value} />
+		</div>
+	);
+};
+
+export const Loader: React.FC<LoaderModel> = ({ className }) => {
+	return (
+		<div className={className}>
+			<div className='loader__spinner' />
 		</div>
 	);
 };

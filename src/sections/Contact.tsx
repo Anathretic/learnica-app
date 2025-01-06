@@ -1,10 +1,17 @@
+import { useRef, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FormSubmit, InputElement, TextareaElement } from '../components/InputAndTextarea';
+import emailjs from '@emailjs/browser';
+import { FormSubmit, InputElement, TextareaElement, Loader } from '../components/FormElements';
+import { useContactFormButton } from '../hooks/useContactFormButton';
 import { contactSchema } from '../schemas/schemas';
 import { ContactModel } from '../models/contactForm.model';
 
 const Contact: React.FC = () => {
+	const [isLoading, setIsLoading] = useState(false);
+	const [errorValue, setErrorValue] = useState('');
 	const {
 		register,
 		handleSubmit,
@@ -19,9 +26,48 @@ const Contact: React.FC = () => {
 		resolver: yupResolver(contactSchema),
 	});
 
+	const [buttonText, setButtonText] = useContactFormButton();
+	const refCaptcha = useRef<ReCAPTCHA>(null);
+	const isMobile = useMediaQuery({ query: '(max-width: 499px)' });
+
 	const onSubmit: SubmitHandler<ContactModel> = async ({ name, email, message }) => {
-		console.log(name, email, message);
-		reset();
+		setIsLoading(true);
+		setErrorValue('');
+		const token = refCaptcha.current?.getValue();
+		refCaptcha.current?.reset();
+
+		const params = {
+			name,
+			email,
+			message,
+			'g-recaptcha-response': token,
+		};
+
+		if (token) {
+			await emailjs
+				.send(
+					`${import.meta.env.VITE_SERVICE_ID}`,
+					`${import.meta.env.VITE_CONTACT_TEMPLATE_ID}`,
+					params,
+					`${import.meta.env.VITE_PUBLIC_KEY}`
+				)
+				.then(() => {
+					setButtonText('Wysłane!');
+					reset();
+				})
+				.catch(err => {
+					setErrorValue('Coś poszło nie tak..');
+					if (err instanceof Error) {
+						console.log(`Twój błąd: ${err.message}`);
+					}
+				})
+				.finally(() => {
+					setIsLoading(false);
+				});
+		} else {
+			setIsLoading(false);
+			setErrorValue('Nie bądź 🤖!');
+		}
 	};
 
 	return (
@@ -70,7 +116,20 @@ const Contact: React.FC = () => {
 						aria-invalid={errors.message ? true : false}
 						{...register('message')}
 					/>
-					<FormSubmit value='Wyślij' />
+					<div className='form__recaptcha-box'>
+						<ReCAPTCHA
+							key={isMobile ? 'compact-recaptcha' : 'normal-recaptcha'}
+							size={isMobile ? 'compact' : 'normal'}
+							sitekey={import.meta.env.VITE_SITE_KEY}
+							ref={refCaptcha}
+						/>
+						<div className='form__recaptcha-error'>
+							<p>{errorValue}</p>
+						</div>
+					</div>
+					<div className='form__box'>
+						{isLoading ? <Loader className='loader' /> : <FormSubmit value={buttonText} />}
+					</div>
 				</form>
 			</div>
 		</section>

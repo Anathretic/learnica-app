@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
-import { FormSubmit, InputElement } from '../InputAndTextarea';
+import { FormSubmit, InputElement } from '../FormElements';
 import { FormComponentModel, ResetPasswordModel } from '../../models/loginAndRegister.model';
 import { resetPasswordSchema } from '../../schemas/schemas';
 import { scrollToTop } from '../../utils/scrollToTopUtils';
