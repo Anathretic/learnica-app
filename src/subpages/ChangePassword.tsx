@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../supabase/supabase';
-import { FormSubmit, InputElement } from '../components/InputAndTextarea';
+import { FormSubmit, InputElement } from '../components/FormElements';
 import { ChangePasswordModel } from '../models/userOptions.model';
 import { changePasswordSchema } from '../schemas/schemas';
 

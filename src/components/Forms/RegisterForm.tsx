@@ -1,11 +1,11 @@
-import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { supabase } from "../../supabase/supabase";
-import { FormSubmit, InputElement } from "../InputAndTextarea";
-import { useRegisterOptions } from "../../hooks/useRegisterOptions";
-import { RegisterDataModel } from "../../models/loginAndRegister.model";
-import { registerSchema } from "../../schemas/schemas";
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { supabase } from '../../supabase/supabase';
+import { FormSubmit, InputElement } from '../FormElements';
+import { useRegisterOptions } from '../../hooks/useRegisterOptions';
+import { RegisterDataModel } from '../../models/loginAndRegister.model';
+import { registerSchema } from '../../schemas/schemas';
 
 export const RegisterForm: React.FC = () => {
 	const {

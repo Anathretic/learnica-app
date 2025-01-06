@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
-import { FormSubmit, InputElement } from '../InputAndTextarea';
+import { FormSubmit, InputElement } from '../FormElements';
 import { FormComponentModel, LoginDataModel } from '../../models/loginAndRegister.model';
 import { loginSchema } from '../../schemas/schemas';
 

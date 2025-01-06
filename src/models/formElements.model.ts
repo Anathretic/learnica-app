@@ -11,3 +11,7 @@ export interface InputAndTextareaModel {
 export interface SubmitButtonModel {
 	value: string;
 }
+
+export interface LoaderModel {
+	className: string;
+}
