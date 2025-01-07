@@ -1,3 +1,4 @@
+import ReCAPTCHA from 'react-google-recaptcha';
 export interface InputAndTextareaModel {
 	label: string;
 	inputName: string;
@@ -14,4 +15,10 @@ export interface SubmitButtonModel {
 
 export interface LoaderModel {
 	className: string;
+}
+
+export interface ReCaptchaV2Model {
+	isMobile: boolean;
+	refCaptcha: React.RefObject<ReCAPTCHA>;
+	errorValue: string;
 }

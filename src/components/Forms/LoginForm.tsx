@@ -1,18 +1,17 @@
-import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from '../FormElements';
-import { FormComponentModel, LoginDataModel } from '../../models/loginAndRegister.model';
+import { LoginComponentModel, LoginFormModel } from '../../models/loginAndRegisterForm.model';
 import { loginSchema } from '../../schemas/schemas';
 
-export const LoginForm: React.FC<FormComponentModel> = ({ setPasswordReset }) => {
+export const LoginForm: React.FC<LoginComponentModel> = ({ setPasswordReset, navigate }) => {
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<LoginDataModel>({
+	} = useForm<LoginFormModel>({
 		defaultValues: {
 			email: '',
 			password: '',
@@ -20,9 +19,7 @@ export const LoginForm: React.FC<FormComponentModel> = ({ setPasswordReset }) =>
 		resolver: yupResolver(loginSchema),
 	});
 
-	const navigate = useNavigate();
-
-	const onSubmit: SubmitHandler<LoginDataModel> = async ({ email, password }) => {
+	const onSubmit: SubmitHandler<LoginFormModel> = async ({ email, password }) => {
 		const { error } = await supabase.auth.signInWithPassword({
 			email,
 			password,

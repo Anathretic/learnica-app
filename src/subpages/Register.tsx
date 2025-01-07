@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RegisterForm } from '../components/Forms/RegisterForm';
 import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
+import { useRegisterOptions } from '../hooks/useRegisterOptions';
 import { scrollToTop } from '../utils/scrollToTopUtils';
 
 const Register: React.FC = () => {
 	const { checkSessionStatus } = useCheckSessionStatus();
+	const { isEmailExisting } = useRegisterOptions();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		checkSessionStatus();
@@ -19,7 +22,7 @@ const Register: React.FC = () => {
 					X
 				</Link>
 				<hr className='register__strap' />
-				<RegisterForm />
+				<RegisterForm isEmailExisting={isEmailExisting} navigate={navigate} />
 				<hr className='register__strap' />
 				<div className='register__form-toggle'>
 					<p>Posiadasz już konto?</p>

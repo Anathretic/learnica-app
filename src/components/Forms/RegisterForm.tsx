@@ -1,19 +1,17 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from '../FormElements';
-import { useRegisterOptions } from '../../hooks/useRegisterOptions';
-import { RegisterDataModel } from '../../models/loginAndRegister.model';
+import { RegisterComponentModel, RegisterFormModel } from '../../models/loginAndRegisterForm.model';
 import { registerSchema } from '../../schemas/schemas';
 
-export const RegisterForm: React.FC = () => {
+export const RegisterForm: React.FC<RegisterComponentModel> = ({ isEmailExisting, navigate }) => {
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<RegisterDataModel>({
+	} = useForm<RegisterFormModel>({
 		defaultValues: {
 			firstname: '',
 			lastname: '',
@@ -24,10 +22,8 @@ export const RegisterForm: React.FC = () => {
 		},
 		resolver: yupResolver(registerSchema),
 	});
-	const navigate = useNavigate();
-	const { isEmailExisting } = useRegisterOptions();
 
-	const onSubmit: SubmitHandler<RegisterDataModel> = async ({ firstname, lastname, email, phone, password }) => {
+	const onSubmit: SubmitHandler<RegisterFormModel> = async ({ firstname, lastname, email, phone, password }) => {
 		const emailExists = await isEmailExisting(email);
 
 		if (emailExists) {
