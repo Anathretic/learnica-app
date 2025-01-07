@@ -14,9 +14,9 @@ export interface RegisterFormModel {
 	confirmPassword: string;
 }
 
-export interface LoginComponentModel {
+export interface LoginAndResetPasswordComponentModel {
 	setPasswordReset: React.Dispatch<React.SetStateAction<boolean>>;
-	navigate: NavigateFunction;
+	navigate?: NavigateFunction;
 }
 
 export interface LoginFormModel {
@@ -24,6 +24,6 @@ export interface LoginFormModel {
 	password: string;
 }
 
-export interface ResetPasswordModel {
+export interface ResetPasswordFormModel {
 	email: string;
 }

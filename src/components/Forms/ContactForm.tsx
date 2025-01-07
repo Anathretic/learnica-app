@@ -5,7 +5,7 @@ import { FormSubmit, InputElement, Loader, ReCaptchaV2Component, TextareaElement
 import { contactSchema } from '../../schemas/schemas';
 import { ContactComponentModel, ContactFormModel } from '../../models/contactForm.model';
 
-export const ContactForm: React.FC<ContactFormModel> = ({
+export const ContactForm: React.FC<ContactComponentModel> = ({
 	isLoading,
 	setIsLoading,
 	errorValue,
@@ -20,7 +20,7 @@ export const ContactForm: React.FC<ContactFormModel> = ({
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<ContactComponentModel>({
+	} = useForm<ContactFormModel>({
 		defaultValues: {
 			name: '',
 			email: '',
@@ -29,7 +29,7 @@ export const ContactForm: React.FC<ContactFormModel> = ({
 		resolver: yupResolver(contactSchema),
 	});
 
-	const onSubmit: SubmitHandler<ContactComponentModel> = async ({ name, email, message }) => {
+	const onSubmit: SubmitHandler<ContactFormModel> = async ({ name, email, message }) => {
 		setIsLoading(true);
 		setErrorValue('');
 		const token = refCaptcha.current?.getValue();

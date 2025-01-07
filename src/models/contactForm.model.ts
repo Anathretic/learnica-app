@@ -1,12 +1,6 @@
 import ReCAPTCHA from 'react-google-recaptcha';
 
 export interface ContactComponentModel {
-	name: string;
-	email: string;
-	message: string;
-}
-
-export interface ContactFormModel {
 	isLoading: boolean;
 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 	errorValue: string;
@@ -15,4 +9,10 @@ export interface ContactFormModel {
 	setButtonText: React.Dispatch<React.SetStateAction<string>>;
 	isMobile: boolean;
 	refCaptcha: React.RefObject<ReCAPTCHA>;
+}
+
+export interface ContactFormModel {
+	name: string;
+	email: string;
+	message: string;
 }
