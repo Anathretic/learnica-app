@@ -2,24 +2,24 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from '../FormElements';
-import { FormComponentModel, ResetPasswordModel } from '../../models/loginAndRegisterForm.model';
+import { LoginAndResetPasswordComponentModel, ResetPasswordFormModel } from '../../models/loginAndRegisterForm.model';
 import { resetPasswordSchema } from '../../schemas/schemas';
 import { scrollToTop } from '../../utils/scrollToTopUtils';
 
-export const ResetPasswordForm: React.FC<FormComponentModel> = ({ setPasswordReset }) => {
+export const ResetPasswordForm: React.FC<LoginAndResetPasswordComponentModel> = ({ setPasswordReset }) => {
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<ResetPasswordModel>({
+	} = useForm<ResetPasswordFormModel>({
 		defaultValues: {
 			email: '',
 		},
 		resolver: yupResolver(resetPasswordSchema),
 	});
 
-	const onSubmit: SubmitHandler<ResetPasswordModel> = async ({ email }) => {
+	const onSubmit: SubmitHandler<ResetPasswordFormModel> = async ({ email }) => {
 		const { error } = await supabase.auth.resetPasswordForEmail(email, {
 			redirectTo: `${import.meta.env.VITE_RESET_PASSWORD_URL}`,
 		});
