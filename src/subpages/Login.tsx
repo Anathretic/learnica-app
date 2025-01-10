@@ -2,11 +2,16 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LoginForm } from '../components/Forms/LoginForm';
 import { ResetPasswordForm } from '../components/Forms/ResetPasswordForm';
+import { useSubmitFormButton } from '../hooks/useSubmitFormButton';
 import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
 import { scrollToTop } from '../utils/scrollToTopUtils';
 
+const initialSubmitButtonState = 'Wyślij';
+
 const Login: React.FC = () => {
 	const [passwordReset, setPasswordReset] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+	const [buttonText, setButtonText] = useSubmitFormButton({ initialSubmitButtonState });
 	const { checkSessionStatus } = useCheckSessionStatus();
 	const navigate = useNavigate();
 
@@ -24,10 +29,21 @@ const Login: React.FC = () => {
 				<hr className='login__strap' />
 				<>
 					{passwordReset ? (
-						<ResetPasswordForm setPasswordReset={setPasswordReset} />
+						<ResetPasswordForm
+							isLoading={isLoading}
+							setIsLoading={setIsLoading}
+							buttonText={buttonText}
+							setButtonText={setButtonText}
+							setPasswordReset={setPasswordReset}
+						/>
 					) : (
 						<>
-							<LoginForm setPasswordReset={setPasswordReset} navigate={navigate} />
+							<LoginForm
+								setPasswordReset={setPasswordReset}
+								navigate={navigate}
+								isLoading={isLoading}
+								setIsLoading={setIsLoading}
+							/>
 							<hr className='login__strap' />
 							<div className='login__form-toggle'>
 								<p>Nie masz jeszcze konta?</p>

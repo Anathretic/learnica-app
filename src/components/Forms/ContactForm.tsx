@@ -1,7 +1,8 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import emailjs from '@emailjs/browser';
-import { FormSubmit, InputElement, Loader, ReCaptchaV2Component, TextareaElement } from '../FormElements';
+import { FormSubmit, InputElement, ReCaptchaV2Component, TextareaElement } from './components/FormElements';
+import { contactFormInputsConfig } from './inputsConfig/inputsConfig';
 import { contactSchema } from '../../schemas/schemas';
 import { ContactComponentModel, ContactFormModel } from '../../models/contactForm.model';
 
@@ -29,9 +30,12 @@ export const ContactForm: React.FC<ContactComponentModel> = ({
 		resolver: yupResolver(contactSchema),
 	});
 
+	const contactFormInputs = contactFormInputsConfig(errors, register);
+
 	const onSubmit: SubmitHandler<ContactFormModel> = async ({ name, email, message }) => {
 		setIsLoading(true);
 		setErrorValue('');
+
 		const token = refCaptcha.current?.getValue();
 		refCaptcha.current?.reset();
 
@@ -51,8 +55,8 @@ export const ContactForm: React.FC<ContactComponentModel> = ({
 					`${import.meta.env.VITE_PUBLIC_KEY}`
 				)
 				.then(() => {
-					setButtonText('Wysłane!');
 					reset();
+					setButtonText('Wysłane!');
 				})
 				.catch(err => {
 					setErrorValue('Coś poszło nie tak..');
@@ -71,35 +75,28 @@ export const ContactForm: React.FC<ContactComponentModel> = ({
 
 	return (
 		<form className='contact__form' onSubmit={handleSubmit(onSubmit)}>
-			<InputElement
-				label='Imię i nazwisko:'
-				inputName='name'
-				type='text'
-				placeholder='Wprowadź imię i nazwisko..'
-				children={errors.name?.message}
-				aria-invalid={errors.name ? true : false}
-				{...register('name')}
-			/>
-			<InputElement
-				label='E-mail:'
-				inputName='email'
-				type='text'
-				placeholder='Wprowadź adres e-mail..'
-				children={errors.email?.message}
-				aria-invalid={errors.email ? true : false}
-				{...register('email')}
-			/>
-
+			{contactFormInputs.map((input, id) => (
+				<InputElement
+					key={id}
+					label={input.label}
+					inputName={input.inputName}
+					type={input.type}
+					placeholder={input.placeholder}
+					errorMessage={input.errorMessage}
+					aria-invalid={input.isInvalid}
+					{...input.register}
+				/>
+			))}
 			<TextareaElement
 				label='Wiadomość:'
 				inputName='message'
 				placeholder='Wprowadź wiadomość..'
-				children={errors.message?.message}
+				errorMessage={errors.message?.message}
 				aria-invalid={errors.message ? true : false}
 				{...register('message')}
 			/>
 			<ReCaptchaV2Component isMobile={isMobile} refCaptcha={refCaptcha} errorValue={errorValue} />
-			<div className='form__box'>{isLoading ? <Loader className='loader' /> : <FormSubmit value={buttonText} />}</div>
+			<FormSubmit isLoading={isLoading} buttonText={buttonText} />
 		</form>
 	);
 };
