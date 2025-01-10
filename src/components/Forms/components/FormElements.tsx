@@ -1,9 +1,10 @@
 import React from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { InputAndTextareaModel, SubmitButtonModel, LoaderModel, ReCaptchaV2Model } from '../models/formElements.model';
+import { InputAndTextareaModel, SubmitButtonModel, ReCaptchaV2Model } from '../../../models/formElements.model';
+import { Loader } from '../../Loader';
 
 export const InputElement: React.FC<InputAndTextareaModel> = React.forwardRef<HTMLInputElement, InputAndTextareaModel>(
-	({ label, inputName, type, placeholder, value, readOnly, children, ...props }, ref) => {
+	({ label, inputName, type, placeholder, value, readOnly, errorMessage, ...props }, ref) => {
 		return (
 			<div className='form__box'>
 				<label className='form__label' htmlFor={inputName}>
@@ -20,7 +21,7 @@ export const InputElement: React.FC<InputAndTextareaModel> = React.forwardRef<HT
 					autoComplete='off'
 					{...props}
 				/>
-				<p className='form__input-error'>{children}</p>
+				<p className='form__input-error'>{`${errorMessage === undefined ? '' : errorMessage}`}</p>
 			</div>
 		);
 	}
@@ -29,7 +30,7 @@ export const InputElement: React.FC<InputAndTextareaModel> = React.forwardRef<HT
 export const TextareaElement: React.FC<InputAndTextareaModel> = React.forwardRef<
 	HTMLTextAreaElement,
 	InputAndTextareaModel
->(({ label, inputName, placeholder, children, ...props }, ref) => {
+>(({ label, inputName, placeholder, errorMessage, ...props }, ref) => {
 	return (
 		<div className='form__box'>
 			<label className='form__label' htmlFor={inputName}>
@@ -42,23 +43,15 @@ export const TextareaElement: React.FC<InputAndTextareaModel> = React.forwardRef
 				autoComplete='off'
 				ref={ref}
 				{...props}></textarea>
-			<p className='form__textarea-error'>{children}</p>
+			<p className='form__textarea-error'>{`${errorMessage === undefined ? '' : errorMessage}`}</p>
 		</div>
 	);
 });
 
-export const FormSubmit: React.FC<SubmitButtonModel> = ({ value }) => {
+export const FormSubmit: React.FC<SubmitButtonModel> = ({ isLoading, buttonText }) => {
 	return (
 		<div className='form__box'>
-			<input className='form__submit' type='submit' value={value} />
-		</div>
-	);
-};
-
-export const Loader: React.FC<LoaderModel> = ({ className }) => {
-	return (
-		<div className={className}>
-			<div className='loader__spinner' />
+			{isLoading ? <Loader className='loader' /> : <input className='form__submit' type='submit' value={buttonText} />}
 		</div>
 	);
 };

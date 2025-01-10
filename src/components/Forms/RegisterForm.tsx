@@ -1,11 +1,17 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
-import { FormSubmit, InputElement } from '../FormElements';
+import { FormSubmit, InputElement } from './components/FormElements';
+import { registerFormInputsConfig } from './inputsConfig/inputsConfig';
 import { RegisterComponentModel, RegisterFormModel } from '../../models/loginAndRegisterForm.model';
 import { registerSchema } from '../../schemas/schemas';
 
-export const RegisterForm: React.FC<RegisterComponentModel> = ({ isEmailExisting, navigate }) => {
+export const RegisterForm: React.FC<RegisterComponentModel> = ({
+	isEmailExisting,
+	navigate,
+	isLoading,
+	setIsLoading,
+}) => {
 	const {
 		register,
 		handleSubmit,
@@ -23,10 +29,15 @@ export const RegisterForm: React.FC<RegisterComponentModel> = ({ isEmailExisting
 		resolver: yupResolver(registerSchema),
 	});
 
+	const registerFormInputs = registerFormInputsConfig(errors, register);
+
 	const onSubmit: SubmitHandler<RegisterFormModel> = async ({ firstname, lastname, email, phone, password }) => {
+		setIsLoading(true);
+
 		const emailExists = await isEmailExisting(email);
 
 		if (emailExists) {
+			setIsLoading(false);
 			console.log('Ten adres e-mail już istnieje!');
 		} else {
 			const { error } = await supabase.auth.signUp({
@@ -43,6 +54,7 @@ export const RegisterForm: React.FC<RegisterComponentModel> = ({ isEmailExisting
 
 			if (!error) {
 				reset();
+				setIsLoading(false);
 				navigate('/');
 			} else {
 				console.log(error);
@@ -52,60 +64,19 @@ export const RegisterForm: React.FC<RegisterComponentModel> = ({ isEmailExisting
 
 	return (
 		<form className='form' onSubmit={handleSubmit(onSubmit)}>
-			<InputElement
-				label='Imię:'
-				inputName='firstname'
-				type='text'
-				placeholder='Wprowadź swoje imię..'
-				children={errors.firstname?.message}
-				aria-invalid={errors.firstname ? true : false}
-				{...register('firstname')}
-			/>
-			<InputElement
-				label='Nazwisko:'
-				inputName='lastname'
-				type='text'
-				placeholder='Wprowadź swoje nazwisko..'
-				children={errors.lastname?.message}
-				aria-invalid={errors.lastname ? true : false}
-				{...register('lastname')}
-			/>
-			<InputElement
-				label='E-mail:'
-				inputName='email'
-				type='text'
-				placeholder='Wprowadź adres e-mail..'
-				children={errors.email?.message}
-				aria-invalid={errors.email ? true : false}
-				{...register('email')}
-			/>
-			<InputElement
-				label='Nr telefonu:'
-				inputName='phone'
-				placeholder='Wprowadź numer telefonu..'
-				children={errors.phone?.message}
-				aria-invalid={errors.phone ? true : false}
-				{...register('phone')}
-			/>
-			<InputElement
-				label='Hasło:'
-				inputName='password'
-				type='password'
-				placeholder='Wprowadź hasło..'
-				children={errors.password?.message}
-				aria-invalid={errors.password ? true : false}
-				{...register('password')}
-			/>
-			<InputElement
-				label='Powtórz hasło:'
-				inputName='confirmPassword'
-				type='password'
-				placeholder='Wprowadź ponownie hasło..'
-				children={errors.confirmPassword?.message}
-				aria-invalid={errors.confirmPassword ? true : false}
-				{...register('confirmPassword')}
-			/>
-			<FormSubmit value='Zarejestruj się' />
+			{registerFormInputs.map((input, id) => (
+				<InputElement
+					key={id}
+					label={input.label}
+					inputName={input.inputName}
+					type={input.type}
+					placeholder={input.placeholder}
+					errorMessage={input.errorMessage}
+					aria-invalid={input.isInvalid}
+					{...input.register}
+				/>
+			))}
+			<FormSubmit isLoading={isLoading} buttonText='Zarejestruj się' />
 		</form>
 	);
 };

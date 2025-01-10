@@ -2,12 +2,14 @@ import { useState, useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { ContactForm } from '../components/Forms/ContactForm';
-import { useContactFormButton } from '../hooks/useContactFormButton';
+import { useSubmitFormButton } from '../hooks/useSubmitFormButton';
+
+const initialSubmitButtonState = 'Wyślij';
 
 const Contact: React.FC = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [errorValue, setErrorValue] = useState('');
-	const [buttonText, setButtonText] = useContactFormButton();
+	const [buttonText, setButtonText] = useSubmitFormButton({ initialSubmitButtonState });
 	const refCaptcha = useRef<ReCAPTCHA>(null);
 	const isMobile = useMediaQuery({ query: '(max-width: 499px)' });
 
