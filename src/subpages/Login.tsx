@@ -29,13 +29,26 @@ const Login: React.FC = () => {
 				<hr className='login__strap' />
 				<>
 					{passwordReset ? (
-						<ResetPasswordForm
-							isLoading={isLoading}
-							setIsLoading={setIsLoading}
-							buttonText={buttonText}
-							setButtonText={setButtonText}
-							setPasswordReset={setPasswordReset}
-						/>
+						<>
+							<ResetPasswordForm
+								isLoading={isLoading}
+								setIsLoading={setIsLoading}
+								buttonText={buttonText}
+								setButtonText={setButtonText}
+							/>
+							<hr className='login__strap' />
+							<div className='login__form-toggle'>
+								<p>A jeśli sobie przypomniałeś..</p>
+								<button
+									type='button'
+									onClick={() => {
+										setPasswordReset(false);
+										scrollToTop();
+									}}>
+									Powrót
+								</button>
+							</div>
+						</>
 					) : (
 						<>
 							<LoginForm

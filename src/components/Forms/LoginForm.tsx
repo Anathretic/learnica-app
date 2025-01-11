@@ -2,9 +2,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
+import { loginFormInputsConfig } from './inputsConfig/inputsConfig';
 import { LoginComponentModel, LoginFormModel } from '../../models/loginAndRegisterForm.model';
 import { loginSchema } from '../../schemas/schemas';
-import { loginFormInputsConfig } from './inputsConfig/inputsConfig';
 
 export const LoginForm: React.FC<LoginComponentModel> = ({ setPasswordReset, navigate, isLoading, setIsLoading }) => {
 	const {

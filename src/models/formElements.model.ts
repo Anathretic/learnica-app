@@ -2,9 +2,9 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { FieldError, FieldErrorsImpl, Merge, UseFormRegister } from 'react-hook-form';
 import { ContactFormModel } from './contactForm.model';
 import { LoginFormModel, RegisterFormModel } from './loginAndRegisterForm.model';
-import { ChangePasswordModel } from './userOptions.model';
+import { ChangePasswordFormModel } from './userOptions.model';
 
-type Form = ContactFormModel | LoginFormModel | RegisterFormModel | ChangePasswordModel;
+type Form = ContactFormModel | LoginFormModel | RegisterFormModel | ChangePasswordFormModel;
 type ErrorMessage = string | FieldError | Merge<FieldError, FieldErrorsImpl<Form>> | undefined;
 export interface InputAndTextareaModel {
 	label: string;
