@@ -1,7 +1,7 @@
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { ContactFormModel } from '../../../models/contactForm.model';
 import { LoginFormModel, RegisterFormModel } from '../../../models/loginAndRegisterForm.model';
-import { ChangePasswordModel } from '../../../models/userOptions.model';
+import { ChangePasswordFormModel } from '../../../models/userOptions.model';
 
 export const contactFormInputsConfig = (errors: FieldErrors, register: UseFormRegister<ContactFormModel>) => [
 	{
@@ -102,7 +102,7 @@ export const registerFormInputsConfig = (errors: FieldErrors, register: UseFormR
 	},
 ];
 
-export const changePasswordInputsConfig = (errors: FieldErrors, register: UseFormRegister<ChangePasswordModel>) => [
+export const changePasswordInputsConfig = (errors: FieldErrors, register: UseFormRegister<ChangePasswordFormModel>) => [
 	{
 		label: 'Hasło:',
 		inputName: 'password',

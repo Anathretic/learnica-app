@@ -5,7 +5,7 @@ export interface ChangePasswordComponentModel {
 	setButtonText: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export interface ChangePasswordModel {
+export interface ChangePasswordFormModel {
 	password: string;
 	confirmPassword: string;
 }

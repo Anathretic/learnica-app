@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { FaRegCopyright, FaFacebookSquare, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import { scrollToTop } from '../../utils/scrollToTopUtils';
+import { footerMoreItems, footerOfferItems, footerTeamItems } from './footerItems/footerItems';
 
 export const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
@@ -30,66 +30,37 @@ export const Footer: React.FC = () => {
 				<div className='footer__box'>
 					<h3>Oferta</h3>
 					<ul>
-						<li>
-							<Link to='/jezyk-polski' onClick={scrollToTop}>
-								Język polski
-							</Link>
-						</li>
-						<li>
-							<Link to='/jezyk-angielski' onClick={scrollToTop}>
-								Język angielski
-							</Link>
-						</li>
-						<li>
-							<Link to='/matematyka' onClick={scrollToTop}>
-								Matematyka
-							</Link>
-						</li>
-						<li>
-							<Link to='/tlumaczenia' onClick={scrollToTop}>
-								Tłumaczenia
-							</Link>
-						</li>
+						{footerOfferItems.map((item, id) => (
+							<li key={id}>
+								<Link to={item.to} onClick={item.onClick}>
+									{item.content}
+								</Link>
+							</li>
+						))}
 					</ul>
 				</div>
 				<div className='footer__box'>
 					<h3>Zespół</h3>
 					<ul>
-						<li>
-							<Link to='/o-nas' onClick={scrollToTop}>
-								O nas
-							</Link>
-						</li>
-						<li>
-							<Link to='/program-nauczania' onClick={scrollToTop}>
-								Program nauczania
-							</Link>
-						</li>
-						<li>
-							<Link to='/lektorzy' onClick={scrollToTop}>
-								Lektorzy
-							</Link>
-						</li>
+						{footerTeamItems.map((item, id) => (
+							<li key={id}>
+								<Link to={item.to} onClick={item.onClick}>
+									{item.content}
+								</Link>
+							</li>
+						))}
 					</ul>
 				</div>
 				<div className='footer__box'>
 					<h3>Więcej</h3>
 					<ul>
-						<li>
-							<Link to='/logowanie' onClick={scrollToTop}>
-								Logowanie
-							</Link>
-						</li>
-						<li>
-							<Link to='/rejestracja' onClick={scrollToTop}>
-								Rejestracja
-							</Link>
-						</li>
-						<li>
-							<Link to='/polityka-prywatnosci' onClick={scrollToTop}>
-								Polityka prywatności
-							</Link>
-						</li>
+						{footerMoreItems.map((item, id) => (
+							<li key={id}>
+								<Link to={item.to} onClick={item.onClick}>
+									{item.content}
+								</Link>
+							</li>
+						))}
 					</ul>
 				</div>
 			</div>

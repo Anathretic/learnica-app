@@ -33,7 +33,6 @@ export interface ResetPasswordComponentModel {
 	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 	buttonText: string;
 	setButtonText: React.Dispatch<React.SetStateAction<string>>;
-	setPasswordReset: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface ResetPasswordFormModel {

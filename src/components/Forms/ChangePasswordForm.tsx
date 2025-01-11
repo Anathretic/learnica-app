@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { changePasswordInputsConfig } from './inputsConfig/inputsConfig';
-import { ChangePasswordComponentModel, ChangePasswordModel } from '../../models/userOptions.model';
+import { ChangePasswordComponentModel, ChangePasswordFormModel } from '../../models/userOptions.model';
 import { changePasswordSchema } from '../../schemas/schemas';
 
 export const ChangePasswordForm: React.FC<ChangePasswordComponentModel> = ({
@@ -17,7 +17,7 @@ export const ChangePasswordForm: React.FC<ChangePasswordComponentModel> = ({
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<ChangePasswordModel>({
+	} = useForm<ChangePasswordFormModel>({
 		defaultValues: {
 			password: '',
 			confirmPassword: '',
@@ -27,7 +27,7 @@ export const ChangePasswordForm: React.FC<ChangePasswordComponentModel> = ({
 
 	const changePasswordInputs = changePasswordInputsConfig(errors, register);
 
-	const onSubmit: SubmitHandler<ChangePasswordModel> = async ({ password }) => {
+	const onSubmit: SubmitHandler<ChangePasswordFormModel> = async ({ password }) => {
 		setIsLoading(true);
 
 		const { error } = await supabase.auth.updateUser({
