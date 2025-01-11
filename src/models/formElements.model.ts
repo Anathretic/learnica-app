@@ -1,5 +1,5 @@
 import ReCAPTCHA from 'react-google-recaptcha';
-import { FieldError, FieldErrorsImpl, Merge, UseFormRegister } from 'react-hook-form';
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 import { ContactFormModel } from './contactForm.model';
 import { LoginFormModel, RegisterFormModel } from './loginAndRegisterForm.model';
 import { ChangePasswordFormModel } from './userOptions.model';
@@ -14,15 +14,6 @@ export interface InputAndTextareaModel {
 	placeholder?: string;
 	value?: string;
 	readOnly?: boolean;
-}
-
-export interface InputConfigModel {
-	label: string;
-	inputName: string;
-	placeholder: string;
-	errorMessage: string | undefined;
-	isInvalid: boolean;
-	register: ReturnType<UseFormRegister<Form>>;
 }
 
 export interface SubmitButtonModel {
