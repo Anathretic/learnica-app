@@ -1,50 +1,20 @@
-# React + TypeScript + Vite
+# Learnica
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
 
-Currently, two official plugins are available:
+It is a dedicated educational platform that will allow teachers to share homework assignments, chat and (in the future) conduct online lessons with their students. The application will allow the creation of a teacher or student account and will include all the necessary tools that will be put in the hands of the user. I plan to divide the production of the app into several stages:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Create the entire frontend based on a mock-up and handle the core functions using appropriately configured tables in _Supabase_ - **in progress**,
+2. Create a complete database in _PostgreSQL_ that can replace a supabase and be much more efficient - **not started**,
+3. Create a complete backend in _Python_ based on microservices so that the frontend, backend and database can be connected - **not started**,
+4. Combine all components and disconnect Supabase - **not started**.
 
-## Expanding the ESLint configuration
+## Links & Tools
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+**Frontend:** HTML, SCSS (CSS preprocessor), React (incl. React-Hook-Form, Redux), TypeScript, GraphQL, Apollo Client, Vite, Cypress, Yup
 
-- Configure the top-level `parserOptions` property like this:
+**Backend:** Python, Django REST
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+**Database:** Supabase (first phase), PostgreSQL (final phase)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+_The application will be developed in an MVP model_
