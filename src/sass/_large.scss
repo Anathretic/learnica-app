@@ -1,7 +1,7 @@
 @use 'globals';
 
 @media screen and (min-width: 990px) {
-	.header {
+	.navbar {
 		&__container {
 			padding: 0.5rem 0;
 		}
@@ -13,9 +13,7 @@
 		&__title-text {
 			padding: 0;
 		}
-	}
 
-	.navbar {
 		&__desktop-list {
 			font-size: 1.125rem;
 		}
@@ -32,6 +30,13 @@
 }
 
 @media screen and (min-width: 1024px) {
+	.navbar {
+		&__item-link:hover,
+		&__login-icon-link:hover {
+			color: globals.$gray-btn-hover-color;
+		}
+	}
+
 	.contact {
 		&__title {
 			font-size: 3rem;
@@ -58,6 +63,11 @@
 				color: globals.$white-color;
 				background-color: globals.$gray-btn-hover-color;
 			}
+		}
+
+		&__close-button:hover {
+			color: globals.$gray-btn-hover-color;
+			text-shadow: 0 0 0.3em currentColor;
 		}
 	}
 
@@ -119,7 +129,7 @@
 	}
 
 	.contact {
-		padding-top: 200px;
+		padding-top: 70px;
 
 		&__container {
 			align-items: start;
@@ -142,14 +152,6 @@
 }
 
 @media screen and (min-width: 1536px) {
-	.header {
-		&__container {
-			width: 95%;
-			border-bottom-right-radius: 75px;
-			border-bottom-left-radius: 75px;
-		}
-	}
-
 	.navbar {
 		&__login-icon {
 			margin: 5px 2rem 0;
