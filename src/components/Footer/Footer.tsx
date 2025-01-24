@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import { FaRegCopyright, FaFacebookSquare, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { footerMoreItems, footerOfferItems, footerTeamItems } from './footerItems/footerItems';
+import { FaRegCopyright, FaFacebookSquare, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 export const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
