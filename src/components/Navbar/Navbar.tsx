@@ -31,7 +31,7 @@ export const Navbar: React.FC = () => {
 	};
 
 	const handleScroll = () => {
-		if (window.scrollY > 80) {
+		if (window.scrollY > 30) {
 			setIsScrolled(true);
 		} else {
 			setIsScrolled(false);

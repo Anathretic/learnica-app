@@ -148,6 +148,55 @@ body {
 	}
 }
 
+.welcome {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	width: 100%;
+	background-image: url('../images/welcome-section/welcome-image.jpg');
+	background-size: cover;
+	background-position: center;
+
+	&__text-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+
+		h1 {
+			font-size: 5rem;
+			font-family: globals.$special-font;
+		}
+
+		p {
+			padding-bottom: 2em;
+		}
+	}
+
+	&__text-container-icon {
+		display: none;
+	}
+
+	&__image-container {
+		display: none;
+	}
+
+	&__btn-box {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+
+		a {
+			@include mixins.button;
+			text-decoration: none;
+		}
+	}
+}
+
 .contact {
 	padding-top: 30px;
 	width: 100%;
