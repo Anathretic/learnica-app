@@ -149,6 +149,7 @@ body {
 }
 
 .welcome {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -194,6 +195,10 @@ body {
 			@include mixins.button;
 			text-decoration: none;
 		}
+	}
+
+	&__icon-container {
+		display: none;
 	}
 }
 

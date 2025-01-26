@@ -2,10 +2,6 @@
 
 @media screen and (min-width: 990px) {
 	.navbar {
-		&__container {
-			padding: 0.5rem 0;
-		}
-
 		&__title-box {
 			margin: 0 0.5rem;
 		}
@@ -182,6 +178,12 @@
 }
 
 @media screen and (min-width: 1358px) {
+	.navbar {
+		&__container {
+			padding: 0 6rem;
+		}
+	}
+
 	.login,
 	.register,
 	.change-password {
@@ -213,6 +215,10 @@
 
 @media screen and (min-width: 1536px) {
 	.navbar {
+		&__container {
+			padding: 0 8rem;
+		}
+
 		&__login-icon {
 			margin: 5px 2rem 0;
 		}
@@ -259,6 +265,11 @@
 				right: 0.75em;
 			}
 		}
+
+		&__icon-container {
+			bottom: 2em;
+			left: 50%;
+		}
 	}
 
 	.login,
@@ -270,6 +281,15 @@
 	.footer {
 		&__box:nth-of-type(4) {
 			display: block;
+		}
+	}
+}
+
+@media screen and (min-width: 1920px) {
+	.navbar {
+		&__container {
+			max-width: 2160px;
+			padding: 0 14rem;
 		}
 	}
 }

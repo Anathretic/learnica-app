@@ -1,7 +1,8 @@
 @media screen and (min-width: 768px) {
 	.navbar {
 		&__container {
-			justify-content: space-around;
+			padding: 0 2.5rem;
+			justify-content: space-between;
 		}
 
 		&__desktop {
@@ -27,7 +28,6 @@
 			margin-top: 5px;
 		}
 	}
-	
 
 	.login,
 	.register,
@@ -53,6 +53,16 @@
 			h1 {
 				font-size: 7rem;
 			}
+		}
+
+		&__icon-container {
+			position: absolute;
+			display: block;
+			bottom: 1em;
+			left: 50%;
+			transform: translateX(-50%);
+			padding: 0.25em;
+			animation: bounce 2s infinite;
 		}
 	}
 }
