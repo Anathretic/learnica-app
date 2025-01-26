@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { scrollToTop } from '../utils/scrollToTopUtils';
 import { FaBook, FaPencilAlt, FaPenFancy } from 'react-icons/fa';
+import { SlArrowDown } from 'react-icons/sl';
 
 const Welcome: React.FC = () => {
 	return (
@@ -20,6 +22,11 @@ const Welcome: React.FC = () => {
 				<FaPencilAlt className='welcome__text-container-icon welcome__text-container-icon--fifth' fontSize={80} />
 			</div>
 			<div className='welcome__image-container'></div>
+			<div className='welcome__icon-container'>
+				<HashLink smooth to='/#idea' className='welcome__arrow-icon'>
+					<SlArrowDown fontSize={60} color='#f0f0f0' />
+				</HashLink>
+			</div>
 		</section>
 	);
 };
