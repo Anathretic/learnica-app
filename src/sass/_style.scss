@@ -150,9 +150,7 @@ body {
 
 .welcome {
 	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include mixins.flex;
 	min-height: 100vh;
 	width: 100%;
 	background-image: url('../images/welcome-section/welcome-image.jpg');
@@ -160,9 +158,7 @@ body {
 	background-position: center;
 
 	&__text-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include mixins.flex;
 		flex-direction: column;
 		width: 100%;
 
@@ -185,9 +181,7 @@ body {
 	}
 
 	&__btn-box {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include mixins.flex;
 		flex-direction: column;
 		width: 100%;
 
@@ -223,6 +217,7 @@ body {
 	}
 
 	&__title-box {
+		position: relative;
 		@include mixins.flex;
 		flex-direction: column;
 		padding-bottom: 2.5rem;
@@ -230,9 +225,7 @@ body {
 	}
 
 	&__title-info-box {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include mixins.flex;
 		padding: 1rem 1rem;
 		width: 90%;
 		max-width: 400px;
@@ -244,6 +237,10 @@ body {
 		p {
 			padding: 0.5rem 0;
 		}
+	}
+
+	&__title-icon {
+		display: none;
 	}
 
 	&__form {
@@ -317,9 +314,7 @@ body {
 }
 
 .form {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include mixins.flex;
 	flex-direction: column;
 	width: 100%;
 
@@ -351,21 +346,6 @@ body {
 		box-shadow: inset 0 0 0.25em globals.$white-color, 0 0 0.25em globals.$white-color;
 		font-family: globals.$main-font;
 		transition: border 0.3s, box-shadow 0.3s;
-
-		&:focus {
-			border-color: globals.$white-color;
-			outline: globals.$white-color;
-		}
-
-		&::placeholder {
-			color: globals.$placeholder-color;
-			opacity: 1;
-		}
-
-		&[aria-invalid='true'] {
-			border: 1px solid globals.$error-color;
-			box-shadow: inset 0 0 0.25em globals.$error-color, 0 0 0.25em globals.$error-color;
-		}
 	}
 
 	&__password-reset-box {
@@ -400,7 +380,10 @@ body {
 		font-family: globals.$main-font;
 		transition: border 0.3s, box-shadow 0.3s;
 		resize: vertical;
+	}
 
+	&__input,
+	&__textarea {
 		&:focus {
 			border-color: globals.$white-color;
 			outline: globals.$white-color;

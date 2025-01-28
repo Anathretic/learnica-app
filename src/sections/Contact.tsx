@@ -3,6 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { ContactForm } from '../components/Forms/ContactForm';
 import { useSubmitFormButton } from '../hooks/useSubmitFormButton';
+import { FaPaperPlane } from 'react-icons/fa';
 
 const initialSubmitButtonState = 'Wyślij';
 
@@ -30,6 +31,11 @@ const Contact: React.FC = () => {
 							<p>1234567890</p>
 						</div>
 					</div>
+					<FaPaperPlane className='contact__title-icon contact__title-icon--first' fontSize={80} />
+					<FaPaperPlane className='contact__title-icon contact__title-icon--second' fontSize={76} />
+					<FaPaperPlane className='contact__title-icon contact__title-icon--third' fontSize={72} />
+					<FaPaperPlane className='contact__title-icon contact__title-icon--fourth' fontSize={66} />
+					<FaPaperPlane className='contact__title-icon contact__title-icon--fifth' fontSize={82} />
 				</div>
 				<ContactForm
 					isLoading={isLoading}
