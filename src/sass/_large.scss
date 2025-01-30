@@ -220,26 +220,31 @@
 			&--first {
 				bottom: -1.5em;
 				left: 2em;
+				animation: icon-bounce 5s infinite;
 			}
 
 			&--second {
 				bottom: -3.25em;
 				left: 6.35em;
+				animation: icon-bounce 2s infinite;
 			}
 
 			&--third {
 				bottom: -5.75em;
 				left: 1em;
+				animation: icon-bounce 3s infinite;
 			}
 
 			&--fourth {
 				bottom: -4.2em;
 				left: 4em;
+				animation: icon-bounce 3.5s infinite;
 			}
 
 			&--fifth {
 				bottom: -5.5em;
 				left: 4em;
+				animation: icon-bounce 4s infinite;
 			}
 		}
 
