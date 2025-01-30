@@ -20,9 +20,15 @@
 	}
 }
 
-@keyframes bounce {
+@keyframes arrow-bounce {
 	65% {
 		bottom: 5em;
+	}
+}
+
+@keyframes icon-bounce {
+	65% {
+		transform: translateY(0.2em);
 	}
 }
 
