@@ -1,12 +1,16 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
+import { useAppDispatch } from '../../hooks/reduxHooks';
+import { setButtonText, setIsLoading, setPasswordReset } from '../../redux/formReduxSlice/FormSlice';
 import { loginFormInputsConfig } from './inputsConfig/inputsConfig';
-import { LoginComponentModel, LoginFormModel } from '../../models/loginAndRegisterForm.model';
+import { LoginFormModel } from '../../models/loginAndRegisterForm.model';
 import { loginSchema } from '../../schemas/schemas';
 
-export const LoginForm: React.FC<LoginComponentModel> = ({ setPasswordReset, navigate, isLoading, setIsLoading }) => {
+export const LoginForm: React.FC = () => {
 	const {
 		register,
 		handleSubmit,
@@ -20,10 +24,12 @@ export const LoginForm: React.FC<LoginComponentModel> = ({ setPasswordReset, nav
 		resolver: yupResolver(loginSchema),
 	});
 
+	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
 	const loginFormInputs = loginFormInputsConfig(errors, register);
 
 	const onSubmit: SubmitHandler<LoginFormModel> = async ({ email, password }) => {
-		setIsLoading(true);
+		dispatch(setIsLoading(true));
 
 		const { error } = await supabase.auth.signInWithPassword({
 			email,
@@ -32,12 +38,17 @@ export const LoginForm: React.FC<LoginComponentModel> = ({ setPasswordReset, nav
 
 		if (!error) {
 			reset();
-			setIsLoading(false);
+			dispatch(setIsLoading(false));
 			navigate('/panel-uzytkownika');
 		} else {
+			dispatch(setIsLoading(false));
 			console.log(error);
 		}
 	};
+
+	useEffect(() => {
+		dispatch(setButtonText('Zaloguj się'));
+	}, []);
 
 	return (
 		<form className='form' onSubmit={handleSubmit(onSubmit)}>
@@ -54,11 +65,11 @@ export const LoginForm: React.FC<LoginComponentModel> = ({ setPasswordReset, nav
 				/>
 			))}
 			<div className='form__password-reset-box'>
-				<button className='form__password-reset-btn' type='button' onClick={() => setPasswordReset(true)}>
+				<button className='form__password-reset-btn' type='button' onClick={() => dispatch(setPasswordReset(true))}>
 					Nie pamiętasz hasła?
 				</button>
 			</div>
-			<FormSubmit isLoading={isLoading} buttonText='Zaloguj się' />
+			<FormSubmit />
 		</form>
 	);
 };

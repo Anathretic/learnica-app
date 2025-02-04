@@ -8,7 +8,16 @@
 	}
 }
 
-@media screen and (max-width: 399px) {
+@media screen and (max-width: 350px) {
+	.form {
+		&__password-reset-btn {
+			bottom: 5px;
+			right: 5px;
+		}
+	}
+}
+
+@media screen and (min-width: 351px) and (max-width: 399px) {
 	.form {
 		&__password-reset-btn {
 			bottom: 5px;

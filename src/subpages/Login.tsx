@@ -1,19 +1,16 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { LoginForm } from '../components/Forms/LoginForm';
 import { ResetPasswordForm } from '../components/Forms/ResetPasswordForm';
-import { useSubmitFormButton } from '../hooks/useSubmitFormButton';
+import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
+import { getFormInitialValues, setPasswordReset } from '../redux/formReduxSlice/FormSlice';
 import { scrollToTop } from '../utils/scrollToTopUtils';
 
-const initialSubmitButtonState = 'Wyślij';
-
 const Login: React.FC = () => {
-	const [passwordReset, setPasswordReset] = useState(false);
-	const [isLoading, setIsLoading] = useState(false);
-	const [buttonText, setButtonText] = useSubmitFormButton({ initialSubmitButtonState });
 	const { checkSessionStatus } = useCheckSessionStatus();
-	const navigate = useNavigate();
+	const { passwordReset } = useAppSelector(getFormInitialValues);
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		checkSessionStatus();
@@ -30,19 +27,14 @@ const Login: React.FC = () => {
 				<>
 					{passwordReset ? (
 						<>
-							<ResetPasswordForm
-								isLoading={isLoading}
-								setIsLoading={setIsLoading}
-								buttonText={buttonText}
-								setButtonText={setButtonText}
-							/>
+							<ResetPasswordForm />
 							<hr className='login__strap' />
 							<div className='login__form-toggle'>
 								<p>A jeśli sobie przypomniałeś..</p>
 								<button
 									type='button'
 									onClick={() => {
-										setPasswordReset(false);
+										dispatch(setPasswordReset(false));
 										scrollToTop();
 									}}>
 									Powrót
@@ -51,12 +43,7 @@ const Login: React.FC = () => {
 						</>
 					) : (
 						<>
-							<LoginForm
-								setPasswordReset={setPasswordReset}
-								navigate={navigate}
-								isLoading={isLoading}
-								setIsLoading={setIsLoading}
-							/>
+							<LoginForm />
 							<hr className='login__strap' />
 							<div className='login__form-toggle'>
 								<p>Nie masz jeszcze konta?</p>

@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { InputAndTextareaModel, SubmitButtonModel, ReCaptchaV2Model } from '../../../models/formElements.model';
+import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
+import { getFormInitialValues, setButtonText } from '../../../redux/formReduxSlice/FormSlice';
+import { InputAndTextareaModel, ReCaptchaV2Model } from '../../../models/formElements.model';
 import { Loader } from '../../Loader';
 
 export const InputElement: React.FC<InputAndTextareaModel> = React.forwardRef<HTMLInputElement, InputAndTextareaModel>(
@@ -48,15 +51,10 @@ export const TextareaElement: React.FC<InputAndTextareaModel> = React.forwardRef
 	);
 });
 
-export const FormSubmit: React.FC<SubmitButtonModel> = ({ isLoading, buttonText }) => {
-	return (
-		<div className='form__box'>
-			{isLoading ? <Loader className='loader' /> : <input className='form__submit' type='submit' value={buttonText} />}
-		</div>
-	);
-};
+export const ReCaptchaV2Component: React.FC<ReCaptchaV2Model> = ({ refCaptcha }) => {
+	const { errorValue } = useAppSelector(getFormInitialValues);
+	const isMobile = useMediaQuery({ query: '(max-width: 499px)' });
 
-export const ReCaptchaV2Component: React.FC<ReCaptchaV2Model> = ({ isMobile, refCaptcha, errorValue }) => {
 	return (
 		<div className='form__recaptcha-box'>
 			<ReCAPTCHA
@@ -68,6 +66,29 @@ export const ReCaptchaV2Component: React.FC<ReCaptchaV2Model> = ({ isMobile, ref
 			<div className='form__recaptcha-error'>
 				<p>{errorValue}</p>
 			</div>
+		</div>
+	);
+};
+
+export const FormSubmit: React.FC = () => {
+	const { isLoading, buttonText } = useAppSelector(getFormInitialValues);
+	const dispatch = useAppDispatch();
+
+	const checkButtonValue = () => {
+		if (buttonText === 'Zaloguj się' || buttonText === 'Zarejestruj się') {
+			return;
+		} else if (buttonText !== 'Wyślij') {
+			setTimeout(() => {
+				dispatch(setButtonText('Wyślij'));
+			}, 2500);
+		}
+	};
+
+	useEffect(checkButtonValue, [buttonText]);
+
+	return (
+		<div className='form__box'>
+			{isLoading ? <Loader className='loader' /> : <input className='form__submit' type='submit' value={buttonText} />}
 		</div>
 	);
 };

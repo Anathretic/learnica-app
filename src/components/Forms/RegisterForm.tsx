@@ -1,17 +1,17 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
+import { useRegisterOptions } from '../../hooks/useRegisterOptions';
+import { useAppDispatch } from '../../hooks/reduxHooks';
+import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/FormSlice';
 import { registerFormInputsConfig } from './inputsConfig/inputsConfig';
-import { RegisterComponentModel, RegisterFormModel } from '../../models/loginAndRegisterForm.model';
+import { RegisterFormModel } from '../../models/loginAndRegisterForm.model';
 import { registerSchema } from '../../schemas/schemas';
 
-export const RegisterForm: React.FC<RegisterComponentModel> = ({
-	isEmailExisting,
-	navigate,
-	isLoading,
-	setIsLoading,
-}) => {
+export const RegisterForm: React.FC = () => {
 	const {
 		register,
 		handleSubmit,
@@ -29,15 +29,18 @@ export const RegisterForm: React.FC<RegisterComponentModel> = ({
 		resolver: yupResolver(registerSchema),
 	});
 
+	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
+	const { isEmailExisting } = useRegisterOptions();
 	const registerFormInputs = registerFormInputsConfig(errors, register);
 
 	const onSubmit: SubmitHandler<RegisterFormModel> = async ({ firstname, lastname, email, phone, password }) => {
-		setIsLoading(true);
+		dispatch(setIsLoading(true));
 
 		const emailExists = await isEmailExisting(email);
 
 		if (emailExists) {
-			setIsLoading(false);
+			dispatch(setIsLoading(false));
 			console.log('Ten adres e-mail już istnieje!');
 		} else {
 			const { error } = await supabase.auth.signUp({
@@ -54,13 +57,17 @@ export const RegisterForm: React.FC<RegisterComponentModel> = ({
 
 			if (!error) {
 				reset();
-				setIsLoading(false);
+				dispatch(setIsLoading(false));
 				navigate('/');
 			} else {
 				console.log(error);
 			}
 		}
 	};
+
+	useEffect(() => {
+		dispatch(setButtonText('Zarejestruj się'));
+	}, []);
 
 	return (
 		<form className='form' onSubmit={handleSubmit(onSubmit)}>
@@ -76,7 +83,7 @@ export const RegisterForm: React.FC<RegisterComponentModel> = ({
 					{...input.register}
 				/>
 			))}
-			<FormSubmit isLoading={isLoading} buttonText='Zarejestruj się' />
+			<FormSubmit />
 		</form>
 	);
 };
