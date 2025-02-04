@@ -16,21 +16,10 @@ export interface InputAndTextareaModel {
 	readOnly?: boolean;
 }
 
-export interface SubmitButtonModel {
-	isLoading: boolean;
-	buttonText: string;
-}
-
-export interface SubmitButtonHookModel {
-	initialSubmitButtonState: string;
-}
-
 export interface LoaderModel {
 	className: string;
 }
 
 export interface ReCaptchaV2Model {
-	isMobile: boolean;
 	refCaptcha: React.RefObject<ReCAPTCHA>;
-	errorValue: string;
 }

@@ -1,19 +1,7 @@
-import { useState, useRef } from 'react';
-import { useMediaQuery } from 'react-responsive';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { ContactForm } from '../components/Forms/ContactForm';
-import { useSubmitFormButton } from '../hooks/useSubmitFormButton';
 import { FaPaperPlane } from 'react-icons/fa';
 
-const initialSubmitButtonState = 'Wyślij';
-
 const Contact: React.FC = () => {
-	const [isLoading, setIsLoading] = useState(false);
-	const [errorValue, setErrorValue] = useState('');
-	const [buttonText, setButtonText] = useSubmitFormButton({ initialSubmitButtonState });
-	const refCaptcha = useRef<ReCAPTCHA>(null);
-	const isMobile = useMediaQuery({ query: '(max-width: 499px)' });
-
 	return (
 		<section className='contact' id='kontakt'>
 			<div className='contact__container'>
@@ -37,16 +25,7 @@ const Contact: React.FC = () => {
 					<FaPaperPlane className='contact__title-icon contact__title-icon--fourth' fontSize={66} />
 					<FaPaperPlane className='contact__title-icon contact__title-icon--fifth' fontSize={82} />
 				</div>
-				<ContactForm
-					isLoading={isLoading}
-					setIsLoading={setIsLoading}
-					errorValue={errorValue}
-					setErrorValue={setErrorValue}
-					buttonText={buttonText}
-					setButtonText={setButtonText}
-					isMobile={isMobile}
-					refCaptcha={refCaptcha}
-				/>
+				<ContactForm />
 			</div>
 		</section>
 	);

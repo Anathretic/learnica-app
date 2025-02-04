@@ -1,21 +1,16 @@
+import { useEffect, useRef } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { yupResolver } from '@hookform/resolvers/yup';
 import emailjs from '@emailjs/browser';
 import { FormSubmit, InputElement, ReCaptchaV2Component, TextareaElement } from './components/FormElements';
 import { contactFormInputsConfig } from './inputsConfig/inputsConfig';
+import { useAppDispatch } from '../../hooks/reduxHooks';
+import { setButtonText, setErrorValue, setIsLoading } from '../../redux/formReduxSlice/FormSlice';
 import { contactSchema } from '../../schemas/schemas';
-import { ContactComponentModel, ContactFormModel } from '../../models/contactForm.model';
+import { ContactFormModel } from '../../models/contactForm.model';
 
-export const ContactForm: React.FC<ContactComponentModel> = ({
-	isLoading,
-	setIsLoading,
-	errorValue,
-	setErrorValue,
-	buttonText,
-	setButtonText,
-	isMobile,
-	refCaptcha,
-}) => {
+export const ContactForm: React.FC = () => {
 	const {
 		register,
 		handleSubmit,
@@ -30,11 +25,13 @@ export const ContactForm: React.FC<ContactComponentModel> = ({
 		resolver: yupResolver(contactSchema),
 	});
 
+	const dispatch = useAppDispatch();
+	const refCaptcha = useRef<ReCAPTCHA>(null);
 	const contactFormInputs = contactFormInputsConfig(errors, register);
 
 	const onSubmit: SubmitHandler<ContactFormModel> = async ({ name, email, message }) => {
-		setIsLoading(true);
-		setErrorValue('');
+		dispatch(setIsLoading(true));
+		dispatch(setErrorValue(''));
 
 		const token = refCaptcha.current?.getValue();
 		refCaptcha.current?.reset();
@@ -56,22 +53,26 @@ export const ContactForm: React.FC<ContactComponentModel> = ({
 				)
 				.then(() => {
 					reset();
-					setButtonText('Wysłane!');
+					dispatch(setButtonText('Wysłane!'));
 				})
 				.catch(err => {
-					setErrorValue('Coś poszło nie tak..');
+					dispatch(setErrorValue('Coś poszło nie tak..'));
 					if (err instanceof Error) {
 						console.log(`Twój błąd: ${err.message}`);
 					}
 				})
 				.finally(() => {
-					setIsLoading(false);
+					dispatch(setIsLoading(false));
 				});
 		} else {
-			setIsLoading(false);
-			setErrorValue('Nie bądź 🤖!');
+			dispatch(setIsLoading(false));
+			dispatch(setErrorValue('Nie bądź 🤖!'));
 		}
 	};
+
+	useEffect(() => {
+		dispatch(setButtonText('Wyślij'));
+	}, []);
 
 	return (
 		<form className='contact__form' onSubmit={handleSubmit(onSubmit)}>
@@ -95,8 +96,8 @@ export const ContactForm: React.FC<ContactComponentModel> = ({
 				aria-invalid={errors.message ? true : false}
 				{...register('message')}
 			/>
-			<ReCaptchaV2Component isMobile={isMobile} refCaptcha={refCaptcha} errorValue={errorValue} />
-			<FormSubmit isLoading={isLoading} buttonText={buttonText} />
+			<ReCaptchaV2Component refCaptcha={refCaptcha} />
+			<FormSubmit />
 		</form>
 	);
 };

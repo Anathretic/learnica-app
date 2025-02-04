@@ -1,16 +1,14 @@
+import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
-import { ResetPasswordComponentModel, ResetPasswordFormModel } from '../../models/loginAndRegisterForm.model';
+import { useAppDispatch } from '../../hooks/reduxHooks';
+import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/FormSlice';
+import { ResetPasswordFormModel } from '../../models/loginAndRegisterForm.model';
 import { resetPasswordSchema } from '../../schemas/schemas';
 
-export const ResetPasswordForm: React.FC<ResetPasswordComponentModel> = ({
-	isLoading,
-	setIsLoading,
-	buttonText,
-	setButtonText,
-}) => {
+export const ResetPasswordForm: React.FC = () => {
 	const {
 		register,
 		handleSubmit,
@@ -23,8 +21,10 @@ export const ResetPasswordForm: React.FC<ResetPasswordComponentModel> = ({
 		resolver: yupResolver(resetPasswordSchema),
 	});
 
+	const dispatch = useAppDispatch();
+
 	const onSubmit: SubmitHandler<ResetPasswordFormModel> = async ({ email }) => {
-		setIsLoading(true);
+		dispatch(setIsLoading(true));
 
 		const { error } = await supabase.auth.resetPasswordForEmail(email, {
 			redirectTo: `${import.meta.env.VITE_RESET_PASSWORD_URL}`,
@@ -32,12 +32,16 @@ export const ResetPasswordForm: React.FC<ResetPasswordComponentModel> = ({
 
 		if (!error) {
 			reset();
-			setIsLoading(false);
-			setButtonText('Wysłane!');
+			dispatch(setIsLoading(false));
+			dispatch(setButtonText('Wysłane!'));
 		} else {
 			console.log(error);
 		}
 	};
+
+	useEffect(() => {
+		dispatch(setButtonText('Wyślij'));
+	}, []);
 
 	return (
 		<form className='form' onSubmit={handleSubmit(onSubmit)}>
@@ -54,7 +58,7 @@ export const ResetPasswordForm: React.FC<ResetPasswordComponentModel> = ({
 				aria-invalid={errors.email ? true : false}
 				{...register('email')}
 			/>
-			<FormSubmit isLoading={isLoading} buttonText={buttonText} />
+			<FormSubmit />
 		</form>
 	);
 };
