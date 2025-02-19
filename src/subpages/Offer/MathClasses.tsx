@@ -2,7 +2,7 @@ const MathClasses: React.FC = () => {
 	return (
 		<section>
 			<div>
-				<h2>Lekcje matematyki</h2>
+				<h1>Lekcje matematyki</h1>
 			</div>
 		</section>
 	);

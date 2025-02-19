@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { RegisterForm } from '../components/Forms/RegisterForm';
-import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
-import { scrollToTop } from '../utils/scrollToTopUtils';
+import { RegisterForm } from '../../../components/Forms/RegisterForm';
+import { useCheckSessionStatus } from '../../../hooks/useCheckSessionStatus';
+import { scrollToTop } from '../../../utils/scrollToTopUtils';
 
 const Register: React.FC = () => {
 	const { checkSessionStatus } = useCheckSessionStatus();
@@ -14,7 +14,7 @@ const Register: React.FC = () => {
 	return (
 		<section className='register'>
 			<div className='register__container white-gradient'>
-				<h2 className='register__title'>Rejestracja</h2>
+				<h1 className='register__title'>Rejestracja</h1>
 				<Link to='/' className='register__close-button' onClick={scrollToTop}>
 					X
 				</Link>

@@ -5,8 +5,8 @@ import { useMediaQuery } from 'react-responsive';
 import { NavbarItem } from './components/NavbarItem';
 import { LoginIcon } from './components/LoginIcon';
 import { navbarItems } from './components/navbarData/navbarItems';
-import { scrollToTop } from '../../utils/scrollToTopUtils';
 import { NavbarTitle } from './components/NavbarTitle';
+import { scrollToTop } from '../../utils/scrollToTopUtils';
 
 export const Navbar: React.FC = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);

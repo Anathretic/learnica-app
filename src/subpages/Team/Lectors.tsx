@@ -2,7 +2,7 @@ const Lectors: React.FC = () => {
 	return (
 		<section>
 			<div>
-				<h2>Lektorzy</h2>
+				<h1>Lektorzy</h1>
 			</div>
 		</section>
 	);

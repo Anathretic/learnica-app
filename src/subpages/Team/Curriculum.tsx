@@ -2,7 +2,7 @@ const Curriculum: React.FC = () => {
 	return (
 		<section>
 			<div>
-				<h2>Program nauczania</h2>
+				<h1>Program nauczania</h1>
 			</div>
 		</section>
 	);

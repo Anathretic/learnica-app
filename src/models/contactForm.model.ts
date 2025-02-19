@@ -1,5 +1,5 @@
 export interface ContactFormModel {
-	name: string;
+	firstname: string;
 	email: string;
 	message: string;
 }

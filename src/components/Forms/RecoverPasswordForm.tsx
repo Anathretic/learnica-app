@@ -1,29 +1,31 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/FormSlice';
-import { ResetPasswordFormModel } from '../../models/loginAndRegisterForm.model';
-import { resetPasswordSchema } from '../../schemas/schemas';
+import { RecoverPasswordFormModel } from '../../models/loginAndRegisterForm.model';
+import { recoverPasswordSchema } from '../../schemas/schemas';
 
-export const ResetPasswordForm: React.FC = () => {
+export const RecoverPasswordForm: React.FC = () => {
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<ResetPasswordFormModel>({
+	} = useForm<RecoverPasswordFormModel>({
 		defaultValues: {
 			email: '',
 		},
-		resolver: yupResolver(resetPasswordSchema),
+		resolver: yupResolver(recoverPasswordSchema),
 	});
 
+	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 
-	const onSubmit: SubmitHandler<ResetPasswordFormModel> = async ({ email }) => {
+	const onSubmit: SubmitHandler<RecoverPasswordFormModel> = async ({ email }) => {
 		dispatch(setIsLoading(true));
 
 		const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -34,6 +36,10 @@ export const ResetPasswordForm: React.FC = () => {
 			reset();
 			dispatch(setIsLoading(false));
 			dispatch(setButtonText('Wysłane!'));
+			setTimeout(() => {
+				dispatch(setButtonText('Wyślij!'));
+				navigate('/logowanie');
+			}, 2500);
 		} else {
 			console.log(error);
 		}

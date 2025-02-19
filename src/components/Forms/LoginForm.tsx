@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { setButtonText, setIsLoading, setPasswordReset } from '../../redux/formReduxSlice/FormSlice';
+import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/FormSlice';
 import { loginFormInputsConfig } from './inputsConfig/inputsConfig';
 import { LoginFormModel } from '../../models/loginAndRegisterForm.model';
 import { loginSchema } from '../../schemas/schemas';
+import { scrollToTop } from '../../utils/scrollToTopUtils';
 
 export const LoginForm: React.FC = () => {
 	const {
@@ -64,10 +65,10 @@ export const LoginForm: React.FC = () => {
 					{...input.register}
 				/>
 			))}
-			<div className='form__password-reset-box'>
-				<button className='form__password-reset-btn' type='button' onClick={() => dispatch(setPasswordReset(true))}>
+			<div className='form__password-recover-box'>
+				<Link to='/odzyskiwanie-hasla' className='form__password-recover-btn' onClick={scrollToTop}>
 					Nie pamiętasz hasła?
-				</button>
+				</Link>
 			</div>
 			<FormSubmit />
 		</form>

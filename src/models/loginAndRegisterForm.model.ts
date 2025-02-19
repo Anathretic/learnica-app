@@ -12,6 +12,6 @@ export interface LoginFormModel {
 	password: string;
 }
 
-export interface ResetPasswordFormModel {
+export interface RecoverPasswordFormModel {
 	email: string;
 }

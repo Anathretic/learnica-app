@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { client } from '../apollo/apolloClient';
-import { supabase } from '../supabase/supabase';
-import { userDataGraph } from '../graphql/userdataGraph';
-import { useCheckSessionStatus } from '../hooks/useCheckSessionStatus';
-import { UserDataModel } from '../models/userData.model';
+import { client } from '../../apollo/apolloClient';
+import { supabase } from '../../supabase/supabase';
+import { userDataGraph } from '../../graphql/userdataGraph';
+import { useCheckSessionStatus } from '../../hooks/useCheckSessionStatus';
+import { UserDataModel } from '../../models/userData.model';
 
 const UserPanel: React.FC = () => {
 	const navigate = useNavigate();
@@ -35,16 +35,14 @@ const UserPanel: React.FC = () => {
 
 	return (
 		<section>
-			<h2>Panel użytkownika</h2>
+			<h1>Panel użytkownika</h1>
 			{!error ? (
 				!loading ? (
 					<>
 						{data.userdataCollection.edges.length === 0 && (
-							<>
-								<div>
-									<p>Ups! Najwidoczniej musimy jeszcze uzupełnić Twoją bazę danych! Daj nam chwilę..</p>
-								</div>
-							</>
+							<div>
+								<p>Ups! Najwidoczniej musimy jeszcze uzupełnić Twoją bazę danych! Daj nam chwilę..</p>
+							</div>
 						)}
 						{data.userdataCollection.edges.length > 0 && (
 							<>

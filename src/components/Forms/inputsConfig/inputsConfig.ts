@@ -5,13 +5,13 @@ import { ChangePasswordFormModel } from '../../../models/userOptions.model';
 
 export const contactFormInputsConfig = (errors: FieldErrors, register: UseFormRegister<ContactFormModel>) => [
 	{
-		label: 'Imię i nazwisko:',
-		inputName: 'name',
+		label: 'Imię:',
+		inputName: 'firstname',
 		type: 'text',
-		placeholder: 'Wprowadź imię i nazwisko..',
-		errorMessage: errors.name?.message,
-		isInvalid: !!errors.name,
-		register: register('name'),
+		placeholder: 'Wprowadź imię..',
+		errorMessage: errors.firstname?.message,
+		isInvalid: !!errors.firstname,
+		register: register('firstname'),
 	},
 	{
 		label: 'E-mail:',

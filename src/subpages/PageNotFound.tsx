@@ -2,7 +2,7 @@ const PageNotFound: React.FC = () => {
 	return (
 		<section>
 			<div>
-				<p>Ups! Nie znaleźliśmy tej strony!</p>
+				<h1>Ups! Nie znaleźliśmy tej strony!</h1>
 			</div>
 		</section>
 	);

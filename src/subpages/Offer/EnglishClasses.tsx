@@ -2,7 +2,7 @@ const EnglishClasses: React.FC = () => {
 	return (
 		<section>
 			<div>
-				<h2>Lekcje angielskiego</h2>
+				<h1>Lekcje angielskiego</h1>
 			</div>
 		</section>
 	);

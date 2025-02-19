@@ -2,7 +2,7 @@ const AboutUs: React.FC = () => {
 	return (
 		<section>
 			<div>
-				<h2>O nas</h2>
+				<h1>O nas</h1>
 			</div>
 		</section>
 	);
