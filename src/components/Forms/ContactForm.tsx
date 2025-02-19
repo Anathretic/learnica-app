@@ -18,7 +18,7 @@ export const ContactForm: React.FC = () => {
 		formState: { errors },
 	} = useForm<ContactFormModel>({
 		defaultValues: {
-			name: '',
+			firstname: '',
 			email: '',
 			message: '',
 		},
@@ -29,7 +29,7 @@ export const ContactForm: React.FC = () => {
 	const refCaptcha = useRef<ReCAPTCHA>(null);
 	const contactFormInputs = contactFormInputsConfig(errors, register);
 
-	const onSubmit: SubmitHandler<ContactFormModel> = async ({ name, email, message }) => {
+	const onSubmit: SubmitHandler<ContactFormModel> = async ({ firstname, email, message }) => {
 		dispatch(setIsLoading(true));
 		dispatch(setErrorValue(''));
 
@@ -37,7 +37,7 @@ export const ContactForm: React.FC = () => {
 		refCaptcha.current?.reset();
 
 		const params = {
-			name,
+			firstname,
 			email,
 			message,
 			'g-recaptcha-response': token,

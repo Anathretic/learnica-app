@@ -2,7 +2,7 @@ const PolishClasses: React.FC = () => {
 	return (
 		<section>
 			<div>
-				<h2>Lekcje polskiego</h2>
+				<h1>Lekcje polskiego</h1>
 			</div>
 		</section>
 	);

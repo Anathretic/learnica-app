@@ -2,7 +2,7 @@ const TermsAndConditions: React.FC = () => {
 	return (
 		<section>
 			<div>
-				<h2>Polityka Prywatności</h2>
+				<h1>Polityka Prywatności</h1>
 			</div>
 		</section>
 	);

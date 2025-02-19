@@ -15,6 +15,7 @@ import {
 	TermsAndConditions,
 	PageNotFound,
 	ChangePassword,
+	RecoverPassword,
 } from './subpages';
 import { Welcome, Idea, Offer, Motto, Contact } from './sections';
 import { Navbar } from './components/Navbar/Navbar';
@@ -52,6 +53,7 @@ const App: React.FC = () => {
 					<Route path='/program-nauczania' element={<Curriculum />} />
 					<Route path='/lektorzy' element={<Lectors />} />
 					<Route path='/logowanie' element={<Login />} />
+					<Route path='/odzyskiwanie-hasla' element={<RecoverPassword />} />
 					<Route path='/rejestracja' element={<Register />} />
 					<Route path='/polityka-prywatnosci' element={<TermsAndConditions />} />
 				</Route>

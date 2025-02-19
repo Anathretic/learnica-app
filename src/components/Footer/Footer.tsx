@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
 			<div className='footer__bar footer__bar--first' />
 			<div className='footer__container'>
 				<div className='footer__box'>
-					<h3>learnica</h3>
+					<h2>learnica</h2>
 					<p>Z nami nauka będzie niezapomnianą przygodą!</p>
 					<div>
 						<a href='https://www.facebook.com' target='_blank' rel='noreferrer'>

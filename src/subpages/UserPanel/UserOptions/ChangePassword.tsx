@@ -1,4 +1,4 @@
-import { ChangePasswordForm } from '../components/Forms/ChangePasswordForm';
+import { ChangePasswordForm } from '../../../components/Forms/ChangePasswordForm';
 
 const ChangePassword: React.FC = () => {
 	return (

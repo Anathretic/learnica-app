@@ -2,7 +2,7 @@ const Translations: React.FC = () => {
 	return (
 		<section>
 			<div>
-				<h2>Tłumaczenia</h2>
+				<h1>Tłumaczenia</h1>
 			</div>
 		</section>
 	);
