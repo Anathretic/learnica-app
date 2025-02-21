@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/FormSlice';
+import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
 import { changePasswordInputsConfig } from './inputsConfig/inputsConfig';
 import { ChangePasswordFormModel } from '../../models/userOptions.model';
 import { changePasswordSchema } from '../../schemas/schemas';

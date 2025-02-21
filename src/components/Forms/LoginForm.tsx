@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/FormSlice';
+import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
 import { loginFormInputsConfig } from './inputsConfig/inputsConfig';
 import { LoginFormModel } from '../../models/loginAndRegisterForm.model';
 import { loginSchema } from '../../schemas/schemas';

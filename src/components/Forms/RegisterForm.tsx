@@ -6,7 +6,7 @@ import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { useRegisterOptions } from '../../hooks/useRegisterOptions';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/FormSlice';
+import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
 import { registerFormInputsConfig } from './inputsConfig/inputsConfig';
 import { RegisterFormModel } from '../../models/loginAndRegisterForm.model';
 import { registerSchema } from '../../schemas/schemas';
