@@ -6,7 +6,7 @@ import emailjs from '@emailjs/browser';
 import { FormSubmit, InputElement, ReCaptchaV2Component, TextareaElement } from './components/FormElements';
 import { contactFormInputsConfig } from './inputsConfig/inputsConfig';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { setButtonText, setErrorValue, setIsLoading } from '../../redux/formReduxSlice/FormSlice';
+import { setButtonText, setErrorValue, setIsLoading } from '../../redux/formReduxSlice/formSlice';
 import { contactSchema } from '../../schemas/schemas';
 import { ContactFormModel } from '../../models/contactForm.model';
 

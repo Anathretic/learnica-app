@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
-import { getFormInitialValues, setButtonText } from '../../../redux/formReduxSlice/FormSlice';
+import { getFormInitialValues, setButtonText } from '../../../redux/formReduxSlice/formSlice';
 import { InputAndTextareaModel, ReCaptchaV2Model } from '../../../models/formElements.model';
 import { Loader } from '../../Loader';
 
