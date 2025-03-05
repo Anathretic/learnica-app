@@ -220,15 +220,29 @@
 		}
 
 		&__title-box {
-			margin-right: 1em;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: start;
+			margin-left: 4rem;
+		}
+
+		&__title,
+		&__title-subtext {
+			text-align: left;
+			font-size: 1.1rem;
 		}
 
 		&__title {
+			padding: 0.5rem 0.85rem 0 0.9rem;
+			width: 100%;
 			font-size: 3.5rem;
 		}
 
 		&__title-info-box {
-			padding: 2rem 1rem;
+			padding: 2rem 2.25rem;
+			max-width: 400px;
+			justify-content: start;
 			font-size: 1.1rem;
 		}
 
@@ -238,32 +252,32 @@
 			color: rgba(255, 255, 255, 0.15);
 
 			&--first {
-				bottom: -1.5em;
-				left: 2em;
+				bottom: -.45em;
+				left: 2.25em;
 				animation: icon-bounce 5s infinite;
 			}
 
 			&--second {
-				bottom: -3.25em;
-				left: 6.35em;
+				bottom: -0.85em;
+				left: 6.6em;
 				animation: icon-bounce 2s infinite;
 			}
 
 			&--third {
-				bottom: -5.75em;
-				left: 1em;
+				bottom: 3em;
+				left: 4.75em;
 				animation: icon-bounce 3s infinite;
 			}
 
 			&--fourth {
-				bottom: -4.2em;
-				left: 4em;
+				bottom: 2.5em;
+				right: -0.25em;
 				animation: icon-bounce 3.5s infinite;
 			}
 
 			&--fifth {
-				bottom: -5.5em;
-				left: 4em;
+				bottom: 0.5em;
+				left: 4.5em;
 				animation: icon-bounce 4s infinite;
 			}
 		}
@@ -355,8 +369,10 @@
 
 @media screen and (min-width: 1720px) {
 	.contact {
-		&__title-box {
-			margin-right: 3em;
+		.contact {
+			&__title-box {
+				margin-left: 2em;
+			}
 		}
 	}
 }

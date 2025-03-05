@@ -7,6 +7,14 @@
 			font-size: 1.6em;
 		}
 	}
+
+	.contact {
+		&__title-info-box {
+			li {
+				padding: 0.5em 0;
+			}
+		}
+	}
 }
 
 @media screen and (max-width: 350px) {

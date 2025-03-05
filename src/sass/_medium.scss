@@ -47,6 +47,14 @@
 			margin: 0.15em 0.35em 0;
 		}
 	}
+
+	.contact {
+		&__title-info-box {
+			list-style-type: disc;
+			text-align: left;
+			max-width: 250px;
+		}
+	}
 }
 
 @media screen and (min-width: 768px) and (min-height: 500px) {

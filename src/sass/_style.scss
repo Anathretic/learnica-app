@@ -21,6 +21,7 @@ body {
 	color: globals.$white-color;
 	font-family: globals.$main-font;
 	font-size: 16px;
+	letter-spacing: 1px;
 }
 
 .animate-slide-in {
@@ -226,18 +227,37 @@ body {
 		max-width: 600px;
 	}
 
-	&__title-info-box {
-		@include mixins.flex;
-		padding: 1rem 1rem;
+	&__title-subtext {
+		padding: 1rem;
 		width: 90%;
 		max-width: 400px;
+		text-align: center;
+		line-height: 1.8em;
 
-		div:nth-of-type(2) {
-			padding-left: 2rem;
+		span {
+			font-weight: 600;
+		}
+	}
+
+	&__title-info-box {
+		padding: 2rem 0;
+		width: 90%;
+		max-width: 400px;
+		list-style-type: none;
+		text-align: center;
+
+		li {
+			padding: 0.5em;
+			width: 100%;
 		}
 
 		p {
-			padding: 0.5rem 0;
+			padding: 0.25rem 0;
+			font-weight: 300;
+		}
+
+		p:first-of-type {
+			font-weight: 600;
 		}
 	}
 
