@@ -1,3 +1,11 @@
+@media screen and (max-height: 350px) {
+	.navbar {
+		&__mobile-list {
+			height: 97.5vh;
+		}
+	}
+}
+
 @media screen and (max-width: 300px) {
 	.login,
 	.recover-password,
@@ -31,6 +39,14 @@
 		&__password-recover-btn {
 			bottom: 5px;
 			right: 0;
+		}
+	}
+}
+
+@media screen and (min-height: 351px) and (max-height: 500px) {
+	.navbar {
+		&__mobile-list {
+			height: 98vh;
 		}
 	}
 }

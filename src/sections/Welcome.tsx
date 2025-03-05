@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { scrollToTop } from '../utils/scrollToTopUtils';
 import { FaBook, FaPencilAlt, FaPenFancy } from 'react-icons/fa';
@@ -11,9 +10,9 @@ const Welcome: React.FC = () => {
 				<h1>Learnica</h1>
 				<p>Lekcje na wyciągnięcie ręki..</p>
 				<div className='welcome__btn-box'>
-					<Link to='/logowanie' onClick={scrollToTop}>
-						Logowanie
-					</Link>
+					<HashLink smooth to='/#oferta' onClick={scrollToTop}>
+						Oferta
+					</HashLink>
 				</div>
 				<FaBook className='welcome__text-container-icon welcome__text-container-icon--first' fontSize={70} />
 				<FaPencilAlt className='welcome__text-container-icon welcome__text-container-icon--second' fontSize={66} />
