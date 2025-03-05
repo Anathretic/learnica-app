@@ -7,18 +7,28 @@ const Contact: React.FC = () => {
 			<div className='contact__container'>
 				<div className='contact__title-box'>
 					<h2 className='contact__title'>Kontakt</h2>
-					<div className='contact__title-info-box white-gradient'>
-						<div>
+					<p className='contact__title-subtext'>
+						Gotowy by zacząć naukę? Świetnie! Ale jeśli Twoją głowę męczy jakieś pytanie skorzystaj z formularza
+						kontaktowego lub zadzwoń na poniższy numer!
+					</p>
+					<p className='contact__title-subtext'>
+						<span>Pamiętaj!</span> Wysyłając formularz wyrażasz zgodę na przetwarzanie Twoich danych zgodnie z
+						obowiązującą polityką prywatności.
+					</p>
+					<ul className='contact__title-info-box'>
+						<li>
 							<p>E-mail:</p>
+							<p>test@gmail.com</p>
+						</li>
+						<li>
 							<p>Telefon:</p>
+							<p>+48 111 222 333</p>
+						</li>
+						<li>
 							<p>NIP:</p>
-						</div>
-						<div>
-							<p>test@test.gmail.com</p>
-							<p>111-111-111</p>
-							<p>1234567890</p>
-						</div>
-					</div>
+							<p>123-456-78-90</p>
+						</li>
+					</ul>
 					<FaPaperPlane className='contact__title-icon contact__title-icon--first' fontSize={80} />
 					<FaPaperPlane className='contact__title-icon contact__title-icon--second' fontSize={76} />
 					<FaPaperPlane className='contact__title-icon contact__title-icon--third' fontSize={72} />

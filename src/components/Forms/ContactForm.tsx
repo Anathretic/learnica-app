@@ -71,6 +71,12 @@ export const ContactForm: React.FC = () => {
 	};
 
 	useEffect(() => {
+		if (refCaptcha.current?.getValue() === '') {
+			dispatch(setErrorValue(''));
+		}
+	}, [dispatch]);
+
+	useEffect(() => {
 		dispatch(setButtonText('Wyślij'));
 	}, []);
 
