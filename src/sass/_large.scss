@@ -27,6 +27,9 @@
 
 @media screen and (min-width: 1024px) {
 	.navbar {
+		transform: translateY(0);
+		opacity: 1;
+
 		&__item-link:hover,
 		&__login-icon-link:hover {
 			color: globals.$gray-btn-hover-color;
@@ -61,12 +64,12 @@
 
 			&--third {
 				bottom: -3em;
-				left: 2em;
+				right: 7.15em;
 			}
 
 			&--fourth {
-				bottom: -4em;
-				right: 3em;
+				bottom: -3.5em;
+				right: 2.5em;
 			}
 
 			&--fifth {
@@ -204,6 +207,20 @@
 		}
 	}
 
+	.welcome {
+		&__text-container-icon {
+			&--first {
+				top: -2em;
+				right: 6em;
+			}
+
+			&--third {
+				bottom: -3em;
+				right: 9.15em;
+			}
+		}
+	}
+
 	.login,
 	.recover-password,
 	.register,
@@ -301,6 +318,10 @@
 
 	.welcome {
 		&__text-container {
+			position: absolute;
+			right: 0;
+			max-width: 800px;
+
 			h1 {
 				font-size: 8rem;
 			}
@@ -322,12 +343,12 @@
 
 			&--second {
 				top: 0;
-				left: 1.5em;
+				right: 10em;
 			}
 
 			&--third {
 				bottom: -3em;
-				left: 4em;
+				right: 10.5em;
 			}
 
 			&--fourth {
@@ -380,8 +401,23 @@
 @media screen and (min-width: 1920px) {
 	.navbar {
 		&__container {
-			max-width: 2160px;
-			padding: 0 13.8rem;
+			justify-content: space-between;
+			max-width: 1495px;
+			padding: 0;
+		}
+	}
+
+	.footer {
+		&__container {
+			max-width: 1730px;
+		}
+	}
+}
+
+@media screen and (min-width: 2160px) {
+	.navbar {
+		&__container {
+			max-width: 1525px;
 		}
 	}
 }

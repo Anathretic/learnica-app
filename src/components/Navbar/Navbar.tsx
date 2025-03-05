@@ -48,8 +48,8 @@ export const Navbar: React.FC = () => {
 
 	return (
 		<header ref={divRef}>
-			<div className='navbar'>
-				<div className={`navbar__container ${isScrolled ? 'navbar__container--is-scrolled' : ''}`}>
+			<div className={`navbar ${isScrolled ? 'navbar--is-scrolled' : ''}`}>
+				<div className='navbar__container'>
 					<NavbarTitle divRef={divRef} />
 					{isMobile ? (
 						<>
