@@ -18,6 +18,17 @@
 			margin: 0 2rem;
 		}
 	}
+
+	.form {
+		&__password-recover-box {
+			padding: 0 1em;
+		}
+
+		&__password-recover-btn {
+			bottom: 7px;
+		}
+	}
+
 	.footer {
 		&__company-name {
 			font-size: 1rem;
@@ -26,6 +37,25 @@
 }
 
 @media screen and (min-width: 1024px) {
+	.error-popup {
+		&__box {
+			width: 50%;
+		}
+
+		&__message {
+			margin-bottom: 0;
+		}
+
+		&__button {
+			margin-top: 2em;
+		}
+
+		&__button:hover {
+			color: globals.$white-color;
+			background-color: globals.$gray-btn-hover-color;
+		}
+	}
+
 	.navbar {
 		transform: translateY(0);
 		opacity: 1;
@@ -115,7 +145,7 @@
 
 		&__container {
 			width: 100%;
-			max-width: 600px;
+			max-width: 625px;
 		}
 
 		&__title {
@@ -160,6 +190,8 @@
 		}
 
 		&__password-recover-btn {
+			right: 13px;
+
 			&:hover {
 				color: globals.$gray-btn-hover-color;
 			}
@@ -306,6 +338,12 @@
 }
 
 @media screen and (min-width: 1536px) {
+	.error-popup {
+		&__box {
+			width: 35%;
+		}
+	}
+
 	.navbar {
 		&__container {
 			padding: 0 8rem;
@@ -381,6 +419,12 @@
 		width: 35%;
 	}
 
+	.form {
+		&__password-recover-btn {
+			bottom: -10px;
+		}
+	}
+
 	.footer {
 		&__box:nth-of-type(4) {
 			display: block;
@@ -404,6 +448,12 @@
 			justify-content: space-between;
 			max-width: 1495px;
 			padding: 0;
+		}
+	}
+
+	.form {
+		&__password-recover-btn {
+			bottom: 7px;
 		}
 	}
 

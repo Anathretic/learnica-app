@@ -1,4 +1,10 @@
 @media screen and (min-width: 768px) {
+	.error-popup {
+		&__box {
+			width: 70%;
+		}
+	}
+
 	.navbar {
 		&__container {
 			padding: 0 2.5rem;

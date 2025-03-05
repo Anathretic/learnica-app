@@ -96,19 +96,15 @@
 	.change-password {
 		width: 80%;
 	}
+
+	.error-popup {
+		&__message {
+			margin-bottom: 1.5em;
+		}
+	}
 }
 
 @media screen and (min-width: 640px) {
-	.form {
-		&__password-recover-box {
-			padding: 0 1em;
-		}
-
-		&__password-recover-btn {
-			bottom: 7px;
-		}
-	}
-
 	.footer {
 		&__bar,
 		&__container {

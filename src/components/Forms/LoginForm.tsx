@@ -6,6 +6,7 @@ import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
+import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
 import { loginFormInputsConfig } from './inputsConfig/inputsConfig';
 import { LoginFormModel } from '../../models/loginAndRegisterForm.model';
 import { loginSchema } from '../../schemas/schemas';
@@ -43,7 +44,7 @@ export const LoginForm: React.FC = () => {
 			navigate('/panel-uzytkownika');
 		} else {
 			dispatch(setIsLoading(false));
-			console.log(error);
+			dispatch(setPopupErrorValue('Coś poszło nie tak.. Spróbuj ponownie!'));
 		}
 	};
 

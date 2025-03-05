@@ -5,6 +5,7 @@ import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
+import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
 import { changePasswordInputsConfig } from './inputsConfig/inputsConfig';
 import { ChangePasswordFormModel } from '../../models/userOptions.model';
 import { changePasswordSchema } from '../../schemas/schemas';
@@ -38,7 +39,8 @@ export const ChangePasswordForm: React.FC = () => {
 			dispatch(setIsLoading(false));
 			dispatch(setButtonText('Wysłane!'));
 		} else {
-			console.log(error);
+			dispatch(setIsLoading(false));
+			dispatch(setPopupErrorValue('Coś poszło nie tak.. Spróbuj ponownie!'));
 		}
 	};
 

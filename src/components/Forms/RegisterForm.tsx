@@ -7,6 +7,7 @@ import { FormSubmit, InputElement } from './components/FormElements';
 import { useRegisterOptions } from '../../hooks/useRegisterOptions';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
+import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
 import { registerFormInputsConfig } from './inputsConfig/inputsConfig';
 import { RegisterFormModel } from '../../models/loginAndRegisterForm.model';
 import { registerSchema } from '../../schemas/schemas';
@@ -41,7 +42,7 @@ export const RegisterForm: React.FC = () => {
 
 		if (emailExists) {
 			dispatch(setIsLoading(false));
-			console.log('Ten adres e-mail już istnieje!');
+			dispatch(setPopupErrorValue('Konto z takim adresem e-mail już istnieje!'));
 		} else {
 			const { error } = await supabase.auth.signUp({
 				email,
@@ -60,7 +61,8 @@ export const RegisterForm: React.FC = () => {
 				dispatch(setIsLoading(false));
 				navigate('/');
 			} else {
-				console.log(error);
+				dispatch(setIsLoading(false));
+				dispatch(setPopupErrorValue('Coś poszło nie tak.. Spróbuj ponownie!'));
 			}
 		}
 	};
