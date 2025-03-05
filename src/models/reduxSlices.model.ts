@@ -3,3 +3,7 @@ export interface FormSliceModel {
 	errorValue: string;
 	buttonText: string;
 }
+
+export interface ErrorPopupModel {
+	value: string;
+}

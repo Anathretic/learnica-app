@@ -1,5 +1,4 @@
 import { HashLink } from 'react-router-hash-link';
-import { scrollToTop } from '../utils/scrollToTopUtils';
 import { FaBook, FaPencilAlt, FaPenFancy } from 'react-icons/fa';
 import { SlArrowDown } from 'react-icons/sl';
 
@@ -10,7 +9,7 @@ const Welcome: React.FC = () => {
 				<h1>Learnica</h1>
 				<p>Lekcje na wyciągnięcie ręki..</p>
 				<div className='welcome__btn-box'>
-					<HashLink smooth to='/#oferta' onClick={scrollToTop}>
+					<HashLink smooth to='/#oferta'>
 						Oferta
 					</HashLink>
 				</div>

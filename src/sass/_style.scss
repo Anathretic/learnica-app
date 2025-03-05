@@ -32,6 +32,40 @@ body {
 	animation: slideOut 0.5s ease-out;
 }
 
+.scroll-block {
+	overflow: hidden;
+}
+
+.error-popup {
+	@include mixins.flex;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.95);
+	z-index: 10;
+
+	&__box {
+		@include mixins.flex;
+		position: relative;
+		flex-direction: column;
+		padding: 1em;
+		width: 90%;
+		height: 200px;
+		opacity: 0;
+		animation: popup-animation 1s linear forwards;
+	}
+
+	&__message {
+		margin-bottom: 1em;
+		font-size: 1.2em;
+		text-align: center;
+	}
+
+	&__button {
+		@include mixins.button;
+	}
+}
+
 .navbar {
 	position: fixed;
 	@include mixins.flex;

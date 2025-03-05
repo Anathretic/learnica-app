@@ -20,52 +20,65 @@ import {
 import { Welcome, Idea, Offer, Motto, Contact } from './sections';
 import { Navbar } from './components/Navbar/Navbar';
 import { Footer } from './components/Footer/Footer';
+import { ErrorPopup } from './components/ErrorPopup';
+import { useAppSelector } from './hooks/reduxHooks';
+import { getInitialErrorPopupValue } from './redux/errorPopupReduxSlice/errorPopupSlice';
 
 const App: React.FC = () => {
+	const error = useAppSelector(getInitialErrorPopupValue);
+
 	return (
 		<ApolloProvider client={client}>
 			<Routes>
 				<Route
 					element={
 						<>
+							{error && <ErrorPopup />}
 							<Outlet />
-							<Footer />
 						</>
 					}>
 					<Route
-						path='/'
 						element={
 							<>
-								<Navbar />
-								<Welcome />
-								<Idea />
-								<Offer />
-								<Motto />
-								<Contact />
+								<Outlet />
+								<Footer />
 							</>
-						}
-					/>
-					<Route path='/jezyk-polski' element={<PolishClasses />} />
-					<Route path='/jezyk-angielski' element={<EnglishClasses />} />
-					<Route path='/matematyka' element={<MathClasses />} />
-					<Route path='/tlumaczenia' element={<Translations />} />
-					<Route path='/o-nas' element={<AboutUs />} />
-					<Route path='/program-nauczania' element={<Curriculum />} />
-					<Route path='/lektorzy' element={<Lectors />} />
-					<Route path='/logowanie' element={<Login />} />
-					<Route path='/odzyskiwanie-hasla' element={<RecoverPassword />} />
-					<Route path='/rejestracja' element={<Register />} />
-					<Route path='/polityka-prywatnosci' element={<TermsAndConditions />} />
-				</Route>
-				<Route
-					path='/panel-uzytkownika'
-					element={
-						<>
-							<UserPanel />
-							<Outlet />
-						</>
-					}>
-					<Route path='zmiana-hasla' element={<ChangePassword />} />
+						}>
+						<Route
+							path='/'
+							element={
+								<>
+									<Navbar />
+									<Welcome />
+									<Idea />
+									<Offer />
+									<Motto />
+									<Contact />
+								</>
+							}
+						/>
+						<Route path='/jezyk-polski' element={<PolishClasses />} />
+						<Route path='/jezyk-angielski' element={<EnglishClasses />} />
+						<Route path='/matematyka' element={<MathClasses />} />
+						<Route path='/tlumaczenia' element={<Translations />} />
+						<Route path='/o-nas' element={<AboutUs />} />
+						<Route path='/program-nauczania' element={<Curriculum />} />
+						<Route path='/lektorzy' element={<Lectors />} />
+						<Route path='/logowanie' element={<Login />} />
+						<Route path='/odzyskiwanie-hasla' element={<RecoverPassword />} />
+						<Route path='/rejestracja' element={<Register />} />
+						<Route path='/polityka-prywatnosci' element={<TermsAndConditions />} />
+					</Route>
+					<Route
+						path='/panel-uzytkownika'
+						element={
+							<>
+								<UserPanel />
+								<Outlet />
+							</>
+						}>
+						<Route path='zmiana-hasla' element={<ChangePassword />} />
+					</Route>
 				</Route>
 				<Route path='*' element={<PageNotFound />} />
 			</Routes>

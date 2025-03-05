@@ -6,6 +6,7 @@ import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
+import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
 import { RecoverPasswordFormModel } from '../../models/loginAndRegisterForm.model';
 import { recoverPasswordSchema } from '../../schemas/schemas';
 
@@ -41,7 +42,8 @@ export const RecoverPasswordForm: React.FC = () => {
 				navigate('/logowanie');
 			}, 2500);
 		} else {
-			console.log(error);
+			dispatch(setIsLoading(false));
+			dispatch(setPopupErrorValue('Coś poszło nie tak.. Spróbuj ponownie!'));
 		}
 	};
 
