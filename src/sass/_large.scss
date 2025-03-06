@@ -73,7 +73,6 @@
 		background: transparent;
 
 		&__text-container {
-			position: relative;
 			background-color: globals.$darker-blue-color;
 			grid-column: 1/2;
 		}
@@ -94,16 +93,16 @@
 
 			&--third {
 				bottom: -3em;
-				right: 7.15em;
+				left: 1em;
 			}
 
 			&--fourth {
-				bottom: -3.5em;
-				right: 2.5em;
+				bottom: -2em;
+				right: 1.5em;
 			}
 
 			&--fifth {
-				top: -1.5em;
+				top: -1.25em;
 				right: 1em;
 			}
 		}
@@ -243,12 +242,12 @@
 		&__text-container-icon {
 			&--first {
 				top: -2em;
-				right: 6em;
+				right: 7em;
 			}
 
 			&--third {
 				bottom: -3em;
-				right: 9.15em;
+				left: 2em;
 			}
 		}
 	}
@@ -347,6 +346,7 @@
 	.navbar {
 		&__container {
 			padding: 0 8rem;
+			max-width: 2460px;
 		}
 
 		&__login-icon {
@@ -356,10 +356,6 @@
 
 	.welcome {
 		&__text-container {
-			position: absolute;
-			right: 0;
-			max-width: 800px;
-
 			h1 {
 				font-size: 8rem;
 			}
@@ -370,33 +366,30 @@
 		}
 
 		&__text-container-icon {
-			display: block;
-			position: absolute;
-			color: rgba(255, 255, 255, 0.15);
-
 			&--first {
-				top: -2em;
-				right: 5em;
+				top: -2.5em;
+				right: 6em;
 			}
 
 			&--second {
-				top: 0;
-				right: 10em;
+				display: block;
+				top: -0.5em;
+				left: 1.25em;
 			}
 
 			&--third {
-				bottom: -3em;
-				right: 10.5em;
+				bottom: -2.5em;
+				left: 3.25em;
 			}
 
 			&--fourth {
-				bottom: -4em;
+				bottom: -3em;
 				right: 3em;
 			}
 
 			&--fifth {
-				top: -0.25em;
-				right: 0.75em;
+				top: 0;
+				right: 1em;
 			}
 		}
 
@@ -426,6 +419,10 @@
 	}
 
 	.footer {
+		&__container {
+			max-width: 2160px;
+		}
+
 		&__box:nth-of-type(4) {
 			display: block;
 		}
@@ -445,9 +442,7 @@
 @media screen and (min-width: 1920px) {
 	.navbar {
 		&__container {
-			justify-content: space-between;
-			max-width: 1495px;
-			padding: 0;
+			padding: 0 12.7rem;
 		}
 	}
 
@@ -456,18 +451,26 @@
 			bottom: 7px;
 		}
 	}
+}
 
-	.footer {
-		&__container {
-			max-width: 1730px;
+@media screen and (min-width: 2220px) {
+	.welcome {
+		&__text-container-icon {
+			&--second {
+				left: 2em;
+			}
+
+			&--third {
+				left: 4em;
+			}
 		}
 	}
 }
 
-@media screen and (min-width: 2160px) {
+@media screen and (min-width: 2440px) {
 	.navbar {
 		&__container {
-			max-width: 1525px;
+			padding: 0 11rem;
 		}
 	}
 }
