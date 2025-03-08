@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import { footerMoreItems, footerOfferItems, footerTeamItems } from './footerItems/footerItems';
 import { FaRegCopyright, FaFacebookSquare, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
-export const Footer: React.FC = () => {
+const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
 
 	const isMobile = useMediaQuery({ query: '(max-width: 500px)' });
@@ -72,3 +72,5 @@ export const Footer: React.FC = () => {
 		</footer>
 	);
 };
+
+export default Footer;

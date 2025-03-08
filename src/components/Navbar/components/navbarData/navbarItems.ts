@@ -8,6 +8,10 @@ export const navbarItems = [
 		section: '/#oferta',
 	},
 	{
+		title: 'blog',
+		section: '/#blog',
+	},
+	{
 		title: 'kontakt',
 		section: '/#kontakt',
 	},

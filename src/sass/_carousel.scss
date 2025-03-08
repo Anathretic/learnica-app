@@ -1,0 +1,222 @@
+@use 'animations';
+@use 'mixins';
+@use 'globals';
+
+.icon {
+	fill: globals.$gray-color;
+	width: 100%;
+}
+
+.btn {
+	padding: 1rem 2.5rem 1.125rem;
+	color: globals.$darker-blue-color;
+	background-color: globals.$white-color;
+	border: none;
+	border-radius: 0.125rem;
+	font-family: globals.$main-font;
+	font-size: inherit;
+	letter-spacing: 1px;
+	transition: background-color 0.3s, color 0.3s;
+	cursor: pointer;
+
+	&:active {
+		transform: translateY(1px);
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.btn:hover {
+		background-color: globals.$gray-color;
+		color: globals.$white-color;
+	}
+}
+
+.slider {
+	position: relative;
+	margin: 0 auto;
+	height: 70vmin;
+	width: 70vmin;
+	max-width: 645px;
+	max-height: 750px;
+
+	&__wrapper {
+		position: absolute;
+		display: flex;
+		margin: 0 calc(4vmin * -1);
+		transition: transform 0.6s cubic-bezier(0.25, 1, 0.35, 1);
+	}
+
+	&__controls {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		top: calc(100% + 1rem);
+		width: 100%;
+
+		.btn {
+			display: flex;
+			align-items: center;
+			padding: 0;
+			height: 4rem;
+			width: 4rem;
+			background-color: transparent;
+			border: 3px solid transparent;
+			border-radius: 100%;
+
+			&--previous > * {
+				transform: rotate(180deg);
+			}
+		}
+	}
+}
+
+.slide {
+	position: relative;
+	@include mixins.flex;
+	flex-direction: column;
+	flex: 1;
+	height: 70vmin;
+	width: 70vmin;
+	max-width: 645px;
+	max-height: 750px;
+	margin: 0 4vmin;
+	opacity: 0.25;
+	color: globals.$white-color;
+	transition: opacity calc(600ms / 2) cubic-bezier(0.25, 0.46, 0.45, 0.84),
+		transform calc(600ms / 2) cubic-bezier(0.25, 0.46, 0.45, 0.84);
+	text-align: center;
+	z-index: 1;
+
+	&--previous,
+	&--next {
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+
+	&--previous {
+		cursor: w-resize;
+
+		&:hover {
+			transform: translateX(2%);
+		}
+	}
+
+	&--next {
+		cursor: e-resize;
+
+		&:hover {
+			transform: translateX(-2%);
+		}
+	}
+
+	&--current {
+		--x: 0;
+		--y: 0;
+		--d: 50;
+
+		opacity: 1;
+		pointer-events: auto;
+		user-select: auto;
+
+		@media (hover: hover) {
+			&:hover .slide__image-wrapper {
+				transform: translate(calc(var(--x) / var(--d) * 1px), calc(var(--y) / var(--d) * 1px));
+			}
+		}
+	}
+
+	&__image-wrapper {
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		height: 100%;
+		width: 100%;
+		max-width: 645px;
+		max-height: 750px;
+		background-color: globals.$white-color;
+		border-radius: 1%;
+		transition: transform calc(600ms / 4) cubic-bezier(0.25, 0.46, 0.45, 0.84);
+		overflow: hidden;
+	}
+
+	&__image {
+		--d: 20;
+
+		position: absolute;
+		height: 110%;
+		width: 110%;
+		top: -5%;
+		left: -5%;
+		object-fit: cover;
+		background-size: cover;
+		background-position: center;
+		transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.84), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.84);
+		pointer-events: none;
+		user-select: none;
+
+		@media (hover: hover) {
+			.slide--current & {
+				transform: translate(calc(var(--x) / var(--d) * 1px), calc(var(--y) / var(--d) * 1px));
+			}
+		}
+
+		&--0 {
+			background-image: url('../images/blog-section/first-blog-image.jpg');
+		}
+
+		&--1 {
+			background-image: url('../images/blog-section/second-blog-image.jpg');
+		}
+
+		&--2 {
+			background-image: url('../images/blog-section/third-blog-image.jpg');
+		}
+
+		&--3 {
+			background-image: url('../images/blog-section/fourth-blog-image.jpg');
+		}
+
+		&--4 {
+			background-image: url('../images/blog-section/fifth-blog-image.jpg');
+		}
+	}
+
+	&__headline {
+		position: relative;
+		color: globals.$white-color;
+		padding-bottom: 5vmin;
+		font-size: 5vmin;
+		font-weight: 500;
+		font-style: italic;
+	}
+
+	&__content {
+		--d: 60;
+
+		position: relative;
+		@include mixins.flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: 645px;
+		max-height: 750px;
+		height: 100%;
+		padding: 4vmin;
+		transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.84);
+		visibility: hidden;
+		opacity: 1;
+
+		.slide--current & {
+			animation: fade-in calc(600ms / 2) cubic-bezier(0.25, 0.46, 0.45, 0.84) forwards;
+			visibility: visible;
+
+			@media (hover: hover) {
+				transform: translate(calc(var(--x) / var(--d) * -1px), calc(var(--y) / var(--d) * -1px));
+			}
+		}
+
+		> * + * {
+			margin-top: 2rem;
+		}
+	}
+}

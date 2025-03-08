@@ -54,6 +54,13 @@
 		}
 	}
 
+	.blog {
+		&__special-block {
+			width: 35%;
+			height: 50px;
+		}
+	}
+
 	.contact {
 		&__title-info-box {
 			list-style-type: disc;
@@ -79,6 +86,17 @@
 			transform: translateX(-50%);
 			padding: 0.25em;
 			animation: arrow-bounce 2s infinite;
+		}
+	}
+
+	.blog {
+		&__error-box {
+			button {
+				padding: 0.8em 0;
+				margin-top: 1em;
+				max-width: 250px;
+				width: 250px;
+			}
 		}
 	}
 }

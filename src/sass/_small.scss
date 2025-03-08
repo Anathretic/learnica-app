@@ -51,6 +51,14 @@
 	}
 }
 
+@media screen and (min-width: 350px) {
+	.blog {
+		&__title {
+			font-size: 2.75rem;
+		}
+	}
+}
+
 @media screen and (min-width: 400px) {
 	.form {
 		&__input,
