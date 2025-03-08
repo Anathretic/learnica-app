@@ -8,7 +8,7 @@ import { navbarItems } from './components/navbarData/navbarItems';
 import { NavbarTitle } from './components/NavbarTitle';
 import { scrollToTop } from '../../utils/scrollToTopUtils';
 
-export const Navbar: React.FC = () => {
+const Navbar: React.FC = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
 	const [isAnimating, setIsAnimating] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -96,3 +96,5 @@ export const Navbar: React.FC = () => {
 		</header>
 	);
 };
+
+export default Navbar;

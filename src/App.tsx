@@ -17,10 +17,8 @@ import {
 	ChangePassword,
 	RecoverPassword,
 } from './subpages';
-import { Welcome, Idea, Offer, Motto, Contact } from './sections';
-import { Navbar } from './components/Navbar/Navbar';
-import { Footer } from './components/Footer/Footer';
-import { ErrorPopup } from './components/ErrorPopup';
+import { Welcome, Idea, Offer, Motto, Blog, Contact } from './sections';
+import { BlogPopup, ErrorPopup, Footer, Navbar } from './components';
 import { useAppSelector } from './hooks/reduxHooks';
 import { getInitialErrorPopupValue } from './redux/errorPopupReduxSlice/errorPopupSlice';
 
@@ -53,6 +51,8 @@ const App: React.FC = () => {
 									<Idea />
 									<Offer />
 									<Motto />
+									<Blog />
+									<BlogPopup />
 									<Contact />
 								</>
 							}

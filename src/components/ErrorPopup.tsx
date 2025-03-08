@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { clearPopupErrorValue, getInitialErrorPopupValue } from '../redux/errorPopupReduxSlice/errorPopupSlice';
 
-export const ErrorPopup: React.FC = () => {
+const ErrorPopup: React.FC = () => {
 	const error = useAppSelector(getInitialErrorPopupValue);
 	const dispatch = useAppDispatch();
 
@@ -28,3 +28,5 @@ export const ErrorPopup: React.FC = () => {
 		</div>
 	);
 };
+
+export default ErrorPopup;

@@ -231,16 +231,178 @@ body {
 		width: 100%;
 
 		a {
+			text-decoration: none;
 			@include mixins.button;
-			& {
-				text-decoration: none;
-			}
 		}
 	}
 
 	&__icon-container {
 		display: none;
 	}
+}
+
+.blog {
+	position: relative;
+	padding: 30px 0 40px;
+	width: 100%;
+	background-color: #c4c4c4;
+	color: globals.$dark-blue-color;
+	overflow: hidden;
+
+	&__container,
+	&__wrapper {
+		position: relative;
+		@include mixins.flex;
+		flex-direction: column;
+	}
+
+	&__wrapper {
+		margin: 0 auto;
+		width: 100%;
+		max-width: 2160px;
+		padding-bottom: 6em;
+	}
+
+	&__title {
+		@include mixins.title;
+	}
+
+	&__loader {
+		padding: 6em 0 4em;
+		color: globals.$dark-blue-color;
+
+		div {
+			font-size: 50px;
+		}
+	}
+
+	&__error-box {
+		@include mixins.flex;
+		flex-direction: column;
+		padding: 4em 0 0;
+
+		p {
+			padding: 0 0.5em 2em;
+			font-size: 1.2em;
+			text-align: center;
+		}
+
+		button {
+			margin: 1em 1em 1.25em;
+			max-width: 180px;
+			color: globals.$dark-blue-color;
+			border: 2px solid globals.$dark-blue-color;
+			@include mixins.button;
+		}
+	}
+
+	&__carousel-container {
+		position: relative;
+		@include mixins.flex;
+		width: 100%;
+	}
+
+	&__special-block {
+		position: absolute;
+		bottom: 0;
+		width: 40%;
+		height: 40px;
+		background-color: globals.$darker-blue-color;
+
+		&--left {
+			left: -50px;
+			transform: skew(45deg);
+		}
+
+		&--right {
+			right: -50px;
+			transform: skew(-45deg);
+		}
+	}
+}
+
+.blog-popup {
+	position: fixed;
+	@include mixins.flex;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(10, 10, 10, 0.65);
+	z-index: 100;
+
+	&__container,
+	&__content-container {
+		@include mixins.flex;
+		flex-direction: column;
+	}
+
+	&__container {
+		flex-flow: row wrap;
+		width: 95%;
+		max-width: 525px;
+		height: 95%;
+		max-height: 725px;
+		background-color: globals.$white-color;
+		color: globals.$dark-blue-color;
+		border-radius: 0.5rem;
+		overflow-y: auto;
+	}
+
+	&__title {
+		padding: 3rem 2rem 2rem;
+		width: 100%;
+		font-size: 1.5rem;
+		text-align: left;
+		font-weight: 300;
+	}
+
+	&__public-date {
+		padding: 0.5rem 2.1rem;
+		width: 100%;
+		font-weight: 300;
+		font-style: italic;
+	}
+
+	&__content-container {
+		padding: 1.1rem 1.1rem 2rem;
+	}
+
+	&__content-box {
+		padding: 1rem 1rem 2rem;
+	}
+
+	&__content-title {
+		padding-bottom: 1rem;
+		font-weight: 400;
+		font-style: italic;
+	}
+
+	&__content-text {
+		font-weight: 300;
+		line-height: 1.5rem;
+	}
+
+	&__close-btn {
+		display: block;
+		padding: 0.75em 3.4em;
+		margin: 1em 1em 1em;
+		max-width: 180px;
+		color: globals.$dark-blue-color;
+		background-color: transparent;
+		font-family: globals.$main-font;
+		font-size: 1em;
+		text-align: center;
+		border: 2px solid globals.$dark-blue-color;
+		border-radius: 0.125rem;
+		letter-spacing: 1px;
+		transition: background-color 0.3s, color 0.3s, border 0.3s;
+		text-decoration: none;
+		cursor: pointer;
+	}
+}
+
+.blog-popup--is-active {
+	overflow: hidden;
 }
 
 .contact {
@@ -256,6 +418,7 @@ body {
 		padding-bottom: 2.5rem;
 		font-size: 2.5rem;
 		text-align: center;
+		font-weight: 300;
 	}
 
 	&__title-box,
@@ -371,10 +534,8 @@ body {
 
 		a,
 		button {
+			margin-top: 1em;
 			@include mixins.button;
-			& {
-				margin-top: 1em;
-			}
 		}
 
 		a {
@@ -495,10 +656,8 @@ body {
 	}
 
 	&__submit {
+		margin: 1em 1em 1.25em;
 		@include mixins.button;
-		& {
-			margin: 1em 1em 1.25em;
-		}
 	}
 
 	&__special-text {
@@ -518,7 +677,6 @@ body {
 		position: relative;
 		width: 1em;
 		height: 1em;
-		color: globals.$white-color;
 		font-size: 45px;
 		border-radius: 50%;
 		animation: spin-animation 1.7s infinite ease, round-animation 1.7s infinite ease;
@@ -567,7 +725,7 @@ body {
 		}
 
 		a:hover {
-			color: globals.$gray-btn-hover-color;
+			color: globals.$gray-color;
 		}
 
 		a:first-of-type {
