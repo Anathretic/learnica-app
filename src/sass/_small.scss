@@ -101,6 +101,7 @@
 		}
 	}
 
+	.notfound,
 	.terms-and-conditions {
 		&__btn {
 			padding: 1em 4em;
@@ -126,6 +127,12 @@
 	.error-popup {
 		&__message {
 			margin-bottom: 1.5em;
+		}
+	}
+
+	.notfound {
+		&__img {
+			width: 80%;
 		}
 	}
 }

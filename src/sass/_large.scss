@@ -271,6 +271,7 @@
 		margin: 1.155em 0;
 	}
 
+	.notfound,
 	.terms-and-conditions {
 		&__btn {
 			font-size: 1.1em;
@@ -314,6 +315,17 @@
 
 		&__box:nth-of-type(3) {
 			display: block;
+		}
+	}
+
+	.notfound {
+		&__container {
+			padding: 4em 0 0;
+		}
+
+		&__img {
+			width: 35%;
+			max-width: 660px;
 		}
 	}
 }
@@ -572,6 +584,12 @@
 
 		&__box:nth-of-type(4) {
 			display: block;
+		}
+	}
+
+	.notfound {
+		&__container {
+			padding: 1em 0 0;
 		}
 	}
 }
