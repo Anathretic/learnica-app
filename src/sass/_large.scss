@@ -37,6 +37,10 @@
 }
 
 @media screen and (min-width: 1024px) {
+	.cookie-banner-text {
+		padding: 1em;
+	}
+
 	.error-popup {
 		&__box {
 			width: 50%;
@@ -126,7 +130,8 @@
 	}
 
 	.blog,
-	.contact {
+	.contact,
+	.terms-and-conditions {
 		&__title {
 			font-size: 3rem;
 		}
@@ -215,6 +220,14 @@
 		}
 	}
 
+	.contact {
+		&__title-subtext {
+			a:hover {
+				color: globals.$gray-color;
+			}
+		}
+	}
+
 	.form {
 		&__label {
 			font-size: 1.1em;
@@ -256,6 +269,36 @@
 
 	.loader {
 		margin: 1.155em 0;
+	}
+
+	.terms-and-conditions {
+		&__btn {
+			font-size: 1.1em;
+
+			&:hover {
+				color: globals.$white-color;
+				background-color: globals.$gray-color;
+			}
+		}
+	}
+
+	.terms-and-conditions {
+		&__title {
+			max-width: 500px;
+			margin-left: 20px;
+		}
+
+		&__box {
+			max-width: 480px;
+
+			a:hover {
+				color: globals.$gray-color;
+			}
+		}
+
+		&__btn {
+			margin: 4em 0 0;
+		}
 	}
 
 	.footer {
@@ -437,6 +480,10 @@
 }
 
 @media screen and (min-width: 1536px) {
+	.cookie-banner-text {
+		font-size: 1.1em;
+	}
+
 	.error-popup {
 		&__box {
 			width: 35%;
@@ -535,6 +582,17 @@
 			&__title-box {
 				margin-left: 2em;
 			}
+		}
+	}
+
+	.terms-and-conditions {
+		&__title {
+			max-width: 820px;
+			margin-left: 20px;
+		}
+
+		&__box {
+			max-width: 800px;
 		}
 	}
 }

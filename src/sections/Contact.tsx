@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { ContactForm } from '../components/Forms/ContactForm';
+import { scrollToTop } from '../utils/scrollToTopUtils';
 import { FaPaperPlane } from 'react-icons/fa';
 
 const Contact: React.FC = () => {
@@ -13,7 +15,10 @@ const Contact: React.FC = () => {
 					</p>
 					<p className='contact__title-subtext'>
 						<span>Pamiętaj!</span> Wysyłając formularz wyrażasz zgodę na przetwarzanie Twoich danych zgodnie z
-						obowiązującą polityką prywatności.
+						obowiązującą{' '}
+						<Link to='/polityka-prywatnosci' onClick={scrollToTop}>
+							polityką prywatności.
+						</Link>
 					</p>
 					<ul className='contact__title-info-box'>
 						<li>

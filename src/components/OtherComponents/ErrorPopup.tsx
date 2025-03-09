@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
-import { clearPopupErrorValue, getInitialErrorPopupValue } from '../redux/errorPopupReduxSlice/errorPopupSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
+import { clearPopupErrorValue, getInitialErrorPopupValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
 
 const ErrorPopup: React.FC = () => {
 	const error = useAppSelector(getInitialErrorPopupValue);
