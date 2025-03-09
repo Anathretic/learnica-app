@@ -81,7 +81,15 @@ const App: React.FC = () => {
 						<Route path='zmiana-hasla' element={<ChangePassword />} />
 					</Route>
 				</Route>
-				<Route path='*' element={<PageNotFound />} />
+				<Route
+					path='*'
+					element={
+						<>
+							<PageNotFound />
+							<Footer />
+						</>
+					}
+				/>
 			</Routes>
 		</ApolloProvider>
 	);
