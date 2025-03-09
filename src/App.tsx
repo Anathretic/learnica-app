@@ -18,7 +18,7 @@ import {
 	RecoverPassword,
 } from './subpages';
 import { Welcome, Idea, Offer, Motto, Blog, Contact } from './sections';
-import { BlogPopup, ErrorPopup, Footer, Navbar } from './components';
+import { BlogPopup, ErrorPopup, Footer, Navbar, CookieBanner } from './components';
 import { useAppSelector } from './hooks/reduxHooks';
 import { getInitialErrorPopupValue } from './redux/errorPopupReduxSlice/errorPopupSlice';
 
@@ -32,6 +32,7 @@ const App: React.FC = () => {
 					element={
 						<>
 							{error && <ErrorPopup />}
+							<CookieBanner />
 							<Outlet />
 						</>
 					}>

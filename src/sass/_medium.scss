@@ -99,4 +99,12 @@
 			}
 		}
 	}
+
+	.terms-and-conditions {
+		&__btn {
+			padding: 0.8em 0;
+			max-width: 280px;
+			width: 280px;
+		}
+	}
 }
