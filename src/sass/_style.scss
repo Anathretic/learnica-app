@@ -37,7 +37,7 @@ body {
 }
 
 .cookie-banner-link {
-	color: globals.$gray-color;
+	color: #ffdf00;
 	text-underline-offset: 2px;
 }
 
@@ -142,7 +142,7 @@ body {
 		position: fixed;
 		justify-content: flex-start;
 		flex-direction: column;
-		padding: 0.75rem;
+		padding: 0.75rem 0.75rem 2rem;
 		top: 0.25rem;
 		right: 0.25rem;
 		width: 80vw;
@@ -152,12 +152,13 @@ body {
 		border-radius: 0.375rem;
 		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 		list-style-type: none;
+		overflow: auto;
 		z-index: 50;
 	}
 
 	&__mobile-exit-icon {
 		align-self: flex-start;
-		margin: 0.5rem 0 1.5rem;
+		margin: 0.5rem 0;
 		font-size: 1.25rem;
 		cursor: pointer;
 	}
@@ -247,6 +248,114 @@ body {
 
 	&__icon-container {
 		display: none;
+	}
+}
+
+.opinions {
+	position: relative;
+	padding: 30px 0 40px;
+	width: 100%;
+	background-image: url('../images/opinions-section/opinions-background.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	overflow: hidden;
+
+	&__container {
+		position: relative;
+		@include mixins.flex;
+		flex-direction: column;
+		padding: 1em 0;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 2160px;
+	}
+
+	&__title {
+		padding-bottom: 0.5rem;
+		font-size: 2.5rem;
+		text-align: center;
+		font-weight: 300;
+	}
+
+	&__wrapper {
+		@include mixins.flex;
+		flex-direction: column;
+		width: 100%;
+		padding: 3em 0;
+		overflow: hidden;
+	}
+
+	&__carousel-container {
+		display: flex;
+		width: 100%;
+		animation: scroll-left 80s linear infinite;
+	}
+
+	&__box {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		flex: 0 0 100%;
+		padding: 1em;
+		margin: 0 5%;
+		background-color: globals.$darker-blue-color;
+		color: globals.$white-color;
+		box-shadow: 0px 0px 20px -15px rgba(224, 224, 224, 1);
+		border-radius: 1em;
+
+		h3 {
+			padding: 1em 0.25em;
+			font-weight: 200;
+			font-style: italic;
+		}
+
+		p {
+			padding: 1em 0.25em 3.5em;
+			font-weight: 400;
+		}
+
+		span {
+			position: absolute;
+			bottom: 15px;
+			right: 15px;
+			font-weight: 200;
+			font-style: italic;
+			text-align: right;
+		}
+	}
+
+	&__box:nth-of-type(1) {
+		margin: 0 5% 0 0;
+	}
+
+	&__box:nth-of-type(10) {
+		margin: 0 0 0 5%;
+	}
+
+	&__error {
+		padding: 4em 0.5em;
+		color: globals.$white-color;
+		font-size: 1.35em;
+		text-align: center;
+	}
+
+	&__special-block {
+		position: absolute;
+		bottom: 0;
+		width: 40%;
+		height: 40px;
+		background-color: #c4c4c4;
+
+		&--left {
+			left: -50px;
+			transform: skew(45deg);
+		}
+
+		&--right {
+			right: -50px;
+			transform: skew(-45deg);
+		}
 	}
 }
 

@@ -8,6 +8,10 @@ export const navbarItems = [
 		section: '/#oferta',
 	},
 	{
+		title: 'opinie',
+		section: '/#opinie',
+	},
+	{
 		title: 'blog',
 		section: '/#blog',
 	},

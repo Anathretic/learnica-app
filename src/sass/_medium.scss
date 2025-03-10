@@ -54,6 +54,22 @@
 		}
 	}
 
+	.opinions {
+		&__carousel-container {
+			animation: scroll-left 140s linear infinite;
+		}
+
+		&__box-image {
+			width: 70px;
+			height: 70px;
+		}
+
+		&__error {
+			padding: 9em 0.5em;
+		}
+	}
+
+	.opinions,
 	.blog {
 		&__special-block {
 			width: 35%;
