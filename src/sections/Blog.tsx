@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BlogCarousel } from '../components/Blog/BlogCarousel';
 import { Loader } from '../components/Loader';
-import { getBlogData } from '../helpers/getBlogDataHelper';
+import { getBlogData } from '../helpers/getDataHelpers';
 import { SlideDataModel } from '../models/blogCarousel.model';
 
 const Blog: React.FC = () => {

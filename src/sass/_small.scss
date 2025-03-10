@@ -56,10 +56,19 @@
 }
 
 @media screen and (min-width: 350px) {
+	.opinions,
 	.blog,
 	.terms-and-conditions {
 		&__title {
 			font-size: 2.75rem;
+		}
+	}
+}
+
+@media screen and (min-width: 375px) {
+	.opinions {
+		&__error {
+			padding: 7em 0.5em;
 		}
 	}
 }
@@ -146,6 +155,14 @@
 
 		&__box:nth-of-type(2) {
 			display: block;
+		}
+	}
+}
+
+@media screen and (min-height: 320px) and (max-height: 550px) {
+	.opinions {
+		&__error {
+			padding: 2em 0.5em;
 		}
 	}
 }
