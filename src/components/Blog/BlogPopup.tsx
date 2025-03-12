@@ -26,10 +26,10 @@ const BlogPopup: React.FC = () => {
 								<h4 className='blog-popup__title'>{slideItemData.main_title}</h4>
 								<p className='blog-popup__public-date'>Opublikowano: {slideItemData.public_date}</p>
 								<div className='blog-popup__content-container'>
-									{slideItemData.sections.map((el, id) => (
+									{slideItemData?.sectionsCollection.edges.map((el, id) => (
 										<div key={id} className='blog-popup__content-box'>
-											<h4 className='blog-popup__content-title'>{el.title}</h4>
-											<p className='blog-popup__content-text'>{el.content}</p>
+											<h4 className='blog-popup__content-title'>{el.node.title}</h4>
+											<p className='blog-popup__content-text'>{el.node.content}</p>
 										</div>
 									))}
 									<button type='button' className='blog-popup__close-btn' onClick={handleCloseBtn}>

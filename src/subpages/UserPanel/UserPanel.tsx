@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { client } from '../../apollo/apolloClient';
 import { supabase } from '../../supabase/supabase';
-import { userDataGraph } from '../../graphql/userdataGraph';
+import { userDataGraph } from '../../graphql/graphs';
 import { useCheckSessionStatus } from '../../hooks/useCheckSessionStatus';
 import { UserDataModel } from '../../models/userData.model';
 

@@ -30,7 +30,7 @@ export const BlogCarousel: React.FC<SliderModel> = ({ slides }) => {
 		<div className='slider'>
 			<ul className='slider__wrapper' style={wrapperTransform}>
 				{slides.map(slide => (
-					<Slide key={slide.id} slide={slide} current={current} handleSlideClick={handleSlideClick} />
+					<Slide key={slide.node.id} slide={slide.node} current={current} handleSlideClick={handleSlideClick} />
 				))}
 			</ul>
 			<div className='slider__controls'>

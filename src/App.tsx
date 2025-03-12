@@ -48,14 +48,16 @@ const App: React.FC = () => {
 							element={
 								<>
 									<Navbar />
-									<Welcome />
-									<Idea />
-									<Offer />
-									<Motto />
-									<Opinions />
-									<Blog />
-									<BlogPopup />
-									<Contact />
+									<main>
+										<Welcome />
+										<Idea />
+										<Offer />
+										<Motto />
+										<Opinions />
+										<Blog />
+										<BlogPopup />
+										<Contact />
+									</main>
 								</>
 							}
 						/>
