@@ -9,8 +9,8 @@ import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
 import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
 import { registerFormInputsConfig } from './inputsConfig/inputsConfig';
-import { RegisterFormModel } from '../../models/loginAndRegisterForm.model';
 import { registerSchema } from '../../schemas/schemas';
+import { RegisterFormModel } from '../../models/form.model';
 
 export const RegisterForm: React.FC = () => {
 	const {

@@ -55,6 +55,14 @@
 	}
 }
 
+@media screen and (min-width: 320px) {
+	.opinions {
+		&__box-icon {
+			display: block;
+		}
+	}
+}
+
 @media screen and (min-width: 350px) {
 	.opinions,
 	.blog,

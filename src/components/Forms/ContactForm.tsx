@@ -8,7 +8,8 @@ import { contactFormInputsConfig } from './inputsConfig/inputsConfig';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setButtonText, setErrorValue, setIsLoading } from '../../redux/formReduxSlice/formSlice';
 import { contactSchema } from '../../schemas/schemas';
-import { ContactFormModel } from '../../models/contactForm.model';
+import { ContactFormModel } from '../../models/form.model';
+
 
 export const ContactForm: React.FC = () => {
 	const {
