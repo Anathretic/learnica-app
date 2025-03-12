@@ -1,8 +1,8 @@
-import { SlideDataModel } from './blogCarousel.model';
+import { SlideDataBoxModel } from './blogCarousel.model';
 
 export interface BlogPopupSliceModel {
 	showPopup: boolean;
-	slideItemData: SlideDataModel | undefined;
+	slideItemData: SlideDataBoxModel | undefined;
 }
 
 export interface FormSliceModel {

@@ -1,16 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { opinionsGraph } from '../../graphql/graphs';
 import { OpinionItem } from './components/OpinionItem';
-import { getOpinionData } from '../../helpers/getDataHelpers';
-import { OpinionDataModel } from '../../models/opinions.model';
+import { OpinionsDataModel } from '../../models/opinions.model';
 
 const Opinions: React.FC = () => {
-	const [opinions, setOpinions] = useState<OpinionDataModel[]>([]);
-	const [error, setError] = useState(false);
 	const [stopAnimation, setStopAnimation] = useState(false);
 
-	useEffect(() => {
-		getOpinionData({ setOpinions, setError });
-	}, []);
+	const { data, loading, error } = useQuery(opinionsGraph);
 
 	return (
 		<section id='opinie' className='opinions'>
@@ -20,15 +17,16 @@ const Opinions: React.FC = () => {
 				{!error ? (
 					<div className='opinions__wrapper'>
 						<div className={`opinions__carousel-container ${stopAnimation ? 'opinions__stop-animation' : ''}`}>
-							{opinions.map((data: OpinionDataModel, id: number) => (
-								<OpinionItem
-									key={id}
-									title={data.title}
-									opinion={data.opinion}
-									name={data.name}
-									setStopAnimation={setStopAnimation}
-								/>
-							))}
+							{!loading &&
+								data.opinionsCollection.edges.map((data: OpinionsDataModel, id: number) => (
+									<OpinionItem
+										key={id}
+										title={data.node.title}
+										opinion={data.node.opinion}
+										name={data.node.name}
+										setStopAnimation={setStopAnimation}
+									/>
+								))}
 						</div>
 					</div>
 				) : (

@@ -7,8 +7,8 @@ import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
 import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
 import { changePasswordInputsConfig } from './inputsConfig/inputsConfig';
-import { ChangePasswordFormModel } from '../../models/userOptions.model';
 import { changePasswordSchema } from '../../schemas/schemas';
+import { ChangePasswordFormModel } from '../../models/form.model';
 
 export const ChangePasswordForm: React.FC = () => {
 	const {

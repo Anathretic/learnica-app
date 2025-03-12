@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { blogGraph } from '../graphql/graphs';
 import { BlogCarousel } from '../components/Blog/BlogCarousel';
 import { Loader } from '../components/Loader';
-import { getBlogData } from '../helpers/getDataHelpers';
-import { SlideDataModel } from '../models/blogCarousel.model';
 
 const Blog: React.FC = () => {
-	const [slides, setSlides] = useState<SlideDataModel[]>([]);
-	const [isLoading, setIsLoading] = useState(true);
-	const [error, setError] = useState(false);
+	const { data, error, loading, refetch } = useQuery(blogGraph);
+	const [isLoading, setIsLoading] = useState(loading);
+
+	const handleReFetchButton = async () => {
+		setIsLoading(true);
+		await refetch();
+		setIsLoading(false);
+	};
 
 	useEffect(() => {
-		if (isLoading) getBlogData({ setSlides, setIsLoading, setError });
-	}, [isLoading]);
-
-	const handleReFetchButton = () => {
-		setError(false);
-		setIsLoading(true);
-	};
+		setIsLoading(loading);
+	}, [loading]);
 
 	return (
 		<section id='blog' className='blog'>
@@ -33,7 +33,7 @@ const Blog: React.FC = () => {
 							</button>
 						</div>
 					) : (
-						<BlogCarousel slides={slides} />
+						<BlogCarousel slides={data.articlesCollection.edges} />
 					)}
 				</div>
 			</div>

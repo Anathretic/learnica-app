@@ -1,33 +1,31 @@
 interface SlideTextDataModel {
-	title: string;
-	content: string;
+	node: {
+		title: string;
+		content: string;
+	};
 }
 
-export interface SlideDataModel {
+export interface SlideDataBoxModel {
 	id: number;
 	main_title: string;
 	public_date: string;
-	sections: SlideTextDataModel[];
+	sectionsCollection: { edges: SlideTextDataModel[] };
 }
 
 export interface SlideModel {
-	slide: SlideDataModel;
+	slide: SlideDataBoxModel;
 	current: number;
 	handleSlideClick: (id: number) => void;
 }
 
 export interface SliderModel {
-	slides: SlideDataModel[];
+	slides: {
+		node: SlideDataBoxModel;
+	}[];
 }
 
 export interface SliderControlModel {
 	type: 'previous' | 'next';
 	title: string;
 	handleClick: () => void;
-}
-
-export interface GetBlogDataModel {
-	setSlides: React.Dispatch<React.SetStateAction<SlideDataModel[]>>;
-	setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-	setError: React.Dispatch<React.SetStateAction<boolean>>;
 }

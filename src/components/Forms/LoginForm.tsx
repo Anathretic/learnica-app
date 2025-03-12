@@ -8,8 +8,8 @@ import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
 import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
 import { loginFormInputsConfig } from './inputsConfig/inputsConfig';
-import { LoginFormModel } from '../../models/loginAndRegisterForm.model';
 import { loginSchema } from '../../schemas/schemas';
+import { LoginFormModel } from '../../models/form.model';
 import { scrollToTop } from '../../utils/scrollToTopUtils';
 
 export const LoginForm: React.FC = () => {

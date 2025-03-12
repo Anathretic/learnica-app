@@ -7,8 +7,8 @@ import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
 import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
-import { RecoverPasswordFormModel } from '../../models/loginAndRegisterForm.model';
 import { recoverPasswordSchema } from '../../schemas/schemas';
+import { RecoverPasswordFormModel } from '../../models/form.model';
 
 export const RecoverPasswordForm: React.FC = () => {
 	const {
