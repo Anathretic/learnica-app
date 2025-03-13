@@ -35,6 +35,16 @@
 		}
 	}
 
+	.idea {
+		&__content-box {
+			max-width: 450px;
+
+			img {
+				max-width: 450px;
+			}
+		}
+	}
+
 	.login,
 	.recover-password,
 	.register,
