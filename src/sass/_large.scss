@@ -147,12 +147,15 @@
 		}
 	}
 
+	.idea,
 	.opinions {
 		&__container {
 			padding-top: 0;
 			padding-bottom: 3.2em;
 		}
+	}
 
+	.opinions {
 		&__box-image {
 			width: 80px;
 			height: 80px;
@@ -355,6 +358,7 @@
 		}
 	}
 
+	.idea,
 	.opinions {
 		&__container {
 			width: 100%;
@@ -413,6 +417,16 @@
 		&__title {
 			padding: 0.5rem 0.85rem;
 			font-size: 3.5rem;
+		}
+	}
+
+	.idea {
+		&__content-container {
+			padding: 4em 0 2em;
+		}
+
+		&__content-box {
+			text-align: center;
 		}
 	}
 
@@ -684,10 +698,8 @@
 
 @media screen and (min-width: 1720px) {
 	.contact {
-		.contact {
-			&__title-box {
-				margin-left: 2em;
-			}
+		&__title-box {
+			margin-left: 2em;
 		}
 	}
 
