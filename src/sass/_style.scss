@@ -54,8 +54,8 @@ body {
 	z-index: 10;
 
 	&__box {
-		@include mixins.flex;
 		position: relative;
+		@include mixins.flex;
 		flex-direction: column;
 		padding: 1em;
 		width: 90%;
@@ -251,31 +251,113 @@ body {
 	}
 }
 
-.opinions {
+.idea,
+.offer,
+.opinions,
+.blog {
 	position: relative;
 	padding: 30px 0 40px;
 	width: 100%;
-	background-image: url('../images/opinions-section/opinions-background.jpg');
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
 	overflow: hidden;
 
 	&__container {
-		position: relative;
 		@include mixins.flex;
 		flex-direction: column;
-		padding: 1em 0;
-		margin: 0 auto;
 		width: 100%;
 		max-width: 2160px;
 	}
 
 	&__title {
-		padding-bottom: 0.5rem;
-		font-size: 2.5rem;
+		@include mixins.title;
+	}
+
+	&__special-block {
+		position: absolute;
+		bottom: 0;
+		width: 40%;
+		height: 40px;
+
+		&--left {
+			left: -50px;
+			transform: skew(45deg);
+		}
+
+		&--right {
+			right: -50px;
+			transform: skew(-45deg);
+		}
+	}
+}
+
+.idea {
+	min-height: 100vh;
+
+	&__title {
+		padding-bottom: 2.5rem;
+	}
+
+	&__special-block {
+		background-color: globals.$dark-blue-color;
+	}
+}
+
+.offer {
+	min-height: 100vh;
+	background-color: globals.$dark-blue-color;
+
+	&__title {
+		padding-bottom: 2.5rem;
+	}
+
+	&__special-block {
+		background-color: globals.$darker-blue-color;
+	}
+}
+
+.motto {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+
+	&__container {
+		@include mixins.flex;
+		flex-direction: column;
+		padding: 4rem 0;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 2160px;
 		text-align: center;
-		font-weight: 300;
+	}
+
+	&__maintext {
+		width: 66%;
+		font-size: 1.875rem;
+		line-height: 1.5em;
+		font-weight: 500;
+	}
+
+	&__subtext {
+		margin: 1.5em 0;
+		font-style: italic;
+		font-size: 1.35em;
+		opacity: 0.8;
+	}
+}
+
+.opinions {
+	background-image: url('../images/opinions-section/opinions-background.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+
+	&__container {
+		position: relative;
+		padding: 1em 0;
+		margin: 0 auto;
+	}
+
+	&__title {
+		padding-bottom: 0.5rem;
 	}
 
 	&__wrapper {
@@ -353,40 +435,18 @@ body {
 	}
 
 	&__special-block {
-		position: absolute;
-		bottom: 0;
-		width: 40%;
-		height: 40px;
 		background-color: #c4c4c4;
-
-		&--left {
-			left: -50px;
-			transform: skew(45deg);
-		}
-
-		&--right {
-			right: -50px;
-			transform: skew(-45deg);
-		}
 	}
 }
 
 .blog {
-	position: relative;
-	padding: 30px 0 40px;
-	width: 100%;
 	background-color: #c4c4c4;
 	color: globals.$dark-blue-color;
-	overflow: hidden;
 
-	&__container,
 	&__wrapper {
 		position: relative;
 		@include mixins.flex;
 		flex-direction: column;
-	}
-
-	&__wrapper {
 		margin: 0 auto;
 		width: 100%;
 		max-width: 2160px;
@@ -394,7 +454,7 @@ body {
 	}
 
 	&__title {
-		@include mixins.title;
+		padding-bottom: 2.5rem;
 	}
 
 	&__loader {
@@ -433,21 +493,7 @@ body {
 	}
 
 	&__special-block {
-		position: absolute;
-		bottom: 0;
-		width: 40%;
-		height: 40px;
 		background-color: globals.$darker-blue-color;
-
-		&--left {
-			left: -50px;
-			transform: skew(45deg);
-		}
-
-		&--right {
-			right: -50px;
-			transform: skew(-45deg);
-		}
 	}
 }
 
@@ -493,12 +539,9 @@ body {
 		font-style: italic;
 	}
 
-	&__content-container {
-		padding: 1.1rem 1.1rem 2rem;
-	}
-
+	&__content-container,
 	&__content-box {
-		padding: 1rem 1rem 2rem;
+		padding: 1.1rem 1.1rem 2rem;
 	}
 
 	&__content-title {
@@ -545,10 +588,8 @@ body {
 	}
 
 	&__title {
+		@include mixins.title;
 		padding-bottom: 2.5rem;
-		font-size: 2.5rem;
-		text-align: center;
-		font-weight: 300;
 	}
 
 	&__title-box,

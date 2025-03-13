@@ -1,4 +1,5 @@
 @use 'globals';
+@use 'mixins';
 
 @media screen and (min-width: 990px) {
 	.navbar {
@@ -129,12 +130,20 @@
 		}
 	}
 
+	.idea,
+	.offer,
 	.opinions,
 	.blog,
 	.contact,
 	.terms-and-conditions {
 		&__title {
 			font-size: 3rem;
+		}
+	}
+
+	.motto {
+		&__maintext {
+			font-size: 2.75rem;
 		}
 	}
 
@@ -190,12 +199,10 @@
 			max-width: 575px;
 		}
 
-		&__close-btn {
-			&:hover {
-				color: globals.$white-color;
-				background-color: globals.$gray-color;
-				border: 2px solid globals.$gray-color;
-			}
+		&__close-btn:hover {
+			color: globals.$white-color;
+			background-color: globals.$gray-color;
+			border: 2px solid globals.$gray-color;
 		}
 	}
 
@@ -203,9 +210,7 @@
 	.recover-password,
 	.register,
 	.change-password {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		@include mixins.flex;
 		flex-direction: column;
 		width: 100%;
 		min-height: 90vh;
@@ -248,7 +253,8 @@
 	}
 
 	.form {
-		&__label {
+		&__label,
+		&__submit {
 			font-size: 1.1em;
 		}
 
@@ -256,10 +262,7 @@
 			font-size: 0.9rem;
 		}
 
-		&__textarea-error {
-			font-size: 1em;
-		}
-
+		&__textarea-error,
 		&__recaptcha-error {
 			font-size: 1em;
 		}
@@ -272,13 +275,9 @@
 			}
 		}
 
-		&__submit {
-			font-size: 1.1em;
-
-			&:hover {
-				color: globals.$white-color;
-				background-color: globals.$gray-color;
-			}
+		&__submit:hover {
+			color: globals.$white-color;
+			background-color: globals.$gray-color;
 		}
 
 		&__special-text {
@@ -350,6 +349,12 @@
 }
 
 @media screen and (min-width: 1280px) {
+	.motto {
+		&__container {
+			padding: 9rem 0;
+		}
+	}
+
 	.opinions {
 		&__container {
 			width: 100%;
@@ -386,16 +391,34 @@
 		width: 50%;
 	}
 
+	.idea,
+	.offer,
+	.opinions,
+	.blog {
+		&__special-block {
+			height: 45px;
+			width: 42%;
+
+			&--right {
+				display: none;
+			}
+		}
+	}
+
+	.idea,
+	.offer,
 	.opinions {
 		padding-top: 70px;
-
-		&__wrapper {
-			padding: 3em 0 4em;
-		}
 
 		&__title {
 			padding: 0.5rem 0.85rem;
 			font-size: 3.5rem;
+		}
+	}
+
+	.opinions {
+		&__wrapper {
+			padding: 3em 0 4em;
 		}
 
 		&__box {
@@ -413,15 +436,6 @@
 
 		&__stop-animation {
 			animation-play-state: paused;
-		}
-
-		&__special-block {
-			height: 45px;
-			width: 42%;
-
-			&--right {
-				display: none;
-			}
 		}
 	}
 
@@ -456,15 +470,6 @@
 		&__error-box {
 			p {
 				font-size: 1.5em;
-			}
-		}
-
-		&__special-block {
-			height: 45px;
-			width: 42%;
-
-			&--right {
-				display: none;
 			}
 		}
 	}
@@ -637,6 +642,13 @@
 		&__icon-container {
 			bottom: 2em;
 			left: 50%;
+		}
+	}
+
+	.motto {
+		&__maintext {
+			width: 50%;
+			font-size: 3rem;
 		}
 	}
 
