@@ -64,6 +64,8 @@
 }
 
 @media screen and (min-width: 350px) {
+	.idea,
+	.offer,
 	.opinions,
 	.blog,
 	.terms-and-conditions {
@@ -155,6 +157,12 @@
 }
 
 @media screen and (min-width: 640px) {
+	.motto {
+		&__container {
+			padding: 3rem 0;
+		}
+	}
+
 	.footer {
 		&__bar,
 		&__container {

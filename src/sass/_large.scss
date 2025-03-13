@@ -129,12 +129,20 @@
 		}
 	}
 
+	.idea,
+	.offer,
 	.opinions,
 	.blog,
 	.contact,
 	.terms-and-conditions {
 		&__title {
 			font-size: 3rem;
+		}
+	}
+
+	.motto {
+		&__maintext {
+			font-size: 2.75rem;
 		}
 	}
 
@@ -350,6 +358,12 @@
 }
 
 @media screen and (min-width: 1280px) {
+	.motto {
+		&__container {
+			padding: 12rem 0;
+		}
+	}
+
 	.opinions {
 		&__container {
 			width: 100%;
@@ -386,16 +400,34 @@
 		width: 50%;
 	}
 
+	.idea,
+	.offer,
+	.opinions,
+	.blog {
+		&__special-block {
+			height: 45px;
+			width: 42%;
+
+			&--right {
+				display: none;
+			}
+		}
+	}
+
+	.idea,
+	.offer,
 	.opinions {
 		padding-top: 70px;
-
-		&__wrapper {
-			padding: 3em 0 4em;
-		}
 
 		&__title {
 			padding: 0.5rem 0.85rem;
 			font-size: 3.5rem;
+		}
+	}
+
+	.opinions {
+		&__wrapper {
+			padding: 3em 0 4em;
 		}
 
 		&__box {
@@ -413,15 +445,6 @@
 
 		&__stop-animation {
 			animation-play-state: paused;
-		}
-
-		&__special-block {
-			height: 45px;
-			width: 42%;
-
-			&--right {
-				display: none;
-			}
 		}
 	}
 
@@ -456,15 +479,6 @@
 		&__error-box {
 			p {
 				font-size: 1.5em;
-			}
-		}
-
-		&__special-block {
-			height: 45px;
-			width: 42%;
-
-			&--right {
-				display: none;
 			}
 		}
 	}
@@ -637,6 +651,13 @@
 		&__icon-container {
 			bottom: 2em;
 			left: 50%;
+		}
+	}
+
+	.motto {
+		&__maintext {
+			width: 50%;
+			font-size: 3rem;
 		}
 	}
 

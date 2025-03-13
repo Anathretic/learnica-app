@@ -251,6 +251,113 @@ body {
 	}
 }
 
+.idea {
+	position: relative;
+	padding: 30px 0 40px;
+	width: 100%;
+	min-height: 100vh;
+	overflow: hidden;
+
+	&__container {
+		@include mixins.flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: 2160px;
+	}
+
+	&__title {
+		@include mixins.title;
+		padding-bottom: 2.5rem;
+	}
+
+	&__special-block {
+		position: absolute;
+		bottom: 0;
+		width: 40%;
+		height: 40px;
+		background-color: globals.$dark-blue-color;
+
+		&--left {
+			left: -50px;
+			transform: skew(45deg);
+		}
+
+		&--right {
+			right: -50px;
+			transform: skew(-45deg);
+		}
+	}
+}
+
+.offer {
+	position: relative;
+	padding: 30px 0 40px;
+	width: 100%;
+	min-height: 100vh;
+	background-color: globals.$dark-blue-color;
+	overflow: hidden;
+
+	&__container {
+		@include mixins.flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: 2160px;
+	}
+
+	&__title {
+		@include mixins.title;
+		padding-bottom: 2.5rem;
+	}
+
+	&__special-block {
+		position: absolute;
+		bottom: 0;
+		width: 40%;
+		height: 40px;
+		background-color: globals.$darker-blue-color;
+
+		&--left {
+			left: -50px;
+			transform: skew(45deg);
+		}
+
+		&--right {
+			right: -50px;
+			transform: skew(-45deg);
+		}
+	}
+}
+
+.motto {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+
+	&__container {
+		@include mixins.flex;
+		flex-direction: column;
+		padding: 4rem 0;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 2160px;
+		text-align: center;
+	}
+
+	&__maintext {
+		width: 66%;
+		font-size: 1.875rem;
+		line-height: 1.5em;
+		font-weight: 500;
+	}
+
+	&__subtext {
+		margin: 1.5em 0;
+		font-style: italic;
+		font-size: 1.35em; 
+		opacity: 0.8;
+	}
+}
+
 .opinions {
 	position: relative;
 	padding: 30px 0 40px;
@@ -272,10 +379,8 @@ body {
 	}
 
 	&__title {
+		@include mixins.title;
 		padding-bottom: 0.5rem;
-		font-size: 2.5rem;
-		text-align: center;
-		font-weight: 300;
 	}
 
 	&__wrapper {
@@ -395,6 +500,7 @@ body {
 
 	&__title {
 		@include mixins.title;
+		padding-bottom: 2.5rem;
 	}
 
 	&__loader {
@@ -545,10 +651,8 @@ body {
 	}
 
 	&__title {
+		@include mixins.title;
 		padding-bottom: 2.5rem;
-		font-size: 2.5rem;
-		text-align: center;
-		font-weight: 300;
 	}
 
 	&__title-box,

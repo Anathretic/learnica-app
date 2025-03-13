@@ -54,6 +54,12 @@
 		}
 	}
 
+	.motto {
+		&__maintext {
+			font-size: 2.5rem;
+		}
+	}
+
 	.opinions {
 		&__carousel-container {
 			animation: scroll-left 210s linear infinite;
@@ -69,6 +75,8 @@
 		}
 	}
 
+	.idea,
+	.offer,
 	.opinions,
 	.blog {
 		&__special-block {

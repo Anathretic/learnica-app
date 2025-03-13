@@ -1,9 +1,11 @@
 const Offer: React.FC = () => {
 	return (
-		<section id='oferta' style={{ minHeight: '100vh' }}>
-			<div>
-				<h2>Oferta</h2>
+		<section id='oferta' className='offer'>
+			<div className='offer__container'>
+				<h2 className='offer__title'>Oferta</h2>
 			</div>
+			<div className='offer__special-block offer__special-block--left' />
+			<div className='offer__special-block offer__special-block--right' />
 		</section>
 	);
 };
