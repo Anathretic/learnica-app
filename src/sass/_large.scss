@@ -359,6 +359,7 @@
 	}
 
 	.idea,
+	.offer,
 	.opinions {
 		&__container {
 			width: 100%;
@@ -427,6 +428,35 @@
 
 		&__content-box {
 			text-align: center;
+		}
+	}
+
+	.offer {
+		&__container {
+			flex-wrap: wrap;
+			padding-top: 0;
+			padding-bottom: 3.2em;
+		}
+
+		&__wrapper {
+			flex-direction: row;
+			flex-wrap: wrap;
+			padding: 4em 0 2em;
+		}
+
+		&__box {
+			width: 30%;
+			max-width: 420px;
+		}
+
+		&__box-button:hover {
+			color: globals.$white-color;
+			background-color: globals.$gray-color;
+		}
+
+		&__error {
+			padding: 7.5em 0.5em 0;
+			font-size: 1.5em;
 		}
 	}
 
@@ -659,6 +689,14 @@
 		}
 	}
 
+	.offer {
+		&__box {
+			padding: 2em 1em;
+			margin: 0 1em;
+			width: 35%;
+		}
+	}
+
 	.motto {
 		&__maintext {
 			width: 50%;
@@ -697,6 +735,13 @@
 }
 
 @media screen and (min-width: 1720px) {
+	.offer {
+		&__box {
+			margin: 0 3em;
+			max-width: 430px;
+		}
+	}
+
 	.contact {
 		&__title-box {
 			margin-left: 2em;

@@ -70,6 +70,24 @@
 		}
 	}
 
+	.offer {
+		&__box {
+			width: 50%;
+		}
+
+		&__box-title {
+			font-size: 5em;
+		}
+
+		&__box-button {
+			font-size: 1em;
+		}
+
+		&__error {
+			padding: 9em 0.5em 0;
+		}
+	}
+
 	.opinions {
 		&__carousel-container {
 			animation: scroll-left 210s linear infinite;

@@ -76,9 +76,20 @@
 }
 
 @media screen and (min-width: 375px) {
+	.offer,
 	.opinions {
 		&__error {
 			padding: 7em 0.5em;
+		}
+	}
+
+	.offer {
+		&__box {
+			width: 80%;
+		}
+
+		&__box-title {
+			font-size: 4em;
 		}
 	}
 }
@@ -101,6 +112,16 @@
 }
 
 @media screen and (min-width: 500px) {
+	.offer {
+		&__box {
+			width: 65%;
+		}
+
+		&__box-title {
+			font-size: 4.5em;
+		}
+	}
+
 	.login,
 	.recover-password,
 	.register {
@@ -176,6 +197,7 @@
 }
 
 @media screen and (min-height: 320px) and (max-height: 550px) {
+	.offer,
 	.opinions {
 		&__error {
 			padding: 2em 0.5em;
