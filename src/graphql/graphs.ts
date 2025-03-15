@@ -1,12 +1,38 @@
 import { gql } from '@apollo/client';
 
-export const userDataGraph = gql`
-	query UserData {
-		userdataCollection {
+export const offerGraph = gql`
+	query OfferData {
+		offerCollection {
 			edges {
 				node {
-					user_id
-					email
+					id
+					subpage
+					text
+					title
+					price
+					offerItemsCollection {
+						edges {
+							node {
+								id
+								content
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+`;
+
+export const opinionsGraph = gql`
+	query OpinionsData {
+		opinionsCollection {
+			edges {
+				node {
+					id
+					title
+					opinion
+					name
 				}
 			}
 		}
@@ -37,15 +63,13 @@ export const blogGraph = gql`
 	}
 `;
 
-export const opinionsGraph = gql`
-	query OpinionsData {
-		opinionsCollection {
+export const userDataGraph = gql`
+	query UserData {
+		userdataCollection {
 			edges {
 				node {
-					id
-					title
-					opinion
-					name
+					user_id
+					email
 				}
 			}
 		}
