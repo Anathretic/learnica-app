@@ -13,6 +13,11 @@ export const OfferBox: React.FC<OfferBoxModel> = ({ subpage, text, title, price,
 					<li key={id}>{data.node.content}</li>
 				))}
 			</ul>
+			{subpage === 'jezyk-angielski' && (
+				<p className='offer__extra-text'>
+					<span>Potrzebujesz tłumacza?</span> Dobrze trafiłeś! Kliknij drugi przycisk i zobacz naszą ofertę.
+				</p>
+			)}
 			<p className='offer__box-special-text'>Cena już od:</p>
 			<p className='offer__price'>{price}zł</p>
 			<Link
@@ -23,6 +28,19 @@ export const OfferBox: React.FC<OfferBoxModel> = ({ subpage, text, title, price,
 				}}>
 				Sprawdź
 			</Link>
+			{subpage === 'jezyk-angielski' && (
+				<>
+					<hr className='offer__special-decoration' />
+					<Link
+						to={`/tlumaczenia`}
+						className='offer__box-button'
+						onClick={() => {
+							scrollToTop();
+						}}>
+						Tłumaczenia
+					</Link>
+				</>
+			)}
 		</div>
 	);
 };

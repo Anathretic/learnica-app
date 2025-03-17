@@ -366,6 +366,8 @@ body {
 }
 
 .offer {
+	@include mixins.flex;
+	flex-direction: column;
 	min-height: 75vh;
 	background-color: globals.$dark-blue-color;
 
@@ -391,6 +393,19 @@ body {
 			padding: 0 1em 1em 2em;
 			line-height: 1.5em;
 			text-align: left;
+
+			li:nth-of-type(4) {
+				color: globals.$gray-color;
+			}
+		}
+	}
+
+	&__extra-text {
+		padding: 1em 0.5em;
+		line-height: 1.5em;
+
+		span {
+			font-weight: 600;
 		}
 	}
 
@@ -428,17 +443,24 @@ body {
 		@include mixins.button;
 	}
 
+	&__special-decoration {
+		height: 1px;
+		width: 90%;
+		margin-bottom: 0.75em;
+		border: 1px solid globals.$border-color;
+	}
+
 	&__special-block {
 		background-color: globals.$darker-blue-color;
 	}
 }
 
 .motto {
-	position: relative;
 	width: 100%;
 	overflow: hidden;
 
 	&__container {
+		position: relative;
 		@include mixins.flex;
 		flex-direction: column;
 		padding: 4rem 0;
@@ -449,6 +471,7 @@ body {
 	}
 
 	&__maintext {
+		position: relative;
 		width: 66%;
 		font-size: 1.875rem;
 		line-height: 1.5em;
@@ -460,6 +483,10 @@ body {
 		font-style: italic;
 		font-size: 1.35em;
 		opacity: 0.8;
+	}
+
+	&__icon {
+		display: none;
 	}
 }
 
@@ -552,6 +579,8 @@ body {
 }
 
 .blog {
+	@include mixins.flex;
+	flex-direction: column;
 	background-color: #c4c4c4;
 	color: globals.$dark-blue-color;
 
