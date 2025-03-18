@@ -114,11 +114,11 @@ body {
 		justify-content: center;
 	}
 
-	&__title-text {
-		padding: 0.75rem;
-		color: globals.$white-color;
-		text-transform: uppercase;
-		cursor: pointer;
+	&__title-box {
+		img {
+			padding: 0.75rem;
+			cursor: pointer;
+		}
 	}
 
 	&__desktop {
@@ -220,6 +220,7 @@ body {
 		h1 {
 			font-size: 5rem;
 			font-family: globals.$special-font;
+			font-weight: 200;
 		}
 
 		p {
@@ -297,6 +298,7 @@ body {
 	}
 
 	&__content-container {
+		position: relative;
 		@include mixins.flex;
 		flex-direction: column;
 		padding: 1em 2em 2em;
@@ -348,6 +350,11 @@ body {
 		color: globals.$white-color;
 		border: 1px solid globals.$white-color;
 		margin-bottom: 1em;
+	}
+
+	&__first-icon-box,
+	&__second-icon-box {
+		display: none;
 	}
 
 	&__special-block {
@@ -1103,6 +1110,20 @@ body {
 	&__box {
 		z-index: 10;
 
+		h2 {
+			position: relative;
+			display: flex;
+
+			span {
+				position: absolute;
+				left: 1.2em;
+				bottom: 0.05em;
+				font-size: 2.5rem;
+				font-family: globals.$special-font;
+				font-weight: 200;
+			}
+		}
+
 		a {
 			padding: 2px 0.35rem 0.35rem;
 			color: globals.$white-color;
@@ -1131,10 +1152,9 @@ body {
 		}
 	}
 
-	&__box {
-		h2 {
-			font-size: 2rem;
-			text-transform: uppercase;
+	&__box:nth-of-type(1) {
+		p {
+			margin-left: 1px;
 		}
 	}
 

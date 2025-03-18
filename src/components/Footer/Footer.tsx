@@ -3,6 +3,8 @@ import { useMediaQuery } from 'react-responsive';
 import { footerMoreItems, footerOfferItems, footerTeamItems } from './footerItems/footerItems';
 import { FaRegCopyright, FaFacebookSquare, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
+import BlueLogo from '../../images/logo/blue-logo.svg';
+
 const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
 
@@ -13,7 +15,10 @@ const Footer: React.FC = () => {
 			<div className='footer__bar footer__bar--first' />
 			<div className='footer__container'>
 				<div className='footer__box'>
-					<h2>learnica</h2>
+					<h2>
+						<img src={BlueLogo} alt='' />
+						<span>earnica</span>
+					</h2>
 					<p>Z nami nauka będzie niezapomnianą przygodą!</p>
 					<div>
 						<a href='https://www.facebook.com' target='_blank' rel='noreferrer'>

@@ -6,5 +6,26 @@
 	"display": "standalone",
 	"theme_color": "#111111",
 	"background_color": "#222222",
-	"icons": []
+	"icons": [
+		{
+			"src": "manifest-icons/icon-48.svg",
+			"sizes": "48x48",
+			"type": "image/svg+xml"
+		},
+		{
+			"src": "manifest-icons/icon-96.svg",
+			"sizes": "96x96",
+			"type": "image/svg+xml"
+		},
+		{
+			"src": "manifest-icons/icon-144.svg",
+			"sizes": "144x144",
+			"type": "image/svg+xml"
+		},
+		{
+			"src": "manifest-icons/icon-512.svg",
+			"sizes": "512x512",
+			"type": "image/svg+xml"
+		}
+	]
 }
