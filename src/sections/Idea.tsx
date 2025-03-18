@@ -1,3 +1,4 @@
+import { FaBook, FaPencilAlt, FaPenFancy } from 'react-icons/fa';
 import IdeaFirstImage from '../images/idea-section/idea-first-image.jpg';
 import IdeaSecondImage from '../images/idea-section/idea-second-image.jpg';
 import IdeaThirdImage from '../images/idea-section/idea-third-image.jpg';
@@ -43,6 +44,25 @@ const Idea: React.FC = () => {
 							bardziej pewni siebie i chętni do dalszej nauki. Nasza oferta to nie tylko nauka, ale także budowanie
 							pozytywnego podejścia do nauki.
 						</p>
+					</div>
+					<div className='idea__first-icon-box'>
+						<FaBook className='idea__first-box-icon idea__first-box-icon--first' fontSize={70} />
+						<FaPencilAlt className='idea__first-box-icon idea__first-box-icon--second' fontSize={66} />
+						<FaPenFancy className='idea__first-box-icon idea__first-box-icon--third' fontSize={54} />
+						<FaBook className='idea__first-box-icon idea__first-box-icon--fourth' fontSize={62} />
+						<FaPencilAlt className='idea__first-box-icon idea__first-box-icon--fifth' fontSize={80} />
+						<FaPenFancy className='idea__first-box-icon idea__first-box-icon--sixth' fontSize={54} />
+						<FaBook className='idea__first-box-icon idea__first-box-icon--seventh' fontSize={62} />
+						<FaPencilAlt className='idea__first-box-icon idea__first-box-icon--eighth' fontSize={80} />
+					</div>
+					<div className='idea__second-icon-box'>
+						<FaPencilAlt className='idea__second-box-icon idea__second-box-icon--first' fontSize={70} />
+						<FaPenFancy className='idea__second-box-icon idea__second-box-icon--second' fontSize={66} />
+						<FaBook className='idea__second-box-icon idea__second-box-icon--third' fontSize={54} />
+						<FaPenFancy className='idea__second-box-icon idea__second-box-icon--fourth' fontSize={62} />
+						<FaBook className='idea__second-box-icon idea__second-box-icon--fifth' fontSize={80} />
+						<FaPencilAlt className='idea__second-box-icon idea__second-box-icon--sixth' fontSize={54} />
+						<FaPencilAlt className='idea__second-box-icon idea__second-box-icon--seventh' fontSize={62} />
 					</div>
 				</div>
 			</div>

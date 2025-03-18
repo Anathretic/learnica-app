@@ -141,6 +141,57 @@
 		}
 	}
 
+	.idea {
+		&__first-icon-box {
+			display: block;
+		}
+
+		&__first-box-icon {
+			position: absolute;
+			color: rgba(255, 255, 255, 0.15);
+
+			&--first {
+				top: -0.5em;
+				left: 2em;
+			}
+
+			&--second {
+				top: 3em;
+				right: 1.5em;
+			}
+
+			&--third {
+				top: 25%;
+				left: 1.5em;
+			}
+
+			&--fourth {
+				top: 40%;
+				right: 2.25em;
+			}
+
+			&--fifth {
+				top: 55%;
+				left: 2em;
+			}
+
+			&--sixth {
+				bottom: 33%;
+				right: 3em;
+			}
+
+			&--seventh {
+				bottom: 2%;
+				right: 1.5em;
+			}
+
+			&--eighth {
+				bottom: 10%;
+				left: 1.65em;
+			}
+		}
+	}
+
 	.motto {
 		&__maintext {
 			font-size: 2.75rem;
@@ -424,10 +475,46 @@
 	.idea {
 		&__content-container {
 			padding: 4em 0 2em;
+			max-width: 1180px;
 		}
 
 		&__content-box {
 			text-align: center;
+		}
+
+		&__first-box-icon {
+			&--second {
+				top: 3.5em;
+				right: 0.5em;
+			}
+
+			&--third {
+				top: 22%;
+				left: 0.5em;
+			}
+
+			&--fourth {
+				top: 36%;
+			}
+
+			&--fifth {
+				left: 1.75em;
+			}
+
+			&--sixth {
+				bottom: 30%;
+				right: 1.5em;
+			}
+
+			&--seventh {
+				bottom: 0;
+				right: 2em;
+			}
+
+			&--eighth {
+				bottom: 10%;
+				left: 0.5em;
+			}
 		}
 	}
 
@@ -770,6 +857,64 @@
 }
 
 @media screen and (min-width: 1720px) {
+	.idea {
+		&__first-box-icon {
+			&--first {
+				top: -1em;
+				left: 1em;
+			}
+
+			&--eighth {
+				bottom: 7%;
+				left: 0.5em;
+			}
+		}
+
+		&__second-icon-box {
+			display: block;
+		}
+
+		&__second-box-icon {
+			position: absolute;
+			color: rgba(255, 255, 255, 0.15);
+
+			&--first {
+				top: 2.5em;
+				left: -3em;
+			}
+
+			&--second {
+				top: -1em;
+				right: -3em;
+			}
+
+			&--third {
+				top: 40%;
+				left: -2.5em;
+			}
+
+			&--fourth {
+				top: 25%;
+				right: -1em;
+			}
+
+			&--fifth {
+				bottom: 24%;
+				left: -1.5em;
+			}
+
+			&--sixth {
+				bottom: 45%;
+				right: -1.75em;
+			}
+
+			&--seventh {
+				bottom: 13%;
+				right: -3em;
+			}
+		}
+	}
+
 	.offer {
 		&__box {
 			margin: 0 3em;
