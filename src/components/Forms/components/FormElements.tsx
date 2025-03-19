@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { getFormInitialValues, setButtonText } from '../../../redux/formReduxSlice/formSlice';
-import { InputAndTextareaModel, ReCaptchaV2Model } from '../../../models/formElements.model';
+import { InputAndTextareaModel, ReCaptchaV2Model, SelectModel } from '../../../models/formElements.model';
+import { scrollToTop } from '../../../utils/scrollToTopUtils';
 import { Loader } from '../../Loader';
 
 export const InputElement: React.FC<InputAndTextareaModel> = React.forwardRef<HTMLInputElement, InputAndTextareaModel>(
@@ -51,6 +53,26 @@ export const TextareaElement: React.FC<InputAndTextareaModel> = React.forwardRef
 	);
 });
 
+export const SelectElement: React.FC<SelectModel> = React.forwardRef<HTMLSelectElement, SelectModel>(
+	({ label, selectName, optionItemsArray, errorMessage, ...props }, ref) => {
+		return (
+			<div className='form__box'>
+				<label className='form__label' htmlFor={selectName}>
+					{label}
+				</label>
+				<select className='form__select' ref={ref} {...props}>
+					{optionItemsArray.map((option, id) => (
+						<option key={id} disabled={option.disabled} value={option.value}>
+							{option.label}
+						</option>
+					))}
+				</select>
+				<p className='form__select-error'>{`${errorMessage === undefined ? '' : errorMessage}`}</p>
+			</div>
+		);
+	}
+);
+
 export const ReCaptchaV2Component: React.FC<ReCaptchaV2Model> = ({ refCaptcha }) => {
 	const { errorValue } = useAppSelector(getFormInitialValues);
 	const isMobile = useMediaQuery({ query: '(max-width: 499px)' });
@@ -89,6 +111,21 @@ export const FormSubmit: React.FC = () => {
 	return (
 		<div className='form__box'>
 			{isLoading ? <Loader className='loader' /> : <input className='form__submit' type='submit' value={buttonText} />}
+		</div>
+	);
+};
+
+export const ReturnButton: React.FC = () => {
+	const { isLoading } = useAppSelector(getFormInitialValues);
+
+	return (
+		<div className='form__box'>
+			<Link
+				className={isLoading ? 'form__return-btn form__return-btn--opacity' : 'form__return-btn'}
+				to='/'
+				onClick={scrollToTop}>
+				Powrót
+			</Link>
 		</div>
 	);
 };

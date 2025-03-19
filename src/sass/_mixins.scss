@@ -12,6 +12,14 @@
 	font-weight: 300;
 }
 
+@mixin h3 {
+	padding: 1em;
+	font-size: 1.5em;
+	font-weight: 200;
+	font-style: italic;
+	text-align: center;
+}
+
 @mixin button {
 	padding: 0.55em 3em;
 	width: 215px;

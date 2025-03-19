@@ -1,4 +1,4 @@
-export { default as PolishClasses } from './Offer/PolishClasses';
+export { default as PolishClasses } from './Offer/PolishClasses/PolishClasses';
 export { default as EnglishClasses } from './Offer/EnglishClasses';
 export { default as MathClasses } from './Offer/MathClasses';
 export { default as Translations } from './Offer/Translations';

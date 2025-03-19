@@ -4,10 +4,20 @@ import { ChangePasswordFormModel, ContactFormModel, LoginFormModel, RegisterForm
 
 type Form = ContactFormModel | LoginFormModel | RegisterFormModel | ChangePasswordFormModel;
 type ErrorMessage = string | FieldError | Merge<FieldError, FieldErrorsImpl<Form>> | undefined;
-export interface InputAndTextareaModel {
+
+interface DefaultModel {
 	label: string;
-	inputName: string;
 	errorMessage: ErrorMessage;
+}
+
+interface OptionItem {
+	value: string;
+	label: string;
+	disabled: boolean;
+}
+
+export interface InputAndTextareaModel extends DefaultModel {
+	inputName: string;
 	type?: string;
 	placeholder?: string;
 	value?: string;
@@ -16,6 +26,11 @@ export interface InputAndTextareaModel {
 
 export interface LoaderModel {
 	className: string;
+}
+
+export interface SelectModel extends DefaultModel {
+	selectName: string;
+	optionItemsArray: OptionItem[];
 }
 
 export interface ReCaptchaV2Model {

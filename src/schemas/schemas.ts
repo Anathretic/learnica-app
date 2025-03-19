@@ -50,3 +50,20 @@ export const registerSchema = yup
 export const loginSchema = registerSchema.pick(['email', 'password']);
 export const recoverPasswordSchema = contactSchema.pick(['email']);
 export const changePasswordSchema = registerSchema.pick(['password', 'confirmPassword']);
+
+export const classesSchema = yup
+	.object({
+		lastname: yup
+			.string()
+			.min(2, 'Nazwisko jest zbyt krótkie!')
+			.max(51, 'Nazwisko jest zbyt długie!')
+			.matches(/^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ-]+$/, 'Tylko litery! Bez spacji!')
+			.required(errorMessage.requiredField),
+		phone: yup.string().phone('PL', 'Podaj prawidłowy numer!').required(errorMessage.requiredField),
+		classes: yup
+			.string()
+			.oneOf(['Język polski', 'Język angielski', 'Matematyka', 'Tłumaczenia', ''])
+			.required(errorMessage.requiredField)
+			.test('is-selected', errorMessage.requiredField, value => value !== ''),
+	})
+	.concat(contactSchema);

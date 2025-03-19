@@ -88,6 +88,23 @@
 		}
 	}
 
+	.polish-classes {
+		&__hero-image-title {
+			font-size: 4rem;
+		}
+
+		&__benefits-text-content-box {
+			max-width: 325px;
+		}
+
+		&__benefits-special-block,
+		&__banner-special-block,
+		&__form-special-block {
+			width: 35%;
+			height: 50px;
+		}
+	}
+
 	.opinions {
 		&__carousel-container {
 			animation: scroll-left 210s linear infinite;
