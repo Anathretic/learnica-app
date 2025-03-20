@@ -1,0 +1,191 @@
+@use '../globals';
+@use '../mixins';
+
+.offer {
+	@include mixins.flex;
+	flex-direction: column;
+	min-height: 75vh;
+	background-color: globals.$dark-blue-color;
+
+	&__wrapper,
+	&__box {
+		@include mixins.flex;
+		flex-direction: column;
+	}
+
+	&__wrapper {
+		padding: 1em 0 50px;
+		width: 100%;
+	}
+
+	&__box {
+		padding: 1em;
+		margin: 1em;
+		width: 90%;
+		max-width: 450px;
+		color: globals.$white-color;
+		border-radius: 1em;
+		text-align: center;
+
+		ul {
+			padding: 0 1em 1em 2em;
+			line-height: 1.5em;
+			text-align: left;
+
+			li:nth-of-type(4) {
+				color: globals.$gray-color;
+			}
+		}
+	}
+
+	&__extra-text {
+		padding: 1em 0.5em;
+		line-height: 1.5em;
+
+		span {
+			font-weight: 600;
+		}
+	}
+
+	&__box-special-text,
+	&__price {
+		padding: 0.75em;
+		font-size: 1.4em;
+		font-weight: 400;
+		line-height: 32px;
+	}
+
+	&__box-special-text {
+		color: globals.$gray-color;
+	}
+
+	&__price {
+		padding: 0 0.75em 1em;
+		color: globals.$white-color;
+	}
+
+	&__box-title {
+		padding: 0.25em 0;
+		font-size: 3.5em;
+		font-family: globals.$special-font;
+		font-weight: 400;
+	}
+
+	&__box-text {
+		padding: 1em 0.5em;
+		line-height: 1.5em;
+	}
+
+	&__box-button {
+		margin: 0.75em 1.5em 1.5em;
+		@include mixins.button;
+	}
+
+	&__special-decoration {
+		height: 1px;
+		width: 90%;
+		margin-bottom: 0.75em;
+		border: 1px solid globals.$border-color;
+	}
+
+	&__special-block {
+		background-color: globals.$darker-blue-color;
+	}
+}
+
+@media screen and (min-width: 375px) {
+	.offer {
+		&__box {
+			width: 80%;
+		}
+
+		&__box-title {
+			font-size: 4em;
+		}
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.offer {
+		&__box {
+			width: 65%;
+		}
+
+		&__box-title {
+			font-size: 4.5em;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.offer {
+		&__box {
+			width: 50%;
+		}
+
+		&__box-title {
+			font-size: 5em;
+		}
+
+		&__box-button {
+			font-size: 1em;
+		}
+
+		&__error {
+			padding: 9em 0.5em 0;
+		}
+	}
+}
+
+@media screen and (min-width: 1358px) {
+	.offer {
+		&__container,
+		&__wrapper {
+			flex-wrap: wrap;
+		}
+
+		&__container {
+			padding-top: 0;
+			padding-bottom: 3.2em;
+		}
+
+		&__wrapper {
+			flex-direction: row;
+			padding: 4em 0 2em;
+		}
+
+		&__box {
+			width: 30%;
+			max-width: 420px;
+		}
+
+		&__box-button:hover {
+			color: globals.$white-color;
+			background-color: globals.$gray-color;
+		}
+
+		&__error {
+			padding: 7.5em 0.5em 0;
+			font-size: 1.5em;
+		}
+	}
+}
+
+@media screen and (min-width: 1536px) {
+	.offer {
+		&__box {
+			padding: 2em 1em;
+			margin: 0 1em;
+			width: 35%;
+		}
+	}
+}
+
+@media screen and (min-width: 1720px) {
+	.offer {
+		&__box {
+			margin: 0 3em;
+			max-width: 430px;
+		}
+	}
+}

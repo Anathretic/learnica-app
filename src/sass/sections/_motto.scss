@@ -1,0 +1,143 @@
+@use '../mixins';
+
+.motto {
+	width: 100%;
+	overflow: hidden;
+
+	&__container,
+	&__maintext {
+		position: relative;
+	}
+
+	&__container {
+		@include mixins.flex;
+		flex-direction: column;
+		padding: 4rem 0;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 2160px;
+		text-align: center;
+	}
+
+	&__maintext {
+		width: 66%;
+		font-size: 1.875rem;
+		line-height: 1.5em;
+		font-weight: 500;
+	}
+
+	&__subtext {
+		margin: 1.5em 0;
+		font-style: italic;
+		font-size: 1.35em;
+		opacity: 0.8;
+	}
+
+	&__icon {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 640px) {
+	.motto {
+		&__container {
+			padding: 3rem 0;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.motto {
+		&__maintext {
+			font-size: 2.5rem;
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.motto {
+		&__maintext {
+			font-size: 2.75rem;
+		}
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.motto {
+		&__container {
+			padding: 9rem 0;
+		}
+	}
+}
+
+@media screen and (min-width: 1358px) {
+	.motto {
+		&__maintext {
+			width: 100%;
+		}
+
+		&__container {
+			max-width: 1080px;
+		}
+
+		&__icon {
+			display: block;
+			position: absolute;
+			color: rgba(255, 255, 255, 0.15);
+
+			&--first {
+				top: 0.5em;
+				left: -2em;
+			}
+
+			&--second {
+				top: 1.5em;
+				right: -2.25em;
+			}
+
+			&--third {
+				bottom: 2em;
+				left: 1em;
+			}
+
+			&--fourth {
+				bottom: 1em;
+				right: 1.25em;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1536px) {
+	.motto {
+		&__maintext {
+			font-size: 3rem;
+		}
+	}
+}
+
+@media screen and (min-width: 1720px) {
+	.motto {
+		&__icon {
+			&--first {
+				top: 0.5em;
+				left: -3em;
+			}
+
+			&--second {
+				top: 1.5em;
+				right: -3em;
+			}
+
+			&--third {
+				bottom: 2em;
+				left: 0.25em;
+			}
+
+			&--fourth {
+				bottom: 1em;
+				right: 0.5em;
+			}
+		}
+	}
+}

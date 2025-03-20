@@ -1,5 +1,4 @@
-@use 'carousel';
-@use 'style';
-@use 'small';
-@use 'medium';
-@use 'large';
+@use 'default-styles';
+@use 'components/components-main';
+@use 'sections/sections-main';
+@use 'subpages/subpages-main';

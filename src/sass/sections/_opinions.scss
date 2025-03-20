@@ -1,0 +1,173 @@
+@use '../globals';
+@use '../mixins';
+@use '../animations';
+
+.opinions {
+	background-image: url('../images/opinions-section/opinions-background.jpg');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+
+	&__container,
+	&__box {
+		position: relative;
+	}
+
+	&__container {
+		padding: 1em 0;
+		margin: 0 auto;
+	}
+
+	&__title {
+		padding-bottom: 0.5rem;
+	}
+
+	&__wrapper {
+		@include mixins.flex;
+		flex-direction: column;
+		width: 100%;
+		padding: 3em 0;
+		overflow: hidden;
+	}
+
+	&__carousel-container {
+		display: flex;
+		width: 100%;
+		animation: scroll-left 150s linear infinite;
+	}
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+		flex: 0 0 100%;
+		padding: 1em;
+		margin: 0 5%;
+		background-color: globals.$darker-blue-color;
+		color: globals.$white-color;
+		box-shadow: 0px 0px 20px -15px rgba(224, 224, 224, 1);
+		border-radius: 1em;
+
+		h3 {
+			padding: 1em 0.25em;
+			margin-right: 2em;
+			font-weight: 200;
+			font-style: italic;
+		}
+
+		p {
+			padding: 1em 0.25em 3.5em;
+			font-weight: 400;
+		}
+
+		span {
+			position: absolute;
+			bottom: 15px;
+			right: 15px;
+			font-weight: 200;
+			font-style: italic;
+			text-align: right;
+		}
+	}
+
+	&__box:nth-of-type(1) {
+		margin: 0 5% 0 0;
+	}
+
+	&__box:nth-of-type(10) {
+		margin: 0 0 0 5%;
+	}
+
+	&__box-icon {
+		display: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 1.5rem;
+		color: globals.$gray-color;
+		opacity: 0.7;
+		font-size: 32px;
+	}
+
+	&__special-block {
+		background-color: #c4c4c4;
+	}
+}
+
+@media screen and (min-width: 320px) {
+	.opinions {
+		&__box-icon {
+			display: block;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.opinions {
+		&__carousel-container {
+			animation: scroll-left 210s linear infinite;
+		}
+
+		&__box-image {
+			width: 70px;
+			height: 70px;
+		}
+
+		&__error {
+			padding: 9em 0.5em;
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.opinions {
+		&__container {
+			padding-top: 0;
+			padding-bottom: 3.2em;
+		}
+
+		&__box-image {
+			width: 80px;
+			height: 80px;
+			top: -35px;
+		}
+
+		&__error {
+			padding: 6.725em 0.5em;
+			font-size: 1.5em;
+		}
+	}
+}
+
+@media screen and (min-width: 1358px) {
+	.opinions {
+		&__wrapper {
+			padding: 3em 0 4em;
+		}
+
+		&__box {
+			max-width: 940px;
+
+			h3 {
+				font-size: 1.3em;
+			}
+
+			p,
+			span {
+				font-size: 1.05em;
+			}
+		}
+
+		&__stop-animation {
+			animation-play-state: paused;
+		}
+	}
+}
+
+@keyframes scroll-left {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(-590%);
+	}
+}
