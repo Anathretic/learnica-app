@@ -67,6 +67,9 @@
 	.idea,
 	.offer,
 	.polish-classes,
+	.english-classes,
+	.math-classes,
+	.translations,
 	.opinions,
 	.blog,
 	.terms-and-conditions {
@@ -75,7 +78,10 @@
 		}
 	}
 
-	.polish-classes {
+	.math-classes,
+	.english-classes,
+	.polish-classes,
+	.translations {
 		&__hero-image-title {
 			font-size: 3.35rem;
 		}
@@ -124,7 +130,10 @@
 }
 
 @media screen and (max-height: 500px) {
-	.polish-classes {
+	.math-classes,
+	.english-classes,
+	.polish-classes,
+	.translations {
 		&__hero-image {
 			height: 60vh;
 		}

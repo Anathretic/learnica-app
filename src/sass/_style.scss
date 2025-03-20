@@ -469,7 +469,10 @@ body {
 	}
 }
 
-.polish-classes {
+.math-classes,
+.english-classes,
+.polish-classes,
+.translations {
 	position: relative;
 	width: 100%;
 	min-height: 100vh;
@@ -511,7 +514,6 @@ body {
 
 	&__hero-image {
 		height: 40vh;
-		background-image: url('../images/classes-subpages/polish-classes-hero-image.jpg');
 		background-position: center;
 		background-size: cover;
 	}
@@ -678,6 +680,30 @@ body {
 
 	&__banner-special-block {
 		background-color: globals.$darker-blue-color;
+	}
+}
+
+.polish-classes {
+	&__hero-image {
+		background-image: url('../images/classes-subpages/polish-classes-hero-image.jpg');
+	}
+}
+
+.english-classes {
+	&__hero-image {
+		background-image: url('../images/classes-subpages/english-classes-hero-image.jpg');
+	}
+}
+
+.math-classes {
+	&__hero-image {
+		background-image: url('../images/classes-subpages/math-classes-hero-image.jpg');
+	}
+}
+
+.translations {
+	&__hero-image {
+		background-image: url('../images/classes-subpages/translations-hero-image.jpg');
 	}
 }
 

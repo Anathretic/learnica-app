@@ -1,7 +1,7 @@
 export { default as PolishClasses } from './Offer/PolishClasses/PolishClasses';
-export { default as EnglishClasses } from './Offer/EnglishClasses';
-export { default as MathClasses } from './Offer/MathClasses';
-export { default as Translations } from './Offer/Translations';
+export { default as EnglishClasses } from './Offer/EnglishClasses/EnglishClasses';
+export { default as MathClasses } from './Offer/MathClasses/MathClasses';
+export { default as Translations } from './Offer/Translations/Translations';
 export { default as AboutUs } from './Team/AboutUs';
 export { default as Curriculum } from './Team/Curriculum';
 export { default as Lectors } from './Team/Lectors';

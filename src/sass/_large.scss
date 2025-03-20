@@ -133,6 +133,9 @@
 	.idea,
 	.offer,
 	.polish-classes,
+	.english-classes,
+	.math-classes,
+	.translations,
 	.opinions,
 	.blog,
 	.contact,
@@ -193,7 +196,10 @@
 		}
 	}
 
-	.polish-classes {
+	.math-classes,
+	.english-classes,
+	.polish-classes,
+	.translations {
 		&__hero-image-title {
 			font-size: 4.5rem;
 		}
@@ -587,7 +593,10 @@
 		}
 	}
 
-	.polish-classes {
+	.math-classes,
+	.english-classes,
+	.polish-classes,
+	.translations {
 		&__hero-image-title {
 			font-size: 5rem;
 		}
