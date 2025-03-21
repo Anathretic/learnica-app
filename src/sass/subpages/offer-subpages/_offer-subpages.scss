@@ -36,7 +36,7 @@
 	&__container,
 	&__benefits,
 	&__banner,
-	&__form {
+	&__form-title-box {
 		position: relative;
 	}
 
@@ -138,6 +138,7 @@
 
 	&__form {
 		padding-top: 30px;
+		padding-bottom: 5rem;
 		overflow: hidden;
 	}
 
@@ -147,9 +148,6 @@
 
 	&__form-title-box {
 		max-width: 600px;
-	}
-
-	&__form-title-box {
 		padding-bottom: 2.5rem;
 	}
 
@@ -384,6 +382,7 @@
 
 		&__form {
 			padding-top: 70px;
+			margin-right: 2.5rem;
 		}
 
 		&__form-container {
@@ -392,7 +391,6 @@
 		}
 
 		&__form-title-box {
-			position: relative;
 			display: flex;
 			justify-content: center;
 			align-items: start;
@@ -425,31 +423,31 @@
 			color: rgba(255, 255, 255, 0.15);
 
 			&--first {
-				bottom: -2.45em;
+				bottom: -3.45em;
 				left: 2.25em;
 				animation: icon-bounce 5s infinite;
 			}
 
 			&--second {
-				bottom: -3.2em;
+				bottom: -4.2em;
 				left: 6.6em;
 				animation: icon-bounce 2s infinite;
 			}
 
 			&--third {
-				bottom: 0.5em;
+				bottom: -0.5em;
 				left: 4.75em;
 				animation: icon-bounce 3s infinite;
 			}
 
 			&--fourth {
-				bottom: 0;
+				bottom: -1em;
 				right: -0.25em;
 				animation: icon-bounce 3.5s infinite;
 			}
 
 			&--fifth {
-				bottom: -1.5em;
+				bottom: -2.5em;
 				left: 4.5em;
 				animation: icon-bounce 4s infinite;
 			}

@@ -35,6 +35,8 @@
 .login,
 .recover-password,
 .register {
+	margin: auto auto 5rem;
+
 	&__close-button {
 		position: absolute;
 		padding: 0.35em;

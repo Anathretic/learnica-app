@@ -3,6 +3,7 @@
 
 .notfound {
 	position: relative;
+	margin-bottom: 5rem;
 	width: 100%;
 	overflow: hidden;
 
@@ -100,6 +101,14 @@
 	.notfound {
 		&__container {
 			padding: 1em 0 0;
+		}
+	}
+}
+
+@media screen and (min-width: 1720px) {
+	.notfound {
+		&__container {
+			padding: 7em 0 0;
 		}
 	}
 }
