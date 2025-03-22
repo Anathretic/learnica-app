@@ -1,9 +1,12 @@
+import { useMediaQuery } from 'react-responsive';
 import { FaBook, FaPencilAlt, FaPenFancy } from 'react-icons/fa';
 import IdeaFirstImage from '../images/idea-section/idea-first-image.jpg';
 import IdeaSecondImage from '../images/idea-section/idea-second-image.jpg';
 import IdeaThirdImage from '../images/idea-section/idea-third-image.jpg';
 
 const Idea: React.FC = () => {
+	const isLarge = useMediaQuery({ query: '(min-width: 1358px)' });
+
 	return (
 		<section id='idea' className='idea'>
 			<div className='idea__container'>
@@ -29,7 +32,7 @@ const Idea: React.FC = () => {
 							metodami dydaktycznymi. Zajęcia matematyczne, polonistyczne i językowe są dostosowane do poziomu ucznia,
 							co pozwala na efektywne wyeliminowanie trudności. Korzystamy z nowoczesnych materiałów edukacyjnych, które
 							angażują uczniów i rozwijają ich zdolności w sposób przystępny i interesujący. Dzięki indywidualnym
-							konsultacjom i dostosowanym planom nauki, uczniowie zyskują pewność siebie i motywację do nauki.
+							konsultacjom oraz dostosowanym planom nauki, uczniowie zyskują pewność siebie i motywację do nauki.
 						</p>
 					</div>
 					<div className='idea__special-decoration' />
@@ -37,7 +40,7 @@ const Idea: React.FC = () => {
 						<img src={IdeaThirdImage} alt='' />
 						<h3>III. Realizacja i realna pomoc uczniom</h3>
 						<p>
-							Dzięki naszej metodzie uczniowie szybko zauważają realne postępy. Zajęcia prowadzone są przez
+							Metody, które opracowaliśmy, pozwalają uczniom szybko zauważyć realne postępy. Zajęcia prowadzone są przez
 							wykwalifikowanych nauczycieli, którzy potrafią dostosować tempo nauki do potrzeb ucznia. Regularne testy,
 							zadania domowe i materiały kontrolne pomagają monitorować postępy i na bieżąco korygować ewentualne błędy.
 							Realna pomoc polega także na wsparciu emocjonalnym i motywacyjnym, co sprawia, że uczniowie stają się
@@ -46,21 +49,21 @@ const Idea: React.FC = () => {
 						</p>
 					</div>
 					<div className='idea__first-icon-box'>
-						<FaBook className='idea__first-box-icon idea__first-box-icon--first' fontSize={70} />
-						<FaPencilAlt className='idea__first-box-icon idea__first-box-icon--second' fontSize={66} />
+						<FaBook className='idea__first-box-icon idea__first-box-icon--first' fontSize={isLarge ? 70 : 62} />
+						<FaPencilAlt className='idea__first-box-icon idea__first-box-icon--second' fontSize={isLarge ? 66 : 60} />
 						<FaPenFancy className='idea__first-box-icon idea__first-box-icon--third' fontSize={54} />
 						<FaBook className='idea__first-box-icon idea__first-box-icon--fourth' fontSize={62} />
-						<FaPencilAlt className='idea__first-box-icon idea__first-box-icon--fifth' fontSize={80} />
+						<FaPencilAlt className='idea__first-box-icon idea__first-box-icon--fifth' fontSize={isLarge ? 74 : 66} />
 						<FaPenFancy className='idea__first-box-icon idea__first-box-icon--sixth' fontSize={54} />
 						<FaBook className='idea__first-box-icon idea__first-box-icon--seventh' fontSize={62} />
-						<FaPencilAlt className='idea__first-box-icon idea__first-box-icon--eighth' fontSize={80} />
+						<FaPencilAlt className='idea__first-box-icon idea__first-box-icon--eighth' fontSize={isLarge ? 72 : 64} />
 					</div>
 					<div className='idea__second-icon-box'>
 						<FaPencilAlt className='idea__second-box-icon idea__second-box-icon--first' fontSize={70} />
 						<FaPenFancy className='idea__second-box-icon idea__second-box-icon--second' fontSize={66} />
 						<FaBook className='idea__second-box-icon idea__second-box-icon--third' fontSize={54} />
 						<FaPenFancy className='idea__second-box-icon idea__second-box-icon--fourth' fontSize={62} />
-						<FaBook className='idea__second-box-icon idea__second-box-icon--fifth' fontSize={80} />
+						<FaBook className='idea__second-box-icon idea__second-box-icon--fifth' fontSize={74} />
 						<FaPencilAlt className='idea__second-box-icon idea__second-box-icon--sixth' fontSize={54} />
 						<FaPencilAlt className='idea__second-box-icon idea__second-box-icon--seventh' fontSize={62} />
 					</div>

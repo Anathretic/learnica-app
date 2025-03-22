@@ -31,13 +31,17 @@
 		position: relative;
 
 		h1 {
-			font-size: 5rem;
+			font-size: 5.75rem;
 			font-family: globals.$special-font;
 			font-weight: 200;
 		}
 
 		p {
-			padding-bottom: 2em;
+			padding: 0 1em 2.5em;
+			max-width: 400px;
+			text-align: center;
+			font-style: italic;
+			font-weight: 200;
 		}
 	}
 
@@ -53,6 +57,20 @@
 		a {
 			text-decoration: none;
 			@include mixins.button;
+		}
+	}
+}
+
+@media screen and (min-width: 405px) {
+	.welcome {
+		&__text-container {
+			h1 {
+				font-size: 6.5rem;
+			}
+
+			p {
+				font-size: 1.1em;
+			}
 		}
 	}
 }
@@ -77,6 +95,21 @@
 	}
 }
 
+@media screen and (min-width: 768px) and (min-height: 1024px) {
+	.welcome {
+		&__text-container {
+			h1 {
+				font-size: 8rem;
+			}
+
+			p {
+				font-size: 1.2em;
+				max-width: 450px;
+			}
+		}
+	}
+}
+
 @media screen and (min-width: 1024px) {
 	.welcome {
 		display: grid;
@@ -87,6 +120,14 @@
 		&__text-container {
 			background-color: globals.$darker-blue-color;
 			grid-column: 1/2;
+
+			h1 {
+				font-size: 6.6rem;
+			}
+
+			p {
+				font-size: 1.05em;
+			}
 		}
 
 		&__text-container-icon {
@@ -96,7 +137,7 @@
 
 			&--first {
 				top: -2em;
-				right: 5em;
+				right: 7em;
 			}
 
 			&--second {
@@ -109,13 +150,13 @@
 			}
 
 			&--fourth {
-				bottom: -2em;
-				right: 1.5em;
+				bottom: -2.5em;
+				right: 1.75em;
 			}
 
 			&--fifth {
 				top: -1.25em;
-				right: 1em;
+				right: 1.5em;
 			}
 		}
 
@@ -158,11 +199,12 @@
 	.welcome {
 		&__text-container {
 			h1 {
-				font-size: 8rem;
+				font-size: 9rem;
 			}
 
 			p {
-				font-size: 1.1rem;
+				font-size: 1.2rem;
+				max-width: 450px;
 			}
 		}
 
