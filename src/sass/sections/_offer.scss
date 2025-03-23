@@ -159,6 +159,22 @@
 			max-width: 420px;
 		}
 
+		&__box-special-text {
+			font-size: 1.5em;
+		}
+
+		&__box-text {
+			font-size: 1.05em;
+		}
+
+		&__extra-text {
+			font-size: 1.05em;
+		}
+
+		ul {
+			font-size: 1.05em;
+		}
+
 		&__box-button:hover {
 			color: globals.$white-color;
 			background-color: globals.$gray-color;

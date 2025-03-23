@@ -22,10 +22,8 @@
 	&__hero-image,
 	&__content-wrapper,
 	&__benefits,
-	&__benefits-text-content-box,
 	&__banner,
 	&__banner-container,
-	&__banner-container-box,
 	&__form-container,
 	&__form-title-box,
 	&__form-title-info-box {
@@ -60,16 +58,17 @@
 		background-size: cover;
 	}
 
+	&__title,
+	&__hero-image-title,
+	&__form-title-subtext,
+	&__form-title-info-box {
+		text-align: center;
+	}
+
 	&__hero-image-title {
 		color: globals.$white-color;
 		font-size: 3rem;
 		font-weight: 200;
-	}
-
-	&__title,
-	&__form-title-subtext,
-	&__form-title-info-box {
-		text-align: center;
 	}
 
 	&__title {
@@ -90,29 +89,41 @@
 		padding-bottom: 1em;
 	}
 
+	&__banner-container-box,
+	&__special-banner-container,
+	&__benefits-text-content-box {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		max-width: 500px;
+		border: none;
+		border-radius: 1.5em;
+	}
+
 	&__benefits-text-content-box {
 		margin: 2em;
 		padding: 2em 0.5em 0;
-		max-width: 300px;
-		border: none;
-		border-radius: 1.5em;
 
 		-webkit-box-shadow: 0px 0px 10px 2px rgba(25, 50, 63, 0.4);
 		-moz-box-shadow: 0px 0px 10px 2px rgba(25, 50, 63, 0.4);
 		box-shadow: 0px 0px 10px 2px rgba(25, 50, 63, 0.4);
 
+		svg {
+			margin: 0.15em;
+		}
+
 		h3 {
 			@include mixins.h3;
 		}
 
+		ul,
 		p {
-			padding: 0 0.75em 2em;
-			text-align: center;
-			font-weight: 350;
-			line-height: 1.6em;
+			padding: 0 0.75em 2em 1.5em;
+			font-weight: 200;
+			line-height: 1.8em;
 
 			span {
-				font-weight: 700;
+				font-weight: 500;
 			}
 		}
 	}
@@ -128,11 +139,37 @@
 		max-width: 1000px;
 	}
 
+	&__banner-container-box,
+	&__special-banner-container {
+		width: 90%;
+		background-color: globals.$darker-blue-color;
+	}
+
 	&__banner-container-box {
 		padding: 3em 0;
+		margin: 2em;
 
 		h3 {
 			@include mixins.h3;
+		}
+
+		p {
+			font-size: 1.25em;
+		}
+	}
+
+	&__special-banner-container {
+		margin: 2em 0 4em;
+		padding: 0 0.5em;
+
+		p {
+			padding: 2em 1em;
+			line-height: 1.6em;
+			font-weight: 200;
+		}
+
+		p:last-of-type {
+			font-weight: 500;
 		}
 	}
 
@@ -155,14 +192,21 @@
 	&__form-title-info-box {
 		width: 90%;
 		max-width: 400px;
+		line-height: 1.8em;
+		font-weight: 200;
 	}
 
 	&__form-title-subtext {
 		padding: 1rem;
-		line-height: 1.8em;
 
 		span {
-			font-weight: 600;
+			font-weight: 500;
+		}
+
+		a {
+			color: globals.$white-color;
+			text-underline-offset: 2px;
+			transition: color 0.3s;
 		}
 	}
 
@@ -177,14 +221,14 @@
 
 		p {
 			padding: 0.25rem 0;
-			font-weight: 300;
 
 			span {
-				font-weight: 600;
+				font-weight: 500;
 			}
 		}
 
 		p:first-of-type {
+			font-size: 1.1em;
 			font-weight: 500;
 		}
 	}
@@ -288,10 +332,6 @@
 			font-size: 4rem;
 		}
 
-		&__benefits-text-content-box {
-			max-width: 325px;
-		}
-
 		&__benefits-special-block,
 		&__banner-special-block {
 			width: 35%;
@@ -326,11 +366,12 @@
 			flex-wrap: wrap;
 			width: 100%;
 			padding-bottom: 3em;
-			max-width: 1000px;
+			max-width: 1600px;
 		}
 
 		&__benefits-text-content-box {
-			max-width: 425px;
+			padding: 2em 2em 0;
+			max-width: 625px;
 		}
 
 		&__banner,
@@ -341,6 +382,12 @@
 		&__banner-container-box {
 			h3 {
 				font-size: 1.6rem;
+			}
+		}
+
+		&__form-title-subtext {
+			a:hover {
+				color: globals.$gray-color;
 			}
 		}
 	}
@@ -367,6 +414,17 @@
 			}
 		}
 
+		&__benefits-text-content-box {
+			h3 {
+				font-size: 1.65em;
+			}
+
+			ul,
+			p {
+				font-size: 1.05em;
+			}
+		}
+
 		&__banner-container {
 			display: flex;
 			flex-direction: row;
@@ -374,10 +432,25 @@
 			max-width: 1450px;
 		}
 
+		&__special-banner-container {
+			p {
+				font-size: 1.05em;
+			}
+		}
+
 		&__banner-container-box {
 			padding: 2rem;
 			margin: 4rem;
 			width: 500px;
+
+			h3 {
+				@include mixins.h3;
+				font-size: 1.75em;
+			}
+
+			p {
+				font-size: 1.5em;
+			}
 		}
 
 		&__form {
@@ -409,11 +482,15 @@
 			font-size: 3.5rem;
 		}
 
+		&__form-title-subtext {
+			font-size: 1.05em;
+		}
+
 		&__form-title-info-box {
 			padding: 2rem 2.25rem;
 			max-width: 400px;
 			justify-content: start;
-			font-size: 1.1rem;
+			font-size: 1.05em;
 			list-style-type: disc;
 		}
 
@@ -423,32 +500,32 @@
 			color: rgba(255, 255, 255, 0.15);
 
 			&--first {
-				bottom: -3.45em;
-				left: 2.25em;
+				bottom: -0.65em;
+				left: 3em;
 				animation: icon-bounce 5s infinite;
 			}
 
 			&--second {
-				bottom: -4.2em;
-				left: 6.6em;
+				bottom: -1.4em;
+				left: 7.35em;
 				animation: icon-bounce 2s infinite;
 			}
 
 			&--third {
-				bottom: -0.5em;
-				left: 4.75em;
+				bottom: 3em;
+				left: 5.5em;
 				animation: icon-bounce 3s infinite;
 			}
 
 			&--fourth {
-				bottom: -1em;
-				right: -0.25em;
+				bottom: 2.5em;
+				right: -0.75em;
 				animation: icon-bounce 3.5s infinite;
 			}
 
 			&--fifth {
-				bottom: -2.5em;
-				left: 4.5em;
+				bottom: 0.6em;
+				left: 5.25em;
 				animation: icon-bounce 4s infinite;
 			}
 		}
