@@ -16,14 +16,12 @@ const PolishClassesBenefits: React.FC = () => {
 					<ul>
 						<li>
 							<span>dzieci</span> - nauka przez zabawę, gry językowe i czytanie bajek. Rozwijanie umiejętności czytania,
-							pisania i mówienia. Przygotowanie do zajęć w szkole oraz wsparcie w opanowaniu podstaw gramatyki i
-							ortografii,
+							pisania i mówienia oraz wsparcie w opanowaniu podstaw gramatyki i ortografii,
 						</li>
 						<li>
 							<span>młodzież</span> - lekcje dostosowane do programu szkolnego oraz przygotowujące do egzaminów, takich
 							jak egzamin ósmoklasisty czy matura. Skupienie na analizie tekstów literackich, rozwijaniu umiejętności
-							pisania wypracowań i argumentacji. Pomoc w nadrabianiu braków oraz dostosowanie materiałów do
-							indywidualnych potrzeb ucznia,
+							pisania wypracowań i argumentacji,
 						</li>
 						<li>
 							<span>dorośli (18+)</span> - kursy tematyczne, takie jak poprawna polszczyzna w pracy, czy rozwijanie
@@ -37,13 +35,12 @@ const PolishClassesBenefits: React.FC = () => {
 					<ul>
 						<li>
 							<span>przygotowanie do egzaminów</span> - skuteczna pomoc uczniom przygotowującym się do ważnych egzaminów
-							z języka polskiego. Program nauczania jest skoncentrowany na wszystkich aspektach egzaminu, zapewniając
-							kompleksowe przygotowanie do testu oraz wypowiedzi pisemnej.
+							z języka polskiego. Koncentracja na wszystkich aspektach egzaminu,
 						</li>
 						<li>
-							<span>konwersacje</span> - koncentracja na rozwijaniu umiejętności mówienia w języku polskim w swobodnej,
-							przyjaznej atmosferze. Szczególnie polecane dla osób, które pragną poprawić swoją płynność w mówieniu,
-							przełamać barierę językową i wypracować własny, indywidualny styl wypowiedzi.
+							<span>konwersacje</span> - rozwijanie umiejętności mówienia w języku polskim w swobodnej, przyjaznej
+							atmosferze. Szczególnie polecane dla osób, które pragną poprawić swoją płynność w mówieniu, czy przełamać
+							barierę językową i wypracować indywidulany styl wypowiedzi,
 						</li>
 						<li>
 							<span>polski w praktyce</span> - nauka języka polskiego w kontekście praktycznym, dostosowanym do różnych
@@ -55,23 +52,29 @@ const PolishClassesBenefits: React.FC = () => {
 				<div className='polish-classes__benefits-text-content-box'>
 					<MdEmojiPeople fontSize={isLarge ? 70 : 56} color='#24485c' />
 					<h3>Indywidualne podejście</h3>
-					<p>
-						Każdy kurs jest opracowywany z uwzględnieniem poziomu zaawansowania ucznia oraz jego celów edukacyjnych.
-						Program nauczania może obejmować różne aspekty języka, takie jak gramatyka, słuchanie, mówienie, czytanie
-						czy pisanie, a także specyficzne potrzeby, jak np. przygotowanie do egzaminów, doskonalenie umiejętności
-						komunikacyjnych czy rozwój słownictwa w określonej dziedzinie. Tempo zajęć jest dostosowane do ucznia, aby
-						zapewnić komfortową naukę, bez presji i stresu. Zajęcia odbywają się w atmosferze wsparcia i zrozumienia, co
-						pozwala uczniowi poczuć się swobodnie w trakcie nauki. Taki indywidualny program pomaga szybciej osiągnąć
-						zamierzony cel, umożliwiając pełne skupienie na mocnych stronach ucznia oraz skuteczne pokonywanie
-						trudności.
-					</p>
+					<ul>
+						<li>
+							Każdy kurs jest opracowywany z uwzględnieniem poziomu zaawansowania ucznia oraz jego celów edukacyjnych.
+							Program nauczania może obejmować różne aspekty języka, takie jak gramatyka, słuchanie, mówienie, czytanie
+							czy pisanie, a także specyficzne potrzeby, jak np. przygotowanie do egzaminów.
+						</li>
+						<li>
+							Tempo zajęć jest dostosowane do ucznia, aby zapewnić komfortową naukę, bez presji i stresu. Zajęcia
+							odbywają się w atmosferze wsparcia i zrozumienia, co pozwala uczniowi poczuć się swobodnie w trakcie
+							nauki.
+						</li>
+						<li>
+							Taki indywidualny program pomaga szybciej osiągnąć zamierzony cel, umożliwiając pełne skupienie na mocnych
+							stronach ucznia oraz skuteczne pokonywanie trudności.
+						</li>
+					</ul>
 				</div>
 				<div className='polish-classes__benefits-text-content-box'>
 					<MdComputer fontSize={isLarge ? 70 : 56} color='#24485c' />
 					<h3>Nowoczesne metody</h3>
 					<ul>
 						<li>
-							<span>nauka z wykorzystaniem aplikacji, gier edukacyjnych i platform interaktywnych</span> - korzystamy z
+							<span>wykorzystanie aplikacji, gier edukacyjnych i platform interaktywnych</span> - korzystamy z
 							nowoczesnych technologii, które wzbogacają tradycyjną metodę nauki i sprawiają, że proces edukacyjny staje
 							się bardziej angażujący i efektywny.
 						</li>
@@ -81,10 +84,10 @@ const PolishClassesBenefits: React.FC = () => {
 							znajomości języka.
 						</li>
 						<li>
-							<span>od klasycznych lektur po ćwiczenia interaktywne i współczesne teksty kultury</span> - używamy
-							szerokiego wachlarza materiałów edukacyjnych, które odpowiadają na różne potrzeby uczniów i ich style
-							uczenia się. Zajęcia obejmują nie tylko klasyczne lektury, ale również współczesne teksty kultury, takie
-							jak artykuły, filmy, piosenki czy podcasty.
+							<span>od klasycznych lektur po współczesne teksty kultury</span> - używamy szerokiego wachlarza materiałów
+							edukacyjnych, które odpowiadają na różne potrzeby uczniów i ich style uczenia się. Zajęcia obejmują nie
+							tylko klasyczne lektury, ale również współczesne teksty kultury, takie jak artykuły, filmy, piosenki czy
+							podcasty.
 						</li>
 					</ul>
 				</div>

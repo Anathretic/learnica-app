@@ -8,7 +8,7 @@ type DefaultFormModel = {
 	confirmPassword: string;
 };
 
-type Classes = 'Język polski' | 'Język angielski' | 'Matematyka' | 'Tłumaczenia' | '';
+export type ClassesModel = 'jezyk-polski' | 'jezyk-angielski' | 'matematyka' | 'tlumaczenia' | '';
 
 export type ContactFormModel = Pick<DefaultFormModel, 'firstname' | 'email' | 'message'>;
 
@@ -24,5 +24,5 @@ export type RecoverPasswordFormModel = Pick<DefaultFormModel, 'email'>;
 export type ChangePasswordFormModel = Pick<DefaultFormModel, 'password' | 'confirmPassword'>;
 
 export type ClassesFormModel = Pick<DefaultFormModel, 'firstname' | 'lastname' | 'email' | 'message' | 'phone'> & {
-	classes: Classes;
+	classes: ClassesModel;
 };

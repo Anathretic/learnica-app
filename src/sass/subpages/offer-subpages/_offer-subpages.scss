@@ -116,11 +116,14 @@
 			@include mixins.h3;
 		}
 
-		ul,
-		p {
+		ul {
 			padding: 0 0.75em 2em 1.5em;
 			font-weight: 200;
 			line-height: 1.8em;
+
+			li {
+				padding: 0.5em 0;
+			}
 
 			span {
 				font-weight: 500;
@@ -161,14 +164,18 @@
 	&__special-banner-container {
 		margin: 2em 0 4em;
 		padding: 0 0.5em;
-
 		p {
 			padding: 2em 1em;
 			line-height: 1.6em;
 			font-weight: 200;
+			width: 100%;
 		}
 
 		p:last-of-type {
+			font-weight: 500;
+		}
+
+		span {
 			font-weight: 500;
 		}
 	}
@@ -500,31 +507,31 @@
 			color: rgba(255, 255, 255, 0.15);
 
 			&--first {
-				bottom: -0.65em;
+				bottom: -1.65em;
 				left: 3em;
 				animation: icon-bounce 5s infinite;
 			}
 
 			&--second {
-				bottom: -1.4em;
+				bottom: -2.4em;
 				left: 7.35em;
 				animation: icon-bounce 2s infinite;
 			}
 
 			&--third {
-				bottom: 3em;
+				bottom: 2em;
 				left: 5.5em;
 				animation: icon-bounce 3s infinite;
 			}
 
 			&--fourth {
-				bottom: 2.5em;
+				bottom: 1.5em;
 				right: -0.75em;
 				animation: icon-bounce 3.5s infinite;
 			}
 
 			&--fifth {
-				bottom: 0.6em;
+				bottom: -0.4em;
 				left: 5.25em;
 				animation: icon-bounce 4s infinite;
 			}

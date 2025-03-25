@@ -62,7 +62,7 @@ export const classesSchema = yup
 		phone: yup.string().phone('PL', 'Podaj prawidłowy numer!').required(errorMessage.requiredField),
 		classes: yup
 			.string()
-			.oneOf(['Język polski', 'Język angielski', 'Matematyka', 'Tłumaczenia', ''])
+			.oneOf(['jezyk-polski', 'jezyk-angielski', 'matematyka', 'tlumaczenia', ''])
 			.required(errorMessage.requiredField)
 			.test('is-selected', errorMessage.requiredField, value => value !== ''),
 	})

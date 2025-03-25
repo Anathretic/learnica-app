@@ -54,13 +54,13 @@ export const TextareaElement: React.FC<InputAndTextareaModel> = React.forwardRef
 });
 
 export const SelectElement: React.FC<SelectModel> = React.forwardRef<HTMLSelectElement, SelectModel>(
-	({ label, selectName, optionItemsArray, errorMessage, ...props }, ref) => {
+	({ label, selectName, optionItemsArray, errorMessage, pathname, ...props }, ref) => {
 		return (
 			<div className='form__box'>
 				<label className='form__label' htmlFor={selectName}>
 					{label}
 				</label>
-				<select className='form__select' ref={ref} {...props}>
+				<select className='form__select' ref={ref} id={selectName} {...props} value={pathname}>
 					{optionItemsArray.map((option, id) => (
 						<option key={id} disabled={option.disabled} value={option.value}>
 							{option.label}

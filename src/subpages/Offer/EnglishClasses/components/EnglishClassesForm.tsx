@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { ClassesForm } from '../../../../components/Forms/ClassesForm';
+import { scrollToTop } from '../../../../utils/scrollToTopUtils';
 import { FaPaperPlane } from 'react-icons/fa';
 
 const EnglishClassesForm: React.FC = () => {
@@ -8,26 +10,33 @@ const EnglishClassesForm: React.FC = () => {
 				<div className='english-classes__form-title-box'>
 					<h2 className='english-classes__form-title'>Zaczynamy?</h2>
 					<p className='english-classes__form-title-subtext'>
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque eius provident architecto corrupti dolorum,
-						ullam incidunt, numquam doloremque optio dolore tempora at totam nemo minus aspernatur ut animi sunt impedit
-						doloribus temporibus.
+						Nie zwlekaj! Rozpocznij swoją przygodę z językiem angielskim już dziś! Dołącz do naszej społeczności uczniów,
+						którzy rozwijają swoje umiejętności z radością i osiągają wyznaczone cele.
 					</p>
 					<p className='english-classes__form-title-subtext'>
-						<span>Lorem!</span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda dolores sunt rem
-						aliquid exercitationem officia, corrupti illo excepturi!
+						<span>Pamiętaj!</span> Wysyłając formularz wyrażasz zgodę na przetwarzanie Twoich danych zgodnie z
+						obowiązującą{' '}
+						<Link to='/polityka-prywatnosci' onClick={scrollToTop}>
+							polityką prywatności.
+						</Link>
 					</p>
 					<ul className='english-classes__form-title-info-box'>
 						<li>
-							<p>Lorem, ipsum:</p>
-							<p className='english-classes__form-special-text'>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse numquam quod rem deleniti eius vero,
-								delectus incidunt dolor.<span> Lorem ipsum dolor sit amet consectetur.</span>
-							</p>
+							<p>Wybierz nas:</p>
+							<p className='polish-classes__form-special-text'>- wykwalifikowani nauczyciele z doświadczeniem</p>
+							<p>- elastyczne godziny zajęć</p>
+							<p>- indywidualne podejście</p>
 						</li>
 						<li>
-							<p>Lorem, ipsum:</p>
-							<p>- Lorem ipsum dolor sit amet consectetur.</p>
-							<p>- Lorem ipsum dolor sit amet consectetur.</p>
+							<p>Lekcje odbywają się:</p>
+							<p>
+								- <span>stacjonarnie</span> - aktywnie dojeżdzamy do uczniów na terenie{' '}
+								<span>Lublina, Zamościa oraz Hrubieszowa</span>. W planach mamy kolejne miasta!
+							</p>
+							<p>
+								- <span>online</span> - lekcje prowadzone za pomocą <span>Microsoft Teams</span> oraz odpowiednich
+								narzędzi. <span>Już niedługo wszystko będze odbywać się na naszej oficjalnej platformie!</span>
+							</p>
 						</li>
 					</ul>
 					<FaPaperPlane className='english-classes__icon english-classes__icon--first' fontSize={80} />

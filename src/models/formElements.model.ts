@@ -31,6 +31,7 @@ export interface LoaderModel {
 export interface SelectModel extends DefaultModel {
 	selectName: string;
 	optionItemsArray: OptionItem[];
+	pathname: string;
 }
 
 export interface ReCaptchaV2Model {

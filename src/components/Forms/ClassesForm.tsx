@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,10 +14,11 @@ import {
 	TextareaElement,
 } from './components/FormElements';
 import { classesFormInputsConfig, classesFormSelectsConfig } from './inputsConfig/inputsConfig';
-import { ClassesFormModel } from '../../models/form.model';
+import { ClassesModel, ClassesFormModel } from '../../models/form.model';
 import { classesSchema } from '../../schemas/schemas';
 
 export const ClassesForm: React.FC = () => {
+	const [pathname, setPathname] = useState('');
 	const {
 		register,
 		handleSubmit,
@@ -29,7 +30,7 @@ export const ClassesForm: React.FC = () => {
 			lastname: '',
 			email: '',
 			phone: '',
-			classes: '',
+			classes: `${window.location.pathname.slice(1) as ClassesModel}`,
 			message: '',
 		},
 		resolver: yupResolver(classesSchema),
@@ -84,6 +85,10 @@ export const ClassesForm: React.FC = () => {
 		}
 	};
 
+	useEffect(() => {
+		setPathname(window.location.pathname.slice(1));
+	}, []);
+
 	return (
 		<form className='classes__form-box' onSubmit={handleSubmit(onSubmit)}>
 			{classesFormInputs.map((input, id) => (
@@ -107,6 +112,7 @@ export const ClassesForm: React.FC = () => {
 					errorMessage={select.errorMessage}
 					aria-invalid={select.isInvalid}
 					{...select.register}
+					pathname={pathname}
 				/>
 			))}
 			<TextareaElement

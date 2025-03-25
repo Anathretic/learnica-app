@@ -168,17 +168,17 @@ export const classesFormInputsConfig = (errors: FieldErrors, register: UseFormRe
 
 export const classesFormSelectsConfig = (errors: FieldErrors, register: UseFormRegister<ClassesFormModel>) => [
 	{
-		label: 'Wybór zajęć:',
-		selectName: 'class',
-		register: register('class'),
-		isInvalid: !!errors.class,
+		label: 'Wybór oferty:',
+		selectName: 'classes',
+		register: register('classes'),
+		isInvalid: !!errors.classes,
 		optionItemsArray: [
 			{ label: '-- wybierz --', value: '', disabled: true },
-			{ label: 'Język polski', value: 'Język polski', disabled: false },
-			{ label: 'Język angielski', value: 'Język angielski', disabled: false },
-			{ label: 'Matematyka', value: 'Matematyka', disabled: false },
-			{ label: 'Tłumaczenia', value: 'Tłumaczenia', disabled: false },
+			{ label: 'Język polski', value: 'jezyk-polski', disabled: false },
+			{ label: 'Język angielski', value: 'jezyk-angielski', disabled: false },
+			{ label: 'Matematyka', value: 'matematyka', disabled: false },
+			{ label: 'Tłumaczenia', value: 'tlumaczenia', disabled: false },
 		],
-		errorMessage: errors.class?.message,
+		errorMessage: errors.classes?.message,
 	},
 ];

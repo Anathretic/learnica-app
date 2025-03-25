@@ -24,13 +24,12 @@ const PolishClassesPrices: React.FC = () => {
 			</div>
 			<div className='polish-classes__special-banner-container'>
 				<p>
-					*Każda pierwsza lekcja jest traktowana jako lekcja próbna i kosztuje połowę ceny lekcji regularnej -{' '}
-					<span>30 zł</span>.
+					*Każda pierwsza lekcja jest traktowana jako lekcja próbna i kosztuje połowę ceny - <span>30 zł</span>.
 				</p>
 				<p>**Pomoc last minute oznacza pomoc do 24h od planowanego sprawdzianu lub terminu oddania pracy domowej.</p>
 				<p>
-					Płatność może być wykonana osobiście w trakcie lekcji lub za pomocą przelewu na konto, którego numer wysyłamy w
-					wiadomości zwrotnej po zapisaniu się na lekcję.
+					Płatność może być wykonana osobiście w trakcie lekcji lub za pomocą przelewu na konto, którego numer wysyłamy
+					w wiadomości zwrotnej po zapisaniu się na lekcję.
 				</p>
 			</div>
 			<div className='polish-classes__banner-special-block polish-classes__banner-special-block--left' />

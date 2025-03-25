@@ -23,15 +23,9 @@ const PolishClassesForm: React.FC = () => {
 					<ul className='polish-classes__form-title-info-box'>
 						<li>
 							<p>Wybierz nas:</p>
-							<p className='polish-classes__form-special-text'>
-								- <span>wykwalifikowani nauczyciele z doświadczeniem</span> i pasją do języka polskiego
-							</p>
-							<p>
-								- <span>elastyczne godziny zajęć</span>, dostosowane do planu ucznia
-							</p>
-							<p>
-								- <span>indywidualne podejście</span> – Wasze potrzeby są dla nas priorytetem!
-							</p>
+							<p className='polish-classes__form-special-text'>- wykwalifikowani nauczyciele z doświadczeniem</p>
+							<p>- elastyczne godziny zajęć</p>
+							<p>- indywidualne podejście</p>
 						</li>
 						<li>
 							<p>Lekcje odbywają się:</p>
