@@ -8,10 +8,15 @@ const PageNotFound: React.FC = () => {
 		<section className='notfound'>
 			<div className='notfound__container'>
 				<img className='notfound__img' src={NotFoundImage} alt='Obrazek informujący o braku strony' />
-				<h1 className='notfound__credits'>Ups! Strony nie znaleziono..</h1>
-				<Link to='/' className='notfound__btn' onClick={scrollToTop} aria-label='Powrót na stronę główną'>
-					Powrót
-				</Link>
+				<div className='notfound__box'>
+					<h1 className='notfound__title'>Ups! Strony nie znaleziono..</h1>
+					<p className='notfound__credits'>
+						Chyba link się nie zgadza.. Skorzystaj z przycisku poniżej i zacznij swoje poszukiwanie od głównej strony!
+					</p>
+					<Link to='/' className='notfound__btn' onClick={scrollToTop} aria-label='Powrót na stronę główną'>
+						Powrót
+					</Link>
+				</div>
 			</div>
 		</section>
 	);

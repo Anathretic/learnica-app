@@ -1,0 +1,198 @@
+@use '../globals';
+@use '../mixins';
+@use '../animations';
+
+.contact {
+	padding-top: 30px;
+	margin-bottom: 5rem;
+	width: 100%;
+
+	&__container,
+	&__title-box {
+		@include mixins.flex;
+		flex-direction: column;
+	}
+
+	&__title {
+		@include mixins.title;
+		padding-bottom: 2.5rem;
+	}
+
+	&__title-box,
+	&__form {
+		width: 100%;
+	}
+
+	&__title-box,
+	&__form {
+		max-width: 600px;
+	}
+
+	&__title-box {
+		position: relative;
+		padding-bottom: 2.5rem;
+	}
+
+	&__title-subtext,
+	&__title-info-box {
+		width: 90%;
+		max-width: 400px;
+		text-align: center;
+	}
+
+	&__title-subtext {
+		padding: 1rem;
+		line-height: 1.8em;
+
+		span {
+			font-weight: 600;
+		}
+
+		a {
+			color: globals.$white-color;
+			text-underline-offset: 2px;
+			transition: color 0.3s;
+		}
+	}
+
+	&__title-info-box {
+		padding: 2rem 0;
+		list-style-type: none;
+
+		li {
+			padding: 0.5em;
+			width: 100%;
+		}
+
+		p {
+			padding: 0.25rem 0;
+			font-weight: 300;
+		}
+
+		p:first-of-type {
+			font-weight: 600;
+		}
+	}
+
+	&__title-icon {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.contact {
+		&__title-info-box {
+			li {
+				padding: 0.5em 0;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.contact {
+		&__title-info-box {
+			list-style-type: disc;
+			text-align: left;
+			max-width: 250px;
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.contact {
+		&__title-subtext {
+			a:hover {
+				color: globals.$gray-color;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1358px) {
+	.contact {
+		padding-top: 70px;
+
+		&__container,
+		&__title-box {
+			align-items: start;
+		}
+
+		&__container {
+			flex-direction: row;
+		}
+
+		&__title-box {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			margin-left: 4rem;
+		}
+
+		&__title,
+		&__title-subtext {
+			text-align: left;
+			font-size: 1.05rem;
+		}
+
+		&__title {
+			padding: 0.5rem 0.85rem 0 0.9rem;
+			width: 100%;
+			font-size: 3.5rem;
+		}
+
+		&__title-info-box {
+			padding: 2rem 2.25rem;
+			max-width: 400px;
+			font-size: 1.05rem;
+		}
+
+		&__title-icon {
+			position: absolute;
+			display: block;
+			color: rgba(255, 255, 255, 0.15);
+
+			&--first {
+				bottom: -0.45em;
+				left: 2.25em;
+				animation: icon-bounce 5s infinite;
+			}
+
+			&--second {
+				bottom: -0.85em;
+				left: 6.6em;
+				animation: icon-bounce 2s infinite;
+			}
+
+			&--third {
+				bottom: 3em;
+				left: 4.75em;
+				animation: icon-bounce 3s infinite;
+			}
+
+			&--fourth {
+				bottom: 2.5em;
+				right: -0.25em;
+				animation: icon-bounce 3.5s infinite;
+			}
+
+			&--fifth {
+				bottom: 0.5em;
+				left: 4.5em;
+				animation: icon-bounce 4s infinite;
+			}
+		}
+
+		&__form {
+			margin-right: 2.5rem;
+		}
+	}
+}
+
+@media screen and (min-width: 1720px) {
+	.contact {
+		&__title-box {
+			margin-left: 2em;
+		}
+	}
+}

@@ -1,0 +1,78 @@
+@use '../globals';
+@use '../mixins';
+@use '../animations';
+
+.error-popup {
+	@include mixins.flex;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.95);
+	z-index: 10;
+
+	&__box {
+		position: relative;
+		@include mixins.flex;
+		flex-direction: column;
+		padding: 1em;
+		width: 90%;
+		height: 200px;
+		opacity: 0;
+		animation: popup-animation 1s linear forwards;
+	}
+
+	&__message {
+		margin-bottom: 1em;
+		font-size: 1.2em;
+		text-align: center;
+	}
+
+	&__button {
+		@include mixins.button;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.error-popup {
+		&__message {
+			margin-bottom: 1.5em;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.error-popup {
+		&__box {
+			width: 70%;
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.error-popup {
+		&__box {
+			width: 50%;
+		}
+
+		&__message {
+			margin-bottom: 0;
+		}
+
+		&__button {
+			margin-top: 2em;
+		}
+
+		&__button:hover {
+			color: globals.$white-color;
+			background-color: globals.$gray-color;
+		}
+	}
+}
+
+@media screen and (min-width: 1536px) {
+	.error-popup {
+		&__box {
+			width: 35%;
+		}
+	}
+}

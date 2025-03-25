@@ -1,6 +1,6 @@
-@use 'animations';
-@use 'mixins';
-@use 'globals';
+@use '../../globals';
+@use '../../mixins';
+@use '../../animations';
 
 .icon {
 	fill: globals.$gray-color;
