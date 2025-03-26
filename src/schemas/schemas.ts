@@ -65,5 +65,12 @@ export const classesSchema = yup
 			.oneOf(['jezyk-polski', 'jezyk-angielski', 'matematyka', 'tlumaczenia', ''])
 			.required(errorMessage.requiredField)
 			.test('is-selected', errorMessage.requiredField, value => value !== ''),
+		classesLocation: yup
+			.string()
+			.oneOf(['hrubieszow', 'lublin', 'zamosc', 'online', ''])
+			.required(errorMessage.requiredField)
+			.test('is-selected', errorMessage.requiredField, value => value !== ''),
 	})
 	.concat(contactSchema);
+
+export const translationsSchema = classesSchema.omit(['classesLocation']).concat(contactSchema);

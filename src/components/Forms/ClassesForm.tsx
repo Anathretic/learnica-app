@@ -6,6 +6,7 @@ import emailjs from '@emailjs/browser';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setButtonText, setErrorValue, setIsLoading } from '../../redux/formReduxSlice/formSlice';
 import {
+	FileInputElement,
 	FormSubmit,
 	InputElement,
 	ReCaptchaV2Component,
@@ -15,9 +16,10 @@ import {
 } from './components/FormElements';
 import { classesFormInputsConfig, classesFormSelectsConfig } from './inputsConfig/inputsConfig';
 import { ClassesModel, ClassesFormModel } from '../../models/form.model';
-import { classesSchema } from '../../schemas/schemas';
+import { classesSchema, translationsSchema } from '../../schemas/schemas';
 
 export const ClassesForm: React.FC = () => {
+	const [file, setFile] = useState<File | null>(null);
 	const [pathname, setPathname] = useState('');
 	const {
 		register,
@@ -31,9 +33,10 @@ export const ClassesForm: React.FC = () => {
 			email: '',
 			phone: '',
 			classes: `${window.location.pathname.slice(1) as ClassesModel}`,
+			classesLocation: '',
 			message: '',
 		},
-		resolver: yupResolver(classesSchema),
+		resolver: yupResolver(pathname === 'tlumaczenia' ? translationsSchema : classesSchema),
 	});
 
 	const refCaptcha = useRef<ReCAPTCHA>(null);
@@ -41,7 +44,17 @@ export const ClassesForm: React.FC = () => {
 	const classesFormSelects = classesFormSelectsConfig(errors, register);
 	const dispatch = useAppDispatch();
 
-	const onSubmit: SubmitHandler<ClassesFormModel> = async ({ firstname, lastname, email, phone, classes, message }) => {
+	const selectsToRender = pathname === 'tlumaczenia' ? classesFormSelects.slice(0, 1) : classesFormSelects;
+
+	const onSubmit: SubmitHandler<ClassesFormModel> = async ({
+		firstname,
+		lastname,
+		email,
+		phone,
+		classes,
+		classesLocation,
+		message,
+	}) => {
 		dispatch(setIsLoading(true));
 		dispatch(setErrorValue(''));
 
@@ -54,7 +67,9 @@ export const ClassesForm: React.FC = () => {
 			email,
 			phone,
 			classes,
+			classesLocation,
 			message,
+			file,
 			'g-recaptcha-response': token,
 		};
 
@@ -103,7 +118,7 @@ export const ClassesForm: React.FC = () => {
 					{...input.register}
 				/>
 			))}
-			{classesFormSelects.map((select, id) => (
+			{selectsToRender.map((select, id) => (
 				<SelectElement
 					key={id}
 					label={select.label}
@@ -123,6 +138,14 @@ export const ClassesForm: React.FC = () => {
 				aria-invalid={errors.message ? true : false}
 				{...register('message')}
 			/>
+			{pathname === 'tlumaczenia' && (
+				<FileInputElement
+					setFile={setFile}
+					label='Wstaw plik:'
+					inputName='file'
+					accept='.doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+				/>
+			)}
 			<ReCaptchaV2Component refCaptcha={refCaptcha} />
 			<FormSubmit />
 			<ReturnButton />

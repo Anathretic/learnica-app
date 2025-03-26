@@ -59,7 +59,12 @@
 		background-repeat: no-repeat;
 		background-position: right 0.9em top 50%;
 		background-size: 0.65em auto;
-		pointer-events: none;
+		cursor: pointer;
+
+		&--blocked {
+			pointer-events: none;
+			cursor: default;
+		}
 
 		option {
 			color: globals.$darker-blue-color;
