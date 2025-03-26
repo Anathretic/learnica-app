@@ -1,13 +1,10 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
-import { useRegisterOptions } from '../../hooks/useRegisterOptions';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
-import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
+import { useFormSubmits } from '../../hooks/useFormSubmits';
+import { setButtonText } from '../../redux/formReduxSlice/formSlice';
 import { registerFormInputsConfig } from './inputsConfig/inputsConfig';
 import { registerSchema } from '../../schemas/schemas';
 import { RegisterFormModel } from '../../models/form.model';
@@ -30,49 +27,16 @@ export const RegisterForm: React.FC = () => {
 		resolver: yupResolver(registerSchema),
 	});
 
-	const navigate = useNavigate();
-	const dispatch = useAppDispatch();
-	const { isEmailExisting } = useRegisterOptions();
+	const { RegisterSubmit } = useFormSubmits<RegisterFormModel>({ reset });
 	const registerFormInputs = registerFormInputsConfig(errors, register);
-
-	const onSubmit: SubmitHandler<RegisterFormModel> = async ({ firstname, lastname, email, phone, password }) => {
-		dispatch(setIsLoading(true));
-
-		const emailExists = await isEmailExisting(email);
-
-		if (emailExists) {
-			dispatch(setIsLoading(false));
-			dispatch(setPopupErrorValue('Konto z takim adresem e-mail już istnieje!'));
-		} else {
-			const { error } = await supabase.auth.signUp({
-				email,
-				password,
-				options: {
-					data: {
-						first_name: firstname,
-						last_name: lastname,
-						phone_number: phone,
-					},
-				},
-			});
-
-			if (!error) {
-				reset();
-				dispatch(setIsLoading(false));
-				navigate('/');
-			} else {
-				dispatch(setIsLoading(false));
-				dispatch(setPopupErrorValue('Coś poszło nie tak.. Spróbuj ponownie!'));
-			}
-		}
-	};
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		dispatch(setButtonText('Zarejestruj się'));
 	}, []);
 
 	return (
-		<form className='form' onSubmit={handleSubmit(onSubmit)}>
+		<form className='form' onSubmit={handleSubmit(RegisterSubmit)}>
 			{registerFormInputs.map((input, id) => (
 				<InputElement
 					key={id}

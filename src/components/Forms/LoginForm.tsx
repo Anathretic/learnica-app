@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
-import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
+import { useFormSubmits } from '../../hooks/useFormSubmits';
+import { setButtonText } from '../../redux/formReduxSlice/formSlice';
 import { loginFormInputsConfig } from './inputsConfig/inputsConfig';
 import { loginSchema } from '../../schemas/schemas';
 import { LoginFormModel } from '../../models/form.model';
@@ -26,34 +25,16 @@ export const LoginForm: React.FC = () => {
 		resolver: yupResolver(loginSchema),
 	});
 
-	const navigate = useNavigate();
-	const dispatch = useAppDispatch();
+	const { LoginSubmit } = useFormSubmits<LoginFormModel>({ reset });
 	const loginFormInputs = loginFormInputsConfig(errors, register);
-
-	const onSubmit: SubmitHandler<LoginFormModel> = async ({ email, password }) => {
-		dispatch(setIsLoading(true));
-
-		const { error } = await supabase.auth.signInWithPassword({
-			email,
-			password,
-		});
-
-		if (!error) {
-			reset();
-			dispatch(setIsLoading(false));
-			navigate('/panel-uzytkownika');
-		} else {
-			dispatch(setIsLoading(false));
-			dispatch(setPopupErrorValue('Coś poszło nie tak.. Spróbuj ponownie!'));
-		}
-	};
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		dispatch(setButtonText('Zaloguj się'));
 	}, []);
 
 	return (
-		<form className='form' onSubmit={handleSubmit(onSubmit)}>
+		<form className='form' onSubmit={handleSubmit(LoginSubmit)}>
 			{loginFormInputs.map((input, id) => (
 				<InputElement
 					key={id}

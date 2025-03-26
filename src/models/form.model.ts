@@ -1,3 +1,6 @@
+import ReCAPTCHA from 'react-google-recaptcha';
+import { UseFormReset } from 'react-hook-form';
+
 type DefaultFormModel = {
 	firstname: string;
 	lastname: string;
@@ -7,6 +10,18 @@ type DefaultFormModel = {
 	password: string;
 	confirmPassword: string;
 };
+
+// ---------------------useFormSubmits-----------------------
+
+export type FormTypes = LoginFormModel | RegisterFormModel | RecoverPasswordFormModel | ChangePasswordFormModel;
+
+export interface UseFormSubmitsModel<T extends FormTypes> {
+	reset: UseFormReset<T>;
+	refCaptcha?: React.RefObject<ReCAPTCHA>;
+	file?: File | null;
+}
+
+// ----------------------------------------------------------
 
 export type ClassesModel = 'jezyk-polski' | 'jezyk-angielski' | 'matematyka' | 'tlumaczenia' | '';
 
