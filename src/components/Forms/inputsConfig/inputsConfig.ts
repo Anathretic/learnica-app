@@ -181,4 +181,18 @@ export const classesFormSelectsConfig = (errors: FieldErrors, register: UseFormR
 		],
 		errorMessage: errors.classes?.message,
 	},
+	{
+		label: 'Forma zajęć:',
+		selectName: 'classesLocation',
+		register: register('classesLocation'),
+		isInvalid: !!errors.classesLocation,
+		optionItemsArray: [
+			{ label: '-- wybierz --', value: '', disabled: true },
+			{ label: 'Hrubieszów - Stacjonarnie', value: 'hrubieszow', disabled: false },
+			{ label: 'Lublin - Stacjonarnie', value: 'lublin', disabled: false },
+			{ label: 'Zamość - Stacjonarnie', value: 'zamosc', disabled: false },
+			{ label: 'Online', value: 'online', disabled: false },
+		],
+		errorMessage: errors.classesLocation?.message,
+	},
 ];

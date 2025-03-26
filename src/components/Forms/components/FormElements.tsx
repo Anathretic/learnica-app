@@ -4,7 +4,12 @@ import { useMediaQuery } from 'react-responsive';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { getFormInitialValues, setButtonText } from '../../../redux/formReduxSlice/formSlice';
-import { InputAndTextareaModel, ReCaptchaV2Model, SelectModel } from '../../../models/formElements.model';
+import {
+	FileInputModel,
+	InputAndTextareaModel,
+	ReCaptchaV2Model,
+	SelectModel,
+} from '../../../models/formElements.model';
 import { scrollToTop } from '../../../utils/scrollToTopUtils';
 import { Loader } from '../../Loader';
 
@@ -55,12 +60,25 @@ export const TextareaElement: React.FC<InputAndTextareaModel> = React.forwardRef
 
 export const SelectElement: React.FC<SelectModel> = React.forwardRef<HTMLSelectElement, SelectModel>(
 	({ label, selectName, optionItemsArray, errorMessage, pathname, ...props }, ref) => {
+		const selectValue = () => {
+			if (selectName === 'classes') {
+				return pathname;
+			} else {
+				return;
+			}
+		};
+
 		return (
 			<div className='form__box'>
 				<label className='form__label' htmlFor={selectName}>
 					{label}
 				</label>
-				<select className='form__select' ref={ref} id={selectName} {...props} value={pathname}>
+				<select
+					className={`${selectName === 'classes' ? 'form__select form__select--blocked' : 'form__select'}`}
+					ref={ref}
+					id={selectName}
+					{...props}
+					value={selectValue()}>
 					{optionItemsArray.map((option, id) => (
 						<option key={id} disabled={option.disabled} value={option.value}>
 							{option.label}
@@ -72,6 +90,30 @@ export const SelectElement: React.FC<SelectModel> = React.forwardRef<HTMLSelectE
 		);
 	}
 );
+
+export const FileInputElement: React.FC<FileInputModel> = ({ inputName, label, accept, setFile, ...props }) => {
+	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const selectedFile = e.target.files ? e.target.files[0] : null;
+		setFile(selectedFile);
+	};
+
+	return (
+		<div className='form__box'>
+			<label className='form__label' htmlFor={inputName}>
+				{label}
+			</label>
+			<input
+				id={inputName}
+				className='form__input'
+				type='file'
+				accept={accept}
+				autoComplete='off'
+				onChange={handleFileChange}
+				{...props}
+			/>
+		</div>
+	);
+};
 
 export const ReCaptchaV2Component: React.FC<ReCaptchaV2Model> = ({ refCaptcha }) => {
 	const { errorValue } = useAppSelector(getFormInitialValues);

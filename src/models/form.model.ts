@@ -10,6 +10,8 @@ type DefaultFormModel = {
 
 export type ClassesModel = 'jezyk-polski' | 'jezyk-angielski' | 'matematyka' | 'tlumaczenia' | '';
 
+type ClassesLocationModel = 'hrubieszow' | 'lublin' | 'zamosc' | 'online' | '';
+
 export type ContactFormModel = Pick<DefaultFormModel, 'firstname' | 'email' | 'message'>;
 
 export type RegisterFormModel = Pick<
@@ -25,4 +27,5 @@ export type ChangePasswordFormModel = Pick<DefaultFormModel, 'password' | 'confi
 
 export type ClassesFormModel = Pick<DefaultFormModel, 'firstname' | 'lastname' | 'email' | 'message' | 'phone'> & {
 	classes: ClassesModel;
+	classesLocation?: ClassesLocationModel;
 };
