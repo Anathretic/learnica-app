@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { supabase } from '../../supabase/supabase';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
-import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
+import { useFormSubmits } from '../../hooks/useFormSubmits';
+import { setButtonText } from '../../redux/formReduxSlice/formSlice';
 import { changePasswordInputsConfig } from './inputsConfig/inputsConfig';
 import { changePasswordSchema } from '../../schemas/schemas';
 import { ChangePasswordFormModel } from '../../models/form.model';
@@ -24,32 +23,16 @@ export const ChangePasswordForm: React.FC = () => {
 		resolver: yupResolver(changePasswordSchema),
 	});
 
-	const dispatch = useAppDispatch();
+	const { ChangePasswordSubmit } = useFormSubmits<ChangePasswordFormModel>({ reset });
 	const changePasswordInputs = changePasswordInputsConfig(errors, register);
-
-	const onSubmit: SubmitHandler<ChangePasswordFormModel> = async ({ password }) => {
-		dispatch(setIsLoading(true));
-
-		const { error } = await supabase.auth.updateUser({
-			password,
-		});
-
-		if (!error) {
-			reset();
-			dispatch(setIsLoading(false));
-			dispatch(setButtonText('Wysłane!'));
-		} else {
-			dispatch(setIsLoading(false));
-			dispatch(setPopupErrorValue('Coś poszło nie tak.. Spróbuj ponownie!'));
-		}
-	};
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		dispatch(setButtonText('Wyślij'));
 	}, []);
 
 	return (
-		<form className='form' onSubmit={handleSubmit(onSubmit)}>
+		<form className='form' onSubmit={handleSubmit(ChangePasswordSubmit)}>
 			{changePasswordInputs.map((input, id) => (
 				<InputElement
 					key={id}
