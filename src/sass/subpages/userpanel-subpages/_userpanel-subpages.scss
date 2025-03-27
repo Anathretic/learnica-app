@@ -46,7 +46,7 @@
 		font-size: 1.6em;
 		color: globals.$white-color;
 		text-decoration: none;
-		transition: color 0.3s, text-shadow 0.3s;
+		transition: color 0.3s;
 	}
 
 	&__form-toggle {
@@ -157,7 +157,6 @@
 
 		&__close-button:hover {
 			color: globals.$gray-color;
-			text-shadow: 0 0 0.3em currentColor;
 		}
 	}
 }
