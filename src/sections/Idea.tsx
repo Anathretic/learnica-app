@@ -3,6 +3,7 @@ import { FaBook, FaPencilAlt, FaPenFancy } from 'react-icons/fa';
 import IdeaFirstImage from '../images/idea-section/idea-first-image.jpg';
 import IdeaSecondImage from '../images/idea-section/idea-second-image.jpg';
 import IdeaThirdImage from '../images/idea-section/idea-third-image.jpg';
+import IdeaFourthImage from '../images/idea-section/idea-fourth-image.jpg';
 
 const Idea: React.FC = () => {
 	const isLarge = useMediaQuery({ query: '(min-width: 1358px)' });
@@ -46,6 +47,23 @@ const Idea: React.FC = () => {
 							Realna pomoc polega także na wsparciu emocjonalnym i motywacyjnym, co sprawia, że uczniowie stają się
 							bardziej pewni siebie i chętni do dalszej nauki. Nasza oferta to nie tylko nauka, ale także budowanie
 							pozytywnego podejścia do nauki.
+						</p>
+					</div>
+					<div className='idea__special-decoration' />
+					<div className='idea__content-box'>
+						<img src={IdeaFourthImage} alt='' />
+						<h3>IV. Obszar działania i ciągły rozwój</h3>
+						<p>
+							Jesteśmy przekonani, że nauka powinna być dostępna wszędzie, dlatego{' '}
+							<span> oferujemy elastyczne opcje – zarówno online, jak i stacjonarnie.</span> Jeśli preferujesz wygodę
+							nauki w zaciszu swojego domu, spotkanie online to idealne rozwiązanie! Natomiast jeżeli zależy Ci na
+							bardziej osobistym kontakcie,{' '}
+							<span>
+								nasze lekcje stacjonarne odbywają się w trzech miastach: Lublinie, Zamościu oraz Hrubieszowie.
+							</span>{' '}
+							W tych miastach masz możliwość umówienia się na lekcję zarówno u siebie, jak i u naszego lektora –
+							wszystko po to, abyś czuł się komfortowo i mógł skupić się na nauce. Dla nas Twój komfort i satysfakcja są
+							najważniejsze.
 						</p>
 					</div>
 					<div className='idea__first-icon-box'>

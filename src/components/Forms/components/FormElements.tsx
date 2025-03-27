@@ -98,7 +98,7 @@ export const FileInputElement: React.FC<FileInputModel> = ({ inputName, label, a
 	};
 
 	return (
-		<div className='form__box'>
+		<div className='form__box form__box--file'>
 			<label className='form__label' htmlFor={inputName}>
 				{label}
 			</label>
