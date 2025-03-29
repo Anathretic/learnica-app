@@ -13,7 +13,13 @@ type DefaultFormModel = {
 
 // ---------------------useFormSubmits-----------------------
 
-export type FormTypes = LoginFormModel | RegisterFormModel | RecoverPasswordFormModel | ChangePasswordFormModel;
+export type FormTypes =
+	| LoginFormModel
+	| RegisterFormModel
+	| RecoverPasswordFormModel
+	| ChangePasswordFormModel
+	| ClassesFormModel
+	| ContactFormModel;
 
 export interface UseFormSubmitsModel<T extends FormTypes> {
 	reset: UseFormReset<T>;
