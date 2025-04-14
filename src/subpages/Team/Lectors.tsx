@@ -1,10 +1,10 @@
 const Lectors: React.FC = () => {
 	return (
-		<section>
+		<main>
 			<div>
 				<h1>Lektorzy</h1>
 			</div>
-		</section>
+		</main>
 	);
 };
 

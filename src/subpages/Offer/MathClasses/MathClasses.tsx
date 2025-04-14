@@ -2,7 +2,7 @@ import { MathClassesBenefits, MathClassesForm, MathClassesPrices } from './compo
 
 const MathClasses: React.FC = () => {
 	return (
-		<div className='math-classes'>
+		<main className='math-classes'>
 			<div className='math-classes__container'>
 				<div className='math-classes__wrapper'>
 					<div className='math-classes__hero-image'>
@@ -13,7 +13,7 @@ const MathClasses: React.FC = () => {
 					<MathClassesForm />
 				</div>
 			</div>
-		</div>
+		</main>
 	);
 };
 

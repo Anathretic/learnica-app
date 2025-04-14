@@ -7,15 +7,15 @@ const TranslationsPrices: React.FC = () => {
 			<div className='translations__banner-container'>
 				<div className='translations__banner-container-box'>
 					<h3>Z języka angielskiego na język polski*</h3>
-					<p>37-40 zł</p>
+					<p>45 zł</p>
 				</div>
 				<div className='translations__banner-container-box'>
 					<h3>Z języka polskiego na język angielski*</h3>
-					<p>40-45 zł</p>
+					<p>50 zł</p>
 				</div>
 				<div className='translations__banner-container-box'>
 					<h3>Korekta tekstu</h3>
-					<p>35 zł</p>
+					<p>40 zł</p>
 				</div>
 				<div className='translations__banner-container-box'>
 					<h3>Dokumenty specjalistyczne</h3>

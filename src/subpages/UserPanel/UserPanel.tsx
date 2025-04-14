@@ -34,7 +34,7 @@ const UserPanel: React.FC = () => {
 	};
 
 	return (
-		<section>
+		<main>
 			<h1>Panel użytkownika</h1>
 			{!error ? (
 				!loading ? (
@@ -66,7 +66,7 @@ const UserPanel: React.FC = () => {
 			) : (
 				<div>Błąd..</div>
 			)}
-		</section>
+		</main>
 	);
 };
 

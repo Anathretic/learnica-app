@@ -2,7 +2,7 @@ import { EnglishClassesBenefits, EnglishClassesForm, EnglishClassesPrices } from
 
 const EnglishClasses: React.FC = () => {
 	return (
-		<div className='english-classes'>
+		<main className='english-classes'>
 			<div className='english-classes__container'>
 				<div className='english-classes__wrapper'>
 					<div className='english-classes__hero-image'>
@@ -13,7 +13,7 @@ const EnglishClasses: React.FC = () => {
 					<EnglishClassesForm />
 				</div>
 			</div>
-		</div>
+		</main>
 	);
 };
 
