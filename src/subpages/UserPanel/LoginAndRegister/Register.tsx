@@ -12,23 +12,25 @@ const Register: React.FC = () => {
 	}, []);
 
 	return (
-		<section className='register'>
-			<div className='register__container white-gradient'>
-				<h1 className='register__title'>Rejestracja</h1>
-				<Link to='/' className='register__close-button' onClick={scrollToTop}>
-					X
-				</Link>
-				<hr className='register__strap' />
-				<RegisterForm />
-				<hr className='register__strap' />
-				<div className='register__form-toggle'>
-					<p>Posiadasz już konto?</p>
-					<Link to='/logowanie' onClick={scrollToTop}>
-						Logowanie
+		<main>
+			<section className='register'>
+				<div className='register__container white-gradient'>
+					<h1 className='register__title'>Rejestracja</h1>
+					<Link to='/' className='register__close-button' onClick={scrollToTop}>
+						X
 					</Link>
+					<hr className='register__strap' />
+					<RegisterForm />
+					<hr className='register__strap' />
+					<div className='register__form-toggle'>
+						<p>Posiadasz już konto?</p>
+						<Link to='/logowanie' onClick={scrollToTop}>
+							Logowanie
+						</Link>
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</main>
 	);
 };
 

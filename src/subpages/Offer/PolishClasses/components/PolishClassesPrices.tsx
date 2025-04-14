@@ -6,12 +6,12 @@ const PolishClassesPrices: React.FC = () => {
 			<h2 className='polish-classes__title polish-classes__title--special'>Cennik</h2>
 			<div className='polish-classes__banner-container'>
 				<div className='polish-classes__banner-container-box'>
-					<h3>Regulaminowa lekcja trwająca 45 minut*</h3>
+					<h3>Regulaminowa lekcja trwająca 50 minut*</h3>
 					<p>60 zł</p>
 				</div>
 				<div className='polish-classes__banner-container-box'>
 					<h3>Pomoc z pracą pisemną - last minute**</h3>
-					<p>60+ zł</p>
+					<p>50+ zł</p>
 				</div>
 				<div className='polish-classes__banner-container-box'>
 					<h3>Pomoc z zadaniem gramatycznym - last minute**</h3>

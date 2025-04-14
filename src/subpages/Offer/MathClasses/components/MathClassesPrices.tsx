@@ -6,8 +6,8 @@ const MathClassesPrices: React.FC = () => {
 			<h2 className='math-classes__title math-classes__title--special'>Cennik</h2>
 			<div className='math-classes__banner-container'>
 				<div className='math-classes__banner-container-box'>
-					<h3>Regulaminowa lekcja trwająca 45 minut*</h3>
-					<p>60 zł</p>
+					<h3>Regulaminowa lekcja trwająca 50 minut*</h3>
+					<p>65 zł</p>
 				</div>
 				<div className='math-classes__banner-container-box'>
 					<h3>Pomoc z pracą domową - last minute**</h3>

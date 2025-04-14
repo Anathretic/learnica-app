@@ -12,23 +12,25 @@ const Login: React.FC = () => {
 	}, []);
 
 	return (
-		<section className='login'>
-			<div className='login__container white-gradient'>
-				<h1 className='login__title'>Logowanie</h1>
-				<Link to='/' className='login__close-button' onClick={scrollToTop}>
-					X
-				</Link>
-				<hr className='login__strap' />
-				<LoginForm />
-				<hr className='login__strap' />
-				<div className='login__form-toggle'>
-					<p>Nie masz jeszcze konta?</p>
-					<Link to='/rejestracja' onClick={scrollToTop}>
-						Rejestracja
+		<main>
+			<section className='login'>
+				<div className='login__container white-gradient'>
+					<h1 className='login__title'>Logowanie</h1>
+					<Link to='/' className='login__close-button' onClick={scrollToTop}>
+						X
 					</Link>
+					<hr className='login__strap' />
+					<LoginForm />
+					<hr className='login__strap' />
+					<div className='login__form-toggle'>
+						<p>Nie masz jeszcze konta?</p>
+						<Link to='/rejestracja' onClick={scrollToTop}>
+							Rejestracja
+						</Link>
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</main>
 	);
 };
 

@@ -2,7 +2,7 @@ import { PolishClassesBenefits, PolishClassesForm, PolishClassesPrices } from '.
 
 const PolishClasses: React.FC = () => {
 	return (
-		<div className='polish-classes'>
+		<main className='polish-classes'>
 			<div className='polish-classes__container'>
 				<div className='polish-classes__wrapper'>
 					<div className='polish-classes__hero-image'>
@@ -13,7 +13,7 @@ const PolishClasses: React.FC = () => {
 					<PolishClassesForm />
 				</div>
 			</div>
-		</div>
+		</main>
 	);
 };
 

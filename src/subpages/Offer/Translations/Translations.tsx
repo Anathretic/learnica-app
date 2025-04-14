@@ -2,7 +2,7 @@ import { TranslationsBenefits, TranslationsForm, TranslationsPrices } from './co
 
 const Translations: React.FC = () => {
 	return (
-		<div className='translations'>
+		<main className='translations'>
 			<div className='translations__container'>
 				<div className='translations__wrapper'>
 					<div className='translations__hero-image'>
@@ -13,7 +13,7 @@ const Translations: React.FC = () => {
 					<TranslationsForm />
 				</div>
 			</div>
-		</div>
+		</main>
 	);
 };
 
