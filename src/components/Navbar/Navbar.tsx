@@ -6,7 +6,6 @@ import { NavbarItem } from './components/NavbarItem';
 import { LoginIcon } from './components/LoginIcon';
 import { navbarItems } from './components/navbarData/navbarItems';
 import { NavbarTitle } from './components/NavbarTitle';
-import { scrollToTop } from '../../utils/scrollToTopUtils';
 
 const Navbar: React.FC = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
@@ -74,7 +73,6 @@ const Navbar: React.FC = () => {
 										<LoginIcon
 											onClick={() => {
 												handleMenuClose();
-												scrollToTop();
 											}}
 										/>
 									</ul>
@@ -87,7 +85,7 @@ const Navbar: React.FC = () => {
 								{navbarItems.map(({ title, section }) => (
 									<NavbarItem key={title} title={title} section={section} />
 								))}
-								<LoginIcon liStyles='navbar__login-icon-margin' onClick={scrollToTop} />
+								<LoginIcon liStyles='navbar__login-icon-margin' />
 							</ul>
 						</nav>
 					)}

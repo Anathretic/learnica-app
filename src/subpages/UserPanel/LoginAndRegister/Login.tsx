@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { LoginForm } from '../../../components/Forms/LoginForm';
 import { useCheckSessionStatus } from '../../../hooks/useCheckSessionStatus';
-import { scrollToTop } from '../../../utils/scrollToTopUtils';
 
 const Login: React.FC = () => {
 	const { checkSessionStatus } = useCheckSessionStatus();
@@ -16,7 +15,7 @@ const Login: React.FC = () => {
 			<section className='login'>
 				<div className='login__container white-gradient'>
 					<h1 className='login__title'>Logowanie</h1>
-					<Link to='/' className='login__close-button' onClick={scrollToTop}>
+					<Link to='/' className='login__close-button'>
 						X
 					</Link>
 					<hr className='login__strap' />
@@ -24,9 +23,7 @@ const Login: React.FC = () => {
 					<hr className='login__strap' />
 					<div className='login__form-toggle'>
 						<p>Nie masz jeszcze konta?</p>
-						<Link to='/rejestracja' onClick={scrollToTop}>
-							Rejestracja
-						</Link>
+						<Link to='/rejestracja'>Rejestracja</Link>
 					</div>
 				</div>
 			</section>

@@ -1,5 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import { FaBook, FaPencilAlt, FaPenFancy } from 'react-icons/fa';
+
 import IdeaFirstImage from '../images/idea-section/idea-first-image.jpg';
 import IdeaSecondImage from '../images/idea-section/idea-second-image.jpg';
 import IdeaThirdImage from '../images/idea-section/idea-third-image.jpg';

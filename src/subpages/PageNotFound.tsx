@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { scrollToTop } from '../utils/scrollToTopUtils';
 
 import NotFoundImage from '../images/notfound-subpage/notfound-image.png';
 
@@ -14,7 +13,7 @@ const PageNotFound: React.FC = () => {
 						<p className='notfound__credits'>
 							Chyba link się nie zgadza.. Skorzystaj z przycisku poniżej i zacznij swoje poszukiwanie od głównej strony!
 						</p>
-						<Link to='/' className='notfound__btn' onClick={scrollToTop} aria-label='Powrót na stronę główną'>
+						<Link to='/' className='notfound__btn' aria-label='Powrót na stronę główną'>
 							Powrót
 						</Link>
 					</div>

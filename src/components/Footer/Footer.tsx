@@ -37,9 +37,7 @@ const Footer: React.FC = () => {
 					<ul>
 						{footerOfferItems.map((item, id) => (
 							<li key={id}>
-								<Link to={item.to} onClick={item.onClick}>
-									{item.content}
-								</Link>
+								<Link to={item.to}>{item.content}</Link>
 							</li>
 						))}
 					</ul>
@@ -49,9 +47,7 @@ const Footer: React.FC = () => {
 					<ul>
 						{footerTeamItems.map((item, id) => (
 							<li key={id}>
-								<Link to={item.to} onClick={item.onClick}>
-									{item.content}
-								</Link>
+								<Link to={item.to}>{item.content}</Link>
 							</li>
 						))}
 					</ul>
@@ -61,9 +57,7 @@ const Footer: React.FC = () => {
 					<ul>
 						{footerMoreItems.map((item, id) => (
 							<li key={id}>
-								<Link to={item.to} onClick={item.onClick}>
-									{item.content}
-								</Link>
+								<Link to={item.to}>{item.content}</Link>
 							</li>
 						))}
 					</ul>

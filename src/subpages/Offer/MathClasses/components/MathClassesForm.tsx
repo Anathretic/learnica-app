@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { ClassesForm } from '../../../../components/Forms/ClassesForm';
-import { scrollToTop } from '../../../../utils/scrollToTopUtils';
 import { FaPaperPlane } from 'react-icons/fa';
 
 const MathClassesForm: React.FC = () => {
@@ -16,7 +15,7 @@ const MathClassesForm: React.FC = () => {
 					<p className='math-classes__form-title-subtext'>
 						<span>Pamiętaj!</span> Wysyłając formularz wyrażasz zgodę na przetwarzanie Twoich danych zgodnie z
 						obowiązującą{' '}
-						<Link to='/polityka-prywatnosci' onClick={scrollToTop}>
+						<Link to='/polityka-prywatnosci' >
 							polityką prywatności.
 						</Link>
 					</p>

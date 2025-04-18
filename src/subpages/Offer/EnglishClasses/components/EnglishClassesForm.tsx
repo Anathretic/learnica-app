@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { ClassesForm } from '../../../../components/Forms/ClassesForm';
-import { scrollToTop } from '../../../../utils/scrollToTopUtils';
 import { FaPaperPlane } from 'react-icons/fa';
 
 const EnglishClassesForm: React.FC = () => {
@@ -10,15 +9,12 @@ const EnglishClassesForm: React.FC = () => {
 				<div className='english-classes__form-title-box'>
 					<h2 className='english-classes__form-title'>Zaczynamy?</h2>
 					<p className='english-classes__form-title-subtext'>
-						Nie zwlekaj! Rozpocznij swoją przygodę z językiem angielskim już dziś! Dołącz do naszej społeczności uczniów,
-						którzy rozwijają swoje umiejętności z radością i osiągają wyznaczone cele.
+						Nie zwlekaj! Rozpocznij swoją przygodę z językiem angielskim już dziś! Dołącz do naszej społeczności
+						uczniów, którzy rozwijają swoje umiejętności z radością i osiągają wyznaczone cele.
 					</p>
 					<p className='english-classes__form-title-subtext'>
 						<span>Pamiętaj!</span> Wysyłając formularz wyrażasz zgodę na przetwarzanie Twoich danych zgodnie z
-						obowiązującą{' '}
-						<Link to='/polityka-prywatnosci' onClick={scrollToTop}>
-							polityką prywatności.
-						</Link>
+						obowiązującą <Link to='/polityka-prywatnosci'>polityką prywatności.</Link>
 					</p>
 					<ul className='english-classes__form-title-info-box'>
 						<li>

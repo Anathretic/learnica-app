@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { scrollToTop } from '../utils/scrollToTopUtils';
 
 const TermsAndConditions: React.FC = () => {
 	return (
@@ -114,7 +113,10 @@ const TermsAndConditions: React.FC = () => {
 							przed automatycznym wypełnianiem przez boty. Google reCAPTCHA zbiera dane dotyczące urządzenia
 							użytkownika, takie jak adres IP, dane o przeglądarce, a także inne dane techniczne niezbędne do
 							weryfikacji. Przetwarzanie tych danych odbywa się zgodnie z polityką prywatności Google, dostępną pod
-							adresem: [link do polityki prywatności Google].
+							adresem:{' '}
+							<a href='https://cloud.google.com/security/products/recaptcha' target='_blank' rel='noopener noreferrer'>
+								cloud.google.com/security/products/recaptcha
+							</a>
 						</p>
 					</div>
 					<div className='terms-and-conditions__box'>
@@ -229,7 +231,7 @@ const TermsAndConditions: React.FC = () => {
 							Konrad Wojtyło
 						</a>
 					</div>
-					<Link to='/' className='terms-and-conditions__btn' onClick={scrollToTop} aria-label='Powrót na stronę główną'>
+					<Link to='/' className='terms-and-conditions__btn' aria-label='Powrót na stronę główną'>
 						Powrót
 					</Link>
 				</div>
