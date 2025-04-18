@@ -10,7 +10,6 @@ import {
 	ReCaptchaV2Model,
 	SelectModel,
 } from '../../../models/formElements.model';
-import { scrollToTop } from '../../../utils/scrollToTopUtils';
 import { Loader } from '../../Loader';
 
 export const InputElement: React.FC<InputAndTextareaModel> = React.forwardRef<HTMLInputElement, InputAndTextareaModel>(
@@ -162,10 +161,7 @@ export const ReturnButton: React.FC = () => {
 
 	return (
 		<div className='form__box'>
-			<Link
-				className={isLoading ? 'form__return-btn form__return-btn--opacity' : 'form__return-btn'}
-				to='/'
-				onClick={scrollToTop}>
+			<Link className={isLoading ? 'form__return-btn form__return-btn--opacity' : 'form__return-btn'} to='/'>
 				Powrót
 			</Link>
 		</div>

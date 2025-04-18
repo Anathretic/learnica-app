@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
-import { OfferBox } from './offerComponents/OfferBox';
-import { OfferDataModel } from '../../models/offer.model';
 import { offerGraph } from '../../graphql/graphs';
+import { OfferBox } from './components/OfferBox';
+import { OfferDataModel } from '../../models/offer.model';
 
 const Offer: React.FC = () => {
 	const { loading, error, data } = useQuery(offerGraph);

@@ -1,21 +1,20 @@
 import { FooterItemsModel } from '../../../models/footerItems.model';
-import { scrollToTop } from '../../../utils/scrollToTopUtils';
 
 export const footerOfferItems: FooterItemsModel[] = [
-	{ to: '/jezyk-polski', onClick: scrollToTop, content: 'Język polski' },
-	{ to: '/jezyk-angielski', onClick: scrollToTop, content: 'Język angielski' },
-	{ to: '/matematyka', onClick: scrollToTop, content: 'Matematyka' },
-	{ to: '/tlumaczenia', onClick: scrollToTop, content: 'Tłumaczenia' },
+	{ to: '/jezyk-polski', content: 'Język polski' },
+	{ to: '/jezyk-angielski', content: 'Język angielski' },
+	{ to: '/matematyka', content: 'Matematyka' },
+	{ to: '/tlumaczenia', content: 'Tłumaczenia' },
 ];
 
 export const footerTeamItems: FooterItemsModel[] = [
-	{ to: '/o-nas', onClick: scrollToTop, content: 'O nas' },
-	{ to: '/program-nauczania', onClick: scrollToTop, content: 'Program nauczania' },
-	{ to: '/lektorzy', onClick: scrollToTop, content: 'Lektorzy' },
+	{ to: '/o-nas', content: 'O nas' },
+	{ to: '/program-nauczania', content: 'Program nauczania' },
+	{ to: '/lektorzy', content: 'Lektorzy' },
 ];
 
 export const footerMoreItems: FooterItemsModel[] = [
-	{ to: '/logowanie', onClick: scrollToTop, content: 'Logowanie' },
-	{ to: '/rejestracja', onClick: scrollToTop, content: 'Rejestracja' },
-	{ to: '/polityka-prywatnosci', onClick: scrollToTop, content: 'Polityka prywatności' },
+	{ to: '/logowanie', content: 'Logowanie' },
+	{ to: '/rejestracja', content: 'Rejestracja' },
+	{ to: '/polityka-prywatnosci', content: 'Polityka prywatności' },
 ];

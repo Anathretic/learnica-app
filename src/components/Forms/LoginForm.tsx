@@ -9,7 +9,6 @@ import { setButtonText } from '../../redux/formReduxSlice/formSlice';
 import { loginFormInputsConfig } from './inputsConfig/inputsConfig';
 import { loginSchema } from '../../schemas/schemas';
 import { LoginFormModel } from '../../models/form.model';
-import { scrollToTop } from '../../utils/scrollToTopUtils';
 
 export const LoginForm: React.FC = () => {
 	const {
@@ -48,7 +47,7 @@ export const LoginForm: React.FC = () => {
 				/>
 			))}
 			<div className='form__password-recover-box'>
-				<Link to='/odzyskiwanie-hasla' className='form__password-recover-btn' onClick={scrollToTop}>
+				<Link to='/odzyskiwanie-hasla' className='form__password-recover-btn'>
 					Nie pamiętasz hasła?
 				</Link>
 			</div>

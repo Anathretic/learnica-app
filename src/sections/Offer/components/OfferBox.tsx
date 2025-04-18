@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { scrollToTop } from '../../../utils/scrollToTopUtils';
 import { OfferBoxModel } from '../../../models/offer.model';
 
 export const OfferBox: React.FC<OfferBoxModel> = ({ subpage, text, title, price, offerItemsCollection }) => {
@@ -20,23 +19,13 @@ export const OfferBox: React.FC<OfferBoxModel> = ({ subpage, text, title, price,
 			)}
 			<p className='offer__box-special-text'>Cena już od:</p>
 			<p className='offer__price'>{price}zł</p>
-			<Link
-				to={`/${subpage}`}
-				className='offer__box-button'
-				onClick={() => {
-					scrollToTop();
-				}}>
+			<Link to={`/${subpage}`} className='offer__box-button'>
 				Sprawdź
 			</Link>
 			{subpage === 'jezyk-angielski' && (
 				<>
 					<hr className='offer__special-decoration' />
-					<Link
-						to={`/tlumaczenia`}
-						className='offer__box-button'
-						onClick={() => {
-							scrollToTop();
-						}}>
+					<Link to={`/tlumaczenia`} className='offer__box-button'>
 						Tłumaczenia
 					</Link>
 				</>

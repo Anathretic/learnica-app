@@ -21,12 +21,14 @@ import { Welcome, Idea, Offer, Motto, Blog, Contact, Opinions } from './sections
 import { BlogPopup, ErrorPopup, Footer, Navbar, CookieBanner } from './components';
 import { useAppSelector } from './hooks/reduxHooks';
 import { getInitialErrorPopupValue } from './redux/errorPopupReduxSlice/errorPopupSlice';
+import { ScrollToTop } from './utils/scrollToTopUtils';
 
 const App: React.FC = () => {
 	const error = useAppSelector(getInitialErrorPopupValue);
 
 	return (
 		<ApolloProvider client={client}>
+			<ScrollToTop />
 			<Routes>
 				<Route
 					element={
