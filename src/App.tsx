@@ -18,7 +18,7 @@ import {
 	RecoverPassword,
 } from './subpages';
 import { Welcome, Idea, Offer, Motto, Blog, Contact, Opinions } from './sections';
-import { BlogPopup, ErrorPopup, Footer, Navbar, CookieBanner } from './components';
+import { BlogPopup, ErrorPopup, Footer, Navbar, CookieBanner, HomeWrapper } from './components';
 import { useAppSelector } from './hooks/reduxHooks';
 import { getInitialErrorPopupValue } from './redux/errorPopupReduxSlice/errorPopupSlice';
 import { ScrollToTop } from './utils/scrollToTopUtils';
@@ -50,7 +50,7 @@ const App: React.FC = () => {
 							element={
 								<>
 									<Navbar />
-									<main>
+									<HomeWrapper>
 										<Welcome />
 										<Idea />
 										<Offer />
@@ -59,7 +59,7 @@ const App: React.FC = () => {
 										<Blog />
 										<BlogPopup />
 										<Contact />
-									</main>
+									</HomeWrapper>
 								</>
 							}
 						/>
