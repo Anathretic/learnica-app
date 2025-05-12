@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
-	FileInputElement,
 	FormSubmit,
 	InputElement,
 	ReCaptchaV2Component,
@@ -17,7 +16,6 @@ import { classesSchema, translationsSchema } from '../../schemas/schemas';
 import { ClassesModel, ClassesFormModel } from '../../models/form.model';
 
 export const ClassesForm: React.FC = () => {
-	const [file, setFile] = useState<File | null>(null);
 	const [pathname, setPathname] = useState('');
 	const {
 		register,
@@ -38,7 +36,7 @@ export const ClassesForm: React.FC = () => {
 	});
 
 	const refCaptcha = useRef<ReCAPTCHA>(null);
-	const { ClassesSubmit } = useFormSubmits<ClassesFormModel>({ reset, refCaptcha, file });
+	const { ClassesSubmit } = useFormSubmits<ClassesFormModel>({ reset, refCaptcha });
 	const classesFormInputs = classesFormInputsConfig(errors, register);
 	const classesFormSelects = classesFormSelectsConfig(errors, register);
 
@@ -82,14 +80,6 @@ export const ClassesForm: React.FC = () => {
 				aria-invalid={errors.message ? true : false}
 				{...register('message')}
 			/>
-			{pathname === 'tlumaczenia' && (
-				<FileInputElement
-					setFile={setFile}
-					label='Wstaw plik:'
-					inputName='file'
-					accept='.doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-				/>
-			)}
 			<ReCaptchaV2Component refCaptcha={refCaptcha} />
 			<FormSubmit />
 			<ReturnButton />

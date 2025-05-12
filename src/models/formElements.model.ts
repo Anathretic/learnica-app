@@ -24,13 +24,6 @@ export interface InputAndTextareaModel extends DefaultModel {
 	readOnly?: boolean;
 }
 
-export interface FileInputModel {
-	inputName: string;
-	label: string;
-	accept: string;
-	setFile: React.Dispatch<React.SetStateAction<File | null>>;
-}
-
 export interface LoaderModel {
 	className: string;
 }
