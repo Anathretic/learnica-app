@@ -24,7 +24,6 @@ export type FormTypes =
 export interface UseFormSubmitsModel<T extends FormTypes> {
 	reset: UseFormReset<T>;
 	refCaptcha?: React.RefObject<ReCAPTCHA>;
-	file?: File | null;
 }
 
 // ----------------------------------------------------------

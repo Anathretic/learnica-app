@@ -17,7 +17,7 @@ import {
 	UseFormSubmitsModel,
 } from '../models/form.model';
 
-export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha, file }: UseFormSubmitsModel<T>) => {
+export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFormSubmitsModel<T>) => {
 	const { isEmailExisting } = useRegisterOptions();
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
@@ -178,7 +178,6 @@ export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha, file }:
 			classes,
 			classesLocation,
 			message,
-			file,
 			'g-recaptcha-response': token,
 		};
 

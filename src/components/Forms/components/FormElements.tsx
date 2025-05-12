@@ -4,12 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { getFormInitialValues, setButtonText } from '../../../redux/formReduxSlice/formSlice';
-import {
-	FileInputModel,
-	InputAndTextareaModel,
-	ReCaptchaV2Model,
-	SelectModel,
-} from '../../../models/formElements.model';
+import { InputAndTextareaModel, ReCaptchaV2Model, SelectModel } from '../../../models/formElements.model';
 import { Loader } from '../../Loader';
 
 export const InputElement: React.FC<InputAndTextareaModel> = React.forwardRef<HTMLInputElement, InputAndTextareaModel>(
@@ -89,30 +84,6 @@ export const SelectElement: React.FC<SelectModel> = React.forwardRef<HTMLSelectE
 		);
 	}
 );
-
-export const FileInputElement: React.FC<FileInputModel> = ({ inputName, label, accept, setFile, ...props }) => {
-	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const selectedFile = e.target.files ? e.target.files[0] : null;
-		setFile(selectedFile);
-	};
-
-	return (
-		<div className='form__box form__box--file'>
-			<label className='form__label' htmlFor={inputName}>
-				{label}
-			</label>
-			<input
-				id={inputName}
-				className='form__input'
-				type='file'
-				accept={accept}
-				autoComplete='off'
-				onChange={handleFileChange}
-				{...props}
-			/>
-		</div>
-	);
-};
 
 export const ReCaptchaV2Component: React.FC<ReCaptchaV2Model> = ({ refCaptcha }) => {
 	const { errorValue } = useAppSelector(getFormInitialValues);

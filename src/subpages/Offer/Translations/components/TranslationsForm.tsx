@@ -14,10 +14,7 @@ const TranslationsForm: React.FC = () => {
 					</p>
 					<p className='translations__form-title-subtext'>
 						<span>Pamiętaj!</span> Wysyłając formularz wyrażasz zgodę na przetwarzanie Twoich danych zgodnie z
-						obowiązującą{' '}
-						<Link to='/polityka-prywatnosci' >
-							polityką prywatności.
-						</Link>
+						obowiązującą <Link to='/polityka-prywatnosci'>polityką prywatności.</Link>
 					</p>
 					<ul className='translations__form-title-info-box'>
 						<li>
@@ -29,13 +26,12 @@ const TranslationsForm: React.FC = () => {
 						<li>
 							<p>Dokumenty przyjmujemy:</p>
 							<p>
-								- <span>stacjonarnie</span> - jeśli chcesz osobiście przedstawić nam dokument to wypełnij formularz
-								pozostawiając pusty załącznik i umówmimy się na spotkanie -{' '}
+								- <span>stacjonarnie</span> - wypełnij formularz i umówmimy się na spotkanie -{' '}
 								<span>chwilowo obejmuje to Lublin, Zamość oraz Hrubieszów.</span>
 							</p>
 							<p>
-								- <span>online</span> - jeśli jednak wolisz wszystko załatwić od ręki to załącz dokument w formularzu, a
-								nasz pracownik od razu weźmie się za wycenę!
+								- <span>online</span> - jeśli wolisz wszystko załatwić od ręki to napisz o tym w wiadomości. Nasz
+								pracownik poprosi o dosłanie dokumentów i od razu weźmie się za wycenę!
 							</p>
 						</li>
 					</ul>

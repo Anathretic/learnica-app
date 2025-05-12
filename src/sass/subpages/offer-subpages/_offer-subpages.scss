@@ -547,4 +547,16 @@
 			}
 		}
 	}
+
+	.translations {
+		&__icon {
+			&--first {
+				bottom: -2.6em;
+			}
+
+			&--second {
+				bottom: -3.5em;
+			}
+		}
+	}
 }
