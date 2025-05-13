@@ -1,10 +1,10 @@
 import { useMediaQuery } from 'react-responsive';
 import { FaBook, FaPencilAlt, FaPenFancy } from 'react-icons/fa';
 
-import IdeaFirstImage from '../images/idea-section/idea-first-image.jpg';
-import IdeaSecondImage from '../images/idea-section/idea-second-image.jpg';
-import IdeaThirdImage from '../images/idea-section/idea-third-image.jpg';
-import IdeaFourthImage from '../images/idea-section/idea-fourth-image.jpg';
+import IdeaFirstImage from '/images/sections/idea-section/idea-first-image.jpg';
+import IdeaSecondImage from '/images/sections/idea-section/idea-second-image.jpg';
+import IdeaThirdImage from '/images/sections/idea-section/idea-third-image.jpg';
+import IdeaFourthImage from '/images/sections/idea-section/idea-fourth-image.jpg';
 
 const Idea: React.FC = () => {
 	const isLarge = useMediaQuery({ query: '(min-width: 1358px)' });

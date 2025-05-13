@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { NavbarTitleModel } from '../../../models/navbar.model';
 
-import BlueLogo from '../../../images/logo/blue-logo.svg';
+import BlueLogo from '/images/logo/blue-logo.svg';
 
 export const NavbarTitle: React.FC<NavbarTitleModel> = ({ divRef }) => {
 	const scrollToTop = () => {

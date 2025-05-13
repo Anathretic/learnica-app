@@ -3,7 +3,7 @@
 @use '../animations';
 
 .opinions {
-	background-image: url('../images/opinions-section/opinions-background.jpg');
+	background-image: url('/images/sections/opinions-section/opinions-hero-image.jpg');
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -102,6 +102,8 @@
 
 @media screen and (min-width: 768px) {
 	.opinions {
+		background-image: url('/images/sections/opinions-section/opinions-hero-image-xl.jpg');
+
 		&__carousel-container {
 			animation: scroll-left 210s linear infinite;
 		}

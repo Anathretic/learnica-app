@@ -288,25 +288,25 @@
 
 .polish-classes {
 	&__hero-image {
-		background-image: url('../images/classes-subpages/polish-classes-hero-image.jpg');
+		background-image: url('/images/subpages/classes-subpages/polish-classes/polish-classes-hero-image.jpg');
 	}
 }
 
 .english-classes {
 	&__hero-image {
-		background-image: url('../images/classes-subpages/english-classes-hero-image.jpg');
+		background-image: url('/images/subpages/classes-subpages/english-classes/english-classes-hero-image.jpg');
 	}
 }
 
 .math-classes {
 	&__hero-image {
-		background-image: url('../images/classes-subpages/math-classes-hero-image.jpg');
+		background-image: url('/images/subpages/classes-subpages/math-classes/math-classes-hero-image.jpg');
 	}
 }
 
 .translations {
 	&__hero-image {
-		background-image: url('../images/classes-subpages/translations-hero-image.jpg');
+		background-image: url('/images/subpages/classes-subpages/translations/translations-hero-image.jpg');
 	}
 }
 
@@ -354,6 +354,30 @@
 		&__banner-special-block {
 			width: 35%;
 			height: 50px;
+		}
+	}
+
+	.polish-classes {
+		&__hero-image {
+			background-image: url('/images/subpages/classes-subpages/polish-classes/polish-classes-hero-image-xl.jpg');
+		}
+	}
+
+	.english-classes {
+		&__hero-image {
+			background-image: url('/images/subpages/classes-subpages/english-classes/english-classes-hero-image-xl.jpg');
+		}
+	}
+
+	.math-classes {
+		&__hero-image {
+			background-image: url('/images/subpages/classes-subpages/math-classes/math-classes-hero-image-xl.jpg');
+		}
+	}
+
+	.translations {
+		&__hero-image {
+			background-image: url('/images/subpages/classes-subpages/translations/translations-hero-image-xl.jpg');
 		}
 	}
 }
