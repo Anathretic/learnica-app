@@ -19,6 +19,7 @@
 	}
 
 	&__box {
+		position: relative;
 		padding: 1em;
 		margin: 1em;
 		width: 90%;
@@ -81,6 +82,28 @@
 		@include mixins.button;
 	}
 
+	&__special-box-icon {
+		position: absolute;
+		color: rgba(255, 255, 255, 0.15);
+		font-size: 50px;
+
+		&--0 {
+			top: -10px;
+			left: -10px;
+		}
+
+		&--1 {
+			bottom: -10px;
+			right: -10px;
+		}
+
+		&--2 {
+			bottom: -10px;
+			left: -10px;
+			transform: rotate(270deg);
+		}
+	}
+
 	&__special-decoration {
 		height: 1px;
 		width: 90%;
@@ -101,6 +124,25 @@
 
 		&__box-title {
 			font-size: 4em;
+		}
+
+		&__special-box-icon {
+			font-size: 60px;
+
+			&--0 {
+				top: -20px;
+				left: -20px;
+			}
+
+			&--1 {
+				bottom: -20px;
+				right: -20px;
+			}
+
+			&--2 {
+				bottom: -20px;
+				left: -20px;
+			}
 		}
 	}
 }
@@ -129,6 +171,10 @@
 
 		&__box-button {
 			font-size: 1em;
+		}
+
+		&__special-box-icon {
+			font-size: 65px;
 		}
 
 		&__error {
@@ -178,6 +224,25 @@
 		&__box-button:hover {
 			color: globals.$white-color;
 			background-color: globals.$gray-color;
+		}
+
+		&__special-box-icon {
+			font-size: 70px;
+			&--0 {
+				top: -15px;
+				left: -15px;
+			}
+
+			&--1 {
+				bottom: -15px;
+				right: -15px;
+			}
+
+			&--2 {
+				top: -30px;
+				left: 92.5%;
+				transform: rotate(0);
+			}
 		}
 
 		&__error {

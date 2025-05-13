@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { OfferBoxModel } from '../../../models/offer.model';
+import { FaPencilAlt } from 'react-icons/fa';
 
-export const OfferBox: React.FC<OfferBoxModel> = ({ subpage, text, title, price, offerItemsCollection }) => {
+export const OfferBox: React.FC<OfferBoxModel> = ({ id, subpage, text, title, price, offerItemsCollection }) => {
 	return (
 		<div className='offer__box dark-blue-gradient'>
 			<h3 className='offer__box-title'>{title}</h3>
@@ -30,6 +31,7 @@ export const OfferBox: React.FC<OfferBoxModel> = ({ subpage, text, title, price,
 					</Link>
 				</>
 			)}
+			<FaPencilAlt className={`offer__special-box-icon offer__special-box-icon--${id}`} />
 		</div>
 	);
 };
