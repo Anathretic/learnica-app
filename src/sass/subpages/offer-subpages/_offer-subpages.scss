@@ -138,6 +138,13 @@
 		color: globals.$white-color;
 	}
 
+	&__banner-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
 	&__banner-container {
 		max-width: 1000px;
 	}
@@ -154,6 +161,10 @@
 
 		h3 {
 			@include mixins.h3;
+		}
+
+		h3:first-of-type {
+			padding: 0 1em 1em;
 		}
 
 		p {
@@ -432,6 +443,13 @@
 			}
 		}
 
+		&__banner-wrapper {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: row;
+		}
+
 		&__banner-container {
 			display: flex;
 			flex-direction: row;
@@ -439,24 +457,23 @@
 			max-width: 1450px;
 		}
 
-		&__special-banner-container {
-			p {
-				font-size: 1.05em;
-			}
-		}
-
 		&__banner-container-box {
 			padding: 2rem;
-			margin: 4rem;
+			margin: 2.5rem 4rem 4rem;
 			width: 500px;
 
 			h3 {
-				@include mixins.h3;
 				font-size: 1.75em;
 			}
 
 			p {
 				font-size: 1.5em;
+			}
+		}
+
+		&__special-banner-container {
+			p {
+				font-size: 1.05em;
 			}
 		}
 

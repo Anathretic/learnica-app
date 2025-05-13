@@ -19,7 +19,7 @@ const EnglishClassesForm: React.FC = () => {
 					<ul className='english-classes__form-title-info-box'>
 						<li>
 							<p>Wybierz nas:</p>
-							<p className='polish-classes__form-special-text'>- wykwalifikowani nauczyciele z doświadczeniem</p>
+							<p className='english-classes__form-special-text'>- wykwalifikowani nauczyciele z doświadczeniem</p>
 							<p>- elastyczne godziny zajęć</p>
 							<p>- indywidualne podejście</p>
 						</li>

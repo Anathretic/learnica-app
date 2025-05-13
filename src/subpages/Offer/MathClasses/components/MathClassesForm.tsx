@@ -14,15 +14,12 @@ const MathClassesForm: React.FC = () => {
 					</p>
 					<p className='math-classes__form-title-subtext'>
 						<span>Pamiętaj!</span> Wysyłając formularz wyrażasz zgodę na przetwarzanie Twoich danych zgodnie z
-						obowiązującą{' '}
-						<Link to='/polityka-prywatnosci' >
-							polityką prywatności.
-						</Link>
+						obowiązującą <Link to='/polityka-prywatnosci'>polityką prywatności.</Link>
 					</p>
 					<ul className='math-classes__form-title-info-box'>
 						<li>
 							<p>Wybierz nas:</p>
-							<p className='polish-classes__form-special-text'>- wykwalifikowani nauczyciele z doświadczeniem</p>
+							<p className='math-classes__form-special-text'>- wykwalifikowani nauczyciele z doświadczeniem</p>
 							<p>- elastyczne godziny zajęć</p>
 							<p>- indywidualne podejście</p>
 						</li>

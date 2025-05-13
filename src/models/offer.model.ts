@@ -6,6 +6,7 @@ interface PlusesArrayModel {
 }
 
 export interface OfferBoxModel {
+	id: number;
 	subpage: string;
 	text: string;
 	title: string;

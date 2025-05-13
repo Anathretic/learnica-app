@@ -19,7 +19,7 @@ const TranslationsForm: React.FC = () => {
 					<ul className='translations__form-title-info-box'>
 						<li>
 							<p>Wybierz nas:</p>
-							<p className='polish-classes__form-special-text'>- tłumacze z doświadczeniem</p>
+							<p className='translations__form-special-text'>- tłumacze z doświadczeniem</p>
 							<p>- szybka realizacja zleceń</p>
 							<p>- możliwość stałej współpracy</p>
 						</li>

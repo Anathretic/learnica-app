@@ -17,6 +17,7 @@ const Offer: React.FC = () => {
 							{data.offerCollection.edges.map((data: OfferDataModel, id: number) => (
 								<OfferBox
 									key={id}
+									id={id}
 									subpage={data.node.subpage}
 									text={data.node.text}
 									title={data.node.title}
