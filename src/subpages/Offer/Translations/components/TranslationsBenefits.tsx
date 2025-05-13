@@ -81,8 +81,6 @@ const TranslationsBenefits: React.FC = () => {
 					</ul>
 				</div>
 			</div>
-			<div className='translations__benefits-special-block translations__benefits-special-block--left' />
-			<div className='translations__benefits-special-block translations__benefits-special-block--right' />
 		</section>
 	);
 };

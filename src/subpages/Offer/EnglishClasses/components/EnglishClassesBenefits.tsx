@@ -93,8 +93,6 @@ const EnglishClassesBenefits: React.FC = () => {
 					</ul>
 				</div>
 			</div>
-			<div className='english-classes__benefits-special-block english-classes__benefits-special-block--left' />
-			<div className='english-classes__benefits-special-block english-classes__benefits-special-block--right' />
 		</section>
 	);
 };

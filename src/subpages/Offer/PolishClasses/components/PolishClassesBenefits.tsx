@@ -92,8 +92,6 @@ const PolishClassesBenefits: React.FC = () => {
 					</ul>
 				</div>
 			</div>
-			<div className='polish-classes__benefits-special-block polish-classes__benefits-special-block--left' />
-			<div className='polish-classes__benefits-special-block polish-classes__benefits-special-block--right' />
 		</section>
 	);
 };

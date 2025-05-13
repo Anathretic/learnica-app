@@ -92,8 +92,6 @@ const MathClassesBenefits: React.FC = () => {
 					</ul>
 				</div>
 			</div>
-			<div className='math-classes__benefits-special-block math-classes__benefits-special-block--left' />
-			<div className='math-classes__benefits-special-block math-classes__benefits-special-block--right' />
 		</section>
 	);
 };
