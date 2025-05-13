@@ -1,2 +1,6 @@
 User-agent: *
-Disallow: 
+Disallow: /logowanie
+Disallow: /rejestracja
+Disallow: /odzyskiwanie-hasla
+Disallow: /panel-uzytkownika
+Sitemap: https://learnica.pl/sitemap.xml

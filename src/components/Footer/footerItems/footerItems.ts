@@ -9,8 +9,7 @@ export const footerOfferItems: FooterItemsModel[] = [
 
 export const footerTeamItems: FooterItemsModel[] = [
 	{ to: '/o-nas', content: 'O nas' },
-	{ to: '/program-nauczania', content: 'Program nauczania' },
-	{ to: '/lektorzy', content: 'Lektorzy' },
+	{ to: '/kariera', content: 'Kariera' },
 ];
 
 export const footerMoreItems: FooterItemsModel[] = [
