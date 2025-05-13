@@ -7,7 +7,7 @@
 	@include mixins.flex;
 	min-height: 100vh;
 	width: 100%;
-	background-image: url('../images/welcome-section/welcome-image.jpg');
+	background-image: url('/images/sections/welcome-section/welcome-hero-image.jpg');
 	background-size: cover;
 	background-position: center;
 
@@ -164,7 +164,7 @@
 			display: block;
 			width: 100%;
 			height: 100%;
-			background-image: url('../images/welcome-section/welcome-image.jpg');
+			background-image: url('/images/sections/welcome-section/welcome-hero-image-xl.jpg');
 			background-position: center;
 			background-size: cover;
 			grid-column: 2/3;

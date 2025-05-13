@@ -7,8 +7,7 @@ import {
 	MathClasses,
 	Translations,
 	AboutUs,
-	Curriculum,
-	Lectors,
+	Career,
 	Login,
 	Register,
 	UserPanel,
@@ -68,8 +67,7 @@ const App: React.FC = () => {
 						<Route path='/matematyka' element={<MathClasses />} />
 						<Route path='/tlumaczenia' element={<Translations />} />
 						<Route path='/o-nas' element={<AboutUs />} />
-						<Route path='/program-nauczania' element={<Curriculum />} />
-						<Route path='/lektorzy' element={<Lectors />} />
+						<Route path='/kariera' element={<Career />} />
 						<Route path='/logowanie' element={<Login />} />
 						<Route path='/odzyskiwanie-hasla' element={<RecoverPassword />} />
 						<Route path='/rejestracja' element={<Register />} />

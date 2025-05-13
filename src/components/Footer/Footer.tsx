@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import { footerMoreItems, footerOfferItems, footerTeamItems } from './footerItems/footerItems';
 import { FaRegCopyright, FaFacebookSquare, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
-import BlueLogo from '../../images/logo/blue-logo.svg';
+import BlueLogo from '/images/logo/blue-logo.svg';
 
 const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
