@@ -1,9 +1,14 @@
-interface PlusesArrayModel {
+type PlusesArrayModel = {
 	node: {
 		id: number;
 		content: string;
 	};
-}
+};
+
+export type OfferDataModel = {
+	id: number;
+	node: OfferBoxModel;
+};
 
 export interface OfferBoxModel {
 	id: number;
@@ -12,9 +17,4 @@ export interface OfferBoxModel {
 	title: string;
 	price: string;
 	offerItemsCollection: { edges: PlusesArrayModel[] };
-}
-
-export interface OfferDataModel {
-	id: number;
-	node: OfferBoxModel;
 }

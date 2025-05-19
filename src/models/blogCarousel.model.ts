@@ -1,9 +1,21 @@
-interface SlideTextDataModel {
+type SlideTextDataModel = {
 	node: {
 		title: string;
 		content: string;
 	};
-}
+};
+
+export type SliderControlModel = {
+	type: 'previous' | 'next';
+	title: string;
+	handleClick: () => void;
+};
+
+export type SlideModel = {
+	slide: SlideDataBoxModel;
+	current: number;
+	handleSlideClick: (id: number) => void;
+};
 
 export interface SlideDataBoxModel {
 	id: number;
@@ -12,20 +24,8 @@ export interface SlideDataBoxModel {
 	sectionsCollection: { edges: SlideTextDataModel[] };
 }
 
-export interface SlideModel {
-	slide: SlideDataBoxModel;
-	current: number;
-	handleSlideClick: (id: number) => void;
-}
-
 export interface SliderModel {
 	slides: {
 		node: SlideDataBoxModel;
 	}[];
-}
-
-export interface SliderControlModel {
-	type: 'previous' | 'next';
-	title: string;
-	handleClick: () => void;
 }

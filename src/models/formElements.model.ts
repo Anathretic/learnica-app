@@ -5,15 +5,15 @@ import { ChangePasswordFormModel, ContactFormModel, LoginFormModel, RegisterForm
 type Form = ContactFormModel | LoginFormModel | RegisterFormModel | ChangePasswordFormModel;
 type ErrorMessage = string | FieldError | Merge<FieldError, FieldErrorsImpl<Form>> | undefined;
 
-interface DefaultModel {
-	label: string;
-	errorMessage: ErrorMessage;
-}
-
-interface OptionItem {
+type OptionItem = {
 	value: string;
 	label: string;
 	disabled: boolean;
+};
+
+interface DefaultModel {
+	label: string;
+	errorMessage: ErrorMessage;
 }
 
 export interface InputAndTextareaModel extends DefaultModel {
