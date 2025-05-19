@@ -68,11 +68,11 @@ const App: React.FC = () => {
 						<Route path='/tlumaczenia' element={<Translations />} />
 						<Route path='/o-nas' element={<AboutUs />} />
 						<Route path='/kariera' element={<Career />} />
-						<Route path='/logowanie' element={<Login />} />
-						<Route path='/odzyskiwanie-hasla' element={<RecoverPassword />} />
-						<Route path='/rejestracja' element={<Register />} />
 						<Route path='/polityka-prywatnosci' element={<TermsAndConditions />} />
 					</Route>
+					<Route path='/logowanie' element={<Login />} />
+					<Route path='/odzyskiwanie-hasla' element={<RecoverPassword />} />
+					<Route path='/rejestracja' element={<Register />} />
 					<Route
 						path='/panel-uzytkownika'
 						element={

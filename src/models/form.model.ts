@@ -11,6 +11,8 @@ type DefaultFormModel = {
 	confirmPassword: string;
 };
 
+export type EmailJsParams = Record<string, string>;
+
 // ---------------------useFormSubmits-----------------------
 
 export type FormTypes =
@@ -28,9 +30,9 @@ export interface UseFormSubmitsModel<T extends FormTypes> {
 
 // ----------------------------------------------------------
 
-export type ClassesModel = 'jezyk-polski' | 'jezyk-angielski' | 'matematyka' | 'tlumaczenia' | '';
-
 type ClassesLocationModel = 'hrubieszow' | 'lublin' | 'zamosc' | 'online' | '';
+
+export type ClassesModel = 'jezyk-polski' | 'jezyk-angielski' | 'matematyka' | 'tlumaczenia' | '';
 
 export type ContactFormModel = Pick<DefaultFormModel, 'firstname' | 'email' | 'message'>;
 

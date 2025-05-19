@@ -28,18 +28,20 @@
 		overflow-y: auto;
 	}
 
+	&__title,
+	&__public-date {
+		width: 100%;
+		font-weight: 300;
+	}
+
 	&__title {
 		padding: 3rem 2rem 2rem;
-		width: 100%;
 		font-size: 1.5rem;
 		text-align: left;
-		font-weight: 300;
 	}
 
 	&__public-date {
 		padding: 0.5rem 2.1rem;
-		width: 100%;
-		font-weight: 300;
 		font-style: italic;
 	}
 

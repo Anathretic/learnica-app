@@ -1,3 +1,3 @@
-export interface HomeWrapperModel {
+export type HomeWrapperModel = {
 	children: React.ReactNode;
-}
+};

@@ -35,8 +35,6 @@
 .login,
 .recover-password,
 .register {
-	margin: auto auto 5rem;
-
 	&__close-button {
 		position: absolute;
 		padding: 0.35em;
@@ -130,7 +128,7 @@
 		@include mixins.flex;
 		flex-direction: column;
 		width: 100%;
-		min-height: 90vh;
+		min-height: 100vh;
 
 		&__container {
 			width: 100%;

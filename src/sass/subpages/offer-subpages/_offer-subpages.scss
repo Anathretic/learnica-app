@@ -24,6 +24,7 @@
 	&__benefits,
 	&__prices,
 	&__prices-container,
+	&__prices-container-box,
 	&__form-container,
 	&__form-title-box,
 	&__form-title-info-box {
@@ -97,7 +98,7 @@
 		margin: 2em;
 		max-width: 500px;
 		border: none;
-		border-radius: 1.5em;
+		border-radius: 0.25em;
 
 		-webkit-box-shadow: 0px 0px 10px 2px rgba(25, 50, 63, 0.4);
 		-moz-box-shadow: 0px 0px 10px 2px rgba(25, 50, 63, 0.4);
@@ -140,27 +141,25 @@
 	}
 
 	&__prices-container-box {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
 		padding: 3em 0;
 		margin: 2em;
 		width: 90%;
-		background-color: globals.$dark-blue-color;
-		border: 1px solid globals.$darker-blue-color;
-		border-radius: 1.5em;
+		color: globals.$darker-blue-color;
+		background-color: #c4c4c4;
+		border-radius: 0.25em;
 		transition: background-color 0.3s;
+		cursor: default;
+
+		h3,
+		p {
+			font-size: 1.25em;
+		}
 
 		h3 {
 			padding: 0 0.5em 1em;
 			font-size: 1.25em;
 			font-weight: 200;
 			text-align: center;
-		}
-
-		p {
-			font-size: 1.25em;
 		}
 
 		&--info-box {
@@ -230,15 +229,15 @@
 
 		p {
 			padding: 0.25rem 0;
+		}
 
-			span {
-				font-weight: 500;
-			}
+		p span,
+		p:first-of-type {
+			font-weight: 500;
 		}
 
 		p:first-of-type {
 			font-size: 1.1em;
-			font-weight: 500;
 		}
 	}
 
@@ -471,7 +470,7 @@
 			}
 
 			&:hover {
-				background-color: globals.$darker-blue-color;
+				background-color: #dbdbdb;
 			}
 		}
 
@@ -492,16 +491,15 @@
 			font-size: 5rem;
 		}
 
-		&__benefits {
+		&__benefits,
+		&__title--special,
+		&__form {
 			padding-top: 70px;
 		}
 
-		&__title {
+		&__title,
+		&__form-title {
 			font-size: 3.5rem;
-
-			&--special {
-				padding-top: 70px;
-			}
 		}
 
 		&__benefits-text-content-box {
@@ -520,7 +518,6 @@
 		}
 
 		&__form {
-			padding-top: 70px;
 			margin-right: 2.5rem;
 		}
 
@@ -545,7 +542,6 @@
 		&__form-title {
 			padding: 0.5rem 0.85rem 0 0.9rem;
 			width: 100%;
-			font-size: 3.5rem;
 		}
 
 		&__form-title-subtext {

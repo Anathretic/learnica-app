@@ -25,7 +25,7 @@
 		width: 90%;
 		max-width: 450px;
 		color: globals.$white-color;
-		border-radius: 1em;
+		border-radius: 0.25em;
 		text-align: center;
 
 		ul {
@@ -39,13 +39,14 @@
 		}
 	}
 
-	&__extra-text {
+	&__extra-text,
+	&__box-text {
 		padding: 1em 0.5em;
 		line-height: 1.5em;
+	}
 
-		span {
-			font-weight: 600;
-		}
+	&__extra-text span {
+		font-weight: 600;
 	}
 
 	&__box-special-text,
@@ -70,11 +71,6 @@
 		font-size: 3.5em;
 		font-family: globals.$special-font;
 		font-weight: 400;
-	}
-
-	&__box-text {
-		padding: 1em 0.5em;
-		line-height: 1.5em;
 	}
 
 	&__box-button {
@@ -209,14 +205,8 @@
 			font-size: 1.5em;
 		}
 
-		&__box-text {
-			font-size: 1.05em;
-		}
-
-		&__extra-text {
-			font-size: 1.05em;
-		}
-
+		&__box-text,
+		&__extra-text,
 		ul {
 			font-size: 1.05em;
 		}
@@ -228,6 +218,7 @@
 
 		&__special-box-icon {
 			font-size: 70px;
+
 			&--0 {
 				top: -15px;
 				left: -15px;

@@ -31,16 +31,16 @@
 		max-width: 400px;
 		line-height: 1.8em;
 
-		h2 {
-			padding: 1em 0;
-			font-weight: 300;
-			font-style: italic;
-			font-size: 1.2em;
-		}
-
+		h2,
 		p,
 		ul {
 			font-weight: 300;
+		}
+
+		h2 {
+			padding: 1em 0;
+			font-style: italic;
+			font-size: 1.2em;
 		}
 
 		ul {
