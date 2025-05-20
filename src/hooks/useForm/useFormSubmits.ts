@@ -32,7 +32,7 @@ export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFo
 			password,
 		});
 
-		handleUserActions({ error, reset, onSuccessActions: [() => navigate('/panel-uzytkownika')] });
+		handleUserActions<T>({ error, reset, onSuccessActions: [() => navigate('/panel-uzytkownika')] });
 	};
 
 	const RegisterSubmit: SubmitHandler<RegisterFormModel> = async ({ firstname, lastname, email, phone, password }) => {
@@ -56,7 +56,7 @@ export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFo
 				},
 			});
 
-			handleUserActions({ error, reset, onSuccessActions: [() => navigate('/')] });
+			handleUserActions<T>({ error, reset, onSuccessActions: [() => navigate('/')] });
 		}
 	};
 
@@ -67,7 +67,7 @@ export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFo
 			redirectTo: `${import.meta.env.VITE_RESET_PASSWORD_URL}`,
 		});
 
-		handleUserActions({
+		handleUserActions<T>({
 			error,
 			reset,
 			onSuccessActions: [
@@ -89,7 +89,7 @@ export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFo
 			password,
 		});
 
-		handleUserActions({ error, reset, onSuccessActions: [() => dispatch(setButtonText('Wysłane!'))] });
+		handleUserActions<T>({ error, reset, onSuccessActions: [() => dispatch(setButtonText('Wysłane!'))] });
 	};
 
 	const ContactSubmit: SubmitHandler<ContactFormModel> = async ({ firstname, email, message }) => {
