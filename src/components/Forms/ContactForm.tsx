@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { FormSubmit, InputElement, ReCaptchaV2Component, TextareaElement } from './components/FormElements';
 import { contactFormInputsConfig } from './inputsConfig/inputsConfig';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { useFormSubmits } from '../../hooks/useFormSubmits';
+import { useFormSubmits } from '../../hooks/useForm/useFormSubmits';
 import { setButtonText, setErrorValue } from '../../redux/formReduxSlice/formSlice';
 import { contactSchema } from '../../schemas/schemas';
 import { ContactFormModel } from '../../models/form.model';
