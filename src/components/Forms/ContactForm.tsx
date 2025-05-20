@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormSubmit, InputElement, ReCaptchaV2Component, TextareaElement } from './components/FormElements';
-import { contactFormInputsConfig } from './inputsConfig/inputsConfig';
+import { contactFormInputs } from './config/formsConfig';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { useFormSubmits } from '../../hooks/useForm/useFormSubmits';
 import { setButtonText, setErrorValue } from '../../redux/formReduxSlice/formSlice';
@@ -27,7 +27,6 @@ export const ContactForm: React.FC = () => {
 
 	const refCaptcha = useRef<ReCAPTCHA>(null);
 	const { ContactSubmit } = useFormSubmits<ContactFormModel>({ reset, refCaptcha });
-	const contactFormInputs = contactFormInputsConfig(errors, register);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -42,18 +41,21 @@ export const ContactForm: React.FC = () => {
 
 	return (
 		<form className='contact__form' onSubmit={handleSubmit(ContactSubmit)}>
-			{contactFormInputs.map((input, id) => (
-				<InputElement
-					key={id}
-					label={input.label}
-					inputName={input.inputName}
-					type={input.type}
-					placeholder={input.placeholder}
-					errorMessage={input.errorMessage}
-					aria-invalid={input.isInvalid}
-					{...input.register}
-				/>
-			))}
+			{contactFormInputs.map((input, id) => {
+				const error = errors[input.inputName];
+				return (
+					<InputElement
+						key={id}
+						label={input.label}
+						inputName={input.inputName}
+						type={input.type}
+						placeholder={input.placeholder}
+						errorMessage={error?.message as string}
+						aria-invalid={!!error}
+						{...register(input.inputName)}
+					/>
+				);
+			})}
 			<TextareaElement
 				label='Wiadomość:'
 				inputName='message'

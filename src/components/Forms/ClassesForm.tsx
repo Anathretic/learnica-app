@@ -10,7 +10,7 @@ import {
 	SelectElement,
 	TextareaElement,
 } from './components/FormElements';
-import { classesFormInputsConfig, classesFormSelectsConfig } from './inputsConfig/inputsConfig';
+import { classesFormInputs, classesFormSelects } from './config/formsConfig';
 import { useFormSubmits } from '../../hooks/useForm/useFormSubmits';
 import { classesSchema, translationsSchema } from '../../schemas/schemas';
 import { ClassesModel, ClassesFormModel } from '../../models/form.model';
@@ -37,8 +37,6 @@ export const ClassesForm: React.FC = () => {
 
 	const refCaptcha = useRef<ReCAPTCHA>(null);
 	const { ClassesSubmit } = useFormSubmits<ClassesFormModel>({ reset, refCaptcha });
-	const classesFormInputs = classesFormInputsConfig(errors, register);
-	const classesFormSelects = classesFormSelectsConfig(errors, register);
 
 	const selectsToRender = pathname === 'tlumaczenia' ? classesFormSelects.slice(0, 1) : classesFormSelects;
 
@@ -48,30 +46,36 @@ export const ClassesForm: React.FC = () => {
 
 	return (
 		<form className='classes__form-box' onSubmit={handleSubmit(ClassesSubmit)}>
-			{classesFormInputs.map((input, id) => (
-				<InputElement
-					key={id}
-					label={input.label}
-					inputName={input.inputName}
-					type={input.type}
-					placeholder={input.placeholder}
-					errorMessage={input.errorMessage}
-					aria-invalid={input.isInvalid}
-					{...input.register}
-				/>
-			))}
-			{selectsToRender.map((select, id) => (
-				<SelectElement
-					key={id}
-					label={select.label}
-					selectName={select.selectName}
-					optionItemsArray={select.optionItemsArray}
-					errorMessage={select.errorMessage}
-					aria-invalid={select.isInvalid}
-					{...select.register}
-					pathname={pathname}
-				/>
-			))}
+			{classesFormInputs.map((input, id) => {
+				const error = errors[input.inputName];
+				return (
+					<InputElement
+						key={id}
+						label={input.label}
+						inputName={input.inputName}
+						type={input.type}
+						placeholder={input.placeholder}
+						errorMessage={error?.message as string}
+						aria-invalid={!!error}
+						{...register(input.inputName)}
+					/>
+				);
+			})}
+			{selectsToRender.map((select, id) => {
+				const error = errors[select.selectName];
+				return (
+					<SelectElement
+						key={id}
+						label={select.label}
+						selectName={select.selectName}
+						optionItemsArray={select.optionItemsArray}
+						errorMessage={error?.message as string}
+						aria-invalid={!!error}
+						{...register(select.selectName)}
+						pathname={pathname}
+					/>
+				);
+			})}
 			<TextareaElement
 				label='Wiadomość:'
 				inputName='message'

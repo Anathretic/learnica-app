@@ -5,7 +5,7 @@ import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { useFormSubmits } from '../../hooks/useForm/useFormSubmits';
 import { setButtonText } from '../../redux/formReduxSlice/formSlice';
-import { changePasswordInputsConfig } from './inputsConfig/inputsConfig';
+import { changePasswordFormInputs } from './config/formsConfig';
 import { changePasswordSchema } from '../../schemas/schemas';
 import { ChangePasswordFormModel } from '../../models/form.model';
 
@@ -24,7 +24,6 @@ export const ChangePasswordForm: React.FC = () => {
 	});
 
 	const { ChangePasswordSubmit } = useFormSubmits<ChangePasswordFormModel>({ reset });
-	const changePasswordInputs = changePasswordInputsConfig(errors, register);
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -33,18 +32,21 @@ export const ChangePasswordForm: React.FC = () => {
 
 	return (
 		<form className='form' onSubmit={handleSubmit(ChangePasswordSubmit)}>
-			{changePasswordInputs.map((input, id) => (
-				<InputElement
-					key={id}
-					label={input.label}
-					inputName={input.inputName}
-					type={input.type}
-					placeholder={input.placeholder}
-					errorMessage={input.errorMessage}
-					aria-invalid={input.isInvalid}
-					{...input.register}
-				/>
-			))}
+			{changePasswordFormInputs.map((input, id) => {
+				const error = errors[input.inputName];
+				return (
+					<InputElement
+						key={id}
+						label={input.label}
+						inputName={input.inputName}
+						type={input.type}
+						placeholder={input.placeholder}
+						errorMessage={error?.message as string}
+						aria-invalid={!!error}
+						{...register(input.inputName)}
+					/>
+				);
+			})}
 			<FormSubmit />
 		</form>
 	);
