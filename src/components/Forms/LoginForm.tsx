@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormSubmit, InputElement } from './components/FormElements';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { useFormSubmits } from '../../hooks/useFormSubmits';
+import { useFormSubmits } from '../../hooks/useForm/useFormSubmits';
 import { setButtonText } from '../../redux/formReduxSlice/formSlice';
 import { loginFormInputsConfig } from './inputsConfig/inputsConfig';
 import { loginSchema } from '../../schemas/schemas';

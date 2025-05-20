@@ -11,7 +11,7 @@ import {
 	TextareaElement,
 } from './components/FormElements';
 import { classesFormInputsConfig, classesFormSelectsConfig } from './inputsConfig/inputsConfig';
-import { useFormSubmits } from '../../hooks/useFormSubmits';
+import { useFormSubmits } from '../../hooks/useForm/useFormSubmits';
 import { classesSchema, translationsSchema } from '../../schemas/schemas';
 import { ClassesModel, ClassesFormModel } from '../../models/form.model';
 
