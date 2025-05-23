@@ -76,23 +76,19 @@
 	}
 
 	&__password-recover-box {
-		position: relative;
-		padding: 0.5em 1em;
-		height: 1px;
+		margin: 0.75em 1em 1em;
 		width: 90%;
+		text-align: center;
 	}
 
 	&__password-recover-btn {
-		position: absolute;
-		right: 1rem;
-		bottom: 4px;
 		color: globals.$white-color;
 		background-color: transparent;
 		font-family: globals.$main-font;
 		border: none;
 		transition: color 0.3s;
 		transform: translateY(1px);
-		text-decoration: none;
+		text-underline-offset: 3px;
 		cursor: pointer;
 	}
 
@@ -140,13 +136,17 @@
 	}
 
 	&__submit,
-	&__return-btn {
-		margin: 1em 1em 1.25em;
+	&__return-btn,
+	&__change-password-return-btn {
 		@include mixins.button;
 	}
 
+	&__submit {
+		margin: 1em 1em 1.25em;
+	}
+
 	&__submit--user-actions {
-		margin: 0 1em 1.25em;
+		margin: 0 1em 0.25em;
 	}
 
 	&__return-btn {
@@ -158,30 +158,16 @@
 		}
 	}
 
+	&__change-password-return-btn {
+		margin-bottom: 2em;
+	}
+
 	&__special-text {
 		padding: 1rem 1rem;
 		text-align: center;
 
 		span {
 			font-style: italic;
-		}
-	}
-}
-
-@media screen and (max-width: 350px) {
-	.form {
-		&__password-recover-btn {
-			bottom: 5px;
-			right: 5px;
-		}
-	}
-}
-
-@media screen and (min-width: 351px) and (max-width: 399px) {
-	.form {
-		&__password-recover-btn {
-			bottom: 5px;
-			right: 0;
 		}
 	}
 }
@@ -208,23 +194,12 @@
 	}
 }
 
-@media screen and (min-width: 990px) {
-	.form {
-		&__password-recover-box {
-			padding: 0 1em;
-		}
-
-		&__password-recover-btn {
-			bottom: 7px;
-		}
-	}
-}
-
 @media screen and (min-width: 1024px) {
 	.form {
 		&__label,
 		&__submit,
 		&__return-btn,
+		&__change-password-return-btn,
 		&__special-text {
 			font-size: 1.1em;
 		}
@@ -239,34 +214,15 @@
 			font-size: 1em;
 		}
 
-		&__password-recover-btn {
-			right: 13px;
-
-			&:hover {
-				color: globals.$gray-color;
-			}
+		&__password-recover-btn:hover {
+			color: globals.$gray-color;
 		}
 
 		&__submit:hover,
-		&__return-btn:hover {
+		&__return-btn:hover,
+		&__change-password-return-btn:hover {
 			color: globals.$white-color;
 			background-color: globals.$gray-color;
-		}
-	}
-}
-
-@media screen and (min-width: 1536px) {
-	.form {
-		&__password-recover-btn {
-			bottom: -10px;
-		}
-	}
-}
-
-@media screen and (min-width: 1920px) {
-	.form {
-		&__password-recover-btn {
-			bottom: 7px;
 		}
 	}
 }

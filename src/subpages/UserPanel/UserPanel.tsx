@@ -5,22 +5,15 @@ import { useQuery } from '@apollo/client';
 import { client } from '../../apollo/apolloClient';
 import { supabase } from '../../supabase/supabase';
 import { userDataGraph } from '../../graphql/graphs';
+import { SubpageLoader } from '../../components/Loader';
 import { useCheckSessionStatus } from '../../hooks/useCheckSessionStatus';
 import { UserDataModel } from '../../models/userData.model';
 
 const UserPanel: React.FC = () => {
-	const navigate = useNavigate();
 	const { checkUserStatus } = useCheckSessionStatus();
+	const navigate = useNavigate();
 
 	const { data, error, loading, refetch } = useQuery(userDataGraph);
-
-	useEffect(() => {
-		checkUserStatus();
-	}, []);
-
-	useEffect(() => {
-		if (data && !loading && !error) refetch();
-	}, [data, loading, error, refetch]);
 
 	const logout = async () => {
 		const { error } = await supabase.auth.signOut();
@@ -29,10 +22,16 @@ const UserPanel: React.FC = () => {
 			client.resetStore().then(() => {
 				navigate('/');
 			});
-		} else {
-			console.log(error);
 		}
 	};
+
+	useEffect(() => {
+		if (data && !loading && !error) refetch();
+	}, [data, loading, error, refetch]);
+
+	useEffect(() => {
+		checkUserStatus();
+	}, []);
 
 	return (
 		<>
@@ -52,37 +51,40 @@ const UserPanel: React.FC = () => {
 				<meta name='robots' content='noindex, nofollow' />
 			</Helmet>
 			<main>
-				<h1>Panel użytkownika</h1>
-				{!error ? (
-					!loading ? (
-						<>
-							{data.userdataCollection.edges.length === 0 && (
-								<div>
-									<p>Ups! Najwidoczniej musimy jeszcze uzupełnić Twoją bazę danych! Daj nam chwilę..</p>
-								</div>
-							)}
-							{data.userdataCollection.edges.length > 0 && (
-								<>
-									{data.userdataCollection.edges.map((data: UserDataModel, id: number) => (
-										<div key={id}>
-											<p>{data.node.user_id}</p>
-											<p>{data.node.email}</p>
-											<p>{id}</p>
-										</div>
-									))}
-								</>
-							)}
-							<Link to='zmiana-hasla'>Resetuj hasło</Link>
-							<button type='button' onClick={logout}>
-								Wyloguj
-							</button>
-						</>
+				<section className='dashboard'>
+					{!error ? (
+						!loading ? (
+							<>
+								{data.userdataCollection.edges.length > 0 && (
+									<>
+										{data.userdataCollection.edges.map((data: UserDataModel, id: number) => (
+											<div key={id} className='dashboard__container'>
+												<h1 className='dashboard__title'>
+													Witaj użytkowniku rejestrujący się mailem: <span>{data.node.email}</span>
+												</h1>
+												<p className='dashboard__subtext'>
+													Już niedługo będziesz mógł zdobywać wiedzę za pomocą tej platformy! :)
+												</p>
+											</div>
+										))}
+										<Link className='dashboard__link' to='zmiana-hasla'>
+											Resetuj hasło
+										</Link>
+										<button className='dashboard__logout-btn' type='button' onClick={logout}>
+											Wyloguj
+										</button>
+									</>
+								)}
+							</>
+						) : (
+							<SubpageLoader />
+						)
 					) : (
-						<div>Ładowanie.. </div>
-					)
-				) : (
-					<div>Błąd..</div>
-				)}
+						<div className='dashboard__error-message'>
+							<p>Błąd.. Spróbuj odświeżyć stronę!</p>
+						</div>
+					)}
+				</section>
 			</main>
 		</>
 	);

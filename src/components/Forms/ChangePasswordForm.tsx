@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormSubmit, InputElement } from './components/FormElements';
@@ -48,6 +49,9 @@ export const ChangePasswordForm: React.FC = () => {
 				);
 			})}
 			<FormSubmit />
+			<Link className='form__change-password-return-btn' to='/panel-uzytkownika'>
+				Powrót
+			</Link>
 		</form>
 	);
 };

@@ -1,21 +1,43 @@
 @use '../animations';
 
-.loader {
-	margin: 0.925em 0;
-
+.loader,
+.subpage-loader {
 	&__spinner {
 		position: relative;
 		width: 1em;
 		height: 1em;
-		font-size: 45px;
 		border-radius: 50%;
 		animation: spin-animation 1.7s infinite ease, round-animation 1.7s infinite ease;
 		overflow: hidden;
 	}
 }
 
+.loader {
+	margin: 0.925em 0;
+
+	&__spinner {
+		font-size: 45px;
+	}
+
+	&--spinner-user-actions {
+		font-size: 40px;
+	}
+}
+
+.subpage-loader {
+	&__spinner {
+		font-size: 60px;
+	}
+}
+
 @media screen and (min-width: 1024px) {
 	.loader {
 		margin: 1.155em 0;
+	}
+
+	.subpage-loader {
+		&__spinner {
+			font-size: 80px;
+		}
 	}
 }

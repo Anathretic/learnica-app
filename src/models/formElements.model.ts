@@ -40,4 +40,5 @@ export interface SubmitModel {
 
 export interface LoaderModel {
 	className: string;
+	provider?: string;
 }

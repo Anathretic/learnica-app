@@ -123,7 +123,7 @@ export const FormSubmit: React.FC<SubmitModel> = ({ classname }) => {
 	return (
 		<div className='form__box'>
 			{isLoading ? (
-				<Loader className='loader' />
+				<Loader className='loader' provider={classname} />
 			) : (
 				<input className={`form__submit ${classname}`} type='submit' value={buttonText} />
 			)}

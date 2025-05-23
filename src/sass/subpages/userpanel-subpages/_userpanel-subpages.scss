@@ -68,6 +68,12 @@
 	}
 }
 
+.change-password {
+	&__container {
+		max-width: 500px;
+	}
+}
+
 @media screen and (max-width: 300px) {
 	.login,
 	.recover-password,
@@ -132,7 +138,6 @@
 
 		&__container {
 			width: 100%;
-			max-width: 625px;
 		}
 
 		&__title {
@@ -143,6 +148,10 @@
 	.login,
 	.recover-password,
 	.register {
+		&__container {
+			max-width: 625px;
+		}
+
 		&__form-toggle a,
 		&__form-toggle button {
 			font-size: 1.1em;

@@ -93,7 +93,10 @@ const TermsAndConditions: React.FC = () => {
 									Art. 6 ust. 1 lit. f RODO – uzasadniony interes administratora danych, jakim jest zapewnienie
 									prawidłowego funkcjonowania strony internetowej oraz systemu nauczania online
 								</li>
-								<li>Google LLC (w zakresie ochrony formularzy przez Google reCAPTCHA v2)</li>
+								<li>
+									Intuition Machines, Inc. – dostawca usługi hCaptcha, wykorzystywanej do zabezpieczania formularzy
+									kontaktowych
+								</li>
 							</ul>
 						</div>
 						<div className='terms-and-conditions__box'>
@@ -122,21 +125,33 @@ const TermsAndConditions: React.FC = () => {
 										supabase.com/privacy
 									</a>
 								</li>
+								<li>
+									Usłudze Formcarry – do obsługi formularzy kontaktowych. Więcej informacji znajduje się w polityce
+									prywatności Formcarry:{' '}
+									<a href='https://formcarry.com/privacy' target='_blank' rel='noopener noreferrer'>
+										formcarry.com/privacy
+									</a>
+								</li>
+								<li>
+									Usłudze hCaptcha, dostarczanej przez Intuition Machines, Inc., służącej do ochrony formularzy przed
+									spamem i nadużyciami. Informacje o przetwarzaniu danych dostępne są pod adresem:{' '}
+									<a href='https://www.hcaptcha.com/privacy' target='_blank' rel='noopener noreferrer'>
+										hcaptcha.com/privacy
+									</a>
+								</li>
 							</ul>
 						</div>
 						<div className='terms-and-conditions__box'>
-							<h2>8. Google reCAPTCHA</h2>
+							<h2>8. hCaptcha</h2>
 							<p>
-								Na naszej stronie internetowej korzystamy z usługi Google reCAPTCHA, której celem jest ochrona
-								formularzy przed automatycznym wypełnianiem przez boty. Google reCAPTCHA zbiera dane dotyczące
-								urządzenia użytkownika, takie jak adres IP, dane o przeglądarce, a także inne dane techniczne niezbędne
-								do weryfikacji. Przetwarzanie tych danych odbywa się zgodnie z polityką prywatności Google, dostępną pod
-								adresem:{' '}
-								<a
-									href='https://cloud.google.com/security/products/recaptcha'
-									target='_blank'
-									rel='noopener noreferrer'>
-									cloud.google.com/security/products/recaptcha
+								Na naszej stronie internetowej korzystamy z usługi hCaptcha, dostarczanej przez Intuition Machines,
+								Inc., 350 Alabama St, San Francisco, CA 94110, USA. Usługa ta służy do ochrony formularzy przed
+								automatycznym wypełnianiem przez boty. hCaptcha analizuje zachowanie użytkownika (adres IP, dane
+								techniczne urządzenia, czas interakcji), aby określić, czy mamy do czynienia z człowiekiem.
+								Przetwarzanie danych przez hCaptcha odbywa się zgodnie z art. 6 ust. 1 lit. f RODO – uzasadniony interes
+								administratora polegający na zapewnieniu bezpieczeństwa. Więcej informacji:{' '}
+								<a href='https://www.hcaptcha.com/privacy' target='_blank' rel='noopener noreferrer'>
+									hcaptcha.com/privacy
 								</a>
 							</p>
 						</div>
