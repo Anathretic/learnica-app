@@ -58,13 +58,13 @@ export const LoginForm: React.FC = () => {
 					/>
 				);
 			})}
+			<CaptchaComponent refCaptcha={refCaptcha} />
+			<FormSubmit classname='form__submit--user-actions' />
 			<div className='form__password-recover-box'>
 				<Link to='/odzyskiwanie-hasla' className='form__password-recover-btn'>
 					Nie pamiętasz hasła?
 				</Link>
 			</div>
-			<CaptchaComponent refCaptcha={refCaptcha} />
-			<FormSubmit classname='form__submit--user-actions' />
 		</form>
 	);
 };

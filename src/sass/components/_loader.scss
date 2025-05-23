@@ -12,6 +12,10 @@
 		animation: spin-animation 1.7s infinite ease, round-animation 1.7s infinite ease;
 		overflow: hidden;
 	}
+
+	&--spinner-user-actions {
+		font-size: 40px;
+	}
 }
 
 @media screen and (min-width: 1024px) {
