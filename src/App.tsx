@@ -73,16 +73,8 @@ const App: React.FC = () => {
 					<Route path='/logowanie' element={<Login />} />
 					<Route path='/odzyskiwanie-hasla' element={<RecoverPassword />} />
 					<Route path='/rejestracja' element={<Register />} />
-					<Route
-						path='/panel-uzytkownika'
-						element={
-							<>
-								<UserPanel />
-								<Outlet />
-							</>
-						}>
-						<Route path='zmiana-hasla' element={<ChangePassword />} />
-					</Route>
+					<Route path='/panel-uzytkownika' element={<UserPanel />}></Route>
+					<Route path='/panel-uzytkownika/zmiana-hasla' element={<ChangePassword />} />
 				</Route>
 				<Route
 					path='*'

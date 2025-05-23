@@ -136,9 +136,13 @@
 	}
 
 	&__submit,
-	&__return-btn {
-		margin: 1em 1em 1.25em;
+	&__return-btn,
+	&__change-password-return-btn {
 		@include mixins.button;
+	}
+
+	&__submit {
+		margin: 1em 1em 1.25em;
 	}
 
 	&__submit--user-actions {
@@ -152,6 +156,10 @@
 		&--opacity {
 			opacity: 0;
 		}
+	}
+
+	&__change-password-return-btn {
+		margin-bottom: 2em;
 	}
 
 	&__special-text {
@@ -191,6 +199,7 @@
 		&__label,
 		&__submit,
 		&__return-btn,
+		&__change-password-return-btn,
 		&__special-text {
 			font-size: 1.1em;
 		}
@@ -210,7 +219,8 @@
 		}
 
 		&__submit:hover,
-		&__return-btn:hover {
+		&__return-btn:hover,
+		&__change-password-return-btn:hover {
 			color: globals.$white-color;
 			background-color: globals.$gray-color;
 		}
