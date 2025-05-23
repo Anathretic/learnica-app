@@ -7,7 +7,7 @@
 	width: 100%;
 
 	&__box,
-	&__recaptcha-box {
+	&__captcha-box {
 		@include mixins.flex;
 		flex-direction: column;
 		width: 100%;
@@ -21,7 +21,7 @@
 		}
 	}
 
-	&__recaptcha-box {
+	&__captcha-box {
 		padding: 1em 0 1em 4px;
 	}
 
@@ -85,12 +85,13 @@
 	&__password-recover-btn {
 		position: absolute;
 		right: 1rem;
-		bottom: 5px;
+		bottom: 4px;
 		color: globals.$white-color;
 		background-color: transparent;
 		font-family: globals.$main-font;
 		border: none;
 		transition: color 0.3s;
+		transform: translateY(1px);
 		text-decoration: none;
 		cursor: pointer;
 	}
@@ -117,7 +118,7 @@
 	&__input-error,
 	&__textarea-error,
 	&__select-error,
-	&__recaptcha-error {
+	&__captcha-error {
 		color: globals.$error-color;
 		text-align: center;
 	}
@@ -131,7 +132,7 @@
 		font-size: 0.8em;
 	}
 
-	&__recaptcha-error {
+	&__captcha-error {
 		padding: 8px;
 		height: 2px;
 		width: 90%;
@@ -144,7 +145,12 @@
 		@include mixins.button;
 	}
 
+	&__submit--user-actions {
+		margin: 0 1em 1.25em;
+	}
+
 	&__return-btn {
+		margin: 1em 1em 1.25em;
 		opacity: 1;
 
 		&--opacity {
@@ -196,7 +202,7 @@
 			padding: 1rem 3rem;
 		}
 
-		&__recaptcha-box {
+		&__captcha-box {
 			padding: 1em 0;
 		}
 	}
@@ -229,7 +235,7 @@
 		}
 
 		&__textarea-error,
-		&__recaptcha-error {
+		&__captcha-error {
 			font-size: 1em;
 		}
 

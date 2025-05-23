@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FormSubmit, InputElement } from './components/FormElements';
-import { useAppDispatch } from '../../hooks/reduxHooks';
+import { CaptchaComponent, FormSubmit, InputElement } from './components/FormElements';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { useFormSubmits } from '../../hooks/useForm/useFormSubmits';
-import { setButtonText } from '../../redux/formReduxSlice/formSlice';
+import { getFormInitialValues, setButtonText, setErrorValue } from '../../redux/formReduxSlice/formSlice';
 import { registerFormInputs } from './config/formsConfig';
 import { registerSchema } from '../../schemas/schemas';
 import { RegisterFormModel } from '../../models/form.model';
@@ -27,12 +28,21 @@ export const RegisterForm: React.FC = () => {
 		resolver: yupResolver(registerSchema),
 	});
 
-	const { RegisterSubmit } = useFormSubmits<RegisterFormModel>({ reset });
+	const refCaptcha = useRef<HCaptcha>(null);
+	const { errorValue } = useAppSelector(getFormInitialValues);
 	const dispatch = useAppDispatch();
+
+	const { RegisterSubmit } = useFormSubmits<RegisterFormModel>({ reset, refCaptcha });
 
 	useEffect(() => {
 		dispatch(setButtonText('Zarejestruj się'));
 	}, []);
+
+	useEffect(() => {
+		if (errorValue) {
+			dispatch(setErrorValue(''));
+		}
+	}, [dispatch]);
 
 	return (
 		<form className='form' onSubmit={handleSubmit(RegisterSubmit)}>
@@ -51,7 +61,8 @@ export const RegisterForm: React.FC = () => {
 					/>
 				);
 			})}
-			<FormSubmit />
+			<CaptchaComponent refCaptcha={refCaptcha} />
+			<FormSubmit classname='form__submit--user-actions' />
 		</form>
 	);
 };

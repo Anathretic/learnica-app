@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import ReCAPTCHA from 'react-google-recaptcha';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { useAppDispatch, useAppSelector } from '../../../hooks/reduxHooks';
 import { getFormInitialValues, setButtonText } from '../../../redux/formReduxSlice/formSlice';
-import { InputAndTextareaModel, ReCaptchaV2Model, SelectModel } from '../../../models/formElements.model';
+import { CaptchaModel, InputAndTextareaModel, SelectModel, SubmitModel } from '../../../models/formElements.model';
 import { Loader } from '../../Loader';
 
 export const InputElement: React.FC<InputAndTextareaModel> = React.forwardRef<HTMLInputElement, InputAndTextareaModel>(
@@ -85,26 +85,26 @@ export const SelectElement: React.FC<SelectModel> = React.forwardRef<HTMLSelectE
 	}
 );
 
-export const ReCaptchaV2Component: React.FC<ReCaptchaV2Model> = ({ refCaptcha }) => {
+export const CaptchaComponent: React.FC<CaptchaModel> = ({ refCaptcha }) => {
 	const { errorValue } = useAppSelector(getFormInitialValues);
 	const isMobile = useMediaQuery({ query: '(max-width: 499px)' });
 
 	return (
-		<div className='form__recaptcha-box'>
-			<ReCAPTCHA
-				key={isMobile ? 'compact-recaptcha' : 'normal-recaptcha'}
+		<div className='form__captcha-box'>
+			<HCaptcha
+				key={isMobile ? 'compact-hcaptcha' : 'normal-hcaptcha'}
 				size={isMobile ? 'compact' : 'normal'}
-				sitekey={import.meta.env.VITE_SITE_KEY}
+				sitekey={import.meta.env.VITE_HCAPTCHA_SITE_KEY}
 				ref={refCaptcha}
 			/>
-			<div className='form__recaptcha-error'>
+			<div className='form__captcha-error'>
 				<p>{errorValue}</p>
 			</div>
 		</div>
 	);
 };
 
-export const FormSubmit: React.FC = () => {
+export const FormSubmit: React.FC<SubmitModel> = ({ classname }) => {
 	const { isLoading, buttonText } = useAppSelector(getFormInitialValues);
 	const dispatch = useAppDispatch();
 
@@ -122,7 +122,11 @@ export const FormSubmit: React.FC = () => {
 
 	return (
 		<div className='form__box'>
-			{isLoading ? <Loader className='loader' /> : <input className='form__submit' type='submit' value={buttonText} />}
+			{isLoading ? (
+				<Loader className='loader' />
+			) : (
+				<input className={`form__submit ${classname}`} type='submit' value={buttonText} />
+			)}
 		</div>
 	);
 };

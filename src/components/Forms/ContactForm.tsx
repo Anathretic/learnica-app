@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import ReCAPTCHA from 'react-google-recaptcha';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FormSubmit, InputElement, ReCaptchaV2Component, TextareaElement } from './components/FormElements';
-import { contactFormInputs } from './config/formsConfig';
-import { useAppDispatch } from '../../hooks/reduxHooks';
+import { CaptchaComponent, FormSubmit, InputElement, TextareaElement } from './components/FormElements';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { useFormSubmits } from '../../hooks/useForm/useFormSubmits';
-import { setButtonText, setErrorValue } from '../../redux/formReduxSlice/formSlice';
+import { getFormInitialValues, setButtonText, setErrorValue } from '../../redux/formReduxSlice/formSlice';
+import { contactFormInputs } from './config/formsConfig';
 import { contactSchema } from '../../schemas/schemas';
 import { ContactFormModel } from '../../models/form.model';
 
@@ -25,19 +25,21 @@ export const ContactForm: React.FC = () => {
 		resolver: yupResolver(contactSchema),
 	});
 
-	const refCaptcha = useRef<ReCAPTCHA>(null);
-	const { ContactSubmit } = useFormSubmits<ContactFormModel>({ reset, refCaptcha });
+	const refCaptcha = useRef<HCaptcha>(null);
+	const { errorValue } = useAppSelector(getFormInitialValues);
 	const dispatch = useAppDispatch();
 
-	useEffect(() => {
-		if (refCaptcha.current?.getValue() === '') {
-			dispatch(setErrorValue(''));
-		}
-	}, [dispatch]);
+	const { ContactSubmit } = useFormSubmits<ContactFormModel>({ reset, refCaptcha });
 
 	useEffect(() => {
 		dispatch(setButtonText('Wyślij'));
 	}, []);
+
+	useEffect(() => {
+		if (errorValue) {
+			dispatch(setErrorValue(''));
+		}
+	}, [dispatch]);
 
 	return (
 		<form className='contact__form' onSubmit={handleSubmit(ContactSubmit)}>
@@ -64,7 +66,7 @@ export const ContactForm: React.FC = () => {
 				aria-invalid={errors.message ? true : false}
 				{...register('message')}
 			/>
-			<ReCaptchaV2Component refCaptcha={refCaptcha} />
+			<CaptchaComponent refCaptcha={refCaptcha} />
 			<FormSubmit />
 		</form>
 	);

@@ -1,7 +1,3 @@
-import { AuthError } from '@supabase/supabase-js';
-import ReCAPTCHA from 'react-google-recaptcha';
-import { UseFormReset } from 'react-hook-form';
-
 type DefaultFormModel = {
 	firstname: string;
 	lastname: string;
@@ -11,41 +7,6 @@ type DefaultFormModel = {
 	password: string;
 	confirmPassword: string;
 };
-
-export type EmailJsParams = Record<string, string>;
-
-// --------------- useFormSubmits ------------------------
-
-export type FormTypes =
-	| LoginFormModel
-	| RegisterFormModel
-	| RecoverPasswordFormModel
-	| ChangePasswordFormModel
-	| ClassesFormModel
-	| ContactFormModel;
-
-export interface UseFormSubmitsModel<T extends FormTypes> {
-	reset: UseFormReset<T>;
-	refCaptcha?: React.RefObject<ReCAPTCHA>;
-}
-
-// -------------------------------------------------------
-
-// --------------- useFormHandlers -----------------------
-
-export interface HandleEmailJsModel<TFormData extends object> {
-	templateID: string;
-	params: Record<string, unknown>;
-	reset: UseFormReset<TFormData>;
-}
-
-export interface HandleUserActionsModel<TFormData extends object> {
-	error: AuthError | null;
-	reset: UseFormReset<TFormData>;
-	onSuccessActions: (() => void)[];
-}
-
-// -------------------------------------------------------
 
 type ClassesLocationModel = 'hrubieszow' | 'lublin' | 'zamosc' | 'online' | '';
 

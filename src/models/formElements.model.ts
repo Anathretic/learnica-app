@@ -1,4 +1,4 @@
-import ReCAPTCHA from 'react-google-recaptcha';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 import { ChangePasswordFormModel, ContactFormModel, LoginFormModel, RegisterFormModel } from './form.model';
 
@@ -24,16 +24,20 @@ export interface InputAndTextareaModel extends DefaultModel {
 	readOnly?: boolean;
 }
 
-export interface LoaderModel {
-	className: string;
-}
-
 export interface SelectModel extends DefaultModel {
 	selectName: string;
 	optionItemsArray: OptionItem[];
 	pathname: string;
 }
 
-export interface ReCaptchaV2Model {
-	refCaptcha: React.RefObject<ReCAPTCHA>;
+export interface CaptchaModel {
+	refCaptcha: React.RefObject<HCaptcha>;
+}
+
+export interface SubmitModel {
+	classname?: string;
+}
+
+export interface LoaderModel {
+	className: string;
 }

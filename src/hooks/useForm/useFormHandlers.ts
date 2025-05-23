@@ -1,9 +1,8 @@
-import emailjs from '@emailjs/browser';
-import ReCAPTCHA from 'react-google-recaptcha';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { useAppDispatch } from '../reduxHooks';
 import { setErrorValue, setIsLoading, setButtonText } from '../../redux/formReduxSlice/formSlice';
 import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
-import { HandleEmailJsModel, HandleUserActionsModel } from '../../models/form.model';
+import { HandleFormcarryModel, HandleUserActionsModel } from '../../models/useFormHooks.model';
 
 export const useFormHandlers = () => {
 	const dispatch = useAppDispatch();
@@ -23,36 +22,40 @@ export const useFormHandlers = () => {
 		}
 	};
 
-	const handleReCaptcha = (refCaptcha: React.RefObject<ReCAPTCHA> | undefined) => {
+	const handleHCaptcha = (refCaptcha: React.RefObject<HCaptcha> | undefined) => {
 		dispatch(setIsLoading(true));
 		dispatch(setErrorValue(''));
 
-		if (!refCaptcha?.current) {
-			return null;
-		}
+		if (!refCaptcha?.current) return undefined;
 
-		const token = refCaptcha.current.getValue();
-		refCaptcha.current.reset();
+		const token = refCaptcha.current.getResponse();
+		refCaptcha.current.resetCaptcha();
 
-		return token || null;
+		return token || undefined;
 	};
 
-	const handleEmailJs = async <TFormData extends object>({
-		templateID,
-		params,
-		reset,
-	}: HandleEmailJsModel<TFormData>) => {
+	const handleFormcarry = async <TFormData extends object>({ formData, reset }: HandleFormcarryModel<TFormData>) => {
 		try {
-			await emailjs.send(
-				`${import.meta.env.VITE_SERVICE_ID}`,
-				`${templateID}`,
-				params,
-				`${import.meta.env.VITE_PUBLIC_KEY}`
-			);
-			reset();
-			dispatch(setButtonText('Wysłane!'));
+			dispatch(setIsLoading(true));
+
+			const response = await fetch(`${import.meta.env.VITE_FORMCARRY_ENDPOINT}`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
+
+			const result = await response.json();
+
+			if (result.code === 200) {
+				reset();
+				dispatch(setButtonText('Wysłane!'));
+			} else {
+				dispatch(setErrorValue('Coś poszło nie tak...'));
+			}
 		} catch (err) {
-			dispatch(setErrorValue('Coś poszło nie tak..'));
+			dispatch(setErrorValue('Coś poszło nie tak...'));
 			if (err instanceof Error) {
 				console.log(`Twój błąd: ${err.message}`);
 			}
@@ -66,5 +69,5 @@ export const useFormHandlers = () => {
 		dispatch(setErrorValue('Nie bądź 🤖!'));
 	};
 
-	return { handleUserActions, handleReCaptcha, handleEmailJs, handleErrors };
+	return { handleUserActions, handleHCaptcha, handleFormcarry, handleErrors };
 };
