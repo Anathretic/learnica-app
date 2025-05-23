@@ -1,17 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import ReCAPTCHA from 'react-google-recaptcha';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
+	CaptchaComponent,
 	FormSubmit,
 	InputElement,
-	ReCaptchaV2Component,
 	ReturnButton,
 	SelectElement,
 	TextareaElement,
 } from './components/FormElements';
-import { classesFormInputs, classesFormSelects } from './config/formsConfig';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { useFormSubmits } from '../../hooks/useForm/useFormSubmits';
+import { getFormInitialValues, setErrorValue } from '../../redux/formReduxSlice/formSlice';
+import { classesFormInputs, classesFormSelects } from './config/formsConfig';
 import { classesSchema, translationsSchema } from '../../schemas/schemas';
 import { ClassesModel, ClassesFormModel } from '../../models/form.model';
 
@@ -35,7 +37,10 @@ export const ClassesForm: React.FC = () => {
 		resolver: yupResolver(pathname === 'tlumaczenia' ? translationsSchema : classesSchema),
 	});
 
-	const refCaptcha = useRef<ReCAPTCHA>(null);
+	const refCaptcha = useRef<HCaptcha>(null);
+	const { errorValue } = useAppSelector(getFormInitialValues);
+	const dispatch = useAppDispatch();
+
 	const { ClassesSubmit } = useFormSubmits<ClassesFormModel>({ reset, refCaptcha });
 
 	const selectsToRender = pathname === 'tlumaczenia' ? classesFormSelects.slice(0, 1) : classesFormSelects;
@@ -43,6 +48,12 @@ export const ClassesForm: React.FC = () => {
 	useEffect(() => {
 		setPathname(window.location.pathname.slice(1));
 	}, []);
+
+	useEffect(() => {
+		if (errorValue) {
+			dispatch(setErrorValue(''));
+		}
+	}, [dispatch]);
 
 	return (
 		<form className='classes__form-box' onSubmit={handleSubmit(ClassesSubmit)}>
@@ -84,7 +95,7 @@ export const ClassesForm: React.FC = () => {
 				aria-invalid={errors.message ? true : false}
 				{...register('message')}
 			/>
-			<ReCaptchaV2Component refCaptcha={refCaptcha} />
+			<CaptchaComponent refCaptcha={refCaptcha} />
 			<FormSubmit />
 			<ReturnButton />
 		</form>

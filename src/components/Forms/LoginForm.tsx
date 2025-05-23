@@ -1,11 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FormSubmit, InputElement } from './components/FormElements';
-import { useAppDispatch } from '../../hooks/reduxHooks';
+import { CaptchaComponent, FormSubmit, InputElement } from './components/FormElements';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { useFormSubmits } from '../../hooks/useForm/useFormSubmits';
-import { setButtonText } from '../../redux/formReduxSlice/formSlice';
+import { getFormInitialValues, setButtonText, setErrorValue } from '../../redux/formReduxSlice/formSlice';
 import { loginFormInputs } from './config/formsConfig';
 import { loginSchema } from '../../schemas/schemas';
 import { LoginFormModel } from '../../models/form.model';
@@ -24,12 +25,21 @@ export const LoginForm: React.FC = () => {
 		resolver: yupResolver(loginSchema),
 	});
 
-	const { LoginSubmit } = useFormSubmits<LoginFormModel>({ reset });
+	const refCaptcha = useRef<HCaptcha>(null);
+	const { errorValue } = useAppSelector(getFormInitialValues);
 	const dispatch = useAppDispatch();
+
+	const { LoginSubmit } = useFormSubmits<LoginFormModel>({ reset, refCaptcha });
 
 	useEffect(() => {
 		dispatch(setButtonText('Zaloguj się'));
 	}, []);
+
+	useEffect(() => {
+		if (errorValue) {
+			dispatch(setErrorValue(''));
+		}
+	}, [dispatch]);
 
 	return (
 		<form className='form' onSubmit={handleSubmit(LoginSubmit)}>
@@ -53,7 +63,8 @@ export const LoginForm: React.FC = () => {
 					Nie pamiętasz hasła?
 				</Link>
 			</div>
-			<FormSubmit />
+			<CaptchaComponent refCaptcha={refCaptcha} />
+			<FormSubmit classname='form__submit--user-actions' />
 		</form>
 	);
 };

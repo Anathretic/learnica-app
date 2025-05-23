@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 const Career: React.FC = () => {
 	return (
 		<>
-			<Helmet>
+			<Helmet htmlAttributes={{ lang: 'pl' }}>
 				<title>Kariera | Learnica</title>
 				<meta
 					name='description'

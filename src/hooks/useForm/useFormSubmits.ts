@@ -6,15 +6,14 @@ import { useFormHandlers } from './useFormHandlers';
 import { useRegisterOptions } from '../useRegisterOptions';
 import { setButtonText, setIsLoading } from '../../redux/formReduxSlice/formSlice';
 import { setPopupErrorValue } from '../../redux/errorPopupReduxSlice/errorPopupSlice';
+import { FormTypes, UseFormSubmitsModel } from '../../models/useFormHooks.model';
 import {
 	ChangePasswordFormModel,
 	ClassesFormModel,
 	ContactFormModel,
-	FormTypes,
 	LoginFormModel,
 	RecoverPasswordFormModel,
 	RegisterFormModel,
-	UseFormSubmitsModel,
 } from '../../models/form.model';
 
 export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFormSubmitsModel<T>) => {
@@ -22,21 +21,32 @@ export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFo
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 
-	const { handleUserActions, handleReCaptcha, handleEmailJs, handleErrors } = useFormHandlers();
+	const { handleUserActions, handleHCaptcha, handleFormcarry, handleErrors } = useFormHandlers();
 
 	const LoginSubmit: SubmitHandler<LoginFormModel> = async ({ email, password }) => {
-		dispatch(setIsLoading(true));
+		const token = handleHCaptcha(refCaptcha);
+
+		if (!token) {
+			handleErrors();
+			return;
+		}
 
 		const { error } = await supabase.auth.signInWithPassword({
 			email,
 			password,
+			options: { captchaToken: token },
 		});
 
 		handleUserActions<T>({ error, reset, onSuccessActions: [() => navigate('/panel-uzytkownika')] });
 	};
 
 	const RegisterSubmit: SubmitHandler<RegisterFormModel> = async ({ firstname, lastname, email, phone, password }) => {
-		dispatch(setIsLoading(true));
+		const token = handleHCaptcha(refCaptcha);
+
+		if (!token) {
+			handleErrors();
+			return;
+		}
 
 		const emailExists = await isEmailExisting(email);
 
@@ -53,6 +63,7 @@ export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFo
 						last_name: lastname,
 						phone_number: phone,
 					},
+					captchaToken: token,
 				},
 			});
 
@@ -61,10 +72,16 @@ export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFo
 	};
 
 	const RecoverPasswordSubmit: SubmitHandler<RecoverPasswordFormModel> = async ({ email }) => {
-		dispatch(setIsLoading(true));
+		const token = handleHCaptcha(refCaptcha);
+
+		if (!token) {
+			handleErrors();
+			return;
+		}
 
 		const { error } = await supabase.auth.resetPasswordForEmail(email, {
 			redirectTo: `${import.meta.env.VITE_RESET_PASSWORD_URL}`,
+			captchaToken: token,
 		});
 
 		handleUserActions<T>({
@@ -93,23 +110,22 @@ export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFo
 	};
 
 	const ContactSubmit: SubmitHandler<ContactFormModel> = async ({ firstname, email, message }) => {
-		const token = handleReCaptcha(refCaptcha);
+		const token = handleHCaptcha(refCaptcha);
 
 		if (!token) {
 			handleErrors();
 			return;
 		}
 
-		const params = {
+		const formData = {
 			firstname,
 			email,
 			message,
-			'g-recaptcha-response': token,
+			'h-captcha-response': token,
 		};
 
-		await handleEmailJs<T>({
-			templateID: `${import.meta.env.VITE_CONTACT_TEMPLATE_ID}`,
-			params,
+		await handleFormcarry<ContactFormModel>({
+			formData,
 			reset,
 		});
 	};
@@ -123,14 +139,14 @@ export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFo
 		classesLocation,
 		message,
 	}) => {
-		const token = handleReCaptcha(refCaptcha);
+		const token = handleHCaptcha(refCaptcha);
 
 		if (!token) {
 			handleErrors();
 			return;
 		}
 
-		const params = {
+		const formData = {
 			firstname,
 			lastname,
 			email,
@@ -138,12 +154,11 @@ export const useFormSubmits = <T extends FormTypes>({ reset, refCaptcha }: UseFo
 			classes,
 			classesLocation,
 			message,
-			'g-recaptcha-response': token,
+			'h-captcha-response': token,
 		};
 
-		await handleEmailJs<T>({
-			templateID: `${import.meta.env.VITE_CLASSES_TEMPLATE_ID}`,
-			params,
+		await handleFormcarry<ContactFormModel>({
+			formData,
 			reset,
 		});
 	};

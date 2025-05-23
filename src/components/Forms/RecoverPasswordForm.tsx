@@ -1,11 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FormSubmit, InputElement } from './components/FormElements';
-import { recoverPasswordFormInputs } from './config/formsConfig';
-import { useAppDispatch } from '../../hooks/reduxHooks';
+import { CaptchaComponent, FormSubmit, InputElement } from './components/FormElements';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { useFormSubmits } from '../../hooks/useForm/useFormSubmits';
-import { setButtonText } from '../../redux/formReduxSlice/formSlice';
+import { getFormInitialValues, setButtonText, setErrorValue } from '../../redux/formReduxSlice/formSlice';
+import { recoverPasswordFormInputs } from './config/formsConfig';
 import { recoverPasswordSchema } from '../../schemas/schemas';
 import { RecoverPasswordFormModel } from '../../models/form.model';
 
@@ -22,12 +23,21 @@ export const RecoverPasswordForm: React.FC = () => {
 		resolver: yupResolver(recoverPasswordSchema),
 	});
 
-	const { RecoverPasswordSubmit } = useFormSubmits<RecoverPasswordFormModel>({ reset });
+	const refCaptcha = useRef<HCaptcha>(null);
+	const { errorValue } = useAppSelector(getFormInitialValues);
 	const dispatch = useAppDispatch();
+
+	const { RecoverPasswordSubmit } = useFormSubmits<RecoverPasswordFormModel>({ reset, refCaptcha });
 
 	useEffect(() => {
 		dispatch(setButtonText('Wyślij'));
 	}, []);
+
+	useEffect(() => {
+		if (errorValue) {
+			dispatch(setErrorValue(''));
+		}
+	}, [dispatch]);
 
 	return (
 		<form className='form' onSubmit={handleSubmit(RecoverPasswordSubmit)}>
@@ -50,7 +60,8 @@ export const RecoverPasswordForm: React.FC = () => {
 					/>
 				);
 			})}
-			<FormSubmit />
+			<CaptchaComponent refCaptcha={refCaptcha} />
+			<FormSubmit classname='form__submit--user-actions' />
 		</form>
 	);
 };
