@@ -1,4 +1,6 @@
 import { Helmet } from 'react-helmet-async';
+import { AboutUsInfo } from './components';
+import { Link } from 'react-router-dom';
 
 const AboutUs: React.FC = () => {
 	return (
@@ -15,9 +17,17 @@ const AboutUs: React.FC = () => {
 				<meta property='og:url' content='https://learnica.pl/o-nas' />
 				<link rel='canonical' href='https://learnica.pl/o-nas' />
 			</Helmet>
-			<main>
-				<div>
-					<h1>O nas</h1>
+			<main className='about-us'>
+				<div className='about-us__container'>
+					<div className='about-us__wrapper'>
+						<div className='about-us__hero-image'>
+							<h1 className='about-us__hero-image-title'>O nas</h1>
+						</div>
+						<AboutUsInfo />
+						<Link className='about-us__return-btn' to='/'>
+							Powrót
+						</Link>
+					</div>
 				</div>
 			</main>
 		</>
