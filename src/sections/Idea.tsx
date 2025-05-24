@@ -15,7 +15,7 @@ const Idea: React.FC = () => {
 				<h2 className='idea__title'>Idea</h2>
 				<div className='idea__content-container'>
 					<div className='idea__content-box'>
-						<img src={IdeaFirstImage} alt='' />
+						<img src={IdeaFirstImage} alt='Obrazek przedstawiający zespół pracujący w biurze' />
 						<h3>I. Określenie problemu nauczania</h3>
 						<p>
 							Wielu uczniów boryka się z trudnościami w nauce matematyki, polskiego i angielskiego. Problemem może być
@@ -27,7 +27,7 @@ const Idea: React.FC = () => {
 					</div>
 					<div className='idea__special-decoration' />
 					<div className='idea__content-box'>
-						<img src={IdeaSecondImage} alt='' />
+						<img src={IdeaSecondImage} alt='Obrazek przedstawiający wykład w małej sali' />
 						<h3>II. Stworzenie rozwiązania</h3>
 						<p>
 							Nasza firma opracowała kompleksowe podejście do nauki, które łączy indywidualne podejście z nowoczesnymi
@@ -39,7 +39,7 @@ const Idea: React.FC = () => {
 					</div>
 					<div className='idea__special-decoration' />
 					<div className='idea__content-box'>
-						<img src={IdeaThirdImage} alt='' />
+						<img src={IdeaThirdImage} alt='Obrazek przedstawiający jak dwie kobiety uczą się na laptopie' />
 						<h3>III. Realizacja i realna pomoc uczniom</h3>
 						<p>
 							Metody, które opracowaliśmy, pozwalają uczniom szybko zauważyć realne postępy. Zajęcia prowadzone są przez
@@ -52,7 +52,7 @@ const Idea: React.FC = () => {
 					</div>
 					<div className='idea__special-decoration' />
 					<div className='idea__content-box'>
-						<img src={IdeaFourthImage} alt='' />
+						<img src={IdeaFourthImage} alt='Obrazek przedstawiający dziewczynę przeglądającą mapę z napisem anywhere' />
 						<h3>IV. Obszar działania i ciągły rozwój</h3>
 						<p>
 							Jesteśmy przekonani, że nauka powinna być dostępna wszędzie, dlatego{' '}

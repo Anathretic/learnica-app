@@ -12,6 +12,9 @@ const MathClassesForm: React.FC = () => {
 						Nie zwlekaj! Rozpocznij swoją przygodę z matematyką już dziś! Dołącz do naszej społeczności uczniów, którzy
 						rozwijają swoje umiejętności z radością i osiągają wyznaczone cele.
 					</p>
+					<p className='polish-classes__form-title-subtext'>
+						Chciałbyś wiedzieć więcej? <Link to='/o-nas'>Poznaj nas!</Link>
+					</p>
 					<p className='math-classes__form-title-subtext'>
 						<span>Pamiętaj!</span> Wysyłając formularz wyrażasz zgodę na przetwarzanie Twoich danych zgodnie z
 						obowiązującą <Link to='/polityka-prywatnosci'>polityką prywatności.</Link>

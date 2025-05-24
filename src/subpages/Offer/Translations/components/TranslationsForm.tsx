@@ -12,6 +12,9 @@ const TranslationsForm: React.FC = () => {
 						Nie zwlekaj! Jeśli masz jakiś dokument do przetłumaczenia odezwij się do nas! Mamy potrzebne doświadczenie i
 						setki zadowolonych klientów.
 					</p>
+					<p className='polish-classes__form-title-subtext'>
+						Chciałbyś wiedzieć więcej? <Link to='/o-nas'>Poznaj nas!</Link>
+					</p>
 					<p className='translations__form-title-subtext'>
 						<span>Pamiętaj!</span> Wysyłając formularz wyrażasz zgodę na przetwarzanie Twoich danych zgodnie z
 						obowiązującą <Link to='/polityka-prywatnosci'>polityką prywatności.</Link>
