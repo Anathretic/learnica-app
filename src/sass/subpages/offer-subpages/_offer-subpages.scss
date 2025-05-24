@@ -562,13 +562,13 @@
 			color: rgba(255, 255, 255, 0.15);
 
 			&--first {
-				bottom: -3em;
+				bottom: -2.9em;
 				left: 3em;
 				animation: icon-bounce 5s infinite;
 			}
 
 			&--second {
-				bottom: -3.8em;
+				bottom: -3.2em;
 				left: 7.35em;
 				animation: icon-bounce 2s infinite;
 			}
@@ -609,7 +609,7 @@
 			}
 
 			&--second {
-				bottom: -3.5em;
+				bottom: -2.9em;
 			}
 		}
 	}

@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
 			<div className='footer__container'>
 				<div className='footer__box'>
 					<h2>
-						<img src={BlueLogo} alt='' />
+						<img src={BlueLogo} alt='Logo firmy' />
 						<span>earnica</span>
 					</h2>
 					<p>Z nami nauka będzie niezapomnianą przygodą!</p>
