@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { CareerOfferArray } from './components';
 
 const Career: React.FC = () => {
 	return (
@@ -18,9 +20,17 @@ const Career: React.FC = () => {
 				<meta property='og:url' content='https://learnica.pl/kariera' />
 				<link rel='canonical' href='https://learnica.pl/kariera' />
 			</Helmet>
-			<main>
-				<div>
-					<h1>Kariera</h1>
+			<main className='career'>
+				<div className='career__container'>
+					<div className='career__wrapper'>
+						<div className='career__hero-image'>
+							<h1 className='career__hero-image-title'>Kariera</h1>
+						</div>
+						<CareerOfferArray />
+					</div>
+					<Link className='career__return-btn' to='/'>
+						Powrót
+					</Link>
 				</div>
 			</main>
 		</>
