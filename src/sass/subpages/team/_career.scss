@@ -80,7 +80,7 @@
 	}
 
 	&__offer-array-search-input,
-	&__offer-array-select {
+	&__offer-array-search-select {
 		padding: 0.95em 3.25em 0.95em 0.75em;
 		width: 100%;
 		min-height: 48px;
@@ -105,7 +105,7 @@
 		}
 	}
 
-	&__offer-array-select {
+	&__offer-array-search-select {
 		margin-top: 2em;
 		padding: 10px;
 		padding-right: 30px;
@@ -170,12 +170,12 @@
 		}
 	}
 
-	&__offer-array-item-btn,
+	&__offer-array-list-item-btn,
 	&__return-btn {
 		@include mixins.button;
 	}
 
-	&__offer-array-item-btn {
+	&__offer-array-list-item-btn {
 		display: inline-block;
 		margin-top: 2em;
 	}
@@ -206,7 +206,7 @@
 @media screen and (min-width: 400px) {
 	.career {
 		&__offer-array-search-input,
-		&__offer-array-select {
+		&__offer-array-search-select {
 			width: 90%;
 		}
 	}
@@ -276,7 +276,7 @@
 			font-size: 3rem;
 		}
 
-		&__offer-array-item-btn:hover,
+		&__offer-array-list-item-btn:hover,
 		&__return-btn:hover {
 			color: globals.$white-color;
 			background-color: globals.$gray-color;
