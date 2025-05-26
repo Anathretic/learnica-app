@@ -1,0 +1,316 @@
+@use '../../globals';
+@use '../../mixins';
+
+.career {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	overflow-x: hidden;
+
+	&__container,
+	&__wrapper,
+	&__hero-image {
+		@include mixins.flex;
+		flex-direction: column;
+	}
+
+	&__container {
+		position: relative;
+	}
+
+	&__wrapper,
+	&__hero-image {
+		width: 100%;
+	}
+
+	&__wrapper {
+		margin: 0 auto;
+	}
+
+	&__hero-image {
+		height: 40vh;
+		background-position: 10% 30%;
+		background-size: cover;
+		background-image: url('/images/subpages/team-subpages/career/career-hero-image.jpg');
+	}
+
+	&__hero-image-title {
+		color: globals.$white-color;
+		font-size: 3rem;
+		font-weight: 200;
+		text-align: center;
+	}
+
+	&__offer-array {
+		position: relative;
+		padding-top: 30px;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	&__offer-array-container,
+	&__offer-array-element {
+		position: relative;
+		@include mixins.flex;
+		flex-direction: column;
+	}
+
+	&__offer-array-container {
+		padding: 1em 0;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 2160px;
+	}
+
+	&__offer-array-title {
+		padding-bottom: 2.5rem;
+		@include mixins.title;
+	}
+
+	&__offer-array-element {
+		padding: 1em 2em 2em;
+		width: 100%;
+		text-align: center;
+	}
+
+	&__offer-array-filter-elements {
+		@include mixins.flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	&__offer-array-search-input,
+	&__offer-array-select {
+		padding: 0.95em 3.25em 0.95em 0.75em;
+		width: 100%;
+		min-height: 48px;
+		max-width: 460px;
+		color: globals.$white-color;
+		background-color: transparent;
+		border: 1px solid globals.$border-color;
+		box-shadow: inset 0 0 0.25em globals.$white-color, 0 0 0.25em globals.$white-color;
+		font-family: globals.$main-font;
+		font-size: 0.9em;
+		letter-spacing: 1px;
+		transition: border 0.3s, box-shadow 0.3s;
+
+		&:focus {
+			border-color: globals.$white-color;
+			outline: globals.$white-color;
+		}
+
+		&::placeholder {
+			color: globals.$placeholder-color;
+			opacity: 1;
+		}
+	}
+
+	&__offer-array-select {
+		margin-top: 2em;
+		padding: 10px;
+		padding-right: 30px;
+		font-size: 0.9em;
+
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		background-image: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns%3D"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20width%3D"292.4"%20height%3D"292.4"><path%20fill%3D"%23fff"%20d%3D"M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z"%2F><%2Fsvg>');
+		background-repeat: no-repeat;
+		background-position: right 0.9em top 50%;
+		background-size: 0.65em auto;
+		cursor: pointer;
+
+		&--blocked {
+			pointer-events: none;
+			cursor: default;
+		}
+
+		option {
+			color: globals.$darker-blue-color;
+		}
+	}
+
+	&__offer-array-list-container,
+	&__offer-array-error-message {
+		width: 100%;
+		max-width: 1000px;
+	}
+
+	&__offer-array-list-container {
+		padding: 3em 0 1em;
+	}
+
+	&__offer-array-list {
+		@include mixins.flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	&__offer-array-list-item {
+		padding: 3em 0;
+		margin: 2em 0;
+		width: 100%;
+		max-width: 760px;
+		color: globals.$darker-blue-color;
+		background-color: #c4c4c4;
+		border-radius: 0.25em;
+		transition: background-color 0.3s;
+		cursor: default;
+
+		h3,
+		p {
+			font-size: 1.25em;
+		}
+
+		h3 {
+			padding: 0 0.5em 1em;
+			font-size: 1.25em;
+			font-weight: 200;
+			text-align: center;
+		}
+	}
+
+	&__offer-array-item-btn,
+	&__return-btn {
+		@include mixins.button;
+	}
+
+	&__offer-array-item-btn {
+		display: inline-block;
+		margin-top: 2em;
+	}
+
+	&__offer-array-error-message {
+		padding: 4em 0 1em;
+		font-size: 1.05em;
+		font-weight: 300;
+	}
+
+	&__return-btn {
+		margin: 0 0 3em;
+	}
+}
+
+@media screen and (min-width: 350px) {
+	.career {
+		&__hero-image-title {
+			font-size: 3.35rem;
+		}
+
+		&__offer-array-title {
+			font-size: 2.75rem;
+		}
+	}
+}
+
+@media screen and (min-width: 400px) {
+	.career {
+		&__offer-array-search-input,
+		&__offer-array-select {
+			width: 90%;
+		}
+	}
+}
+
+@media screen and (max-height: 500px) {
+	.career {
+		&__hero-image {
+			height: 60vh;
+		}
+
+		&__hero-image-title {
+			font-size: 4rem;
+		}
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.career {
+		&__return-btn {
+			padding: 0.75em 4em;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.career {
+		&__hero-image {
+			background-image: url('/images/subpages/team-subpages/career/career-hero-image-xl.jpg');
+		}
+
+		&__hero-image-title {
+			font-size: 4rem;
+		}
+
+		&__offer-array-list-item {
+			width: 90%;
+		}
+
+		&__offer-array-error-message {
+			font-size: 1.1em;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) and (min-height: 500px) {
+	.career {
+		&__return-btn {
+			padding: 0.8em 0;
+			max-width: 280px;
+			width: 280px;
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.career {
+		&__hero-image-title {
+			font-size: 4.5rem;
+		}
+
+		&__offer-array-container {
+			padding-top: 0;
+		}
+
+		&__offer-array-title {
+			font-size: 3rem;
+		}
+
+		&__offer-array-item-btn:hover,
+		&__return-btn:hover {
+			color: globals.$white-color;
+			background-color: globals.$gray-color;
+		}
+
+		&__return-btn {
+			margin: 1em 0 4em;
+			font-size: 1.1em;
+		}
+	}
+}
+
+@media screen and (min-width: 1358px) {
+	.career {
+		&__hero-image-title {
+			font-size: 5rem;
+		}
+
+		&__offer-array {
+			padding-top: 70px;
+		}
+
+		&__offer-array-title {
+			padding: 0.5rem 0.85rem;
+			font-size: 3.5rem;
+		}
+
+		&__offer-array-element {
+			padding: 4em 0 2em;
+			max-width: 1180px;
+		}
+
+		&__offer-array-error-message {
+			font-size: 1.15em;
+		}
+	}
+}

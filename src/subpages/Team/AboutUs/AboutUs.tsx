@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { AboutUsInfo } from './components';
-import { Link } from 'react-router-dom';
 
 const AboutUs: React.FC = () => {
 	return (
