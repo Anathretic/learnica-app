@@ -1,5 +1,5 @@
-@use '../../globals';
-@use '../../mixins';
+@use '../../../globals';
+@use '../../../mixins';
 
 .career {
 	position: relative;
@@ -39,6 +39,11 @@
 		font-size: 3rem;
 		font-weight: 200;
 		text-align: center;
+	}
+
+	&__first-icon-box,
+	&__second-icon-box {
+		display: none;
 	}
 
 	&__offer-array {
@@ -286,6 +291,46 @@
 			margin: 1em 0 4em;
 			font-size: 1.1em;
 		}
+
+		&__first-icon-box,
+		&__second-icon-box {
+			position: relative;
+			width: 100%;
+			max-width: 1500px;
+			height: 100%;
+			display: block;
+		}
+
+		&__first-box-icon,
+		&__second-box-icon {
+			position: absolute;
+			color: rgba(255, 255, 255, 0.15);
+		}
+
+		&__first-box-icon {
+			&--first {
+				top: 7em;
+				left: 2.25em;
+			}
+
+			&--second {
+				top: 8.5em;
+				right: 1.5em;
+			}
+		}
+
+		&__second-box-icon {
+			&--first {
+				top: -1em;
+				left: 1.75em;
+				transform: rotate(270deg);
+			}
+
+			&--second {
+				top: -0.5em;
+				right: 1.5em;
+			}
+		}
 	}
 }
 
@@ -311,6 +356,12 @@
 
 		&__offer-array-error-message {
 			font-size: 1.15em;
+		}
+
+		&__second-box-icon {
+			&--second {
+				right: 3em;
+			}
 		}
 	}
 }

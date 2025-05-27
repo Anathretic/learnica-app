@@ -20,7 +20,7 @@ const CareerOfferArray: React.FC = () => {
 						) : (
 							<ul className='career__offer-array-list'>
 								{filteredJobs.map(job => (
-									<CareerOfferListItem key={job.id} title={job.title} description={job.description} />
+									<CareerOfferListItem key={job.id} href={job.href} title={job.title} description={job.description} />
 								))}
 							</ul>
 						)}
