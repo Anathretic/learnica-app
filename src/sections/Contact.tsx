@@ -13,11 +13,11 @@ const Contact: React.FC = () => {
 						kontaktowego lub zadzwoń na poniższy numer!
 					</p>
 					<p className='contact__title-subtext'>
+						A może współpraca? <Link to='/kariera'>Sprawdź oferty!</Link>
+					</p>
+					<p className='contact__title-subtext'>
 						<span>Pamiętaj!</span> Wysyłając formularz wyrażasz zgodę na przetwarzanie Twoich danych zgodnie z
-						obowiązującą{' '}
-						<Link to='/polityka-prywatnosci'>
-							polityką prywatności.
-						</Link>
+						obowiązującą <Link to='/polityka-prywatnosci'>polityką prywatności.</Link>
 					</p>
 					<ul className='contact__title-info-box'>
 						<li>

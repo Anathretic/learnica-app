@@ -43,6 +43,7 @@
 	&__title-subtext {
 		padding: 1rem;
 		line-height: 1.8em;
+		font-weight: 200;
 
 		span {
 			font-weight: 600;
@@ -62,15 +63,16 @@
 		li {
 			padding: 0.5em;
 			width: 100%;
+			font-size: 1.05em;
 		}
 
 		p {
 			padding: 0.25rem 0;
-			font-weight: 300;
+			font-weight: 200;
 		}
 
 		p:first-of-type {
-			font-weight: 600;
+			font-weight: 500;
 		}
 	}
 
@@ -138,7 +140,6 @@
 		&__title {
 			padding: 0.5rem 0.85rem 0 0.9rem;
 			width: 100%;
-			font-size: 3.5rem;
 		}
 
 		&__title-info-box {
@@ -153,31 +154,31 @@
 			color: rgba(255, 255, 255, 0.15);
 
 			&--first {
-				bottom: -0.45em;
+				bottom: -0.4em;
 				left: 2.25em;
 				animation: icon-bounce 5s infinite;
 			}
 
 			&--second {
-				bottom: -0.85em;
+				bottom: -0.65em;
 				left: 6.6em;
 				animation: icon-bounce 2s infinite;
 			}
 
 			&--third {
-				bottom: 3em;
+				bottom: 3.2em;
 				left: 4.75em;
 				animation: icon-bounce 3s infinite;
 			}
 
 			&--fourth {
-				bottom: 2.5em;
+				bottom: 2.6em;
 				right: -0.25em;
 				animation: icon-bounce 3.5s infinite;
 			}
 
 			&--fifth {
-				bottom: 0.5em;
+				bottom: 0.7em;
 				left: 4.5em;
 				animation: icon-bounce 4s infinite;
 			}
