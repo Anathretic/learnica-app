@@ -15,6 +15,7 @@ import {
 	PageNotFound,
 	ChangePassword,
 	RecoverPassword,
+	CareerOffer,
 } from './subpages';
 import { Welcome, Idea, Offer, Motto, Blog, Contact, Opinions } from './sections';
 import { BlogPopup, ErrorPopup, Footer, Navbar, CookieBanner, HomeWrapper } from './components';
@@ -70,6 +71,7 @@ const App: React.FC = () => {
 						<Route path='/kariera' element={<Career />} />
 						<Route path='/polityka-prywatnosci' element={<TermsAndConditions />} />
 					</Route>
+					<Route path='/kariera/:id' element={<CareerOffer />} />
 					<Route path='/logowanie' element={<Login />} />
 					<Route path='/odzyskiwanie-hasla' element={<RecoverPassword />} />
 					<Route path='/rejestracja' element={<Register />} />

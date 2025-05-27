@@ -4,6 +4,7 @@ export { default as MathClasses } from './Offer/MathClasses/MathClasses';
 export { default as Translations } from './Offer/Translations/Translations';
 export { default as AboutUs } from './Team/AboutUs/AboutUs';
 export { default as Career } from './Team/Career/Career';
+export { default as CareerOffer } from './Team/Career/CareerOffer';
 export { default as Login } from './UserPanel/LoginAndRegister/Login';
 export { default as RecoverPassword } from './UserPanel/LoginAndRegister/RecoverPassword';
 export { default as ChangePassword } from './UserPanel/UserOptions/ChangePassword';
